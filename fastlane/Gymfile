@@ -1,0 +1,3 @@
+workspace "Config.xcworkspace"
+output_directory "./"
+xcargs "IDEBuildOperationMaxNumberOfConcurrentCompileTasks=`sysctl -n hw.ncpu`"

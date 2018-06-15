@@ -1,0 +1,7 @@
+scheme "Develop"
+workspace "Config.xcworkspace"
+clean true
+devices ["iPhone 6"]
+output_types ""
+skip_slack true
+xcargs "IDEBuildOperationMaxNumberOfConcurrentCompileTasks=`sysctl -n hw.ncpu`"

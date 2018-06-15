@@ -1,0 +1,172 @@
+fastlane_version "1.98.0"
+
+default_platform :ios
+
+lane :dependencies do
+    sh "pod repo update"
+    cocoapods
+end
+
+# 'fastlane certs' to create or fetch all required
+lane :certs do
+    match(app_identifier: "petrychuk.Config.debug", type: "development", force_for_new_devices: true)
+    match(app_identifier: "petrychuk.Config.staging", type: "appstore")
+    match(app_identifier: "petrychuk.Config.staging", type: "development", force_for_new_devices: true)
+    match(app_identifier: "petrychuk.Config", type: "appstore")
+    match(app_identifier: "petrychuk.Config", type: "development", force_for_new_devices: true)
+end
+
+# push notification certificates - required for backend (zip results and save it into your project dropbox or slack team or etc.)
+lane :pems do
+  pem(force: true, app_identifier: "petrychuk.Config", save_private_key: true, development: false, output_path: "~/Documents/ConfigPems/prod/")
+  pem(force: true, app_identifier: "petrychuk.Config.staging", save_private_key: true, development: false, output_path: "~/Documents/ConfigPems/stage/")
+  pem(force: true, app_identifier: "petrychuk.Config.debug", save_private_key: true, development: true, output_path: "~/Documents/ConfigPems/devel/")
+end
+
+lane :upload_build_to_testflight do |config|
+    startTime = Time.now
+    ENV["PILOT_APP_IDENTIFIER"] = ENV["MATCH_APP_IDENTIFIER"]
+    ENV["APP_VERSION_NUMBER"] = get_version_number_from_plist(
+        target: "Config",
+        build_configuration_name: config[:environment]
+    )
+    ENV["APP_BUILD_NUMBER"] = Time.new.strftime("%Y.%m.%d.%H%M")
+    ## This will ensure upload will complete successfully on CI, since we may be behind firewall
+    ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV"
+    ENV["SLACK_URL"] = "CHANGE_WITH_REAL_VALUE" # usualy this should be your project channel hook
+    configuration = config[:environment] || "ProductionRelease"
+
+    post_to_slack_build_initiated(environment: configuration)
+    dependencies
+    changelog
+    clear_derived_data
+    runTests
+    match(app_identifier: config[:bundle], type: "appstore")
+
+    increment_build_number_in_plist(
+        build_number: ENV["APP_BUILD_NUMBER"],
+        target: "Config",
+        build_configuration_name: config[:environment]
+    )
+
+    gym(configuration: configuration)
+    changelog
+
+    pilot(
+        skip_submission: true,
+        team_name: "CHANGE_WITH_REAL_VALUE", # TODO: Maybe this parameter can be auto taken from Appfile?
+        changelog: ENV['CHANGELOG'],
+        skip_waiting_for_build_processing: true
+    )
+    post_to_slack(start_time: startTime)
+end
+
+lane :staging do
+    ENV["CURRENT_LANE_TARGET"] = "Config Staging"
+    upload_build_to_testflight(environment: "StagingRelease", bundle: "petrychuk.Config.staging")
+end
+
+lane :production do
+    ENV["CURRENT_LANE_TARGET"] = "Config Production"
+    upload_build_to_testflight(environment: "ProductionRelease", bundle: "petrychuk.Config")
+end
+
+lane :changelog do
+    readme = File.read("../SupportingFiles/CHANGELOG.md")
+    latest_version = readme.split("\n## ").first
+    first_line = latest_version.split("\n").first
+    version_number = first_line.split(" ")[1]
+
+    # Generate release notes from CHANGELOG
+    release_notes = latest_version.split("\n")[0..-1].join("\n")
+    ENV['CHANGELOG'] = release_notes
+end
+
+lane :runTests do
+    dependencies
+    clear_derived_data
+    ENV["FASTLANE_EXPLICIT_OPEN_SIMULATOR"] = "1"
+    scan
+end
+
+lane :post_to_slack_build_initiated do |options|
+  environment = options[:environment]
+  target = ENV["CURRENT_LANE_TARGET"].strip
+  version = ENV["APP_VERSION_NUMBER"]
+  build = ENV["APP_BUILD_NUMBER"]
+
+  slack(
+      message: "Started creating *#{target}* #{environment} build *#{version}* (#{build})",
+      default_payloads: []
+  )
+end
+
+# slack notification lane, executed after successfull staging/production execution
+lane :post_to_slack do |options|
+    target = ENV["CURRENT_LANE_TARGET"]
+    version = ENV["APP_VERSION_NUMBER"]
+    build = ENV["APP_BUILD_NUMBER"]
+    lane_duration = (Time.now - options[:start_time]).round
+    commit = `git rev-parse HEAD`.strip
+    commit_url = ENV["GIT_URL"] + commit # TODO: Check this url construction!
+    author = `git --no-pager show -s --format='%ae' HEAD`.strip
+    branch = `echo ${GIT_BRANCH#*/}`.strip
+
+    slack(
+      message: "*#{target}* `#{version} #{build}` builded from <#{commit_url}|#{commit[0,5]}> finished uploading! \n*Git Branch:* #{branch}   *Git Author:* <mailto:#{author}|#{author}>   *Duration:* #{lane_duration} second(s)\nChanges: \n\n" + ENV['CHANGELOG'],
+      default_payloads:[]
+    )
+end
+
+lane :devices do
+    register_devices(
+        devices: {
+            'MLS Antihevich iPhone 6' => 'ac1dfc986b3b68904f451488885e6aaa52885644',
+            'MLS iPod' => '6800e4dd04c544a96c0cc2292217513d27826ea4',
+            'MLS iPhone 6' => '5345f273512a1ae13ca5287bac83fbc4222ee1ea',
+            'MLS Telezhkin iPhone X' => 'e2953c8e2916cb8f3ee4a5a9555a044af1ced4cd',
+        }
+    )
+end
+
+lane :refresh_dsyms do
+    download_and_upload_dsyms(bundle: "petrychuk.Config")
+    download_and_upload_dsyms(bundle: "petrychuk.Config.staging")
+end
+
+lane :download_and_upload_dsyms do |options|
+    ENV["DOWNLOAD_DSYMS_APP_IDENTIFIER"] = options[:bundle]
+    dependencies
+    download_dsyms                  # Download dSYM files from iTC
+    ENV['CRASHLYTICS_API_TOKEN'] = 'CHANGE_WITH_REAL_VALUE' # Visit https://fabric.io/settings/organizations/ -> Your Organization -> 'API Key'
+    upload_symbols_to_crashlytics(binary_path: "./Pods/Fabric/upload-symbols")   # Upload them to Crashlytics
+end
+
+after_all do
+    clean_build_artifacts
+end
+
+error do |lane, exception|
+  target = ENV["CURRENT_LANE_TARGET"]
+  version = ENV["APP_VERSION_NUMBER"]
+  build = ENV["APP_BUILD_NUMBER"]
+  error = exception.to_s
+
+  if ENV["SLACK_URL"]
+    slack(
+      message: "Build #{target} *#{version}* (#{build}) failed! Error: #{error}",
+      success: false
+    )
+  end
+end
+
+# uncomment this section if you want to receive slack notifications about failures (for example you can send it to yourself or team channel)
+#error do |lane, exception|
+#    ENV["SLACK_URL"] = "CHANGE_WITH_REAL_VALUE" # slack webhook
+#    target = ENV["CURRENT_LANE_TARGET"]
+#    ENV["BUILD_URL"] ||= "http://localhost/"
+#    buildURL = ENV["BUILD_URL"].strip.sub(":8080", '') + "console"
+#    branch = `echo ${GIT_BRANCH#*/}`.strip
+#    author = `git --no-pager show -s --format='%ae' HEAD`.strip
+#    slack(message: "*#{target} build failed: *<#{buildURL}|Build Log> *Exception:* #{exception.message} \n*Git Branch:* #{branch}   *Git Author:* <mailto:#{author}|#{author}>", success: false, default_payloads:[])
+#end

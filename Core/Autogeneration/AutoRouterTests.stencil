@@ -1,0 +1,26 @@
+import XCTest
+import Core
+import AppRouter
+import TestsHelper
+import Dip
+import TRON
+import Nimble
+
+{% for type in types.classes %}{% if type.name == 'Router' %}
+class RouterTestsGenerated: XCTestCase {
+    var container: DependencyContainer!
+    var router: Router!
+
+    override func setUp() {
+        super.setUp()
+        container = DependencyContainer().registerAll().stubTRON().stubStorages().stubModels()
+        router = Router(router: AppRouter.shared, viewFactory: container, viewModelFactory: container)
+    }
+
+{% for method in type.allMethods where not method.isInitializer and method.parameters.count == 0 and not method.accessLevel == "private" and not method.accessLevel == "internal" and not method.returnTypeName.isClosure and method.returnTypeName.name|contains:"Route" %}
+    func test{{ method.shortName|upperFirstLetter }}() {
+        expect(try self.router.{{ method.shortName }}().provideEmbeddedSourceController()).toNot(beNil())
+    }
+{% endfor %}
+}
+{% endif %}{% endfor %}

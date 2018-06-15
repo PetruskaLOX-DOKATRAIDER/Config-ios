@@ -1,0 +1,25 @@
+import XCTest
+import Core
+import AppRouter
+import TestsHelper
+import Dip
+import TRON
+import Nimble
+
+class ImagesTests: XCTestCase {
+
+{% macro recurse type %}
+{% for innerType in type.containedTypes %}
+{% call recurse innerType %}
+{% endfor %}
+    func test{{type.name|swiftIdentifier|snakeToCamelCase|escapeReservedKeywords}}() {
+        {% for variable in type.staticVariables %}
+        XCTAssertNotNil({{ type.name }}.{{ variable.name }})
+        {% endfor %}
+    }
+{% endmacro %}
+{% for type in types.enums %}
+{% if type.localName == "Images" and type.parentName == "StaticEnvironment" %}
+{% call recurse type %}{% endif %}
+{% endfor %}
+}

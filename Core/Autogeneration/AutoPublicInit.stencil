@@ -1,0 +1,10 @@
+// 
+
+{% for type in types.implementing.AutoInit|struct where type.accessLevel == "public" %}
+public extension {{ type.name }} {
+    public static func new({% for argument in type.variables where not argument.isComputed %}{{argument.name}}: {{argument.typeName}}{% if not forloop.last %}, {% endif %}{% endfor %}) -> {{type.name}} {
+        return {{type.name}}({% for argument in type.variables where not argument.isComputed %}{{argument.name}}: {{argument.name}}{% if not forloop.last %}, {% endif %}{% endfor %})
+    }
+}
+
+{% endfor %}

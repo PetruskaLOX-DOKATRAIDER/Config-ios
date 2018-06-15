@@ -1,0 +1,62 @@
+import Core
+
+{% macro methodName method %}{{ method.shortName }}{% for param in method.parameters %}{{ param.argumentLabel|upperFirstLetter }}{% endfor %}{% endmacro %}
+
+{% macro methodReceivedParameters method %}
+    {%if method.parameters.count == 1 %}
+        {% call methodName method %}Received{% for param in method.parameters %} = {{ param.name }}{% endfor %}
+    {% else %}
+    {% if not method.parameters.count == 0 %}
+        {% call methodName method %}Received = ({% for param in method.parameters %}{{ param.name }}: {{ param.name }}{% if not forloop.last%}, {% endif %}{% endfor %})
+    {% endif %}
+    {% endif %}
+{% endmacro %}
+{% macro methodReturnValueVariableName method %}
+{{ method.shortName }}ReturnValue
+{% endmacro %}
+
+{% for type in types.based.AutoMockable %}{% if type.kind == 'protocol' %}
+{% if not type.name == "AutoMockable" %}
+public class {{ type.name }}Mock: {{ type.name }} {
+    {% for variable in type.allVariables %}
+    public var {{ variable.name }}: {{ variable.typeName }}{% if variable.isArray %} = []{% endif %}{% if variable.isDictionary %} = [:]{% endif %}{% if variable.isMutable %}{
+        didSet {
+            _{{ variable.name }}WasUpdated = true
+        }
+    }
+    public var _{{ variable.name }}WasUpdated: Bool = false{% endif %}
+    {% endfor %}
+
+
+    public init({% for variable in type.allVariables where not variable.isOptional and not variable.isArray and not variable.isDictionary %}{{ variable.name }}: {{ variable.typeName }}{% if not forloop.last %}, {% endif %}{% endfor %}) {
+    {% for variable in type.allVariables where not variable.isOptional and not variable.isArray and not variable.isDictionary %}
+        self.{{ variable.name }} = {{ variable.name }}
+    {% endfor %}
+    }
+
+{% for method in type.allMethods %}
+    //MARK: - {{ method.shortName }}
+
+    {% if not method.isInitializer %}public var {% call methodName method %}Called = false{% endif %}
+    {% if method.parameters.count == 1 %}
+    public var {% call methodName method %}Received{% for param in method.parameters %}: {% if param.isClosure %}({% endif %}{{ param.typeName.unwrappedTypeName }}{% if param.isClosure %}){% endif %}?{% endfor %}
+{% else %}{% if not method.parameters.count == 0 %}
+    public var {% call methodName method %}Received: ({% for param in method.parameters %}{{ param.name }}: {% if param.isClosure %}({% endif %}{{ param.unwrappedTypeName }}{% if param.isClosure %}){% endif %}{% if param.isOptional or param.isImplicitlyUnwrappedOptional %}?{% endif %}{% if not forloop.last %}, {% endif %}{% endfor %})?
+    {% endif %}{% endif %}
+    {% if not method.returnTypeName.isVoid and not method.isInitializer %}public var {% call methodName method %}ReturnValue: {{ method.returnTypeName }}{% if not method.isOptionalReturnType and not method.isImplicitlyUnwrappedOptionalReturnType %}!{% endif %}{% endif %}
+
+{% if method.isInitializer %}
+    public required {{ method.name }} {
+        {% call methodReceivedParameters method %}
+    }
+{% else %}
+    public func {{ method.name }}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %} {
+        {% call methodName method %}Called = true
+        {% call methodReceivedParameters method %}
+        {% if not method.returnTypeName.isVoid %}return {% call methodName method %}ReturnValue{% endif %}
+    }
+{% endif %}
+{% endfor %}
+}
+{% endif %}{% endif %}
+{% endfor %}

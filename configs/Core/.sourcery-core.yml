@@ -1,0 +1,10 @@
+sources:
+  - ../../Core
+templates:
+  - ../../Core/Autogeneration/AutoPublicInit.stencil
+  - ../../Core/Autogeneration/AutoCases.stencil
+  - ../../Core/Autogeneration/AutoRouterTests.stencil
+  - ../../Core/Autogeneration/AutoLenses.stencil
+  - ../../Core/Autogeneration/ImagesTests.stencil
+output:
+  ../../Core/Autogeneration
