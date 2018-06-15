@@ -2,7 +2,6 @@ import XCTest
 import Core
 import AppRouter
 import TestsHelper
-import Dip
 import TRON
 import Nimble
 

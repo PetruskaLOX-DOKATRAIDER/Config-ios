@@ -25,7 +25,6 @@ abstract_target 'AT' do
         pod 'Permission/Notifications', :git => 'https://github.com/rsaarloos/Permission.git', :branch => 'swift-4.0'
 
         #MVVM
-        pod 'Dip', '~> 6.0'
         pod 'ReusableView'
         pod 'Result'
 

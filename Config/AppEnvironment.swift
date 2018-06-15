@@ -22,9 +22,7 @@ enum Configuration {
     }
     init(info: [String : Any] = Bundle.main.infoDictionary ?? [:]) {
         let plistValue = info["Configuration"] as? String ?? ""
-        if plistValue.lowercased().contains("staging") { self = .staging(info: info) }
-        else if plistValue.lowercased().contains("production") { self = .production(info: info) }
-        else { self = .develop(info: info) }
+        if plistValue.lowercased().contains("staging") { self = .staging(info: info) } else if plistValue.lowercased().contains("production") { self = .production(info: info) } else { self = .develop(info: info) }
     }
 }
 

@@ -13,7 +13,6 @@ PODS:
     - CocoaLumberjack/Default
   - Crashlytics (3.10.2):
     - Fabric (~> 1.7.7)
-  - Dip (6.1)
   - DTCollectionViewManager (6.3.0):
     - DTModelStorage (~> 7.1.0)
   - DTModelStorage (7.1.0):
@@ -63,7 +62,6 @@ DEPENDENCIES:
   - AppRouter/RxSwift
   - CocoaLumberjack/Swift
   - Crashlytics
-  - Dip (~> 6.0)
   - DTCollectionViewManager
   - DTTableViewManager
   - Fabric
@@ -91,7 +89,6 @@ SPEC REPOS:
     - AppRouter
     - CocoaLumberjack
     - Crashlytics
-    - Dip
     - DTCollectionViewManager
     - DTModelStorage
     - DTTableViewManager
@@ -128,7 +125,6 @@ SPEC CHECKSUMS:
   AppRouter: 0ae5dd1e0d37d538891a3298ca267144fcdc0341
   CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
   Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
-  Dip: e6af9f4e7644e1a142995c1ab0bffa61351a849d
   DTCollectionViewManager: 8249ec84d8dbf4fa3fd49975bd60e826322ba6ed
   DTModelStorage: aaaf3eac97693c25fef63ea741aa9c75274a778b
   DTTableViewManager: ee2e2cfefb08e9723172b623b0bb85e2ea9bdab1
@@ -150,6 +146,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TRON: eb0f572d97dd51ec309a27bc785ec82148500512
 
-PODFILE CHECKSUM: e44b5b1ffb60cca9b6190ff8d63873c3f541db14
+PODFILE CHECKSUM: a42aaeef75eb9020194c469a43908243aa91a9e0
 
 COCOAPODS: 1.5.3
