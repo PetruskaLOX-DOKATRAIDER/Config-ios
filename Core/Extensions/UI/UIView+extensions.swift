@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import UIKit
-
 extension UIView {
     @IBInspectable var cornerRadius: CGFloat {
         get {
@@ -55,11 +53,6 @@ extension UIView {
         self.layer.mask = layer
     }
     
-    /// Signature using box-shadow in Avocode:
-    /// box-shadow 0 1px 6px rgba(0,0,0,0.1)
-    /// 0 1 - shadowOffset
-    /// 6px - shadowRadius - should be divided by 2
-    /// 0.1 - shadowOpacity
     func applyShadow(_ offset: CGSize = CGSize(width: 0, height: 1), radius: CGFloat = 3, opacity: Float = 0.1) {
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor

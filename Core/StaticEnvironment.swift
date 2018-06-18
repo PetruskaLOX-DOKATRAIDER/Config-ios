@@ -6,14 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public enum Images {
-    
-}
-
-public enum Colors {
-    
-}
-
 public enum Formatters {
     public static var iso8601: DateFormatter {
         let formatter = DateFormatter()

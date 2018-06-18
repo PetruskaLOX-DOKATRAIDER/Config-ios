@@ -104,7 +104,6 @@ extension WorkerType {
     public var needsTracking: Bool { return true }
 }
 
-// TODO: this part should be rewritten in swift 4.1
 public protocol WorkerHolder {
     func onWorkerReceived() -> Observable<(WorkerType, DisposeBag)>
 }

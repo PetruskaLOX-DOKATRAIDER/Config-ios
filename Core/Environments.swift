@@ -6,15 +6,10 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol AutoMockable {}
+// MARK: Protocol
 
-public protocol ServerEnvironmentType: AutoMockable {
-    var serverURL: String { get }
+public protocol AppEnvironment: AutoMockable {
     var apiURL : String { get }
-}
-
-public protocol AppEnvironmentType: AutoMockable {
-    var updateVersionLink: URL? { get }
     var appVersion: String { get }
     var isDebug: Bool { get }
 }

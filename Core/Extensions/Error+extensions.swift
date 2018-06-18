@@ -2,7 +2,7 @@
 //  Error+extensions.swift
 //  Core
 //
-//  Created by Oleg Petrychuk on Jun 15, 2018.
+//  Created by Oleg Petrychuk on 15.06.2018.
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
@@ -12,6 +12,4 @@ extension Error {
     }
 }
 
-extension String: Error {
-    
-}
+extension String: Error {}

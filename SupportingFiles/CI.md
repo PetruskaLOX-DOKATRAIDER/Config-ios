@@ -12,9 +12,9 @@ Usually CI should contain following jobs:
 To make Jenkins run builds on each push:
 
 ```
-Мастер проекта на гитлабе должен добавить hook вида http://ci.mlsdev.com/git/notifyCommit?url=<gitlab URL>[&branches=branch1[,branch2]*], где "gitlab URL" - адрес используемый для клонирования репозитория. В настройках проекта jenkins'а должна стоять галочка "Poll SCM" ("Опрашивать SCM об изменениях")
+The gitlab project wizard should add a hook of the form http://ci.mlsdev.com/git/notifyCommit?url=<gitlab URL> [& branches = branch1 [, branch2] *], where "gitlab URL" is the address used to clone the repository . In the jenkins project settings there should be a tick "Poll SCM" ("Scan SCM about changes")
 
-После этих манипуляций Jenkins будет собирать проект после пуша в ветку
+After these manipulations, Jenkins will collect the project after pushing into the branch
 ```
 
 To run tests using bundler(read Bundler.md file):

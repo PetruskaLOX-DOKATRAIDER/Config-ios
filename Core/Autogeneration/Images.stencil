@@ -1,5 +1,9 @@
 //swiftlint:disable force_unwrapping
 
+public enum Images {
+
+}
+
 {% macro recursiveBlock images %}
   {% for image in images %}
   {% if not image.items %}

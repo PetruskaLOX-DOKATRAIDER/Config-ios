@@ -6,7 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-
 extension String {
     func attributed() -> NSMutableAttributedString {
         return NSMutableAttributedString(string: self)

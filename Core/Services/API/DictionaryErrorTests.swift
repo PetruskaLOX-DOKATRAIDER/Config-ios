@@ -6,7 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-
 import XCTest
 import TestsHelper
 import Core
