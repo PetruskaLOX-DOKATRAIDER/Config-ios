@@ -42,6 +42,56 @@ extension UIViewController {
 }
 
 enum StoryboardScene {
+  enum Events: StoryboardSceneType {
+    static let storyboardName = "EventsViewController"
+
+    static func initialViewController() -> EventsViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? EventsViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+  }
+  enum News: StoryboardSceneType {
+    static let storyboardName = "NewsViewController"
+
+    static func initialViewController() -> NewsViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? NewsViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+  }
+  enum Players: StoryboardSceneType {
+    static let storyboardName = "PlayersViewController"
+
+    static func initialViewController() -> PlayersViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? PlayersViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+  }
+  enum Profile: StoryboardSceneType {
+    static let storyboardName = "ProfileViewController"
+
+    static func initialViewController() -> ProfileViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? ProfileViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+  }
+  enum Teams: StoryboardSceneType {
+    static let storyboardName = "TeamsViewController"
+
+    static func initialViewController() -> TeamsViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? TeamsViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+  }
   enum Tutorial: StoryboardSceneType {
     static let storyboardName = "TutorialViewController"
 

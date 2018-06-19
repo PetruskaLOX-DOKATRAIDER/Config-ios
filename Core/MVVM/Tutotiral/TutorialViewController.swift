@@ -6,17 +6,41 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
+import DTCollectionViewManager
+import DTModelStorage
+
 // MARK: Implementation
 
-final class TutorialViewController: UIViewController, NonReusableViewProtocol {
+final class TutorialViewController: UIViewController, NonReusableViewProtocol, DTCollectionViewManageable {
+    @IBOutlet private weak var skipButton: UIButton!
+    @IBOutlet private weak var nextButton: UIButton!
+    @IBOutlet private weak var pageControl: UIPageControl!
+    @IBOutlet public weak var collectionView: UICollectionView?
+    @IBOutlet private weak var backButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Hello"
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        manager.startManaging(withDelegate: self)
+        manager.register(TutoriaItemCell.self)
+        manager.sizeForCell(withItem: TutorialItemViewModel.self){ [collectionView] (_, _) in return collectionView?.frame.size ?? .zero }
     }
     
     func onUpdate(with viewModel: TutorialViewModel, disposeBag: DisposeBag) {
-        
-
+        viewModel.items.drive(manager.memoryStorage.rx.items()).disposed(by: disposeBag)
+        viewModel.items.map{ $0.count }.drive(pageControl.rx.numberOfPages).disposed(by: disposeBag)
+        viewModel.navigationTitle.drive(nextButton.rx.title()).disposed(by: disposeBag)
+        viewModel.currentPage.drive(pageControl.rx.currentPage).disposed(by: disposeBag)
+        viewModel.isMoveBackAvailable.drive(backButton.rx.isHidden).disposed(by: disposeBag)
+        viewModel.isMoveBackAvailable.map{ !$0 }.drive(skipButton.rx.isHidden).disposed(by: disposeBag)
+        nextButton.rx.tap.bind(to: viewModel.nextTrigger).disposed(by: disposeBag)
+        skipButton.rx.tap.bind(to: viewModel.skipTrigger).disposed(by: disposeBag)
+        viewModel.currentPage.distinctUntilChanged().drive(onNext: { page in
+            self.collectionView?.scrollToItem(at: IndexPath(row: page, section: 0), at: .left, animated: true)
+        }).disposed(by: disposeBag)
+        collectionView?.rx.didEndDecelerating.asDriver(onErrorJustReturn: ()).drive(onNext: {
+            viewModel.pageTrigger.onNext(self.collectionView?.centerPage ?? 0)
+        }).disposed(by: rx.disposeBag)
     }
 }
 
@@ -24,8 +48,8 @@ final class TutorialViewController: UIViewController, NonReusableViewProtocol {
 
 public class TutorialViewControllerFactory {
     public static func `default`(viewModel: TutorialViewModel = TutorialViewModelFactory.default()) -> UIViewController {
-        let vc = StoryboardScene.Tutorial.initialViewController()
-        vc.viewModel = viewModel
-        return vc
+        let viewController = StoryboardScene.Tutorial.initialViewController()
+        viewController.viewModel = viewModel
+        return viewController
     }
 }

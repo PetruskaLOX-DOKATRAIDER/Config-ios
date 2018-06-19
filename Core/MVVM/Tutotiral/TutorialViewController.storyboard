@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tutorial View Controller-->
+        <!--Onboarding-->
         <scene sceneID="tEr-Pp-f1g">
             <objects>
                 <viewController id="7ek-ct-1Xt" customClass="TutorialViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,20 +21,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vey-6W-gW5">
-                                <rect key="frame" x="184" y="341" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AKr-tk-VBy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bJ0-L5-YyC">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYe-jI-iv8">
+                                <rect key="frame" x="243" y="602" width="116" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Hqo-9E-VbU"/>
+                                    <constraint firstAttribute="width" constant="116" id="v6L-bo-aY7"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Ivo-6W-zWm">
+                                <rect key="frame" x="12" y="610" width="86" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="Hf2-Ju-Yk6"/>
+                                    <constraint firstAttribute="height" constant="37" id="qDe-5J-TaQ"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" red="0.59140625000000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.59140625000000002" green="0.1416294642857143" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ivo-6W-zWm" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" constant="12" id="1IC-by-6Re"/>
+                            <constraint firstItem="AKr-tk-VBy" firstAttribute="top" secondItem="cEO-6E-8qo" secondAttribute="top" id="9pF-wl-CGk"/>
+                            <constraint firstAttribute="trailing" secondItem="AKr-tk-VBy" secondAttribute="trailing" id="A2Q-ls-7E3"/>
+                            <constraint firstItem="AKr-tk-VBy" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="Dio-Nx-lhO"/>
+                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="oYe-jI-iv8" secondAttribute="bottom" constant="20" id="NfK-Yr-pwi"/>
+                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="Ivo-6W-zWm" secondAttribute="bottom" constant="20" id="SlI-bA-eXx"/>
+                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="AKr-tk-VBy" secondAttribute="bottom" id="jGB-Ui-knH"/>
+                            <constraint firstAttribute="trailing" secondItem="oYe-jI-iv8" secondAttribute="trailing" constant="16" id="rSM-oF-psB"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Onboarding" id="WlI-9m-i0A">
+                        <barButtonItem key="leftBarButtonItem" width="50" id="YnL-W7-R5r">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qo3-Di-gpJ">
+                                <rect key="frame" x="309" y="11" width="30" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" image="general_back">
+                                    <color key="titleColor" red="0.57254901960000004" green="0.81568627449999997" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" width="50" id="g0U-3Z-gkW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LZ5-vN-Zhg">
+                                <rect key="frame" x="309" y="11" width="50" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title=" Skip">
+                                    <color key="titleColor" red="0.57254901960000004" green="0.81568627449999997" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="themeLightFont" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backButton" destination="qo3-Di-gpJ" id="ZFS-xm-na7"/>
+                        <outlet property="collectionView" destination="AKr-tk-VBy" id="f81-jE-uId"/>
+                        <outlet property="nextButton" destination="oYe-jI-iv8" id="Xgx-Rt-Gm3"/>
+                        <outlet property="pageControl" destination="Ivo-6W-zWm" id="RhD-Kg-Kha"/>
+                        <outlet property="skipButton" destination="LZ5-vN-Zhg" id="5ff-n2-YiU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="143"/>
+            <point key="canvasLocation" x="136.80000000000001" y="142.57871064467767"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="general_back" width="16" height="16"/>
+    </resources>
 </document>
