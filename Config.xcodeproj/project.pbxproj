@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3ED465A2203478CD0015DAF6 /* Images.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED465A1203478CD0015DAF6 /* Images.generated.swift */; };
 		3ED465A82034920A0015DAF6 /* AutoPublicInit.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED465A4203492090015DAF6 /* AutoPublicInit.generated.swift */; };
-		3ED465AA2034920A0015DAF6 /* AutoLenses.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED465A62034920A0015DAF6 /* AutoLenses.generated.swift */; };
 		3ED465AD203493190015DAF6 /* ImagesTests.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED465A5203492090015DAF6 /* ImagesTests.generated.swift */; };
 		3ED465B12034971A0015DAF6 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED465AF2034971A0015DAF6 /* AutoMockable.generated.swift */; };
 		3ED465B22034971A0015DAF6 /* AutoPublicInit.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED465B02034971A0015DAF6 /* AutoPublicInit.generated.swift */; };
@@ -19,6 +18,30 @@
 		7C9BF76A20D3E5E40016D224 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF76920D3E5E40016D224 /* Navigator.swift */; };
 		7CDAF94520D7A67E009B9B87 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */; };
 		7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94620D7A776009B9B87 /* Runes.swift */; };
+		7CDAF95920D7C0A3009B9B87 /* TutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF95520D7C0A3009B9B87 /* TutorialViewController.storyboard */; };
+		7CDAF95A20D7C0A3009B9B87 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF95620D7C0A3009B9B87 /* TutorialViewController.swift */; };
+		7CDAF95B20D7C0A3009B9B87 /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF95720D7C0A3009B9B87 /* TutorialViewModel.swift */; };
+		7CDAF95D20D7C49D009B9B87 /* TutorialItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF95C20D7C49D009B9B87 /* TutorialItemViewModel.swift */; };
+		7CDAF95E20D7C693009B9B87 /* TutorialViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF95420D7C0A3009B9B87 /* TutorialViewModelTests.swift */; };
+		7CDAF96120D7ED55009B9B87 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF96020D7ED55009B9B87 /* UserStorage.swift */; };
+		7CDAF96320D7EEB9009B9B87 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF96220D7EEB9009B9B87 /* Storage.swift */; };
+		7CDAF96620D7FB4C009B9B87 /* NavigationControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF96520D7FB4C009B9B87 /* NavigationControllerFactory.swift */; };
+		7CDAF96820D7FB72009B9B87 /* UINavigationBar+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF96720D7FB72009B9B87 /* UINavigationBar+extensions.swift */; };
+		7CDAF96A20D7FBB2009B9B87 /* UIFont+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF96920D7FBB2009B9B87 /* UIFont+extensions.swift */; };
+		7CDAF97020D7FBE9009B9B87 /* filsonsoft-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF96C20D7FBE9009B9B87 /* filsonsoft-medium.otf */; };
+		7CDAF97120D7FBE9009B9B87 /* filsonsoft-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF96D20D7FBE9009B9B87 /* filsonsoft-light.otf */; };
+		7CDAF97220D7FBE9009B9B87 /* filsonsoft-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF96E20D7FBE9009B9B87 /* filsonsoft-regular.otf */; };
+		7CDAF97320D7FBE9009B9B87 /* filsonsoft-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF96F20D7FBE9009B9B87 /* filsonsoft-bold.otf */; };
+		7CDAF97420D7FC04009B9B87 /* filsonsoft-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF96C20D7FBE9009B9B87 /* filsonsoft-medium.otf */; };
+		7CDAF97520D7FC04009B9B87 /* filsonsoft-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF96D20D7FBE9009B9B87 /* filsonsoft-light.otf */; };
+		7CDAF97620D7FC04009B9B87 /* filsonsoft-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF96E20D7FBE9009B9B87 /* filsonsoft-regular.otf */; };
+		7CDAF97720D7FC04009B9B87 /* filsonsoft-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF96F20D7FBE9009B9B87 /* filsonsoft-bold.otf */; };
+		7CDAF97920D7FDF0009B9B87 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF97820D7FDF0009B9B87 /* Localizable.strings */; };
+		7CDAF97B20D7FF8E009B9B87 /* AutoStrings.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF97A20D7FF8E009B9B87 /* AutoStrings.stencil */; };
+		7CDAF97D20D7FFA4009B9B87 /* Strings.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF97C20D7FFA4009B9B87 /* Strings.generated.swift */; };
+		7CDAF97E20D80102009B9B87 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF97820D7FDF0009B9B87 /* Localizable.strings */; };
+		7CDAF98020D80180009B9B87 /* AutoStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF97F20D80180009B9B87 /* AutoStoryboard.swift */; };
+		7CDAF98220D8018C009B9B87 /* AutoStoryboard.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF98120D8018C009B9B87 /* AutoStoryboard.stencil */; };
 		8C28C067DD90B8D9B1A8E6C2 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DDEBEFB6BE691D7B41F9D7 /* Pods_Tests.framework */; };
 		9D41DFCBD1D070FC2D3D4882 /* Pods_TestsHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD78308B844DDD390B1D0E95 /* Pods_TestsHelper.framework */; };
 		A84BD4092031D5420060E520 /* TableViewManager+extensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84BD4082031D5420060E520 /* TableViewManager+extensionsTests.swift */; };
@@ -73,8 +96,6 @@
 		C0F86808202C666C00D15CDA /* TestsHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F867F3202C655C00D15CDA /* TestsHelper.framework */; };
 		C0F8680B202C676C00D15CDA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F8680A202C676C00D15CDA /* Media.xcassets */; };
 		C0F8681D202C6A0600D15CDA /* AutoPublicInitMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8680F202C6A0500D15CDA /* AutoPublicInitMarker.swift */; };
-		C0F8681E202C6A0600D15CDA /* AutoCasesMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F86810202C6A0500D15CDA /* AutoCasesMarker.swift */; };
-		C0F86826202C6A0600D15CDA /* AutoLensesMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F86818202C6A0500D15CDA /* AutoLensesMarker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,7 +155,6 @@
 		3ED465A1203478CD0015DAF6 /* Images.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.generated.swift; sourceTree = "<group>"; };
 		3ED465A4203492090015DAF6 /* AutoPublicInit.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoPublicInit.generated.swift; sourceTree = "<group>"; };
 		3ED465A5203492090015DAF6 /* ImagesTests.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesTests.generated.swift; sourceTree = "<group>"; };
-		3ED465A62034920A0015DAF6 /* AutoLenses.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLenses.generated.swift; sourceTree = "<group>"; };
 		3ED465AF2034971A0015DAF6 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		3ED465B02034971A0015DAF6 /* AutoPublicInit.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoPublicInit.generated.swift; sourceTree = "<group>"; };
 		41E8B32B0DB8B4485B9B8339 /* Pods-AT-Core.developdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AT-Core.developdebug.xcconfig"; path = "Pods/Target Support Files/Pods-AT-Core/Pods-AT-Core.developdebug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +170,25 @@
 		7C9BF76920D3E5E40016D224 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
 		7CDAF94620D7A776009B9B87 /* Runes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runes.swift; sourceTree = "<group>"; };
+		7CDAF95420D7C0A3009B9B87 /* TutorialViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModelTests.swift; sourceTree = "<group>"; };
+		7CDAF95520D7C0A3009B9B87 /* TutorialViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TutorialViewController.storyboard; sourceTree = "<group>"; };
+		7CDAF95620D7C0A3009B9B87 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		7CDAF95720D7C0A3009B9B87 /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
+		7CDAF95C20D7C49D009B9B87 /* TutorialItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialItemViewModel.swift; sourceTree = "<group>"; };
+		7CDAF96020D7ED55009B9B87 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
+		7CDAF96220D7EEB9009B9B87 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		7CDAF96520D7FB4C009B9B87 /* NavigationControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerFactory.swift; sourceTree = "<group>"; };
+		7CDAF96720D7FB72009B9B87 /* UINavigationBar+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+extensions.swift"; sourceTree = "<group>"; };
+		7CDAF96920D7FBB2009B9B87 /* UIFont+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extensions.swift"; sourceTree = "<group>"; };
+		7CDAF96C20D7FBE9009B9B87 /* filsonsoft-medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "filsonsoft-medium.otf"; sourceTree = "<group>"; };
+		7CDAF96D20D7FBE9009B9B87 /* filsonsoft-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "filsonsoft-light.otf"; sourceTree = "<group>"; };
+		7CDAF96E20D7FBE9009B9B87 /* filsonsoft-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "filsonsoft-regular.otf"; sourceTree = "<group>"; };
+		7CDAF96F20D7FBE9009B9B87 /* filsonsoft-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "filsonsoft-bold.otf"; sourceTree = "<group>"; };
+		7CDAF97820D7FDF0009B9B87 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		7CDAF97A20D7FF8E009B9B87 /* AutoStrings.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoStrings.stencil; sourceTree = "<group>"; };
+		7CDAF97C20D7FFA4009B9B87 /* Strings.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.generated.swift; sourceTree = "<group>"; };
+		7CDAF97F20D80180009B9B87 /* AutoStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoStoryboard.swift; sourceTree = "<group>"; };
+		7CDAF98120D8018C009B9B87 /* AutoStoryboard.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoStoryboard.stencil; sourceTree = "<group>"; };
 		80AF361DBB5FF4395B41D4F9 /* Pods-AT-Core.productionrelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AT-Core.productionrelease.xcconfig"; path = "Pods/Target Support Files/Pods-AT-Core/Pods-AT-Core.productionrelease.xcconfig"; sourceTree = "<group>"; };
 		8509EAF1A8A6752291B19D47 /* Pods-TestsHelper.stagingdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestsHelper.stagingdebug.xcconfig"; path = "Pods/Target Support Files/Pods-TestsHelper/Pods-TestsHelper.stagingdebug.xcconfig"; sourceTree = "<group>"; };
 		946AD006E5EBA3ECAFFC2CC0 /* Pods-AT-Core.stagingrelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AT-Core.stagingrelease.xcconfig"; path = "Pods/Target Support Files/Pods-AT-Core/Pods-AT-Core.stagingrelease.xcconfig"; sourceTree = "<group>"; };
@@ -219,11 +258,7 @@
 		C0F867F6202C655C00D15CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F8680A202C676C00D15CDA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		C0F8680F202C6A0500D15CDA /* AutoPublicInitMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoPublicInitMarker.swift; sourceTree = "<group>"; };
-		C0F86810202C6A0500D15CDA /* AutoCasesMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCasesMarker.swift; sourceTree = "<group>"; };
-		C0F86812202C6A0500D15CDA /* AutoCases.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoCases.stencil; sourceTree = "<group>"; };
 		C0F86815202C6A0500D15CDA /* ImagesTests.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ImagesTests.stencil; sourceTree = "<group>"; };
-		C0F86818202C6A0500D15CDA /* AutoLensesMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLensesMarker.swift; sourceTree = "<group>"; };
-		C0F86819202C6A0500D15CDA /* AutoLenses.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoLenses.stencil; sourceTree = "<group>"; };
 		C0F8681B202C6A0600D15CDA /* Images.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Images.stencil; sourceTree = "<group>"; };
 		C0F8681C202C6A0600D15CDA /* AutoPublicInit.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoPublicInit.stencil; sourceTree = "<group>"; };
 		C0F86831202C6C4100D15CDA /* AutoPublicInit.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoPublicInit.stencil; sourceTree = "<group>"; };
@@ -340,6 +375,46 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7CDAF95320D7C08D009B9B87 /* Tutotiral */ = {
+			isa = PBXGroup;
+			children = (
+				7CDAF95C20D7C49D009B9B87 /* TutorialItemViewModel.swift */,
+				7CDAF95720D7C0A3009B9B87 /* TutorialViewModel.swift */,
+				7CDAF95420D7C0A3009B9B87 /* TutorialViewModelTests.swift */,
+				7CDAF95620D7C0A3009B9B87 /* TutorialViewController.swift */,
+				7CDAF95520D7C0A3009B9B87 /* TutorialViewController.storyboard */,
+			);
+			path = Tutotiral;
+			sourceTree = "<group>";
+		};
+		7CDAF95F20D7ED42009B9B87 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				7CDAF96020D7ED55009B9B87 /* UserStorage.swift */,
+				7CDAF96220D7EEB9009B9B87 /* Storage.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		7CDAF96420D7FB3F009B9B87 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7CDAF96520D7FB4C009B9B87 /* NavigationControllerFactory.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		7CDAF96B20D7FBE9009B9B87 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7CDAF96C20D7FBE9009B9B87 /* filsonsoft-medium.otf */,
+				7CDAF96D20D7FBE9009B9B87 /* filsonsoft-light.otf */,
+				7CDAF96E20D7FBE9009B9B87 /* filsonsoft-regular.otf */,
+				7CDAF96F20D7FBE9009B9B87 /* filsonsoft-bold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		A8D09DD82036DC310057F9D9 /* Rx */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +435,7 @@
 		C02C45B8202C84D3008AE9B0 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				7CDAF95320D7C08D009B9B87 /* Tutotiral */,
 				C02C4632202CA722008AE9B0 /* App */,
 			);
 			path = MVVM;
@@ -372,21 +448,14 @@
 				C02C4618202C8A4F008AE9B0 /* API */,
 				C02C4611202C89FB008AE9B0 /* Components */,
 				C02C45E4202C87DA008AE9B0 /* Factories */,
-				C02C45BA202C8512008AE9B0 /* Storages */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		C02C45BA202C8512008AE9B0 /* Storages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Storages;
 			sourceTree = "<group>";
 		};
 		C02C45E4202C87DA008AE9B0 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				7CDAF96420D7FB3F009B9B87 /* UI */,
 				C02C45E5202C87DA008AE9B0 /* ContextStorage.swift */,
 				C02C45F1202C87DA008AE9B0 /* JSONDeserializationFactory.swift */,
 				C02C45E6202C87DA008AE9B0 /* JSONDeserializationFactoryTests */,
@@ -407,6 +476,7 @@
 		C02C460E202C8885008AE9B0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7CDAF95F20D7ED42009B9B87 /* Storages */,
 				C02C4651202D9423008AE9B0 /* UI */,
 				C02C4621202C8BF6008AE9B0 /* Rx */,
 				C02C4660202D99D2008AE9B0 /* Delay.swift */,
@@ -496,6 +566,8 @@
 				C02C4653202D9423008AE9B0 /* UIColor+extension.swift */,
 				C02C4654202D9423008AE9B0 /* UIView+extensions.swift */,
 				C02C4656202D9423008AE9B0 /* UIControl+extension.swift */,
+				7CDAF96720D7FB72009B9B87 /* UINavigationBar+extensions.swift */,
+				7CDAF96920D7FBB2009B9B87 /* UIFont+extensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -609,10 +681,12 @@
 		C0F86809202C674400D15CDA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7CDAF96B20D7FBE9009B9B87 /* Fonts */,
 				C0F867E1202C645500D15CDA /* Core.h */,
 				C02C4626202C8E3D008AE9B0 /* AlamofireBridge.swift */,
 				C0F867E2202C645500D15CDA /* Info.plist */,
 				C0F8680A202C676C00D15CDA /* Media.xcassets */,
+				7CDAF97820D7FDF0009B9B87 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -629,11 +703,6 @@
 		C0F8680D202C68D600D15CDA /* Autogeneration */ = {
 			isa = PBXGroup;
 			children = (
-				C0F86812202C6A0500D15CDA /* AutoCases.stencil */,
-				C0F86810202C6A0500D15CDA /* AutoCasesMarker.swift */,
-				C0F86819202C6A0500D15CDA /* AutoLenses.stencil */,
-				3ED465A62034920A0015DAF6 /* AutoLenses.generated.swift */,
-				C0F86818202C6A0500D15CDA /* AutoLensesMarker.swift */,
 				C0F8681C202C6A0600D15CDA /* AutoPublicInit.stencil */,
 				C0F8680F202C6A0500D15CDA /* AutoPublicInitMarker.swift */,
 				3ED465A4203492090015DAF6 /* AutoPublicInit.generated.swift */,
@@ -641,6 +710,10 @@
 				3ED465A1203478CD0015DAF6 /* Images.generated.swift */,
 				C0F86815202C6A0500D15CDA /* ImagesTests.stencil */,
 				3ED465A5203492090015DAF6 /* ImagesTests.generated.swift */,
+				7CDAF97A20D7FF8E009B9B87 /* AutoStrings.stencil */,
+				7CDAF97C20D7FFA4009B9B87 /* Strings.generated.swift */,
+				7CDAF98120D8018C009B9B87 /* AutoStoryboard.stencil */,
+				7CDAF97F20D80180009B9B87 /* AutoStoryboard.swift */,
 			);
 			path = Autogeneration;
 			sourceTree = "<group>";
@@ -748,7 +821,6 @@
 			buildConfigurationList = C0F867FC202C655C00D15CDA /* Build configuration list for PBXNativeTarget "TestsHelper" */;
 			buildPhases = (
 				4D800E395867CFCF6087987C /* [CP] Check Pods Manifest.lock */,
-				C0F8682F202C6BE500D15CDA /* Sourcery */,
 				C0F867EE202C655B00D15CDA /* Sources */,
 				C0F867EF202C655B00D15CDA /* Frameworks */,
 				C0F867F0202C655B00D15CDA /* Headers */,
@@ -821,8 +893,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F867CC202C536300D15CDA /* CI.md in Resources */,
+				7CDAF97720D7FC04009B9B87 /* filsonsoft-bold.otf in Resources */,
+				7CDAF97420D7FC04009B9B87 /* filsonsoft-medium.otf in Resources */,
 				C0F867A9202C4B3900D15CDA /* LaunchScreen.storyboard in Resources */,
+				7CDAF97520D7FC04009B9B87 /* filsonsoft-light.otf in Resources */,
+				7CDAF97E20D80102009B9B87 /* Localizable.strings in Resources */,
 				C0F867A6202C4B3900D15CDA /* Assets.xcassets in Resources */,
+				7CDAF97620D7FC04009B9B87 /* filsonsoft-regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,7 +917,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F8680B202C676C00D15CDA /* Media.xcassets in Resources */,
+				7CDAF97320D7FBE9009B9B87 /* filsonsoft-bold.otf in Resources */,
+				7CDAF98220D8018C009B9B87 /* AutoStoryboard.stencil in Resources */,
+				7CDAF97020D7FBE9009B9B87 /* filsonsoft-medium.otf in Resources */,
+				7CDAF95920D7C0A3009B9B87 /* TutorialViewController.storyboard in Resources */,
+				7CDAF97120D7FBE9009B9B87 /* filsonsoft-light.otf in Resources */,
+				7CDAF97B20D7FF8E009B9B87 /* AutoStrings.stencil in Resources */,
+				7CDAF97920D7FDF0009B9B87 /* Localizable.strings in Resources */,
 				C02C463C202CACED008AE9B0 /* LaunchScreen.storyboard in Resources */,
+				7CDAF97220D7FBE9009B9B87 /* filsonsoft-regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1022,21 +1107,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$PODS_ROOT/Sourcery/bin/sourcery --config \"$PROJECT_DIR/configs/Core/.sourcery-core.yml\"";
-		};
-		C0F8682F202C6BE500D15CDA /* Sourcery */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Sourcery;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$PODS_ROOT/Sourcery/bin/sourcery --config \"$PROJECT_DIR/configs/TestsHelper/.sourcery-tests-helper.yml\"";
+			shellScript = "$PODS_ROOT/SwiftGen/bin/swiftgen storyboards $PROJECT_DIR/Core/MVVM -p $PROJECT_DIR/Core/Autogeneration/AutoStoryboard.stencil -output $PROJECT_DIR/Core/Autogeneration/AutoStoryboard.swift";
 		};
 		CB6951ADE9AA7EE87F75E33A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1110,6 +1181,7 @@
 				C02C4648202D8E4B008AE9B0 /* PaginatorTests.swift in Sources */,
 				C02C461E202C8AF8008AE9B0 /* DictionaryErrorTests.swift in Sources */,
 				A874368720330E530000FE56 /* DebuggerTests.swift in Sources */,
+				7CDAF95E20D7C693009B9B87 /* TutorialViewModelTests.swift in Sources */,
 				C02C4637202CA726008AE9B0 /* AppViewModelTests.swift in Sources */,
 				C0F867B4202C4B3A00D15CDA /* BaseTestCase.swift in Sources */,
 				C02C4600202C87EC008AE9B0 /* JSONDeserializationFactoryTests.swift in Sources */,
@@ -1122,36 +1194,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				C02C461A202C8A65008AE9B0 /* API.swift in Sources */,
-				3ED465AA2034920A0015DAF6 /* AutoLenses.generated.swift in Sources */,
 				7CDAF94520D7A67E009B9B87 /* AutoMockable.swift in Sources */,
 				C02C464A202D8E68008AE9B0 /* Page.swift in Sources */,
+				7CDAF96820D7FB72009B9B87 /* UINavigationBar+extensions.swift in Sources */,
 				C02C4623202C8C03008AE9B0 /* PublishRelay+extensions.swift in Sources */,
 				C02C465F202D94B9008AE9B0 /* RxKeyboard+extension.swift in Sources */,
-				C0F8681E202C6A0600D15CDA /* AutoCasesMarker.swift in Sources */,
 				C0F8681D202C6A0600D15CDA /* AutoPublicInitMarker.swift in Sources */,
 				C02C4629202C8EEC008AE9B0 /* Rx+accessors.swift in Sources */,
 				C02C45F3202C87DA008AE9B0 /* ContextStorage.swift in Sources */,
+				7CDAF95A20D7C0A3009B9B87 /* TutorialViewController.swift in Sources */,
 				C02C4645202D8E33008AE9B0 /* Paginator.swift in Sources */,
 				A8D09DDB2036DC780057F9D9 /* TwoWayBinding.swift in Sources */,
 				C02C4665202D9A70008AE9B0 /* Optional+extensions.swift in Sources */,
-				C0F86826202C6A0600D15CDA /* AutoLensesMarker.swift in Sources */,
+				7CDAF96120D7ED55009B9B87 /* UserStorage.swift in Sources */,
 				C02C45FD202C87DA008AE9B0 /* JSONDeserializationFactory.swift in Sources */,
 				C02C465A202D9423008AE9B0 /* UIView+extensions.swift in Sources */,
 				3ED465A82034920A0015DAF6 /* AutoPublicInit.generated.swift in Sources */,
 				C02C4625202C8CD1008AE9B0 /* Request+extensions.swift in Sources */,
 				C02C463F202CB409008AE9B0 /* Debugger.swift in Sources */,
 				C02C4631202CA6D9008AE9B0 /* Rx+extensions.swift in Sources */,
+				7CDAF96620D7FB4C009B9B87 /* NavigationControllerFactory.swift in Sources */,
 				C02C45B1202C7737008AE9B0 /* StaticEnvironment.swift in Sources */,
+				7CDAF97D20D7FFA4009B9B87 /* Strings.generated.swift in Sources */,
 				C02C4627202C8E3D008AE9B0 /* AlamofireBridge.swift in Sources */,
+				7CDAF98020D80180009B9B87 /* AutoStoryboard.swift in Sources */,
+				7CDAF96A20D7FBB2009B9B87 /* UIFont+extensions.swift in Sources */,
 				C02C45C6202C8630008AE9B0 /* Environments.swift in Sources */,
 				C02C4636202CA722008AE9B0 /* AppViewModel.swift in Sources */,
 				7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */,
 				C02C4663202D9A09008AE9B0 /* Attributer.swift in Sources */,
+				7CDAF95B20D7C0A3009B9B87 /* TutorialViewModel.swift in Sources */,
+				7CDAF96320D7EEB9009B9B87 /* Storage.swift in Sources */,
 				C02C465C202D9423008AE9B0 /* UIControl+extension.swift in Sources */,
 				C02C464F202D8F4B008AE9B0 /* ActivityTracker.swift in Sources */,
 				7C9BF76A20D3E5E40016D224 /* Navigator.swift in Sources */,
 				C02C461C202C8AD7008AE9B0 /* DictionaryError.swift in Sources */,
 				3ED465A2203478CD0015DAF6 /* Images.generated.swift in Sources */,
+				7CDAF95D20D7C49D009B9B87 /* TutorialItemViewModel.swift in Sources */,
 				C02C4641202D8DD3008AE9B0 /* TableViewManager+extensions.swift in Sources */,
 				C02C4661202D99D2008AE9B0 /* Delay.swift in Sources */,
 				7C9BF76820D3E3290016D224 /* Error+extensions.swift in Sources */,

@@ -2,8 +2,7 @@ sources:
   - ../../Core
 templates:
   - ../../Core/Autogeneration/AutoPublicInit.stencil
-  - ../../Core/Autogeneration/AutoCases.stencil
-  - ../../Core/Autogeneration/AutoLenses.stencil
   - ../../Core/Autogeneration/ImagesTests.stencil
+  - ../../Core/Autogeneration/AutoStrings.stencil
 output:
   ../../Core/Autogeneration

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C0F8679A202C4B3900D15CDA"
-               BuildableName = "Config R.app"
+               BuildableName = "Config D.app"
                BlueprintName = "Config"
                ReferencedContainer = "container:Config.xcodeproj">
             </BuildableReference>
@@ -35,7 +35,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0F8679A202C4B3900D15CDA"
-            BuildableName = "Config R.app"
+            BuildableName = "Config D.app"
             BlueprintName = "Config"
             ReferencedContainer = "container:Config.xcodeproj">
          </BuildableReference>
@@ -59,7 +59,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0F8679A202C4B3900D15CDA"
-            BuildableName = "Config R.app"
+            BuildableName = "Config D.app"
             BlueprintName = "Config"
             ReferencedContainer = "container:Config.xcodeproj">
          </BuildableReference>
@@ -78,7 +78,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0F8679A202C4B3900D15CDA"
-            BuildableName = "Config R.app"
+            BuildableName = "Config D.app"
             BlueprintName = "Config"
             ReferencedContainer = "container:Config.xcodeproj">
          </BuildableReference>

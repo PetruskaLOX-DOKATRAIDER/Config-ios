@@ -8,21 +8,27 @@
 
 // MARK: Protocol
 
-public protocol Navigator {
-    func toTutorial()
-}
+public protocol Navigator {}
 
 // MARK: Implementation
 
 private final class NavigatorImpl: Navigator, ReactiveCompatible {
     private let router: AppRouterType
     
-    init(router: AppRouterType) {
+    init(router: AppRouterType, appViewModel: AppViewModel) {
         self.router = router
-    }
-    
-    func toTutorial() {
         
+        func toTutorial() {
+            let viewController = TutorialViewControllerFactory.default()
+            let navigationController = NavigationControllerFactory.new()
+            navigationController.setViewControllers([viewController], animated: false)
+            router.window.rootViewController = navigationController
+            router.window.makeKeyAndVisible()
+        }
+        
+        appViewModel.shouldRouteTutorial.drive(onNext: {
+            toTutorial()
+        }).disposed(by: rx.disposeBag)
     }
 }
 
@@ -30,8 +36,9 @@ private final class NavigatorImpl: Navigator, ReactiveCompatible {
 
 public class NavigatorFactory {
     public static func `default`(
-        router: AppRouterType = AppRouter.shared
+        router: AppRouterType = AppRouter.shared,
+        appViewModel: AppViewModel
     ) -> Navigator {
-        return NavigatorImpl(router: router)
+        return NavigatorImpl(router: router, appViewModel: appViewModel)
     }
 }
