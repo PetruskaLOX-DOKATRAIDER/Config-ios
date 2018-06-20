@@ -23,7 +23,3 @@ public class NavigationControllerFactory {
         return navigationController
     }
 }
-
-extension UINavigationController {
-    override open var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-}

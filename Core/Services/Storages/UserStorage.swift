@@ -8,7 +8,7 @@
 
 // MARK: Protocol
 
-public protocol UserStorage {
+public protocol UserStorage: AutoMockable {
     var isOnboardingPassed: BehaviorRelay<Bool> { get }
 }
 

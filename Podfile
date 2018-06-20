@@ -44,6 +44,7 @@ abstract_target 'AT' do
                 pod 'RxTest'
                 pod 'Nimble'
                 pod 'RxBlocking'
+                pod 'Quick'
             end
         end
 

@@ -22,7 +22,7 @@ public protocol TutorialViewModel {
 
 // MARK: Implementation
 
-private final class TutorialViewModelImpl: TutorialViewModel {
+private final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible {
     public let items: Driver<[TutorialItemViewModel]>
     public let navigationTitle: Driver<String>
     public let currentPage: Driver<Int>
@@ -45,10 +45,11 @@ private final class TutorialViewModelImpl: TutorialViewModel {
         let nextPage = nextTrigger.withLatestFrom(page).map{ $0 == items.count - 1 ? $0 : $0 + 1 }
         currentPage = Observable.merge(page, nextPage).asDriver(onErrorJustReturn: 0)
         let nextStage = Observable.merge(nextTrigger.withLatestFrom(page).filter{ $0 == items.count - 1 }.toVoid(), skipTrigger).asDriver(onErrorJustReturn: ())
-        shouldRouteSettings = nextStage.filter{ userStorage.isOnboardingPassed.value }
         shouldRouteApp = nextStage.filter{ !userStorage.isOnboardingPassed.value }
+        shouldRouteSettings = nextStage.filter{ userStorage.isOnboardingPassed.value }
         isMoveBackAvailable = userStorage.isOnboardingPassed.asDriver().map{ !$0 }
         self.items = .just(items)
+        shouldRouteApp.map(to: true).drive(userStorage.isOnboardingPassed).disposed(by: rx.disposeBag)
     }
 }
 

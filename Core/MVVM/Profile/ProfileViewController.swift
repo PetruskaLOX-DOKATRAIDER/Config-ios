@@ -17,7 +17,7 @@ public class ProfileViewController: UIViewController, NonReusableViewProtocol {
 public class ProfileViewControllerFactory {
     public static func withTabBarItem(viewModel: ProfileViewModel = ProfileViewModelFactory.default()) -> UIViewController {
         let viewController = StoryboardScene.Profile.initialViewController()
-        viewController.tabBarItem = UITabBarItem(title: "qq", image: nil, selectedImage: nil)
+        viewController.tabBarItem = UITabBarItem(title: "qq4", image: nil, selectedImage: nil)
         viewController.viewModel = viewModel
         return viewController
     }

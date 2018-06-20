@@ -6,18 +6,14 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
+import Quick
 import XCTest
 import RxSwift
 import RxTest
 
-class BaseTestCase: XCTestCase {
-    var scheduler : TestScheduler!
+class BaseTestCase: QuickSpec {
+    var scheduler = TestScheduler(initialClock: 0)
     var disposeBag = DisposeBag()
-    override func setUp() {
-        super.setUp()
-        scheduler = TestScheduler(initialClock: 0)
-        disposeBag = DisposeBag()
-    }
 }
 
 extension Bundle {
