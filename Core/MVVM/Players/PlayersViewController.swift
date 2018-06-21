@@ -6,9 +6,15 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public class PlayersViewController: UIViewController, NonReusableViewProtocol {
+class PlayersViewController: UIViewController, NonReusableViewProtocol {
     
-    public func onUpdate(with viewModel: PlayersViewModel, disposeBag: DisposeBag) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = Strings.Players.title
+        view.backgroundColor = .bagdet
+    }
+    
+    func onUpdate(with viewModel: PlayersViewModel, disposeBag: DisposeBag) {
 
     }
 }
@@ -18,7 +24,11 @@ public class PlayersViewController: UIViewController, NonReusableViewProtocol {
 public class PlayersViewControllerFactory {
     public static func withTabBarItem(viewModel: PlayersViewModel = PlayersViewModelFactory.default()) -> UIViewController {
         let viewController = StoryboardScene.Players.initialViewController()
-        viewController.tabBarItem = UITabBarItem(title: "qq", image: nil, selectedImage: nil)
+        viewController.tabBarItem = TabBarItemFactory.new(
+            title: Strings.Players.title,
+            image: Images.Sections.playersDeselected,
+            selectedImage: Images.Sections.playersSelected
+        )
         viewController.viewModel = viewModel
         return viewController
     }

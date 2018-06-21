@@ -1,7 +1,7 @@
 input_dir: ../../Core/Resources
 output_dir: ../../Core/Autogeneration/
 xcassets:
-    paths: Media.xcassets
+    paths: Images/Media.xcassets
     templatePath: ../../Core/Autogeneration/Images.stencil
     output: Images.generated.swift
 strings:

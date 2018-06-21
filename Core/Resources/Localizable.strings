@@ -11,3 +11,18 @@
 "Tutorial.item3.description" = "In this application you will many useful features, which will help you to win in the game and maybe even more";
 "Tutorial.item4.title" = "Welcome to the Configs app";
 "Tutorial.item4.description" = "In this application you will many useful features, which will help you to win in the game and maybe even more";
+
+// Players
+"Players.title" = "Players";
+
+// Teams
+"Teams.title" = "Teams";
+
+// Events
+"Events.title" = "Events";
+
+// News
+"News.title" = "News";
+
+// Profile
+"Profile.title" = "Profile";

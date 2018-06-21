@@ -6,8 +6,15 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public class TeamsViewController: UIViewController, NonReusableViewProtocol {
-    public func onUpdate(with viewModel: TeamsViewModel, disposeBag: DisposeBag) {
+class TeamsViewController: UIViewController, NonReusableViewProtocol {
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = Strings.Teams.title
+        view.backgroundColor = .bagdet
+    }
+    
+    func onUpdate(with viewModel: TeamsViewModel, disposeBag: DisposeBag) {
 
     }
 }
@@ -17,7 +24,11 @@ public class TeamsViewController: UIViewController, NonReusableViewProtocol {
 public class TeamsViewControllerFactory {
     public static func withTabBarItem(viewModel: TeamsViewModel = TeamsViewModelFactory.default()) -> UIViewController {
         let viewController = StoryboardScene.Teams.initialViewController()
-        viewController.tabBarItem = UITabBarItem(title: "qq", image: nil, selectedImage: nil)
+        viewController.tabBarItem = TabBarItemFactory.new(
+            title: Strings.Teams.title,
+            image: Images.Sections.teamsDeselected,
+            selectedImage: Images.Sections.teamsSelected
+        )
         viewController.viewModel = viewModel
         return viewController
     }

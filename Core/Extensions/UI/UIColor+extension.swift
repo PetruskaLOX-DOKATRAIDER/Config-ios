@@ -56,4 +56,8 @@ public extension UIColor {
 public extension UIColor {
     static var amethyst: UIColor { return UIColor(hexString: "#434343") }
     static var laded: UIColor { return UIColor(hexString: "#939393") }
+    static var ichigos: UIColor { return UIColor(hexString: "#FD375C") }
+    static var navos: UIColor { return UIColor(hexString: "#181818") }
+    static var bagdet: UIColor { return UIColor(hexString: "#0D0D0D") }
+    static var tapped: UIColor { return UIColor(hexString: "#181818") }
 }

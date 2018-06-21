@@ -10,16 +10,21 @@ public class NavigationControllerFactory {
     public static func new() -> UINavigationController {
         let navigationController = UINavigationController()
         navigationController.navigationBar.tintColor = .red
-        navigationController.navigationBar.titleColor(.blue)
-        //navigationController.navigationBar.barTintColor = .orange
-        //navigationController.navigationBar.setTitleVerticalPositionAdjustment(9, for: .default)
-        //navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController.navigationBar.titleColor(.ichigos)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.titleFont(UIFont.filsonRegularWithSize(18))
-//        if #available(iOS 11.0, *) {
-//            navigationController.navigationBar.prefersLargeTitles = true
-//            navigationController.navigationBar.largeTitleFont(.themeRegularWithSize(30))
-//        }
+        navigationController.navigationBar.barTintColor = .navos
+        if #available(iOS 11.0, *) {
+            navigationController.navigationBar.prefersLargeTitles = true
+            navigationController.navigationBar.largeTitleFont(.filsonRegularWithSize(30))
+            navigationController.navigationBar.largeTitleColor(.ichigos)
+        }
         return navigationController
+    }
+}
+
+extension UINavigationController {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

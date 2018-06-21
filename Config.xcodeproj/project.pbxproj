@@ -46,6 +46,8 @@
 		7CDAF97E20D80102009B9B87 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF97820D7FDF0009B9B87 /* Localizable.strings */; };
 		7CDAF98020D80180009B9B87 /* AutoStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF97F20D80180009B9B87 /* AutoStoryboard.swift */; };
 		7CDAF98220D8018C009B9B87 /* AutoStoryboard.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF98120D8018C009B9B87 /* AutoStoryboard.stencil */; };
+		7CDF6D0B20DBAAFF0096D913 /* TabBarControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D0A20DBAAFF0096D913 /* TabBarControllerFactory.swift */; };
+		7CDF6D0D20DBAE450096D913 /* TabBarItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D0C20DBAE450096D913 /* TabBarItemFactory.swift */; };
 		7CFA24D520D92F930059378F /* UICollectionView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24D420D92F930059378F /* UICollectionView+extension.swift */; };
 		7CFA24E020D932C80059378F /* NewsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFA24DC20D932C80059378F /* NewsViewController.storyboard */; };
 		7CFA24E120D932C80059378F /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24DD20D932C80059378F /* NewsViewController.swift */; };
@@ -218,6 +220,8 @@
 		7CDAF97C20D7FFA4009B9B87 /* Strings.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.generated.swift; sourceTree = "<group>"; };
 		7CDAF97F20D80180009B9B87 /* AutoStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoStoryboard.swift; sourceTree = "<group>"; };
 		7CDAF98120D8018C009B9B87 /* AutoStoryboard.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoStoryboard.stencil; sourceTree = "<group>"; };
+		7CDF6D0A20DBAAFF0096D913 /* TabBarControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerFactory.swift; sourceTree = "<group>"; };
+		7CDF6D0C20DBAE450096D913 /* TabBarItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemFactory.swift; sourceTree = "<group>"; };
 		7CFA24D420D92F930059378F /* UICollectionView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+extension.swift"; sourceTree = "<group>"; };
 		7CFA24DB20D932C80059378F /* NewsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModelTests.swift; sourceTree = "<group>"; };
 		7CFA24DC20D932C80059378F /* NewsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsViewController.storyboard; sourceTree = "<group>"; };
@@ -433,6 +437,14 @@
 			path = CommonViews;
 			sourceTree = "<group>";
 		};
+		7C1DEC8A20DAA726007BE96E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C0F8680A202C676C00D15CDA /* Media.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		7C2BF74020D91BAB0026DAB4 /* TutorialItemViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +480,8 @@
 			isa = PBXGroup;
 			children = (
 				7CDAF96520D7FB4C009B9B87 /* NavigationControllerFactory.swift */,
+				7CDF6D0A20DBAAFF0096D913 /* TabBarControllerFactory.swift */,
+				7CDF6D0C20DBAE450096D913 /* TabBarItemFactory.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -636,6 +650,7 @@
 				C02C4619202C8A65008AE9B0 /* API.swift */,
 				C02C461B202C8AD7008AE9B0 /* DictionaryError.swift */,
 				C02C461D202C8AF8008AE9B0 /* DictionaryErrorTests.swift */,
+				C02C4626202C8E3D008AE9B0 /* AlamofireBridge.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -812,11 +827,10 @@
 		C0F86809202C674400D15CDA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7C1DEC8A20DAA726007BE96E /* Images */,
 				7CDAF96B20D7FBE9009B9B87 /* Fonts */,
 				C0F867E1202C645500D15CDA /* Core.h */,
-				C02C4626202C8E3D008AE9B0 /* AlamofireBridge.swift */,
 				C0F867E2202C645500D15CDA /* Info.plist */,
-				C0F8680A202C676C00D15CDA /* Media.xcassets */,
 				7CDAF97820D7FDF0009B9B87 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -1352,6 +1366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CDF6D0B20DBAAFF0096D913 /* TabBarControllerFactory.swift in Sources */,
 				C02C461A202C8A65008AE9B0 /* API.swift in Sources */,
 				7CDAF94520D7A67E009B9B87 /* AutoMockable.swift in Sources */,
 				C02C464A202D8E68008AE9B0 /* Page.swift in Sources */,
@@ -1382,6 +1397,7 @@
 				7CDAF97D20D7FFA4009B9B87 /* Strings.generated.swift in Sources */,
 				7CFA24FA20D932E70059378F /* TeamsViewModel.swift in Sources */,
 				7CFA250120D932EF0059378F /* PlayersViewController.swift in Sources */,
+				7CDF6D0D20DBAE450096D913 /* TabBarItemFactory.swift in Sources */,
 				C02C4627202C8E3D008AE9B0 /* AlamofireBridge.swift in Sources */,
 				7CFA24E120D932C80059378F /* NewsViewController.swift in Sources */,
 				7CDAF98020D80180009B9B87 /* AutoStoryboard.swift in Sources */,

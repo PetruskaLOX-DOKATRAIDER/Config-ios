@@ -32,14 +32,13 @@ private final class NavigatorImpl: Navigator, ReactiveCompatible {
     }
     
     private func toMainTabs() {
-        let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([
+        let tabBarController = TabBarControllerFactory.new(withViewControllers: [
             assemblyPlayers(),
             assemblyTeams(),
             assemblyEvents(),
             assemblyNews(),
             assemblyProfile()
-        ], animated: false)
+        ])
         UIView.transition(with: router.window, duration: 0.3, options: .transitionCrossDissolve, animations: {
             self.router.window.rootViewController = tabBarController
         })

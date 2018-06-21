@@ -6,8 +6,15 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public class NewsViewController: UIViewController, NonReusableViewProtocol {
-    public func onUpdate(with viewModel: NewsViewModel, disposeBag: DisposeBag) {
+final class NewsViewController: UIViewController, NonReusableViewProtocol {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = Strings.News.title
+        view.backgroundColor = .bagdet
+    }
+    
+    func onUpdate(with viewModel: NewsViewModel, disposeBag: DisposeBag) {
 
     }
 }
@@ -17,7 +24,11 @@ public class NewsViewController: UIViewController, NonReusableViewProtocol {
 public class NewsViewControllerFactory {
     public static func withTabBarItem(viewModel: NewsViewModel = NewsViewModelFactory.default()) -> UIViewController {
         let viewController = StoryboardScene.News.initialViewController()
-        viewController.tabBarItem = UITabBarItem(title: "qq", image: nil, selectedImage: nil)
+        viewController.tabBarItem = TabBarItemFactory.new(
+            title: Strings.News.title,
+            image: Images.Sections.newsDeselected,
+            selectedImage: Images.Sections.newsSelected
+        )
         viewController.viewModel = viewModel
         return viewController
     }
