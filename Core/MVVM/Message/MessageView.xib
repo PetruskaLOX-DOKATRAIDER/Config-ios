@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageView" customModule="Core" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundView" destination="P90-c2-YE5" id="xKY-v7-sFY"/>
+                <outlet property="descriptionLabel" destination="IRr-FK-WhA" id="iNI-Wj-E7X"/>
+                <outlet property="iconImageView" destination="Xsg-UD-qDp" id="pLD-qd-a4u"/>
+                <outlet property="titleLabel" destination="Ela-KX-9LJ" id="OA3-rh-Ljy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="0C3-vQ-Cmw">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P90-c2-YE5">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ela-KX-9LJ">
+                            <rect key="frame" x="40" y="10" width="316" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRr-FK-WhA">
+                            <rect key="frame" x="40" y="39" width="316" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="IRr-FK-WhA" firstAttribute="top" secondItem="Ela-KX-9LJ" secondAttribute="bottom" constant="8" id="GCn-dt-AB1"/>
+                        <constraint firstItem="IRr-FK-WhA" firstAttribute="leading" secondItem="P90-c2-YE5" secondAttribute="leading" constant="40" id="KC7-OW-mqE"/>
+                        <constraint firstItem="Ela-KX-9LJ" firstAttribute="top" secondItem="P90-c2-YE5" secondAttribute="top" constant="10" id="U2l-4h-4Jf"/>
+                        <constraint firstAttribute="trailing" secondItem="IRr-FK-WhA" secondAttribute="trailing" constant="19" id="cpd-cw-jB6"/>
+                        <constraint firstAttribute="trailing" secondItem="Ela-KX-9LJ" secondAttribute="trailing" constant="19" id="lom-3z-rqV"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xsg-UD-qDp">
+                    <rect key="frame" x="8" y="8" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="4UP-PN-PMt"/>
+                        <constraint firstAttribute="height" constant="25" id="5fX-ub-XDb"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="P90-c2-YE5" secondAttribute="bottom" id="3KH-Zq-E2A"/>
+                <constraint firstItem="P90-c2-YE5" firstAttribute="bottom" secondItem="lZO-mc-mgy" secondAttribute="bottom" id="6DL-R1-vKK"/>
+                <constraint firstItem="Xsg-UD-qDp" firstAttribute="leading" secondItem="lZO-mc-mgy" secondAttribute="leading" constant="8" id="D5Q-Gt-E43"/>
+                <constraint firstItem="P90-c2-YE5" firstAttribute="trailing" secondItem="lZO-mc-mgy" secondAttribute="trailing" id="D5o-1F-oLS"/>
+                <constraint firstItem="P90-c2-YE5" firstAttribute="leading" secondItem="lZO-mc-mgy" secondAttribute="leading" id="Doj-hK-gJV"/>
+                <constraint firstItem="Xsg-UD-qDp" firstAttribute="top" secondItem="lZO-mc-mgy" secondAttribute="top" constant="8" id="EHb-0d-9qU"/>
+                <constraint firstItem="Ela-KX-9LJ" firstAttribute="leading" secondItem="Xsg-UD-qDp" secondAttribute="trailing" constant="7" id="R4v-8b-VLq"/>
+                <constraint firstItem="P90-c2-YE5" firstAttribute="top" secondItem="0C3-vQ-Cmw" secondAttribute="top" id="REl-F3-06T"/>
+                <constraint firstItem="lZO-mc-mgy" firstAttribute="trailing" secondItem="P90-c2-YE5" secondAttribute="trailing" id="VlN-BH-N0r"/>
+                <constraint firstItem="P90-c2-YE5" firstAttribute="leading" secondItem="lZO-mc-mgy" secondAttribute="leading" id="ktX-7V-Nkr"/>
+                <constraint firstItem="P90-c2-YE5" firstAttribute="top" secondItem="lZO-mc-mgy" secondAttribute="top" id="xBU-fB-em1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="lZO-mc-mgy"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-43.5" y="-26.5"/>
+        </view>
+    </objects>
+</document>

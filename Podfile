@@ -22,7 +22,8 @@ abstract_target 'AT' do
         pod 'DTTableViewManager'
         pod 'DTCollectionViewManager'
         pod 'LoadableViews'
-        pod 'Permission/Notifications', :git => 'https://github.com/rsaarloos/Permission.git', :branch => 'swift-4.0'
+        pod 'SnapKit', '~> 4.0.0'
+        pod 'NVActivityIndicatorView'
 
         #MVVM
         pod 'ReusableView'

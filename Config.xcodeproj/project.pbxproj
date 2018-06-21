@@ -48,6 +48,10 @@
 		7CDAF98220D8018C009B9B87 /* AutoStoryboard.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF98120D8018C009B9B87 /* AutoStoryboard.stencil */; };
 		7CDF6D0B20DBAAFF0096D913 /* TabBarControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D0A20DBAAFF0096D913 /* TabBarControllerFactory.swift */; };
 		7CDF6D0D20DBAE450096D913 /* TabBarItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D0C20DBAE450096D913 /* TabBarItemFactory.swift */; };
+		7CDF6D0F20DBBC260096D913 /* UIVIewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D0E20DBBC260096D913 /* UIVIewController+extensions.swift */; };
+		7CDF6D1220DBC4210096D913 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1120DBC4210096D913 /* MessageViewModel.swift */; };
+		7CDF6D1420DBC42A0096D913 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1320DBC42A0096D913 /* MessageView.swift */; };
+		7CDF6D1620DBC4320096D913 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1520DBC4320096D913 /* MessageView.xib */; };
 		7CFA24D520D92F930059378F /* UICollectionView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24D420D92F930059378F /* UICollectionView+extension.swift */; };
 		7CFA24E020D932C80059378F /* NewsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFA24DC20D932C80059378F /* NewsViewController.storyboard */; };
 		7CFA24E120D932C80059378F /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24DD20D932C80059378F /* NewsViewController.swift */; };
@@ -222,6 +226,10 @@
 		7CDAF98120D8018C009B9B87 /* AutoStoryboard.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoStoryboard.stencil; sourceTree = "<group>"; };
 		7CDF6D0A20DBAAFF0096D913 /* TabBarControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerFactory.swift; sourceTree = "<group>"; };
 		7CDF6D0C20DBAE450096D913 /* TabBarItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemFactory.swift; sourceTree = "<group>"; };
+		7CDF6D0E20DBBC260096D913 /* UIVIewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+extensions.swift"; sourceTree = "<group>"; };
+		7CDF6D1120DBC4210096D913 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		7CDF6D1320DBC42A0096D913 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		7CDF6D1520DBC4320096D913 /* MessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
 		7CFA24D420D92F930059378F /* UICollectionView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+extension.swift"; sourceTree = "<group>"; };
 		7CFA24DB20D932C80059378F /* NewsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModelTests.swift; sourceTree = "<group>"; };
 		7CFA24DC20D932C80059378F /* NewsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsViewController.storyboard; sourceTree = "<group>"; };
@@ -497,6 +505,16 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		7CDF6D1020DBC40F0096D913 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				7CDF6D1120DBC4210096D913 /* MessageViewModel.swift */,
+				7CDF6D1320DBC42A0096D913 /* MessageView.swift */,
+				7CDF6D1520DBC4320096D913 /* MessageView.xib */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
 		7CFA24D620D932230059378F /* Players */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,6 +590,7 @@
 		C02C45B8202C84D3008AE9B0 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				7CDF6D1020DBC40F0096D913 /* Message */,
 				7CFA24DA20D932B20059378F /* News */,
 				7CFA24D920D9324E0059378F /* Profile */,
 				7CFA24D820D9323D0059378F /* Events */,
@@ -712,6 +731,7 @@
 				7CDAF96720D7FB72009B9B87 /* UINavigationBar+extensions.swift */,
 				7CDAF96920D7FBB2009B9B87 /* UIFont+extensions.swift */,
 				7CFA24D420D92F930059378F /* UICollectionView+extension.swift */,
+				7CDF6D0E20DBBC260096D913 /* UIVIewController+extensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1077,6 +1097,7 @@
 				7CFA250020D932EF0059378F /* PlayersViewController.storyboard in Resources */,
 				7CDAF97220D7FBE9009B9B87 /* filsonsoft-regular.otf in Resources */,
 				7CFA24E820D932D30059378F /* ProfileViewController.storyboard in Resources */,
+				7CDF6D1620DBC4320096D913 /* MessageView.xib in Resources */,
 				7CFA24F820D932E70059378F /* TeamsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1193,12 +1214,13 @@
 				"${BUILT_PRODUCTS_DIR}/DTModelStorage/DTModelStorage.framework",
 				"${BUILT_PRODUCTS_DIR}/DTTableViewManager/DTTableViewManager.framework",
 				"${BUILT_PRODUCTS_DIR}/LoadableViews/LoadableViews.framework",
-				"${BUILT_PRODUCTS_DIR}/Permission/Permission.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableView/ReusableView.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxKeyboard/RxKeyboard.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TRON/TRON.framework",
 			);
@@ -1217,12 +1239,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTModelStorage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTTableViewManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoadableViews.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Permission.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxKeyboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TRON.framework",
 			);
@@ -1292,13 +1315,14 @@
 				"${BUILT_PRODUCTS_DIR}/DTModelStorage/DTModelStorage.framework",
 				"${BUILT_PRODUCTS_DIR}/DTTableViewManager/DTTableViewManager.framework",
 				"${BUILT_PRODUCTS_DIR}/LoadableViews/LoadableViews.framework",
-				"${BUILT_PRODUCTS_DIR}/Permission/Permission.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableView/ReusableView.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxKeyboard/RxKeyboard.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TRON/TRON.framework",
 			);
@@ -1312,13 +1336,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTModelStorage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTTableViewManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoadableViews.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Permission.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxKeyboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TRON.framework",
 			);
@@ -1390,8 +1415,10 @@
 				C02C465A202D9423008AE9B0 /* UIView+extensions.swift in Sources */,
 				3ED465A82034920A0015DAF6 /* AutoPublicInit.generated.swift in Sources */,
 				C02C4625202C8CD1008AE9B0 /* Request+extensions.swift in Sources */,
+				7CDF6D1420DBC42A0096D913 /* MessageView.swift in Sources */,
 				C02C463F202CB409008AE9B0 /* Debugger.swift in Sources */,
 				C02C4631202CA6D9008AE9B0 /* Rx+extensions.swift in Sources */,
+				7CDF6D0F20DBBC260096D913 /* UIVIewController+extensions.swift in Sources */,
 				7CDAF96620D7FB4C009B9B87 /* NavigationControllerFactory.swift in Sources */,
 				C02C45B1202C7737008AE9B0 /* StaticEnvironment.swift in Sources */,
 				7CDAF97D20D7FFA4009B9B87 /* Strings.generated.swift in Sources */,
@@ -1421,6 +1448,7 @@
 				7CDAF95D20D7C49D009B9B87 /* TutorialItemViewModel.swift in Sources */,
 				C02C4641202D8DD3008AE9B0 /* TableViewManager+extensions.swift in Sources */,
 				C02C4661202D99D2008AE9B0 /* Delay.swift in Sources */,
+				7CDF6D1220DBC4210096D913 /* MessageViewModel.swift in Sources */,
 				7C9BF76820D3E3290016D224 /* Error+extensions.swift in Sources */,
 				C02C4659202D9423008AE9B0 /* UIColor+extension.swift in Sources */,
 			);
