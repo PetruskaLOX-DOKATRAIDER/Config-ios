@@ -22,7 +22,9 @@ class TeamsViewController: UIViewController, NonReusableViewProtocol {
 // MARK: Factory
 
 public class TeamsViewControllerFactory {
-    public static func withTabBarItem(viewModel: TeamsViewModel = TeamsViewModelFactory.default()) -> UIViewController {
+    public static func withTabBarItem(
+        viewModel: TeamsViewModel = TeamsViewModelFactory.default()
+    ) -> UIViewController {
         let viewController = StoryboardScene.Teams.initialViewController()
         viewController.tabBarItem = TabBarItemFactory.new(
             title: Strings.Teams.title,

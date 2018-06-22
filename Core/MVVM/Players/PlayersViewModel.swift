@@ -9,22 +9,25 @@
 // MARK: Protocol
 
 public protocol PlayersViewModel {
-    
+    var players: Paginator<PlayerPreview> { get }
 }
 
 // MARK: Implementation
 
 private final class PlayersViewModelImpl: PlayersViewModel {
+    let players: Paginator<PlayerPreview>
     
-    init() {
-        
+    init(playersService: PlayersService) {
+        players = playersService.playersPreview
     }
 }
 
 // MARK: Factory
 
 public class PlayersViewModelFactory {
-    public static func `default`() -> PlayersViewModel {
-        return PlayersViewModelImpl()
+    public static func `default`(
+        playersService: PlayersService = PlayersServiceFactory.default()
+    ) -> PlayersViewModel {
+        return PlayersViewModelImpl(playersService: playersService)
     }
 }

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ek-ct-1Xt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ek-ct-1Xt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Players View Controller-->
         <scene sceneID="tEr-Pp-f1g">
             <objects>
-                <viewController id="7ek-ct-1Xt" customClass="PlayersViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7ek-ct-1Xt" customClass="PlayersViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UUI-Gp-oci"/>
                         <viewControllerLayoutGuide type="bottom" id="4af-qR-9ib"/>
@@ -18,12 +20,34 @@
                     <view key="view" contentMode="scaleToFill" id="cEO-6E-8qo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Phi-V7-DtF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="40Q-Xp-qSZ">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Phi-V7-DtF" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="190-Pp-uoy"/>
+                            <constraint firstItem="Phi-V7-DtF" firstAttribute="top" secondItem="cEO-6E-8qo" secondAttribute="top" id="Vru-ZH-aVP"/>
+                            <constraint firstAttribute="trailing" secondItem="Phi-V7-DtF" secondAttribute="trailing" id="cBq-f9-qE7"/>
+                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="Phi-V7-DtF" secondAttribute="bottom" id="kce-Oq-MYF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Phi-V7-DtF" id="WhO-Pd-pj4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="143"/>
+            <point key="canvasLocation" x="136.80000000000001" y="142.57871064467767"/>
         </scene>
     </scenes>
 </document>

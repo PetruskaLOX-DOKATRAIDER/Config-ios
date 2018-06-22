@@ -22,7 +22,9 @@ final class NewsViewController: UIViewController, NonReusableViewProtocol {
 // MARK: Factory
 
 public class NewsViewControllerFactory {
-    public static func withTabBarItem(viewModel: NewsViewModel = NewsViewModelFactory.default()) -> UIViewController {
+    public static func withTabBarItem(
+        viewModel: NewsViewModel = NewsViewModelFactory.default()
+    ) -> UIViewController {
         let viewController = StoryboardScene.News.initialViewController()
         viewController.tabBarItem = TabBarItemFactory.new(
             title: Strings.News.title,

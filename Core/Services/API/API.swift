@@ -15,12 +15,28 @@ public typealias UploadRequest<T, U: BackendError> = UploadAPIRequest<T, Diction
 
 open class API {
     public let tron: TRON
-    public init(tron: TRON) {
+    public let appEnvironment: AppEnvironment
+    public init(tron: TRON, appEnvironment: AppEnvironment) {
         self.tron = tron
+        self.appEnvironment = appEnvironment
     }
 }
 
 public func defaultRecover<T>(error: Error) -> Driver<T> {
     assertionFailure(error.localizedDescription)
     return .empty()
+}
+
+// MARK: Factory
+
+public class APIFactory {
+    public static func `default`(
+        tron: TRON = TRON(baseURL: ""),
+        appEnvironment: AppEnvironment = AppEnvironmentFactory.default()
+    ) -> API {
+        return API(
+            tron: tron,
+            appEnvironment: appEnvironment
+        )
+    }
 }

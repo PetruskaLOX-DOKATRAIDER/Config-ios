@@ -47,7 +47,9 @@ final class TutorialViewController: UIViewController, NonReusableViewProtocol, D
 // MARK: Factory
 
 public class TutorialViewControllerFactory {
-    public static func `default`(viewModel: TutorialViewModel = TutorialViewModelFactory.default()) -> UIViewController {
+    public static func `default`(
+        viewModel: TutorialViewModel = TutorialViewModelFactory.default()
+    ) -> UIViewController {
         let viewController = StoryboardScene.Tutorial.initialViewController()
         viewController.viewModel = viewModel
         return viewController

@@ -22,7 +22,9 @@ class EventsViewController: UIViewController, NonReusableViewProtocol {
 // MARK: Factory
 
 public class EventsViewControllerFactory {
-    public static func withTabBarItem(viewModel: EventsViewModel = EventsViewModelFactory.default()) -> UIViewController {
+    public static func withTabBarItem(
+        viewModel: EventsViewModel = EventsViewModelFactory.default()
+    ) -> UIViewController {
         let viewController = StoryboardScene.Events.initialViewController()
         viewController.tabBarItem = TabBarItemFactory.new(
             title: Strings.Events.title,

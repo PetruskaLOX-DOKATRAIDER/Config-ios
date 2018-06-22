@@ -22,7 +22,9 @@ class ProfileViewController: UIViewController, NonReusableViewProtocol {
 // MARK: Factory
 
 public class ProfileViewControllerFactory {
-    public static func withTabBarItem(viewModel: ProfileViewModel = ProfileViewModelFactory.default()) -> UIViewController {
+    public static func withTabBarItem(
+        viewModel: ProfileViewModel = ProfileViewModelFactory.default()
+    ) -> UIViewController {
         let viewController = StoryboardScene.Profile.initialViewController()
         viewController.tabBarItem = TabBarItemFactory.new(
             title: Strings.Profile.title,
