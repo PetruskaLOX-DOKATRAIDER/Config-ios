@@ -6,25 +6,13 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-// MARK: Protocol
-
 public protocol NewsViewModel {
 
 }
 
-// MARK: Implementation
+public final class NewsViewModelImpl: NewsViewModel {
 
-private final class NewsViewModelImpl: NewsViewModel {
+    public init() {
 
-    init() {
-
-    }
-}
-
-// MARK: Factory
-
-public class NewsViewModelFactory {
-    public static func `default`() -> NewsViewModel {
-        return NewsViewModelImpl()
     }
 }

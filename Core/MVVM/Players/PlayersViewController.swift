@@ -9,37 +9,34 @@
 import DTCollectionViewManager
 import DTModelStorage
 
-class PlayersViewController: UIViewController, NonReusableViewProtocol, DTCollectionViewManageable {    
+public final class PlayersViewController: UIViewController, NonReusableViewProtocol, DTCollectionViewManageable {
     @IBOutlet public weak var collectionView: UICollectionView?
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.Players.title
         view.backgroundColor = .bagdet
-        manager.startManaging(withDelegate: self)
-        manager.register(PlayerPreviewCell.self)
-    }
-    
-    func onUpdate(with viewModel: PlayersViewModel, disposeBag: DisposeBag) {
-        //connect(viewModel.players).disposed(by: disposeBag)
-        //viewModel.events.refreshTrigger.onNext(())
-        //rx.onViewWillAppear().toVoid().bind(to: viewModel.events.refreshTrigger).disposed(by: disposeBag)
-    }
-}
-
-// MARK: Factory
-
-public class PlayersViewControllerFactory {
-    public static func withTabBarItem(
-        viewModel: PlayersViewModel = PlayersViewModelFactory.default()
-    ) -> UIViewController {
-        let viewController = StoryboardScene.Players.initialViewController()
-        viewController.tabBarItem = TabBarItemFactory.new(
+        tabBarItem = TabBarItemFactory.new(
             title: Strings.Players.title,
             image: Images.Sections.playersDeselected,
             selectedImage: Images.Sections.playersSelected
         )
-        viewController.viewModel = viewModel
-        return viewController
+        setupRefreshControl()
+        setupManager()
+    }
+    
+    private func setupManager() {
+        manager.startManaging(withDelegate: self)
+        manager.register(PlayerPreviewCell.self)
+    }
+    
+    private func setupRefreshControl() {
+        let control = UIRefreshControl()
+        control.tintColor = .ichigos
+        collectionView?.refreshControl = control
+    }
+    
+    public func onUpdate(with viewModel: PlayersViewModel, disposeBag: DisposeBag) {
+
     }
 }

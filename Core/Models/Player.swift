@@ -9,7 +9,7 @@
 import SwiftyJSON
 import TRON
 
-struct ImageSize {
+public struct ImageSize {
     let height: Int
     let weight: Int
 }
@@ -33,6 +33,7 @@ extension PlayerPreview: JSONDecodable {
         imageSize = ImageSize(height: Int(imageSizeArray.first ?? "") ?? 0, weight: Int(imageSizeArray.last ?? "") ?? 0)
         profileImageURL = json["image"].url
         id = json["id"].intValue
+        print("nickname: \(nickname)")
     }
 }
 

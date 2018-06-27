@@ -24,8 +24,10 @@ abstract_target 'AT' do
         pod 'LoadableViews'
         pod 'SnapKit', '~> 4.0.0'
         pod 'NVActivityIndicatorView'
+        
 
         #MVVM
+        pod 'Dip', '~> 6.0'
         pod 'ReusableView'
         pod 'Result'
 

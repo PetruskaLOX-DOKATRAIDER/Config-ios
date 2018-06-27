@@ -26,17 +26,3 @@ public func defaultRecover<T>(error: Error) -> Driver<T> {
     assertionFailure(error.localizedDescription)
     return .empty()
 }
-
-// MARK: Factory
-
-public class APIFactory {
-    public static func `default`(
-        tron: TRON = TRON(baseURL: ""),
-        appEnvironment: AppEnvironment = AppEnvironmentFactory.default()
-    ) -> API {
-        return API(
-            tron: tron,
-            appEnvironment: appEnvironment
-        )
-    }
-}

@@ -11,22 +11,26 @@ import DTModelStorage
 
 // MARK: Implementation
 
-final class TutorialViewController: UIViewController, NonReusableViewProtocol, DTCollectionViewManageable {
+public final class TutorialViewController: UIViewController, NonReusableViewProtocol, DTCollectionViewManageable {
     @IBOutlet private weak var skipButton: UIButton!
     @IBOutlet private weak var nextButton: UIButton!
     @IBOutlet private weak var pageControl: UIPageControl!
     @IBOutlet public weak var collectionView: UICollectionView?
     @IBOutlet private weak var backButton: UIButton!
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        setupManager()
+    }
+    
+    private func setupManager() {
         manager.startManaging(withDelegate: self)
         manager.register(TutoriaItemCell.self)
         manager.sizeForCell(withItem: TutorialItemViewModel.self){ [collectionView] (_, _) in return collectionView?.frame.size ?? .zero }
     }
     
-    func onUpdate(with viewModel: TutorialViewModel, disposeBag: DisposeBag) {
+    public func onUpdate(with viewModel: TutorialViewModel, disposeBag: DisposeBag) {
         viewModel.items.drive(manager.memoryStorage.rx.items()).disposed(by: disposeBag)
         viewModel.items.map{ $0.count }.drive(pageControl.rx.numberOfPages).disposed(by: disposeBag)
         viewModel.navigationTitle.drive(nextButton.rx.title()).disposed(by: disposeBag)
@@ -41,17 +45,5 @@ final class TutorialViewController: UIViewController, NonReusableViewProtocol, D
         collectionView?.rx.didEndDecelerating.asDriver(onErrorJustReturn: ()).drive(onNext: {
             viewModel.pageTrigger.onNext(self.collectionView?.centerPage ?? 0)
         }).disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: Factory
-
-public class TutorialViewControllerFactory {
-    public static func `default`(
-        viewModel: TutorialViewModel = TutorialViewModelFactory.default()
-    ) -> UIViewController {
-        let viewController = StoryboardScene.Tutorial.initialViewController()
-        viewController.viewModel = viewModel
-        return viewController
     }
 }

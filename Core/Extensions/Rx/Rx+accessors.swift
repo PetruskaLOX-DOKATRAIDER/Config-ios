@@ -31,4 +31,10 @@ public extension Reactive where Base: UIViewController {
             vc.showMessageView(withViewModel: vm)
         }
     }
+    
+    public var close: Binder<Bool> {
+        return Binder(base) { view, _ in
+            view.close()
+        }
+    }
 }

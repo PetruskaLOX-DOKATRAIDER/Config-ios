@@ -6,22 +6,19 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-// MARK: Protocol
-
 public protocol TutorialItemViewModel {
     var title: Driver<String> { get }
     var description: Driver<String> { get }
     var coverImage: Driver<UIImage> { get }
 }
 
-// MARK: Implementation
 
-private final class TutorialItemViewModelImpl: TutorialItemViewModel {
-    let title: Driver<String>
-    let description: Driver<String>
-    let coverImage: Driver<UIImage>
+public final class TutorialItemViewModelImpl: TutorialItemViewModel {
+    public let title: Driver<String>
+    public let description: Driver<String>
+    public let coverImage: Driver<UIImage>
     
-    init(
+    public init(
         title: String,
         description: String,
         coverImage: UIImage
@@ -29,17 +26,5 @@ private final class TutorialItemViewModelImpl: TutorialItemViewModel {
         self.title = .just(title)
         self.description = .just(description)
         self.coverImage = .just(coverImage)
-    }
-}
-
-// MARK: Factory
-
-public class TutorialItemViewModelFactory {
-    public static func `default`(
-        title: String,
-        description: String,
-        coverImage: UIImage
-    ) -> TutorialItemViewModel {
-        return TutorialItemViewModelImpl(title: title, description: description, coverImage: coverImage)
     }
 }

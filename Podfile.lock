@@ -13,6 +13,7 @@ PODS:
     - CocoaLumberjack/Default
   - Crashlytics (3.10.2):
     - Fabric (~> 1.7.7)
+  - Dip (6.1)
   - DTCollectionViewManager (6.3.0):
     - DTModelStorage (~> 7.1.0)
   - DTModelStorage (7.1.0):
@@ -21,7 +22,7 @@ PODS:
   - DTTableViewManager (6.3.0):
     - DTModelStorage (~> 7.1.0)
   - Fabric (1.7.7)
-  - LoadableViews (2.3.0)
+  - LoadableViews (3.0.0)
   - Nimble (7.1.2)
   - NVActivityIndicatorView (4.2.1):
     - NVActivityIndicatorView/Presenter (= 4.2.1)
@@ -37,7 +38,7 @@ PODS:
   - RxKeyboard (0.8.3):
     - RxCocoa (>= 4.1.0)
     - RxSwift (>= 4.1.0)
-  - RxOptional (3.4.0):
+  - RxOptional (3.5.0):
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.2.0)
@@ -46,7 +47,7 @@ PODS:
   - SnapKit (4.0.0)
   - Sourcery (0.13.1)
   - SwiftGen (5.3.0)
-  - SwiftLint (0.25.1)
+  - SwiftLint (0.26.0)
   - SwiftyJSON (4.1.0)
   - TRON (4.2.1):
     - Alamofire (~> 4.5)
@@ -64,6 +65,7 @@ DEPENDENCIES:
   - AppRouter/RxSwift
   - CocoaLumberjack/Swift
   - Crashlytics
+  - Dip (~> 6.0)
   - DTCollectionViewManager
   - DTTableViewManager
   - Fabric
@@ -93,6 +95,7 @@ SPEC REPOS:
     - AppRouter
     - CocoaLumberjack
     - Crashlytics
+    - Dip
     - DTCollectionViewManager
     - DTModelStorage
     - DTTableViewManager
@@ -122,11 +125,12 @@ SPEC CHECKSUMS:
   AppRouter: 0ae5dd1e0d37d538891a3298ca267144fcdc0341
   CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
   Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
+  Dip: e6af9f4e7644e1a142995c1ab0bffa61351a849d
   DTCollectionViewManager: 8249ec84d8dbf4fa3fd49975bd60e826322ba6ed
   DTModelStorage: aaaf3eac97693c25fef63ea741aa9c75274a778b
   DTTableViewManager: ee2e2cfefb08e9723172b623b0bb85e2ea9bdab1
   Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
-  LoadableViews: 9d90b433e84e00482cf8d39d77a1e7bdc606c363
+  LoadableViews: 47b2ddbb7ad1bb88581ceea2f6c6b80e6e16350a
   Nimble: 3835ba9f459daa6b347f8a8e110aaae8ca1920a8
   NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
   Quick: 03278013f71aa05fe9ecabc94fbcc6835f1ee76f
@@ -135,16 +139,16 @@ SPEC CHECKSUMS:
   RxBlocking: e339d8a6e752e25ade95ff858466c55436668f59
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
   RxKeyboard: e5efbaa109c35be909dd888e53de0f0efdf5169e
-  RxOptional: fabc37fc8e3cf4c336ebaeb5c92b576c64b2e6c5
+  RxOptional: bd32ff8ca9df4177683d56ffeb618a9d4d5d5cad
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
   RxTest: 8da864c0ee47534f586ff18fb0c7e5b2f1fe5023
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Sourcery: 9ef51b8777516f204d82996441f293813158d0d7
   SwiftGen: 4379bd3640b0a212a0f6ea3c494adba385513d10
-  SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
+  SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TRON: eb0f572d97dd51ec309a27bc785ec82148500512
 
-PODFILE CHECKSUM: f51c2e572d4d0a2f62845cf8995158304ab7bbce
+PODFILE CHECKSUM: f11473b29c355161cd9f0169125f09465793efee
 
 COCOAPODS: 1.5.3

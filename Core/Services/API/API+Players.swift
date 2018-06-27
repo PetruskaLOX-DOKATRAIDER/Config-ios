@@ -16,22 +16,15 @@ public protocol PlayersAPIService: AutoMockable {
 
 // MARK: Implementation
 
-extension API: PlayersAPIService {
-    public func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, String> {
-        let request: Request<Page<PlayerPreview>, String> = tron.swiftyJSON.request("playersData/" + "playersData\(page)")
-        request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL)
-        request.method = .get
-        request.authorizationRequirement = .required
-        return request.asResult()
-    }
-}
-
-// MARK: Factory
-
-public class PlayersAPIServiceFactory {
-    public static func `default`(
-        api: API = APIFactory.default()
-    ) -> PlayersAPIService {
-        return api
+extension API {
+    public class PlayersAPIServiceImpl: API, PlayersAPIService {
+        public func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, String> {
+            let request: Request<Page<PlayerPreview>, String> = tron.swiftyJSON.request("playersData/" + "playersData\(page).json")
+            request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL)
+            print(appEnvironment.apiURL)
+            print("playersData/" + "playersData\(page).json")
+            request.method = .get
+            return request.asResult()
+        }
     }
 }

@@ -6,25 +6,13 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-// MARK: Protocol
-
 public protocol EventsViewModel {
     
 }
 
-// MARK: Implementation
-
-private final class EventsViewModelImpl: EventsViewModel {
+public final class EventsViewModelImpl: EventsViewModel {
     
-    init() {
+    public init() {
         
-    }
-}
-
-// MARK: Factory
-
-public class EventsViewModelFactory {
-    public static func `default`() -> EventsViewModel {
-        return EventsViewModelImpl()
     }
 }

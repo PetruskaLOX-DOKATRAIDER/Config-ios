@@ -14,17 +14,9 @@ public protocol ProfileViewModel {
 
 // MARK: Implementation
 
-private final class ProfileViewModelImpl: ProfileViewModel {
+public final class ProfileViewModelImpl: ProfileViewModel {
     
     init() {
         
-    }
-}
-
-// MARK: Factory
-
-public class ProfileViewModelFactory {
-    public static func `default`() -> ProfileViewModel {
-        return ProfileViewModelImpl()
     }
 }

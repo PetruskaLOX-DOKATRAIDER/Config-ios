@@ -6,8 +6,6 @@
 //Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-// MARK: Protocol
-
 public protocol TutorialViewModel {
     var items: Driver<[TutorialItemViewModel]> { get }
     var navigationTitle: Driver<String> { get }
@@ -20,9 +18,7 @@ public protocol TutorialViewModel {
     var isMoveBackAvailable: Driver<Bool> { get }
 }
 
-// MARK: Implementation
-
-private final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible {
+public final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible {
     public let items: Driver<[TutorialItemViewModel]>
     public let navigationTitle: Driver<String>
     public let currentPage: Driver<Int>
@@ -35,10 +31,10 @@ private final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible
     
     public init(userStorage: UserStorage) {
         let items = [
-            TutorialItemViewModelFactory.default(title: Strings.Tutorial.Item1.title, description: Strings.Tutorial.Item1.description, coverImage: Images.Tutorial.tutorial1),
-            TutorialItemViewModelFactory.default(title: Strings.Tutorial.Item2.title, description: Strings.Tutorial.Item2.description, coverImage: Images.Tutorial.tutorial2),
-            TutorialItemViewModelFactory.default(title: Strings.Tutorial.Item3.title, description: Strings.Tutorial.Item3.description, coverImage: Images.Tutorial.tutorial3),
-            TutorialItemViewModelFactory.default(title: Strings.Tutorial.Item4.title, description: Strings.Tutorial.Item4.description, coverImage: Images.Tutorial.tutorial4)
+            TutorialItemViewModelImpl(title: Strings.Tutorial.Item1.title, description: Strings.Tutorial.Item1.description, coverImage: Images.Tutorial.tutorial1),
+            TutorialItemViewModelImpl(title: Strings.Tutorial.Item2.title, description: Strings.Tutorial.Item2.description, coverImage: Images.Tutorial.tutorial2),
+            TutorialItemViewModelImpl(title: Strings.Tutorial.Item3.title, description: Strings.Tutorial.Item3.description, coverImage: Images.Tutorial.tutorial3),
+            TutorialItemViewModelImpl(title: Strings.Tutorial.Item4.title, description: Strings.Tutorial.Item4.description, coverImage: Images.Tutorial.tutorial4)
         ]
         let page = pageTrigger.startWith(0)
         navigationTitle = pageTrigger.map{ $0 == items.count - 1 ? Strings.Tutorial.start : Strings.Tutorial.next }.startWith(Strings.Tutorial.next).asDriver(onErrorJustReturn: "")
@@ -50,15 +46,5 @@ private final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible
         isMoveBackAvailable = userStorage.isOnboardingPassed.asDriver().map{ !$0 }
         self.items = .just(items)
         shouldRouteApp.map(to: true).drive(userStorage.isOnboardingPassed).disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: Factory
-
-public class TutorialViewModelFactory {
-    public static func `default`(
-        userStorage: UserStorage = UserStorageFactory.default()
-    ) -> TutorialViewModel {
-        return TutorialViewModelImpl(userStorage: userStorage)
     }
 }

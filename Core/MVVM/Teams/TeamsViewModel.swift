@@ -6,25 +6,13 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-// MARK: Protocol
-
 public protocol TeamsViewModel {
     
 }
 
-// MARK: Implementation
-
-private final class TeamsViewModelImpl: TeamsViewModel {
+public final class TeamsViewModelImpl: TeamsViewModel {
     
-    init() {
+    public init() {
         
-    }
-}
-
-// MARK: Factory
-
-public class TeamsViewModelFactory {
-    public static func `default`() -> TeamsViewModel {
-        return TeamsViewModelImpl()
     }
 }

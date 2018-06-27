@@ -7,7 +7,7 @@
 //
 
 public class TabBarControllerFactory {
-    public static func new(withViewControllers viewControllers: [UIViewController]) -> UITabBarController {
+    public static func new(viewControllers: [UIViewController] = []) -> UITabBarController {
         let tabBarController = UITabBarController()
         tabBarController.tabBar.tintColor = .ichigos
         tabBarController.tabBar.barTintColor = .tapped
