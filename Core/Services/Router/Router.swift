@@ -27,14 +27,14 @@ open class Router: ReactiveCompatible {
     }
     
     public func appSections() -> AppRouter.Presenter.Configuration<AppSectionsTabBarController> {
-        return AppSectionsTabBarController.presenter().from { [viewFactory = viewFactory] in
-            let tabbarVC: AppSectionsTabBarController = try viewFactory.buildView()
+        return AppSectionsTabBarController.presenter().from {
+            let tabbarVC = AppSectionsTabBarController()
             tabbarVC.setViewControllers([
-                try self.players().embedInNavigation(NavigationControllerFactory.new()).provideSourceController(),
-                try self.teams().embedInNavigation(NavigationControllerFactory.new()).provideSourceController(),
-                try self.events().embedInNavigation(NavigationControllerFactory.new()).provideSourceController(),
-                try self.news().embedInNavigation(NavigationControllerFactory.new()).provideSourceController(),
-                try self.profile().embedInNavigation(NavigationControllerFactory.new()).provideSourceController()
+                NavigationControllerFactory.new(viewControllers: [try self.players().provideSourceController()]),
+                NavigationControllerFactory.new(viewControllers: [try self.teams().provideSourceController()]),
+                NavigationControllerFactory.new(viewControllers: [try self.events().provideSourceController()]),
+                NavigationControllerFactory.new(viewControllers: [try self.news().provideSourceController()]),
+                NavigationControllerFactory.new(viewControllers: [try self.profile().provideSourceController()])
             ], animated: true)
             return tabbarVC
         }
@@ -53,7 +53,7 @@ open class Router: ReactiveCompatible {
     }
     
     public func teams() -> Route<TeamsViewController> {
-        return route()
+        return route().embed()
     }
     
     public func players() -> Route<PlayersViewController> {
@@ -63,5 +63,4 @@ open class Router: ReactiveCompatible {
     private func route<T: UIViewController>() -> Route<T> where T: ViewModelHolderProtocol {
         return Route<T>(router: router, viewFactory: viewFactory, viewModelFactory: viewModelFactory).fromFactory().buildViewModel()
     }
-    
 }

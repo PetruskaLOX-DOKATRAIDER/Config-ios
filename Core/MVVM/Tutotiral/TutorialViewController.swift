@@ -42,7 +42,10 @@ public final class TutorialViewController: UIViewController, NonReusableViewProt
         viewModel.currentPage.distinctUntilChanged().drive(onNext: { page in
             self.collectionView?.scrollToItem(at: IndexPath(row: page, section: 0), at: .left, animated: true)
         }).disposed(by: disposeBag)
-        collectionView?.rx.didEndDecelerating.asDriver(onErrorJustReturn: ()).drive(onNext: {
+        Driver.merge(
+            collectionView?.rx.didEndScrollingAnimation.asDriver() ?? .empty(),
+            collectionView?.rx.didEndScrollingAnimation.asDriver() ?? .empty()
+        ).drive(onNext: {
             viewModel.pageTrigger.onNext(self.collectionView?.centerPage ?? 0)
         }).disposed(by: rx.disposeBag)
     }

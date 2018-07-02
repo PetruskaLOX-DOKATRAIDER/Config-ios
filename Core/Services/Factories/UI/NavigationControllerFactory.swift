@@ -7,8 +7,9 @@
 //
 
 public class NavigationControllerFactory {
-    public static func new() -> UINavigationController {
+    public static func new(viewControllers: [UIViewController] = []) -> UINavigationController {
         let navigationController = UINavigationController()
+        navigationController.setViewControllers(viewControllers, animated: false)
         navigationController.navigationBar.tintColor = .red
         navigationController.navigationBar.titleColor(.ichigos)
         navigationController.navigationBar.shadowImage = UIImage()
