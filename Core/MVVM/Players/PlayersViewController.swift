@@ -11,6 +11,7 @@ import DTModelStorage
 
 public final class PlayersViewController: UIViewController, NonReusableViewProtocol, DTCollectionViewManageable {
     @IBOutlet public weak var collectionView: UICollectionView?
+    @IBOutlet private weak var profileButton: UIButton!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -21,22 +22,27 @@ public final class PlayersViewController: UIViewController, NonReusableViewProto
             image: Images.Sections.playersDeselected,
             selectedImage: Images.Sections.playersSelected
         )
-        setupRefreshControl()
-        setupManager()
+        setupManagerAndCollectionView()
     }
     
-    private func setupManager() {
+    private func setupManagerAndCollectionView() {
+        let numberOfColumns = 2
+        collectionView?.collectionViewLayout = PinterestLayout(numberOfColumns: numberOfColumns, collectionViewManager: manager)
+        collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         manager.startManaging(withDelegate: self)
         manager.register(PlayerPreviewCell.self)
-    }
-    
-    private func setupRefreshControl() {
-        let control = UIRefreshControl()
-        control.tintColor = .ichigos
-        collectionView?.refreshControl = control
+        manager.sizeForCell(withItem: PlayerPreviewCell.ModelType.self, { [collectionView] vm, _ in
+            let cellWidth = collectionView?.bounds.size.width ?? 0 / CGFloat(numberOfColumns)
+            let cellHeight = CGFloat(vm.imageHeight(withContainerWidth: Double(cellWidth))) + PlayerPreviewCell.nickNameContainerHeight
+            return CGSize(width: cellWidth, height: cellHeight)
+        })
     }
     
     public func onUpdate(with viewModel: PlayersViewModel, disposeBag: DisposeBag) {
-
+        connectVertical(viewModel.playersPaginator).disposed(by: disposeBag)
+        viewModel.playersPaginator.isWorking.drive(rx.activityIndicator).disposed(by: rx.disposeBag)
+        viewModel.messageViewModel.drive(rx.messageView).disposed(by: rx.disposeBag)
+        profileButton.rx.tap.bind(to: viewModel.profileTrigger).disposed(by: disposeBag)
+        viewModel.playersPaginator.refreshTrigger.onNext(())
     }
 }

@@ -24,8 +24,8 @@ abstract_target 'AT' do
         pod 'LoadableViews'
         pod 'SnapKit', '~> 4.0.0'
         pod 'NVActivityIndicatorView'
+        pod 'Kingfisher', '~> 4.0'
         
-
         #MVVM
         pod 'Dip', '~> 6.0'
         pod 'ReusableView'

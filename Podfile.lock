@@ -22,6 +22,7 @@ PODS:
   - DTTableViewManager (6.3.0):
     - DTModelStorage (~> 7.1.0)
   - Fabric (1.7.7)
+  - Kingfisher (4.8.0)
   - LoadableViews (3.0.0)
   - Nimble (7.1.2)
   - NVActivityIndicatorView (4.2.1):
@@ -69,6 +70,7 @@ DEPENDENCIES:
   - DTCollectionViewManager
   - DTTableViewManager
   - Fabric
+  - Kingfisher (~> 4.0)
   - LoadableViews
   - Nimble
   - NVActivityIndicatorView
@@ -100,6 +102,7 @@ SPEC REPOS:
     - DTModelStorage
     - DTTableViewManager
     - Fabric
+    - Kingfisher
     - LoadableViews
     - Nimble
     - NVActivityIndicatorView
@@ -130,6 +133,7 @@ SPEC CHECKSUMS:
   DTModelStorage: aaaf3eac97693c25fef63ea741aa9c75274a778b
   DTTableViewManager: ee2e2cfefb08e9723172b623b0bb85e2ea9bdab1
   Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
+  Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   LoadableViews: 47b2ddbb7ad1bb88581ceea2f6c6b80e6e16350a
   Nimble: 3835ba9f459daa6b347f8a8e110aaae8ca1920a8
   NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
@@ -149,6 +153,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TRON: eb0f572d97dd51ec309a27bc785ec82148500512
 
-PODFILE CHECKSUM: f11473b29c355161cd9f0169125f09465793efee
+PODFILE CHECKSUM: dbd8ce24e35e39d190ce990f23cea62139bc56d1
 
 COCOAPODS: 1.5.3

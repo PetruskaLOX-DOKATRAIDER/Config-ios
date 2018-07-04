@@ -35,7 +35,7 @@ open class Router: ReactiveCompatible {
                 NavigationControllerFactory.new(viewControllers: [try self.events().provideSourceController()]),
                 NavigationControllerFactory.new(viewControllers: [try self.news().provideSourceController()]),
                 NavigationControllerFactory.new(viewControllers: [try self.profile().provideSourceController()])
-            ], animated: true)
+            ], animated: false)
             return tabbarVC
         }
     }
@@ -53,7 +53,7 @@ open class Router: ReactiveCompatible {
     }
     
     public func teams() -> Route<TeamsViewController> {
-        return route().embed()
+        return route()
     }
     
     public func players() -> Route<PlayersViewController> {

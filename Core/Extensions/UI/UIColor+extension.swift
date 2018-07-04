@@ -60,4 +60,5 @@ public extension UIColor {
     static var navos: UIColor { return UIColor(hexString: "#181818") }
     static var bagdet: UIColor { return UIColor(hexString: "#0D0D0D") }
     static var tapped: UIColor { return UIColor(hexString: "#181818") }
+    static var snowWhite: UIColor { return .white }
 }

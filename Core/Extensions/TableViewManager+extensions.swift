@@ -76,6 +76,7 @@ public extension Reactive where Base: UIScrollView {
     var refreshControl: UIRefreshControl {
         if let current = base.refreshControl { return current }
         let new = UIRefreshControl()
+        new.tintColor = .ichigos
         base.refreshControl = new
         return new
     }

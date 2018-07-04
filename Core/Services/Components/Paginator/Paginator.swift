@@ -7,10 +7,18 @@
 //
 
 import Action
-import TRON
-import SwiftyJSON
 
-open class Paginator<ModelType> : BasePaginator<ModelType, Page<ModelType>> {
+
+public protocol PaginatorType: WorkerType where PageType.ContentType == ModelType {
+    associatedtype ModelType
+    associatedtype PageType: PaginatedResponseProtocol
+    
+    var elements: BehaviorRelay<[ModelType]> { get }
+    
+    var action: Action<Int, PageType> { get }
+}
+
+public class Paginator<ModelType> : BasePaginator<ModelType, Page<ModelType>> {
     public override init(factory: @escaping Func<Int, Observable<Page<ModelType>>>,
                          accomulationStrategy: @escaping ([ModelType], Page<ModelType>) -> [ModelType] = PaginationViewModelStrategies.Accomulations.additive,
                          compareStrategy: @escaping ([ModelType], [ModelType]) -> Bool = PaginationViewModelStrategies.Comparations.alwaysFails) {
@@ -18,18 +26,17 @@ open class Paginator<ModelType> : BasePaginator<ModelType, Page<ModelType>> {
     }
 }
 
-open class BasePaginator<ModelType, PageType: PaginatedResponseProtocol>: WorkerType where PageType.ContentType == ModelType {
+public class BasePaginator<ModelType, PageType: PaginatedResponseProtocol>: WorkerType where PageType.ContentType == ModelType {
     public let refreshTrigger = PublishRelay<Void>()
     public let loadNextPageTrigger = PublishRelay<Void>()
     
-    public let elements = Variable<[ModelType]>([])
+    public let elements = BehaviorRelay<[ModelType]>(value: [])
     public let error: Driver<Error>
     
-    public var isLoadedOnce: Driver<Bool> {
-        return elements.asDriver().skip(1).map{ _ in true }.startWith(false)
-    }
-    public let isEnabled = Variable(true)
+    public var isLoadedOnce: Driver<Bool>
+    public let isEnabled = BehaviorRelay(value: true)
     public let isWorking: Driver<Bool>
+    public let noContent: Driver<Bool>
     
     public var accumulationStrategy: (_ current: [ModelType], _ page: PageType) -> [ModelType]
     
@@ -56,6 +63,10 @@ open class BasePaginator<ModelType, PageType: PaginatedResponseProtocol>: Worker
                     return Driver.empty()
                 }
         }
+        
+        isLoadedOnce = elements.asDriver().skip(1).map{ _ in true }.startWith(false)
+        
+        noContent = Driver.combineLatest(isLoadedOnce, elements.asDriver().map { $0.isEmpty }) { $0 && $1 }
         
         loadNextPageTrigger.asObservable()
             .withLatestFrom(action.elements.map{ page -> (page:Int, total: Int) in (page: page.index, total: page.totalPages) })

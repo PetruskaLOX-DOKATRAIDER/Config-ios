@@ -14,7 +14,6 @@
 		3ED465B22034971A0015DAF6 /* AutoPublicInit.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED465B02034971A0015DAF6 /* AutoPublicInit.generated.swift */; };
 		4A2E3316FDB3139D92EA9A37 /* Pods_Config.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D89218CA741C6C3C39F355 /* Pods_Config.framework */; };
 		72F42439D27E5BEFFFEBF861 /* Pods_AT_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7B02FCEEE6B75C6E9FA289 /* Pods_AT_Core.framework */; };
-		7C16FCD220DE7F3D000E7079 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C16FCD120DE7F3D000E7079 /* AppEnvironment.swift */; };
 		7C1DEC8520DA6FB8007BE96E /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1DEC8420DA6FB8007BE96E /* Random.swift */; };
 		7C1DEC8920DA98B8007BE96E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1DEC8820DA98B8007BE96E /* GradientButton.swift */; };
 		7C2BF74220D91BD30026DAB4 /* TutoriaItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BF74120D91BD30026DAB4 /* TutoriaItemCell.swift */; };
@@ -30,7 +29,7 @@
 		7C5F308320E10DFB0050E9AE /* AppSectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F308220E10DFB0050E9AE /* AppSectionsViewModel.swift */; };
 		7C5F308520E10E0D0050E9AE /* AppSectionsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F308420E10E0D0050E9AE /* AppSectionsTabBarController.swift */; };
 		7C9BF76820D3E3290016D224 /* Error+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF76720D3E3290016D224 /* Error+extensions.swift */; };
-		7C9BF76A20D3E5E40016D224 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF76920D3E5E40016D224 /* Navigator.swift */; };
+		7CAB0FE620ECE68400F796F1 /* UIImage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB0FE520ECE68400F796F1 /* UIImage+extensions.swift */; };
 		7CDAF94520D7A67E009B9B87 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */; };
 		7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94620D7A776009B9B87 /* Runes.swift */; };
 		7CDAF95920D7C0A3009B9B87 /* TutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF95520D7C0A3009B9B87 /* TutorialViewController.storyboard */; };
@@ -68,6 +67,8 @@
 		7CDF6D1420DBC42A0096D913 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1320DBC42A0096D913 /* MessageView.swift */; };
 		7CDF6D1620DBC4320096D913 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1520DBC4320096D913 /* MessageView.xib */; };
 		7CDF6D1B20DBD6C90096D913 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1A20DBD6C90096D913 /* Player.swift */; };
+		7CE76E4420EA5848009422EF /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C16FCD120DE7F3D000E7079 /* AppEnvironment.swift */; };
+		7CE76E4620EA5CED009422EF /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE76E4520EA5CED009422EF /* PinterestLayout.swift */; };
 		7CFA24D520D92F930059378F /* UICollectionView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24D420D92F930059378F /* UICollectionView+extension.swift */; };
 		7CFA24E020D932C80059378F /* NewsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFA24DC20D932C80059378F /* NewsViewController.storyboard */; };
 		7CFA24E120D932C80059378F /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24DD20D932C80059378F /* NewsViewController.swift */; };
@@ -228,7 +229,7 @@
 		7C5F308220E10DFB0050E9AE /* AppSectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionsViewModel.swift; sourceTree = "<group>"; };
 		7C5F308420E10E0D0050E9AE /* AppSectionsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionsTabBarController.swift; sourceTree = "<group>"; };
 		7C9BF76720D3E3290016D224 /* Error+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+extensions.swift"; sourceTree = "<group>"; };
-		7C9BF76920D3E5E40016D224 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		7CAB0FE520ECE68400F796F1 /* UIImage+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extensions.swift"; sourceTree = "<group>"; };
 		7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
 		7CDAF94620D7A776009B9B87 /* Runes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runes.swift; sourceTree = "<group>"; };
 		7CDAF95420D7C0A3009B9B87 /* TutorialViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModelTests.swift; sourceTree = "<group>"; };
@@ -261,6 +262,7 @@
 		7CDF6D1320DBC42A0096D913 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		7CDF6D1520DBC4320096D913 /* MessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
 		7CDF6D1A20DBD6C90096D913 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		7CE76E4520EA5CED009422EF /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		7CFA24D420D92F930059378F /* UICollectionView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+extension.swift"; sourceTree = "<group>"; };
 		7CFA24DB20D932C80059378F /* NewsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModelTests.swift; sourceTree = "<group>"; };
 		7CFA24DC20D932C80059378F /* NewsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsViewController.storyboard; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 		7C1DEC8720DA98A7007BE96E /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				7CE76E4520EA5CED009422EF /* PinterestLayout.swift */,
 				7C1DEC8820DA98B8007BE96E /* GradientButton.swift */,
 			);
 			path = CommonViews;
@@ -676,7 +679,6 @@
 			children = (
 				7C5F306E20E0E1F60050E9AE /* Router */,
 				7CDAF95F20D7ED42009B9B87 /* Storages */,
-				7C9BF76920D3E5E40016D224 /* Navigator.swift */,
 				C02C4618202C8A4F008AE9B0 /* API */,
 				C02C4611202C89FB008AE9B0 /* Components */,
 				C02C45E4202C87DA008AE9B0 /* Factories */,
@@ -806,6 +808,7 @@
 				7CDAF96920D7FBB2009B9B87 /* UIFont+extensions.swift */,
 				7CFA24D420D92F930059378F /* UICollectionView+extension.swift */,
 				7CDF6D0E20DBBC260096D913 /* UIVIewController+extensions.swift */,
+				7CAB0FE520ECE68400F796F1 /* UIImage+extensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1292,6 +1295,7 @@
 				"${BUILT_PRODUCTS_DIR}/DTModelStorage/DTModelStorage.framework",
 				"${BUILT_PRODUCTS_DIR}/DTTableViewManager/DTTableViewManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Dip/Dip.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LoadableViews/LoadableViews.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -1318,6 +1322,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTModelStorage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTTableViewManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoadableViews.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -1395,6 +1400,7 @@
 				"${BUILT_PRODUCTS_DIR}/DTModelStorage/DTModelStorage.framework",
 				"${BUILT_PRODUCTS_DIR}/DTTableViewManager/DTTableViewManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Dip/Dip.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LoadableViews/LoadableViews.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -1417,6 +1423,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTModelStorage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTTableViewManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoadableViews.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -1443,7 +1450,6 @@
 			files = (
 				C0F8679F202C4B3900D15CDA /* AppDelegate.swift in Sources */,
 				7C5F307B20E0E3440050E9AE /* DIConfiguration.swift in Sources */,
-				7C16FCD220DE7F3D000E7079 /* AppEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1476,6 +1482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CDF6D0B20DBAAFF0096D913 /* TabBarControllerFactory.swift in Sources */,
+				7CAB0FE620ECE68400F796F1 /* UIImage+extensions.swift in Sources */,
 				C02C461A202C8A65008AE9B0 /* API.swift in Sources */,
 				7CDAF94520D7A67E009B9B87 /* AutoMockable.swift in Sources */,
 				C02C464A202D8E68008AE9B0 /* Page.swift in Sources */,
@@ -1483,6 +1490,7 @@
 				7CFA24F220D932DC0059378F /* EventsViewModel.swift in Sources */,
 				7CFA24D520D92F930059378F /* UICollectionView+extension.swift in Sources */,
 				C02C4623202C8C03008AE9B0 /* PublishRelay+extensions.swift in Sources */,
+				7CE76E4420EA5848009422EF /* AppEnvironment.swift in Sources */,
 				C02C465F202D94B9008AE9B0 /* RxKeyboard+extension.swift in Sources */,
 				7C5F307420E0E1F60050E9AE /* Route.swift in Sources */,
 				C0F8681D202C6A0600D15CDA /* AutoPublicInitMarker.swift in Sources */,
@@ -1508,6 +1516,7 @@
 				C02C4631202CA6D9008AE9B0 /* Rx+extensions.swift in Sources */,
 				7CDF6D0F20DBBC260096D913 /* UIVIewController+extensions.swift in Sources */,
 				7CDAF96620D7FB4C009B9B87 /* NavigationControllerFactory.swift in Sources */,
+				7CE76E4620EA5CED009422EF /* PinterestLayout.swift in Sources */,
 				C02C45B1202C7737008AE9B0 /* StaticEnvironment.swift in Sources */,
 				7CDAF97D20D7FFA4009B9B87 /* Strings.generated.swift in Sources */,
 				7CFA24FA20D932E70059378F /* TeamsViewModel.swift in Sources */,
@@ -1532,7 +1541,6 @@
 				7CDAF96320D7EEB9009B9B87 /* Storage.swift in Sources */,
 				C02C465C202D9423008AE9B0 /* UIControl+extension.swift in Sources */,
 				C02C464F202D8F4B008AE9B0 /* ActivityTracker.swift in Sources */,
-				7C9BF76A20D3E5E40016D224 /* Navigator.swift in Sources */,
 				C02C461C202C8AD7008AE9B0 /* DictionaryError.swift in Sources */,
 				7C5F307720E0E2420050E9AE /* ViewFactory.swift in Sources */,
 				3ED465A2203478CD0015DAF6 /* Images.generated.swift in Sources */,

@@ -20,13 +20,13 @@ public extension Reactive where Base: ReusableViewProtocol {
 // MARK: UIViewController
 
 public extension Reactive where Base: UIViewController {
-    public var showActivityIndicator: Binder<Bool> {
+    public var activityIndicator: Binder<Bool> {
         return Binder(base) { vc, show in
             show ? vc.showActivityIndicatorView() : vc.hideActivityIndicatorView()
         }
     }
     
-    public var showMessageView: Binder<MessageViewModel> {
+    public var messageView: Binder<MessageViewModel> {
         return Binder(base) { vc, vm in
             vc.showMessageView(withViewModel: vm)
         }
@@ -35,6 +35,16 @@ public extension Reactive where Base: UIViewController {
     public var close: Binder<Bool> {
         return Binder(base) { view, _ in
             view.close()
+        }
+    }
+}
+
+// MARK: UIImageView
+
+public extension Reactive where Base: UIImageView {
+    public var imageURL: Binder<URL?> {
+        return Binder(base) { imageView, url in
+            imageView.setImage(withURL: url)
         }
     }
 }

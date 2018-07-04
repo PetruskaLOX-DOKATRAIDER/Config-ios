@@ -8,17 +8,20 @@
 
 import DTModelStorage
 
-class PlayerPreviewCell: UICollectionViewCell, ReusableViewProtocol, ModelTransfer {
+public class PlayerPreviewCell: UICollectionViewCell, ReusableViewProtocol, ModelTransfer {
+    public static let nickNameContainerHeight: CGFloat = 40
     @IBOutlet private weak var nicknameLabel: UILabel!
-    @IBOutlet private weak var profileImageView: UILabel!
+    @IBOutlet private weak var profileImageView: UIImageView!
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         nicknameLabel.font = .filsonMediumWithSize(17)
-        nicknameLabel.textColor = .amethyst
+        nicknameLabel.textColor = .snowWhite
+        contentView.backgroundColor = .ichigos
     }
     
     public func onUpdate(with viewModel: PlayerPreviewViewModel, disposeBag: DisposeBag) {
         viewModel.nickname.drive(nicknameLabel.rx.text).disposed(by: disposeBag)
+        viewModel.profileImageURL.drive(profileImageView.rx.imageURL).disposed(by: disposeBag)
     }
 }
