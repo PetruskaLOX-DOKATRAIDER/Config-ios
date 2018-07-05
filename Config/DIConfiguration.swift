@@ -8,10 +8,12 @@
 
 import Core
 import Dip
+import CoreDataStorage
 
 extension DependencyContainer {
     func registerStorages() -> DependencyContainer {
-        register(.singleton) { AppEnvironmentImpl() }.implements(AppEnvironment.self, AppEnvironment.self)
+        register(.singleton){ AppEnvironmentImpl() }.implements(AppEnvironment.self, AppEnvironment.self)
+        register(.singleton){ PlayersStorageImpl() as PlayersStorage }
         return self
     }
 }

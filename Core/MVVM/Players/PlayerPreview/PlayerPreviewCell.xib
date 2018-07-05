@@ -51,8 +51,8 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="avatarImageView" destination="Gto-ZT-Q0R" id="HKD-b4-Amn"/>
                 <outlet property="nicknameLabel" destination="efU-fK-1M7" id="Gct-8J-qre"/>
-                <outlet property="profileImageView" destination="Gto-ZT-Q0R" id="p0I-2q-h7S"/>
             </connections>
             <point key="canvasLocation" x="63" y="67"/>
         </collectionViewCell>

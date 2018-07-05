@@ -43,9 +43,11 @@ public class BasePaginator<ModelType, PageType: PaginatedResponseProtocol>: Work
     private let action: Action<Int, PageType>
     private let disposeBag = DisposeBag()
     
-    public init(factory: @escaping Func<Int, Observable<PageType>>,
-                accomulationStrategy: @escaping ([ModelType], PageType) -> [ModelType] = PaginationViewModelStrategies.Accomulations.additive,
-                compareStrategy: @escaping ([ModelType], [ModelType]) -> Bool = PaginationViewModelStrategies.Comparations.alwaysFails)  {
+    public init(
+        factory: @escaping Func<Int, Observable<PageType>>,
+        accomulationStrategy: @escaping ([ModelType], PageType) -> [ModelType] = PaginationViewModelStrategies.Accomulations.additive,
+        compareStrategy: @escaping ([ModelType], [ModelType]) -> Bool = PaginationViewModelStrategies.Comparations.alwaysFails
+    ){
         self.accumulationStrategy = accomulationStrategy
         action = Action(enabledIf: isEnabled.asObservable(), workFactory: factory)
         
@@ -54,14 +56,13 @@ public class BasePaginator<ModelType, PageType: PaginatedResponseProtocol>: Work
             .scan([], accumulator: accumulationStrategy).distinctUntilChanged(compareStrategy)
             .drive(elements).disposed(by: disposeBag)
         
-        error = action.errors.asDriver(onErrorDriveWith: .empty())
-            .flatMap { error -> Driver<Error> in
-                switch error {
-                case .underlyingError(let error):
-                    return Driver.of(error)
-                case .notEnabled:
-                    return Driver.empty()
-                }
+        error = action.errors.asDriver(onErrorDriveWith: .empty()).flatMap { error -> Driver<Error> in
+            switch error {
+            case .underlyingError(let error):
+                return Driver.of(error)
+            case .notEnabled:
+                return Driver.empty()
+            }
         }
         
         isLoadedOnce = elements.asDriver().skip(1).map{ _ in true }.startWith(false)

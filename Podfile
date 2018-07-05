@@ -57,6 +57,11 @@ abstract_target 'AT' do
             pod 'Fabric'
             pod 'Crashlytics'
         end
+        
+        target 'CoreDataStorage' do
+            inherit! :search_paths
+
+        end
     end
 end
 

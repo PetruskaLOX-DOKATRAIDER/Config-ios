@@ -17,7 +17,7 @@ public final class UserStorageImpl: UserStorage, ReactiveCompatible {
     
     public let isOnboardingPassed: BehaviorRelay<Bool>
     
-    public init(storage: Storage = StorageFactory.default()) {
+    public init(storage: Storage = UserDefaults.standard) {
         isOnboardingPassed = BehaviorRelay(value: storage.bool(forKey: Keys.isOnboardingPassed.rawValue))
         isOnboardingPassed.asDriver().drive(onNext: { passed in
             storage.set(passed, forKey: Keys.isOnboardingPassed.rawValue)

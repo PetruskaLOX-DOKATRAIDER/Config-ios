@@ -32,7 +32,7 @@ public extension DependencyContainer {
     private func registerViewModels() {
         register(.unique){ try TutorialViewModelImpl(userStorage: self.resolve()) as TutorialViewModel }
         register(.unique){ try AppViewModelImpl(userStorage: self.resolve()) as AppViewModel }
-        register(.unique){ try PlayersViewModelImpl(playersService: self.resolve()) as PlayersViewModel }
+        register(.unique){ try PlayersViewModelImpl(playersService: self.resolve(), playersStorage: self.resolve()) as PlayersViewModel }
         register(.unique){ TeamsViewModelImpl() as TeamsViewModel }
         register(.unique){ EventsViewModelImpl() as EventsViewModel }
         register(.unique){ NewsViewModelImpl() as NewsViewModel }

@@ -8,18 +8,18 @@
 
 public protocol PlayerPreviewViewModel {
     var nickname: Driver<String> { get }
-    var profileImageURL: Driver<URL?> { get }
+    var avatarURL: Driver<URL?> { get }
     func imageHeight(withContainerWidth containerWidth: Double) -> Double
 }
 
 public final class PlayerPreviewViewModelImpl: PlayerPreviewViewModel {
     public let nickname: Driver<String>
-    public let profileImageURL: Driver<URL?>
+    public let avatarURL: Driver<URL?>
     private let profileImageSize: ImageSize
     
     public init(player: PlayerPreview) {
         nickname = .just(player.nickname)
-        profileImageURL = .just(player.profileImageURL)
+        avatarURL = .just(player.avatarURL)
         profileImageSize = player.profileImageSize
     }
     

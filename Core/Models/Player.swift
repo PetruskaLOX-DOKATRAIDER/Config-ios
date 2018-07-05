@@ -10,30 +10,24 @@ import SwiftyJSON
 import TRON
 
 public struct ImageSize {
-    let height: Double
-    let weight: Double
+    public let height: Double
+    public let weight: Double
 }
-
-extension ImageSize: AutoInit {}
-
 
 public struct PlayerPreview {
-    let nickname: String
-    let profileImageSize: ImageSize
-    let profileImageURL: URL?
-    let id: Int
+    public let nickname: String
+    public let profileImageSize: ImageSize
+    public let avatarURL: URL?
+    public let id: Int
 }
-
-extension PlayerPreview: AutoInit {}
 
 extension PlayerPreview: JSONDecodable {
     public init(json: JSON) throws {
         let imageSizeArray = json["imageResolution"].stringValue.components(separatedBy: "x")
         nickname = json["nickName"].stringValue
         profileImageSize = ImageSize(height: Double(imageSizeArray.first ?? "") ?? 0, weight: Double(imageSizeArray.last ?? "") ?? 0)
-        profileImageURL = json["image"].url
+        avatarURL = json["image"].url
         id = json["id"].intValue
-        print("nickname: \(nickname)")
     }
 }
 
@@ -60,8 +54,6 @@ struct PlayerDescription {
     let pollingRate: String
     let downloadURL: URL?
 }
-
-extension PlayerDescription: AutoInit {}
 
 extension PlayerDescription: JSONDecodable {
     public init(json: JSON) throws {
