@@ -10,11 +10,14 @@ import Core
 import Dip
 import Fabric
 import Crashlytics
+import CoreDataStorage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    private lazy var container: DependencyContainer = { return DependencyContainer().registerStorages().registerAll() }()
+    private lazy var container: DependencyContainer = {
+        return DependencyContainer().registerStorages().registerAll()
+    }()
     private lazy var router: Router = {
         //swiftlint:disable:next force_try
         return try! self.container.resolve()

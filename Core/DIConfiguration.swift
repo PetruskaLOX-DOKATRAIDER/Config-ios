@@ -25,6 +25,8 @@ public extension DependencyContainer {
     }
     
     private func registerServices() {
+        register(.unique){ try PlayersServiceImpl(reachabilityService: self.resolve(), playersAPIService: self.resolve(), playersStorage: self.resolve()) as PlayersService }
+        register(.unique){ ReachabilityServiceImpl() as ReachabilityService }
         register(.singleton) { AppEnvironmentImpl() }.implements(AppEnvironment.self, AppEnvironment.self)
         register(.unique){ try API.PlayersAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as PlayersAPIService }
     }
@@ -32,7 +34,7 @@ public extension DependencyContainer {
     private func registerViewModels() {
         register(.unique){ try TutorialViewModelImpl(userStorage: self.resolve()) as TutorialViewModel }
         register(.unique){ try AppViewModelImpl(userStorage: self.resolve()) as AppViewModel }
-        register(.unique){ try PlayersViewModelImpl(playersService: self.resolve(), playersStorage: self.resolve()) as PlayersViewModel }
+        register(.unique){ try PlayersViewModelImpl(playersService: self.resolve()) as PlayersViewModel }
         register(.unique){ TeamsViewModelImpl() as TeamsViewModel }
         register(.unique){ EventsViewModelImpl() as EventsViewModel }
         register(.unique){ NewsViewModelImpl() as NewsViewModel }

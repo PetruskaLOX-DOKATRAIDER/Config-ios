@@ -10,6 +10,7 @@ abstract_target 'AT' do
         pod 'RxOptional'
         pod 'Action'
         pod 'RxKeyboard'
+        pod 'ReachabilitySwift'
 
         #CodeGeneration
         pod 'Sourcery'

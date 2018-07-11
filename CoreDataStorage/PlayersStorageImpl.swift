@@ -9,22 +9,39 @@
 import Core
 import CoreData
 
+enum PlayersStorageError: Error {
+    case unknown
+}
+
 public class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
-    public let playersPreview: BehaviorRelay<[PlayerPreview]> = BehaviorRelay(value: [])
+    private let coreDataStack: CoreDataStack
+
+    public func update(withNewPlayers newPlayers: [PlayerPreview]) throws {
+        let request: NSFetchRequest = CDPlayerPreview.fetchRequest()
+        guard let oldPlayers = try? coreDataStack.privateContext.fetch(request) else { throw PlayersStorageError.unknown }
+        newPlayers.forEach { player in
+            let toDelete = oldPlayers.filter{ $0.id == player.id }.first
+            toDelete >>- coreDataStack.privateContext.delete
+        }
+        _ = newPlayers.map{ CDPlayerPreview.new(conext: coreDataStack.privateContext, player: $0) }
+        do {
+            try coreDataStack.privateContext.save()
+            try coreDataStack.managedContext.save()
+        } catch {
+            throw PlayersStorageError.unknown
+        }
+    }
+    
+    public func fetchPlayersPreview() throws -> [PlayerPreview] {
+        let request: NSFetchRequest = CDPlayerPreview.fetchRequest()
+        guard let data = try? coreDataStack.privateContext.fetch(request) else { throw PlayersStorageError.unknown }
+        return data.map{ PlayerPreview.new(player: $0) }
+    }
     
     public init(coreDataStack: CoreDataStack = CoreDataStack()) {
-        coreDataStack.privateContext.perform {
-            let request: NSFetchRequest = CDPlayerPreview.fetchRequest()
-            let players = try? coreDataStack.privateContext.fetch(request).map{ PlayerPreview.new(player: $0) }
-            players >>- self.playersPreview.accept
-        }
-        
-        playersPreview.asDriver().drive(onNext: { players in
-            coreDataStack.privateContext.perform {
-                _ = players.map{ CDPlayerPreview.new(conext: coreDataStack.privateContext, player: $0) }
-                try? coreDataStack.privateContext.save()
-            }
-        }).disposed(by: rx.disposeBag)
+        self.coreDataStack = coreDataStack
     }
+    
+    
 }
 

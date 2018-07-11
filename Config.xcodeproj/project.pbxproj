@@ -28,8 +28,11 @@
 		7C5F307D20E0E44B0050E9AE /* DIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F307C20E0E44B0050E9AE /* DIConfiguration.swift */; };
 		7C5F308320E10DFB0050E9AE /* AppSectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F308220E10DFB0050E9AE /* AppSectionsViewModel.swift */; };
 		7C5F308520E10E0D0050E9AE /* AppSectionsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F308420E10E0D0050E9AE /* AppSectionsTabBarController.swift */; };
+		7C6DC0B120EF8A070059A01F /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
 		7C9BF76820D3E3290016D224 /* Error+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF76720D3E3290016D224 /* Error+extensions.swift */; };
 		7CAB0FE620ECE68400F796F1 /* UIImage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB0FE520ECE68400F796F1 /* UIImage+extensions.swift */; };
+		7CAB611120F5F8AD003F4276 /* PlayersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB611020F5F8AD003F4276 /* PlayersService.swift */; };
+		7CAB611420F5FB62003F4276 /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB611320F5FB62003F4276 /* ReachabilityService.swift */; };
 		7CDAF94520D7A67E009B9B87 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */; };
 		7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94620D7A776009B9B87 /* Runes.swift */; };
 		7CDAF95920D7C0A3009B9B87 /* TutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF95520D7C0A3009B9B87 /* TutorialViewController.storyboard */; };
@@ -253,6 +256,8 @@
 		7C5F308420E10E0D0050E9AE /* AppSectionsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionsTabBarController.swift; sourceTree = "<group>"; };
 		7C9BF76720D3E3290016D224 /* Error+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+extensions.swift"; sourceTree = "<group>"; };
 		7CAB0FE520ECE68400F796F1 /* UIImage+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extensions.swift"; sourceTree = "<group>"; };
+		7CAB611020F5F8AD003F4276 /* PlayersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersService.swift; sourceTree = "<group>"; };
+		7CAB611320F5FB62003F4276 /* ReachabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityService.swift; sourceTree = "<group>"; };
 		7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
 		7CDAF94620D7A776009B9B87 /* Runes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runes.swift; sourceTree = "<group>"; };
 		7CDAF95420D7C0A3009B9B87 /* TutorialViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModelTests.swift; sourceTree = "<group>"; };
@@ -565,6 +570,22 @@
 			path = AppSections;
 			sourceTree = "<group>";
 		};
+		7CAB610F20F5F89E003F4276 /* Facades */ = {
+			isa = PBXGroup;
+			children = (
+				7CAB611020F5F8AD003F4276 /* PlayersService.swift */,
+			);
+			path = Facades;
+			sourceTree = "<group>";
+		};
+		7CAB611220F5FB53003F4276 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7CAB611320F5FB62003F4276 /* ReachabilityService.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		7CDAF95320D7C08D009B9B87 /* Tutotiral */ = {
 			isa = PBXGroup;
 			children = (
@@ -749,10 +770,12 @@
 		C02C45B9202C84E6008AE9B0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7CAB610F20F5F89E003F4276 /* Facades */,
 				7C5F306E20E0E1F60050E9AE /* Router */,
 				7CDAF95F20D7ED42009B9B87 /* Storages */,
 				C02C4618202C8A4F008AE9B0 /* API */,
 				C02C4611202C89FB008AE9B0 /* Components */,
+				7CAB611220F5FB53003F4276 /* Common */,
 				C02C45E4202C87DA008AE9B0 /* Factories */,
 			);
 			path = Services;
@@ -1430,6 +1453,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LoadableViews/LoadableViews.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableView/ReusableView.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -1457,6 +1481,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoadableViews.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -1535,6 +1560,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LoadableViews/LoadableViews.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableView/ReusableView.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -1558,6 +1584,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoadableViews.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -1595,6 +1622,7 @@
 			files = (
 				C0F8679F202C4B3900D15CDA /* AppDelegate.swift in Sources */,
 				7C5F307B20E0E3440050E9AE /* DIConfiguration.swift in Sources */,
+				7C6DC0B120EF8A070059A01F /* CoreDataStorage.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1637,6 +1665,7 @@
 				7CE76E4420EA5848009422EF /* AppEnvironment.swift in Sources */,
 				C02C465F202D94B9008AE9B0 /* RxKeyboard+extension.swift in Sources */,
 				7C5F307420E0E1F60050E9AE /* Route.swift in Sources */,
+				7CAB611120F5F8AD003F4276 /* PlayersService.swift in Sources */,
 				C0F8681D202C6A0600D15CDA /* AutoPublicInitMarker.swift in Sources */,
 				C02C4629202C8EEC008AE9B0 /* Rx+accessors.swift in Sources */,
 				C02C45F3202C87DA008AE9B0 /* ContextStorage.swift in Sources */,
@@ -1666,6 +1695,7 @@
 				7CDAF97D20D7FFA4009B9B87 /* Strings.generated.swift in Sources */,
 				7CFA24FA20D932E70059378F /* TeamsViewModel.swift in Sources */,
 				7CFA250120D932EF0059378F /* PlayersViewController.swift in Sources */,
+				7CAB611420F5FB62003F4276 /* ReachabilityService.swift in Sources */,
 				7C5F307D20E0E44B0050E9AE /* DIConfiguration.swift in Sources */,
 				7CDF6D0D20DBAE450096D913 /* TabBarItemFactory.swift in Sources */,
 				C02C4627202C8E3D008AE9B0 /* AlamofireBridge.swift in Sources */,

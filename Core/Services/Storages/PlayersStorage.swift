@@ -7,5 +7,7 @@
 //
 
 public protocol PlayersStorage: AutoMockable {
-    var playersPreview: BehaviorRelay<[PlayerPreview]> { get }
+    func update(withNewPlayers newPlayers: [PlayerPreview]) throws
+    func fetchPlayersPreview() throws -> [PlayerPreview]
+
 }

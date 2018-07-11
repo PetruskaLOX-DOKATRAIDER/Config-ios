@@ -19,7 +19,7 @@ public final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
     public let profileTrigger = BehaviorRelay(value: ())
     public let shouldRouteProfile: Driver<Void>
     
-    public init(playersService: PlayersAPIService, playersStorage: PlayersStorage) {
+    public init(playersService: PlayersService) {
         func remapToViewModels(page: Page<PlayerPreview>) -> Page<PlayerPreviewViewModel> {
             return Page.new(content: page.content.map{ player in
                 return PlayerPreviewViewModelImpl(player: player)
@@ -31,9 +31,5 @@ public final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
         playersPaginator = Paginator(factory: { playersService.getPlayers(forPage: $0).success().map(remapToViewModels).asObservable() })
         shouldRouteProfile = profileTrigger.asDriver()
         playersPaginator.error.map{ MessageViewModelFactory.error(description: $0.localizedDescription) }.drive(message).disposed(by: rx.disposeBag)
-        
-//        playersStorage.playersPreview.asDriver().drive(onNext: { players in
-//            print("players: \(players)")
-//        }).disposed(by: rx.disposeBag)
     }
 }
