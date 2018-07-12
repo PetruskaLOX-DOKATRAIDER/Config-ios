@@ -16,17 +16,3 @@ public enum Formatters {
         return formatter
     }
 }
-
-
-private final class BundleAnchor {}
-extension Bundle {
-    public static var core: Bundle {
-        return Bundle(for: BundleAnchor.self)
-    }
-}
-
-extension Bundle {
-    public func image(named: String) -> UIImage? {
-        return UIImage(named: named, in: self, compatibleWith: nil)
-    }
-}

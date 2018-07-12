@@ -19,6 +19,10 @@
 		7C2BF74220D91BD30026DAB4 /* TutoriaItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BF74120D91BD30026DAB4 /* TutoriaItemCell.swift */; };
 		7C2BF74420D91BDD0026DAB4 /* TutoriaItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2BF74320D91BDD0026DAB4 /* TutoriaItemCell.xib */; };
 		7C2FDEF620DE38B100EDD11E /* CollectionViewManager+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2FDEF520DE38B100EDD11E /* CollectionViewManager+extensions.swift */; };
+		7C53C42D20F74B56001FC864 /* CDPlayerPreview+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53C42C20F74B56001FC864 /* CDPlayerPreview+CDObjectable.swift */; };
+		7C53C42F20F74B8F001FC864 /* CDImageSize+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53C42E20F74B8F001FC864 /* CDImageSize+CDObjectable.swift */; };
+		7C59436120F7518D009D8D7D /* Bundle+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59436020F7518D009D8D7D /* Bundle+extensions.swift */; };
+		7C59436420F7523F009D8D7D /* Bundle+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59436320F7523F009D8D7D /* Bundle+extensions.swift */; };
 		7C5F307320E0E1F60050E9AE /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F307020E0E1F60050E9AE /* Router.swift */; };
 		7C5F307420E0E1F60050E9AE /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F307120E0E1F60050E9AE /* Route.swift */; };
 		7C5F307520E0E2000050E9AE /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F306F20E0E1F60050E9AE /* RouterTests.swift */; };
@@ -33,6 +37,9 @@
 		7CAB0FE620ECE68400F796F1 /* UIImage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB0FE520ECE68400F796F1 /* UIImage+extensions.swift */; };
 		7CAB611120F5F8AD003F4276 /* PlayersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB611020F5F8AD003F4276 /* PlayersService.swift */; };
 		7CAB611420F5FB62003F4276 /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB611320F5FB62003F4276 /* ReachabilityService.swift */; };
+		7CAB612320F63B97003F4276 /* CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB612220F63B97003F4276 /* CDObjectable.swift */; };
+		7CAB612B20F644DF003F4276 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB612A20F644DF003F4276 /* CoreDataStorage.swift */; };
+		7CAB612D20F64636003F4276 /* Storage+Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB612C20F64636003F4276 /* Storage+Players.swift */; };
 		7CDAF94520D7A67E009B9B87 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */; };
 		7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94620D7A776009B9B87 /* Runes.swift */; };
 		7CDAF95920D7C0A3009B9B87 /* TutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF95520D7C0A3009B9B87 /* TutorialViewController.storyboard */; };
@@ -60,13 +67,11 @@
 		7CDAF98020D80180009B9B87 /* AutoStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF97F20D80180009B9B87 /* AutoStoryboard.swift */; };
 		7CDAF98220D8018C009B9B87 /* AutoStoryboard.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF98120D8018C009B9B87 /* AutoStoryboard.stencil */; };
 		7CDC409E20EE5D40006D55D0 /* ImagesTests.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED465A5203492090015DAF6 /* ImagesTests.generated.swift */; };
-		7CDC40A020EE61AF006D55D0 /* CDInitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDC409F20EE61AF006D55D0 /* CDInitExtensions.swift */; };
 		7CDCFDE220EE229B0046C818 /* CoreDataStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CDCFDE020EE229B0046C818 /* CoreDataStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CDCFDE520EE229B0046C818 /* CoreDataStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CDCFDDE20EE229B0046C818 /* CoreDataStorage.framework */; };
 		7CDCFDE620EE229B0046C818 /* CoreDataStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7CDCFDDE20EE229B0046C818 /* CoreDataStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7CDCFDED20EE23260046C818 /* CoreDataStorage.framework in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDDE20EE229B0046C818 /* CoreDataStorage.framework */; };
 		7CDCFDEE20EE233A0046C818 /* Core.framework in Sources */ = {isa = PBXBuildFile; fileRef = C0F867DF202C645400D15CDA /* Core.framework */; };
-		7CDCFDF020EE23750046C818 /* PlayersStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDEF20EE23750046C818 /* PlayersStorageImpl.swift */; };
 		7CDCFDF120EE24C10046C818 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F867DF202C645400D15CDA /* Core.framework */; };
 		7CDCFDF420EE27E60046C818 /* PlayersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF320EE27E60046C818 /* PlayersStorage.swift */; };
 		7CDCFDF620EE37230046C818 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF520EE37230046C818 /* CoreDataStack.swift */; };
@@ -245,6 +250,10 @@
 		7C2BF74120D91BD30026DAB4 /* TutoriaItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutoriaItemCell.swift; sourceTree = "<group>"; };
 		7C2BF74320D91BDD0026DAB4 /* TutoriaItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutoriaItemCell.xib; sourceTree = "<group>"; };
 		7C2FDEF520DE38B100EDD11E /* CollectionViewManager+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewManager+extensions.swift"; sourceTree = "<group>"; };
+		7C53C42C20F74B56001FC864 /* CDPlayerPreview+CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDPlayerPreview+CDObjectable.swift"; sourceTree = "<group>"; };
+		7C53C42E20F74B8F001FC864 /* CDImageSize+CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDImageSize+CDObjectable.swift"; sourceTree = "<group>"; };
+		7C59436020F7518D009D8D7D /* Bundle+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extensions.swift"; sourceTree = "<group>"; };
+		7C59436320F7523F009D8D7D /* Bundle+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extensions.swift"; sourceTree = "<group>"; };
 		7C5F306F20E0E1F60050E9AE /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		7C5F307020E0E1F60050E9AE /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7C5F307120E0E1F60050E9AE /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -258,6 +267,9 @@
 		7CAB0FE520ECE68400F796F1 /* UIImage+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extensions.swift"; sourceTree = "<group>"; };
 		7CAB611020F5F8AD003F4276 /* PlayersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersService.swift; sourceTree = "<group>"; };
 		7CAB611320F5FB62003F4276 /* ReachabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityService.swift; sourceTree = "<group>"; };
+		7CAB612220F63B97003F4276 /* CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDObjectable.swift; sourceTree = "<group>"; };
+		7CAB612A20F644DF003F4276 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		7CAB612C20F64636003F4276 /* Storage+Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Players.swift"; sourceTree = "<group>"; };
 		7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
 		7CDAF94620D7A776009B9B87 /* Runes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runes.swift; sourceTree = "<group>"; };
 		7CDAF95420D7C0A3009B9B87 /* TutorialViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModelTests.swift; sourceTree = "<group>"; };
@@ -279,11 +291,9 @@
 		7CDAF97C20D7FFA4009B9B87 /* Strings.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.generated.swift; sourceTree = "<group>"; };
 		7CDAF97F20D80180009B9B87 /* AutoStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoStoryboard.swift; sourceTree = "<group>"; };
 		7CDAF98120D8018C009B9B87 /* AutoStoryboard.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoStoryboard.stencil; sourceTree = "<group>"; };
-		7CDC409F20EE61AF006D55D0 /* CDInitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDInitExtensions.swift; sourceTree = "<group>"; };
 		7CDCFDDE20EE229B0046C818 /* CoreDataStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDataStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CDCFDE020EE229B0046C818 /* CoreDataStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataStorage.h; sourceTree = "<group>"; };
 		7CDCFDE120EE229B0046C818 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CDCFDEF20EE23750046C818 /* PlayersStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersStorageImpl.swift; sourceTree = "<group>"; };
 		7CDCFDF320EE27E60046C818 /* PlayersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersStorage.swift; sourceTree = "<group>"; };
 		7CDCFDF520EE37230046C818 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
@@ -551,6 +561,14 @@
 			path = TutorialItemViewModel;
 			sourceTree = "<group>";
 		};
+		7C59436220F75229009D8D7D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7C59436320F7523F009D8D7D /* Bundle+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7C5F306E20E0E1F60050E9AE /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +602,26 @@
 				7CAB611320F5FB62003F4276 /* ReachabilityService.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		7CAB611520F614CA003F4276 /* CDObjectable */ = {
+			isa = PBXGroup;
+			children = (
+				7CAB612220F63B97003F4276 /* CDObjectable.swift */,
+				7C53C42C20F74B56001FC864 /* CDPlayerPreview+CDObjectable.swift */,
+				7C53C42E20F74B8F001FC864 /* CDImageSize+CDObjectable.swift */,
+			);
+			path = CDObjectable;
+			sourceTree = "<group>";
+		};
+		7CAB612920F644C5003F4276 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */,
+				7CDCFDF520EE37230046C818 /* CoreDataStack.swift */,
+				7CAB612A20F644DF003F4276 /* CoreDataStorage.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		7CDAF95320D7C08D009B9B87 /* Tutotiral */ = {
@@ -632,10 +670,10 @@
 		7CDCFDDF20EE229B0046C818 /* CoreDataStorage */ = {
 			isa = PBXGroup;
 			children = (
-				7CDC409F20EE61AF006D55D0 /* CDInitExtensions.swift */,
-				7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */,
-				7CDCFDEF20EE23750046C818 /* PlayersStorageImpl.swift */,
-				7CDCFDF520EE37230046C818 /* CoreDataStack.swift */,
+				7CAB612C20F64636003F4276 /* Storage+Players.swift */,
+				7CAB612920F644C5003F4276 /* Core */,
+				7CAB611520F614CA003F4276 /* CDObjectable */,
+				7C59436220F75229009D8D7D /* Extensions */,
 				7CDCFDF220EE27350046C818 /* Resources */,
 			);
 			path = CoreDataStorage;
@@ -818,6 +856,7 @@
 				7C9BF76720D3E3290016D224 /* Error+extensions.swift */,
 				7CDAF94620D7A776009B9B87 /* Runes.swift */,
 				7C2FDEF520DE38B100EDD11E /* CollectionViewManager+extensions.swift */,
+				7C59436020F7518D009D8D7D /* Bundle+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1607,11 +1646,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CDC40A020EE61AF006D55D0 /* CDInitExtensions.swift in Sources */,
 				7CDCFDF820EE3B8A0046C818 /* CoreDataStorage.xcdatamodel in Sources */,
 				7CDCFDEE20EE233A0046C818 /* Core.framework in Sources */,
+				7CAB612D20F64636003F4276 /* Storage+Players.swift in Sources */,
+				7C53C42F20F74B8F001FC864 /* CDImageSize+CDObjectable.swift in Sources */,
+				7CAB612B20F644DF003F4276 /* CoreDataStorage.swift in Sources */,
+				7C59436420F7523F009D8D7D /* Bundle+extensions.swift in Sources */,
 				7CDCFDED20EE23260046C818 /* CoreDataStorage.framework in Sources */,
-				7CDCFDF020EE23750046C818 /* PlayersStorageImpl.swift in Sources */,
+				7CAB612320F63B97003F4276 /* CDObjectable.swift in Sources */,
+				7C53C42D20F74B56001FC864 /* CDPlayerPreview+CDObjectable.swift in Sources */,
 				7CDCFDF620EE37230046C818 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1656,6 +1699,7 @@
 				7CDF6D0B20DBAAFF0096D913 /* TabBarControllerFactory.swift in Sources */,
 				7CAB0FE620ECE68400F796F1 /* UIImage+extensions.swift in Sources */,
 				C02C461A202C8A65008AE9B0 /* API.swift in Sources */,
+				7C59436120F7518D009D8D7D /* Bundle+extensions.swift in Sources */,
 				7CDAF94520D7A67E009B9B87 /* AutoMockable.swift in Sources */,
 				C02C464A202D8E68008AE9B0 /* Page.swift in Sources */,
 				7CDAF96820D7FB72009B9B87 /* UINavigationBar+extensions.swift in Sources */,

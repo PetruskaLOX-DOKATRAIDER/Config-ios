@@ -9,5 +9,4 @@
 public protocol PlayersStorage: AutoMockable {
     func update(withNewPlayers newPlayers: [PlayerPreview]) throws
     func fetchPlayersPreview() throws -> [PlayerPreview]
-
 }
