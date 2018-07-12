@@ -9,12 +9,12 @@
 import TRON
 
 public protocol PlayersAPIService: AutoMockable {
-    func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, String>
+    func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError>
 }
 
 extension API {
     open class PlayersAPIServiceImpl: API, PlayersAPIService {
-        public func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, String> {
+        public func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError> {
             let request: Request<Page<PlayerPreview>, String> = tron.swiftyJSON.request("playersData/" + "playersData\(page).json")
             request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL)
             request.method = .get

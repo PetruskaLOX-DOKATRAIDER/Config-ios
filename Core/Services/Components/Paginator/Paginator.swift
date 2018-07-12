@@ -8,17 +8,14 @@
 
 import Action
 
-
 public protocol PaginatorType: WorkerType where PageType.ContentType == ModelType {
     associatedtype ModelType
     associatedtype PageType: PaginatedResponseProtocol
-    
     var elements: BehaviorRelay<[ModelType]> { get }
-    
     var action: Action<Int, PageType> { get }
 }
 
-public class Paginator<ModelType> : BasePaginator<ModelType, Page<ModelType>> {
+public class Paginator<ModelType>: BasePaginator<ModelType, Page<ModelType>> {
     public override init(factory: @escaping Func<Int, Observable<Page<ModelType>>>,
                          accomulationStrategy: @escaping ([ModelType], Page<ModelType>) -> [ModelType] = PaginationViewModelStrategies.Accomulations.additive,
                          compareStrategy: @escaping ([ModelType], [ModelType]) -> Bool = PaginationViewModelStrategies.Comparations.alwaysFails) {

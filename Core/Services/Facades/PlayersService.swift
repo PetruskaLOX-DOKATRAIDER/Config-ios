@@ -7,30 +7,26 @@
 //
 
 public protocol PlayersService: AutoMockable {
-    func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, String>
+    func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError>
 }
 
 public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
-    private let reachabilityService: ReachabilityService
-    private let playersAPIService: PlayersAPIService
-    private let playersStorage: PlayersStorage
+    private let dataLoaderHelper: DataLoaderHelper<PlayerPreview>
     
-    public init(reachabilityService: ReachabilityService, playersAPIService: PlayersAPIService, playersStorage: PlayersStorage) {
-        self.reachabilityService = reachabilityService
-        self.playersAPIService = playersAPIService
-        self.playersStorage = playersStorage
+    public init(
+        reachabilityService: ReachabilityService,
+        playersAPIService: PlayersAPIService,
+        playersStorage: PlayersStorage
+    ) {
+        dataLoaderHelper = DataLoaderHelper(
+            reachabilityService: reachabilityService,
+            apiSource: { playersAPIService.getPlayers(forPage: $0) },
+            storageSource: { try? playersStorage.fetchPlayersPreview() },
+            updateStorage: { try? playersStorage.update(withNewPlayers: $0) }
+        )
     }
     
-    public func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, String> {
-        if reachabilityService.connection != .none {
-            let request = playersAPIService.getPlayers(forPage: page)
-            request.success().map{ $0.content }.drive(onNext: { [weak self] players in
-                try? self?.playersStorage.update(withNewPlayers: players)
-            }).disposed(by: rx.disposeBag)
-            return request
-        }
-        
-        let storedData = (try? playersStorage.fetchPlayersPreview()) ?? []
-        return .just(Result(value: Page.new(content: storedData, index: 0, totalPages: 0)))
+    public func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError> {
+        return dataLoaderHelper.loadData(forPage: page)
     }
 }

@@ -8,6 +8,7 @@
 
 import TRON
 
+public typealias RequestError = String
 public typealias ResponseModel<T, U: BackendError> = Result<T, DictionaryError<U>>
 public typealias Response<T, U: BackendError> = Driver<ResponseModel<T, U>>
 public typealias Request<T, U: BackendError> = APIRequest<T, DictionaryError<U>>
