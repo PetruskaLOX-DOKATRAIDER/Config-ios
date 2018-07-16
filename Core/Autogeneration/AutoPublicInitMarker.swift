@@ -5,3 +5,4 @@ public protocol AutoInit {}
 extension ImageSize: AutoInit {}
 extension PlayerPreview: AutoInit {}
 extension PlayerDescription: AutoInit {}
+extension Team: AutoInit {}

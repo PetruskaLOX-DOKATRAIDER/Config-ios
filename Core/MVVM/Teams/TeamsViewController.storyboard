@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ek-ct-1Xt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ek-ct-1Xt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Teams View Controller-->
         <scene sceneID="tEr-Pp-f1g">
             <objects>
-                <viewController id="7ek-ct-1Xt" customClass="TeamsViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7ek-ct-1Xt" customClass="TeamsViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UUI-Gp-oci"/>
                         <viewControllerLayoutGuide type="bottom" id="4af-qR-9ib"/>
@@ -18,12 +20,47 @@
                     <view key="view" contentMode="scaleToFill" id="cEO-6E-8qo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vyf-EE-2HU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="vyf-EE-2HU" secondAttribute="bottom" id="0uP-TO-nzZ"/>
+                            <constraint firstItem="vyf-EE-2HU" firstAttribute="top" secondItem="cEO-6E-8qo" secondAttribute="top" id="mLo-UQ-Lxu"/>
+                            <constraint firstItem="vyf-EE-2HU" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="mfW-1b-gMy"/>
+                            <constraint firstAttribute="trailing" secondItem="vyf-EE-2HU" secondAttribute="trailing" id="v7g-5s-pdO"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="pnO-d9-g4v">
+                        <barButtonItem key="rightBarButtonItem" title="Item" width="50" id="fmU-hv-61C">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="a8p-1m-bT6" userLabel="Skip">
+                                <rect key="frame" x="309" y="2" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.8166045368" green="0.6964135991" blue="0.019788152739999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" image="profile_selected">
+                                    <color key="titleColor" red="0.57254901960000004" green="0.81568627449999997" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="themeLightFont" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="profileButton" destination="a8p-1m-bT6" id="0yd-CT-bo1"/>
+                        <outlet property="tableView" destination="vyf-EE-2HU" id="1zM-5V-HGy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="143"/>
+            <point key="canvasLocation" x="136.80000000000001" y="142.57871064467767"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profile_selected" width="25" height="25"/>
+    </resources>
 </document>

@@ -20,7 +20,7 @@ public final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
     public let shouldRouteProfile: Driver<Void>
     
     public init(playersService: PlayersService) {
-        func remapToViewModels(page: Page<PlayerPreview>) -> Page<PlayerPreviewViewModelImpl> {
+        func remapToViewModels(page: Page<PlayerPreview>) -> Page<PlayerPreviewViewModel> {
             return Page.new(
                 content: page.content.map{ PlayerPreviewViewModelImpl(player: $0) },
                 index: page.index,

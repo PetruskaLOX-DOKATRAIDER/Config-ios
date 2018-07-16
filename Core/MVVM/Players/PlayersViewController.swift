@@ -36,6 +36,9 @@ public final class PlayersViewController: UIViewController, NonReusableViewProto
             let cellHeight = CGFloat(vm.imageHeight(withContainerWidth: Double(cellWidth))) + PlayerPreviewCell.nickNameContainerHeight
             return CGSize(width: cellWidth, height: cellHeight)
         })
+        manager.didSelect(PlayerPreviewCell.self) { (_, viewModel, _) in
+            viewModel.selectionTrigger.onNext(())
+        }
     }
     
     public func onUpdate(with viewModel: PlayersViewModel, disposeBag: DisposeBag) {

@@ -53,11 +53,19 @@ open class Router: ReactiveCompatible {
     }
     
     public func teams() -> Route<TeamsViewController> {
-        return route()
+        return route().configure({ vc in
+            vc.viewModel?.shouldRouteProfile.drive(onNext: {
+                vc.tabBarController?.setSelectedViewController(ProfileViewController.self)
+            }).disposed(by: vc.rx.disposeBag)
+        })
     }
     
     public func players() -> Route<PlayersViewController> {
-        return route()
+        return route().configure({ vc in
+            vc.viewModel?.shouldRouteProfile.drive(onNext: {
+                vc.tabBarController?.setSelectedViewController(ProfileViewController.self)
+            }).disposed(by: vc.rx.disposeBag)
+        })
     }
     
     private func route<T: UIViewController>() -> Route<T> where T: ViewModelHolderProtocol {

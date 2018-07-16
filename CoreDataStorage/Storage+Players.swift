@@ -6,9 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import Core
-import CoreData
-
 public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
     private let coreDataStorage: CoreDataStorage<CDPlayerPreview>
     

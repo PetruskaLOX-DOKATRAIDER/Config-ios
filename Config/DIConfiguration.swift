@@ -14,6 +14,7 @@ extension DependencyContainer {
     func registerStorages() -> DependencyContainer {
         register(.singleton){ AppEnvironmentImpl() }.implements(AppEnvironment.self, AppEnvironment.self)
         register(.singleton){ PlayersStorageImpl() as PlayersStorage }
+        register(.singleton){ TeamsStorageImpl() as TeamsStorage }
         return self
     }
 }

@@ -9,21 +9,23 @@
 public protocol PlayerPreviewViewModel {
     var nickname: Driver<String> { get }
     var avatarURL: Driver<URL?> { get }
+    var selectionTrigger: PublishSubject<Void> { get }
     func imageHeight(withContainerWidth containerWidth: Double) -> Double
 }
 
 public final class PlayerPreviewViewModelImpl: PlayerPreviewViewModel {
     public let nickname: Driver<String>
     public let avatarURL: Driver<URL?>
-    private let profileImageSize: ImageSize
+    public let selectionTrigger = PublishSubject<Void>()
+    private let player: PlayerPreview
     
     public init(player: PlayerPreview) {
+        self.player = player
         nickname = .just(player.nickname)
         avatarURL = .just(player.avatarURL)
-        profileImageSize = player.profileImageSize
     }
     
     public func imageHeight(withContainerWidth containerWidth: Double) -> Double {
-        return (containerWidth * profileImageSize.height) / profileImageSize.weight
+        return (containerWidth * player.profileImageSize.height) / player.profileImageSize.weight
     }
 }

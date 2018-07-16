@@ -6,7 +6,12 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public class TeamsViewController: UIViewController, NonReusableViewProtocol {
+import DTTableViewManager
+
+public class TeamsViewController: UIViewController, NonReusableViewProtocol, DTTableViewManageable {
+    @IBOutlet public weak var tableView: UITableView!
+    @IBOutlet private weak var profileButton: UIButton!
+    private var playersBannerView = PlayersBannerView()
    
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +22,25 @@ public class TeamsViewController: UIViewController, NonReusableViewProtocol {
             image: Images.Sections.teamsDeselected,
             selectedImage: Images.Sections.teamsSelected
         )
+        setupTableViewAndManager()
+    }
+    
+    private func setupTableViewAndManager() {
+        manager.startManaging(withDelegate: self)
+        manager.register(TeamItemCell.self)
+        tableView.tableHeaderView = playersBannerView
+        playersBannerView.snp.makeConstraints{
+            $0.width.equalToSuperview()
+            $0.height.equalTo(view.bounds.size.height * 0.2)
+        }
     }
     
     public func onUpdate(with viewModel: TeamsViewModel, disposeBag: DisposeBag) {
-
+        connect(viewModel.teamsPaginator).disposed(by: disposeBag)
+        viewModel.teamsPaginator.isWorking.drive(rx.activityIndicator).disposed(by: rx.disposeBag)
+        viewModel.messageViewModel.drive(rx.messageView).disposed(by: rx.disposeBag)
+        profileButton.rx.tap.bind(to: viewModel.profileTrigger).disposed(by: disposeBag)
+        playersBannerView.viewModel = viewModel.playersBannerViewModel
+        viewModel.teamsPaginator.refreshTrigger.onNext(())
     }
 }
