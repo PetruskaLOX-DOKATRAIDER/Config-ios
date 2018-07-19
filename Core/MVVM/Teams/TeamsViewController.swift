@@ -37,8 +37,8 @@ public class TeamsViewController: UIViewController, NonReusableViewProtocol, DTT
     
     public func onUpdate(with viewModel: TeamsViewModel, disposeBag: DisposeBag) {
         connect(viewModel.teamsPaginator).disposed(by: disposeBag)
-        viewModel.teamsPaginator.isWorking.drive(rx.activityIndicator).disposed(by: rx.disposeBag)
-        viewModel.messageViewModel.drive(rx.messageView).disposed(by: rx.disposeBag)
+        viewModel.teamsPaginator.isWorking.drive(view.rx.activityIndicator).disposed(by: rx.disposeBag)
+        viewModel.messageViewModel.drive(view.rx.messageView).disposed(by: rx.disposeBag)
         profileButton.rx.tap.bind(to: viewModel.profileTrigger).disposed(by: disposeBag)
         playersBannerView.viewModel = viewModel.playersBannerViewModel
         viewModel.teamsPaginator.refreshTrigger.onNext(())

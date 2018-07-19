@@ -43,8 +43,8 @@ public final class PlayersViewController: UIViewController, NonReusableViewProto
     
     public func onUpdate(with viewModel: PlayersViewModel, disposeBag: DisposeBag) {
         connectVertical(viewModel.playersPaginator).disposed(by: disposeBag)
-        viewModel.playersPaginator.isWorking.drive(rx.activityIndicator).disposed(by: rx.disposeBag)
-        viewModel.messageViewModel.drive(rx.messageView).disposed(by: rx.disposeBag)
+        viewModel.playersPaginator.isWorking.drive(view.rx.activityIndicator).disposed(by: disposeBag)
+        viewModel.messageViewModel.drive(view.rx.messageView).disposed(by: disposeBag)
         profileButton.rx.tap.bind(to: viewModel.profileTrigger).disposed(by: disposeBag)
         viewModel.playersPaginator.refreshTrigger.onNext(())
     }

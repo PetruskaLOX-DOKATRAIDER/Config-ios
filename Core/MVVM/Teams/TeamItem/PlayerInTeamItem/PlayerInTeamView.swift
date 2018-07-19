@@ -15,13 +15,18 @@ public class PlayerInTeamView: LoadableView, ReusableViewProtocol {
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        nicknameLabel.font = .filsonMediumWithSize(16)
-        nicknameLabel.textColor = .snowWhite
-        nicknameLabel.backgroundColor = .ichigos
+        setup()
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    private func setup() {
+        nicknameLabel.font = .filsonMediumWithSize(16)
+        nicknameLabel.textColor = .snowWhite
+        nicknameLabel.backgroundColor = .ichigos
     }
     
     public func onUpdate(with viewModel: PlayerPreviewViewModel, disposeBag: DisposeBag) {

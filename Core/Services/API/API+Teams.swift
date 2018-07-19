@@ -15,7 +15,7 @@ public protocol TeamsAPIService: AutoMockable {
 extension API {
     open class TeamsAPIServiceImpl: API, TeamsAPIService {
         public func getTeams(forPage page: Int) -> Response<Page<Team>, RequestError> {
-            let request: Request<Page<Team>, String> = tron.swiftyJSON.request("teamsData/teamsData\(page).json")
+            let request: Request<Page<Team>, RequestError> = tron.swiftyJSON.request("teamsData/teamsData\(page).json")
             request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL)
             request.method = .get
             return request.asResult()

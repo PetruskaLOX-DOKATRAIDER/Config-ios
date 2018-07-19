@@ -30,3 +30,9 @@
 // Errors
 "Errors.error" = "Error";
 "Errors.general_message" = "Oops, something went wrong";
+
+// PlayerBanner
+"Player_Banner.updated_prefix" = "Updated at";
+"Player_Banner.updated_today" = "Updated today!";
+"Player_Banner.updated_yesterday" = "Updated yesterday!";
+"Player_Banner.updated_long_time" = "Updated long time ago";

@@ -21,13 +21,16 @@ public final class TutorialViewController: UIViewController, NonReusableViewProt
     override public func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
         setupManager()
     }
     
     private func setupManager() {
         manager.startManaging(withDelegate: self)
         manager.register(TutoriaItemCell.self)
-        manager.sizeForCell(withItem: TutorialItemViewModel.self){ [collectionView] (_, _) in return collectionView?.frame.size ?? .zero }
+        manager.sizeForCell(withItem: TutorialItemViewModel.self){ [collectionView] (_, _) in
+            return collectionView?.frame.size ?? .zero
+        }
     }
     
     public func onUpdate(with viewModel: TutorialViewModel, disposeBag: DisposeBag) {
@@ -39,9 +42,9 @@ public final class TutorialViewController: UIViewController, NonReusableViewProt
         viewModel.isMoveBackAvailable.map{ !$0 }.drive(skipButton.rx.isHidden).disposed(by: disposeBag)
         nextButton.rx.tap.bind(to: viewModel.nextTrigger).disposed(by: disposeBag)
         skipButton.rx.tap.bind(to: viewModel.skipTrigger).disposed(by: disposeBag)
-        viewModel.currentPage.distinctUntilChanged().drive(onNext: { page in
-            self.collectionView?.scrollToItem(at: IndexPath(row: page, section: 0), at: .left, animated: true)
-        }).disposed(by: disposeBag)
+//        viewModel.currentPage.distinctUntilChanged().drive(onNext: { page in
+//            self.collectionView?.scrollToItem(at: IndexPath(row: page, section: 0), at: .left, animated: true)
+//        }).disposed(by: disposeBag)
         Driver.merge(
             collectionView?.rx.didEndScrollingAnimation.asDriver() ?? .empty(),
             collectionView?.rx.didEndScrollingAnimation.asDriver() ?? .empty()

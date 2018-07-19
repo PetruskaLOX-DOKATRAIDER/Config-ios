@@ -10,27 +10,54 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayersBannerView" customModule="Core" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="ZL7-rf-nPY" id="IcO-DQ-I9u"/>
+                <outlet property="errorLabel" destination="jN1-mt-OTg" id="bgb-2k-gw2"/>
+                <outlet property="pageControl" destination="TER-xa-yrW" id="7e2-QW-hSn"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Cap-VN-85G">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6E-6W-aZc">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
-                    <color key="backgroundColor" red="0.48516673295673918" green="1" blue="0.25483112497076565" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZL7-rf-nPY">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GrV-aK-0S4">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jN1-mt-OTg">
+                    <rect key="frame" x="20" y="66" width="335" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="TER-xa-yrW">
+                    <rect key="frame" x="320" y="115" width="39" height="37"/>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="A6E-6W-aZc" firstAttribute="bottom" secondItem="xsR-AP-PG3" secondAttribute="bottom" id="Go1-ON-eVA"/>
-                <constraint firstItem="A6E-6W-aZc" firstAttribute="top" secondItem="xsR-AP-PG3" secondAttribute="top" id="hnt-p8-PmS"/>
-                <constraint firstItem="A6E-6W-aZc" firstAttribute="leading" secondItem="xsR-AP-PG3" secondAttribute="leading" id="ikT-li-xDV"/>
-                <constraint firstItem="A6E-6W-aZc" firstAttribute="trailing" secondItem="xsR-AP-PG3" secondAttribute="trailing" id="nPG-9x-FAL"/>
+                <constraint firstItem="ZL7-rf-nPY" firstAttribute="trailing" secondItem="xsR-AP-PG3" secondAttribute="trailing" id="086-Ys-16O"/>
+                <constraint firstItem="ZL7-rf-nPY" firstAttribute="top" secondItem="xsR-AP-PG3" secondAttribute="top" id="3B3-oS-P9c"/>
+                <constraint firstItem="jN1-mt-OTg" firstAttribute="leading" secondItem="xsR-AP-PG3" secondAttribute="leading" constant="20" id="9XT-BA-1jr"/>
+                <constraint firstItem="ZL7-rf-nPY" firstAttribute="bottom" secondItem="xsR-AP-PG3" secondAttribute="bottom" id="JOE-es-Gpm"/>
+                <constraint firstItem="jN1-mt-OTg" firstAttribute="centerY" secondItem="Cap-VN-85G" secondAttribute="centerY" id="Lb5-IJ-ljt"/>
+                <constraint firstItem="TER-xa-yrW" firstAttribute="bottom" secondItem="xsR-AP-PG3" secondAttribute="bottom" id="S0D-wr-stL"/>
+                <constraint firstItem="ZL7-rf-nPY" firstAttribute="leading" secondItem="xsR-AP-PG3" secondAttribute="leading" id="Scy-wU-Jo1"/>
+                <constraint firstItem="TER-xa-yrW" firstAttribute="trailing" secondItem="xsR-AP-PG3" secondAttribute="trailing" constant="-16" id="hmO-4k-rVw"/>
+                <constraint firstItem="xsR-AP-PG3" firstAttribute="trailing" secondItem="jN1-mt-OTg" secondAttribute="trailing" constant="20" id="xTv-cn-Yke"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="xsR-AP-PG3"/>
-            <point key="canvasLocation" x="-239.5" y="-135"/>
+            <point key="canvasLocation" x="-239.5" y="-115"/>
         </view>
     </objects>
 </document>

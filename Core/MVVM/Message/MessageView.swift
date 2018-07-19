@@ -16,16 +16,21 @@ class MessageView: LoadableView, NonReusableViewProtocol, ViewModelHolderProtoco
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    private func setup() {
         iconImageView.tintColor = .ichigos
         titleLabel.textColor = .ichigos
         descriptionLabel.textColor = .ichigos
         backgroundView.backgroundColor = .black
         titleLabel.font = .filsonBoldWithSize(15)
         descriptionLabel.font = .filsonRegularWithSize(15)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func onUpdate(with viewModel: MessageViewModel, disposeBag: DisposeBag) {

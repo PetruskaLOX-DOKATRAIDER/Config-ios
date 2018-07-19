@@ -6,4 +6,30 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import Foundation
+public protocol PlayerBannerItemViewModel {
+    var coverImageURL: Driver<URL?> { get }
+    var title: Driver<String> { get }
+    var selectionTrigger: PublishSubject<Void> { get }
+}
+
+public final class PlayerBannerItemViewModelImpl: PlayerBannerItemViewModel, ReactiveCompatible {
+    public let coverImageURL: Driver<URL?>
+    public let title: Driver<String>
+    public let selectionTrigger = PublishSubject<Void>()
+    private let playerBanner: PlayerBanner
+    
+    public init(playerBanner: PlayerBanner) {
+        func getTitle(withDate date: Date) -> String {
+            switch date.daysBetweenDate(Date()) ?? 0 {
+            case 0, 1: return Strings.PlayerBanner.updatedToday
+            case 2: return Strings.PlayerBanner.updatedYesterday
+            case 3...30: return Strings.PlayerBanner.updatedPrefix + " " + DateFormatters.default.string(from: date)
+            default: return Strings.PlayerBanner.updatedLongTime
+            }
+        }
+        
+        self.playerBanner = playerBanner
+        coverImageURL = .just(playerBanner.coverImageURL)
+        title = .just(getTitle(withDate: playerBanner.updatedDate))
+    }
+}
