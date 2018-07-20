@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B1003" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CCCoordinates" representedClassName="CCCoordinates" syncable="YES" codeGenerationType="class">
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lng" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDEvent" inverseName="coordinates" inverseEntity="CDEvent" syncable="YES"/>
+    </entity>
+    <entity name="CDEvent" representedClassName="CDEvent" syncable="YES" codeGenerationType="class">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="countOfTeams" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="detailsURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="finishDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="flagURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logoURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prizePool" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="coordinates" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CCCoordinates" inverseName="event" inverseEntity="CCCoordinates" syncable="YES"/>
+    </entity>
     <entity name="CDFavoritePlayers" representedClassName="CDFavoritePlayers" syncable="YES" codeGenerationType="class">
         <attribute name="ids" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
@@ -50,5 +67,7 @@
         <element name="CDPlayerDescription" positionX="-657" positionY="437" width="209" height="328"/>
         <element name="CDPlayerPreview" positionX="-884" positionY="432" width="191" height="133"/>
         <element name="CDTeam" positionX="-1080" positionY="434" width="153" height="103"/>
+        <element name="CDEvent" positionX="-981" positionY="54" width="225" height="193"/>
+        <element name="CCCoordinates" positionX="-1251" positionY="135" width="128" height="88"/>
     </elements>
 </model>

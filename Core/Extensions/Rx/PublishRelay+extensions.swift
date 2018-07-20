@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import RxCocoa
-
 extension PublishRelay {
     public func asDriver() -> Driver<E> {
         return self.asDriver(onErrorDriveWith: .empty())
@@ -15,7 +13,7 @@ extension PublishRelay {
 }
 
 extension PublishRelay: ObserverType {
-    public func on(_ event: Event<Element>) {
+    public func on(_ event: RxSwift.Event<Element>) {
         switch event {
         case let .next(element):
             accept(element)

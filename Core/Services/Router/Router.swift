@@ -48,7 +48,7 @@ open class Router: ReactiveCompatible {
         return route()
     }
     
-    public func events() -> Route<EventsViewController> {
+    public func events() -> Route<EventsContainerViewController> {
         return route()
     }
     

@@ -16,7 +16,7 @@ import CoreDataStorage
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     private lazy var container: DependencyContainer = {
-        return DependencyContainer().registerStorages().registerAll()
+        return DependencyContainer().registerSeparateModules().registerAll()
     }()
     private lazy var router: Router = {
         //swiftlint:disable:next force_try

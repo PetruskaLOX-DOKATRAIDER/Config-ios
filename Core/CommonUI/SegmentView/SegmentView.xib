@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SegmentView" customModule="WeatherCore" customModuleProvider="target">
+            <connections>
+                <outlet property="lineView" destination="28h-dg-ui2" id="SKh-j0-MkW"/>
+                <outlet property="stackView" destination="8g6-a2-CdF" id="zgc-Os-qQO"/>
+                <outlet property="stepView" destination="VVO-bS-Ojv" id="TQw-q8-NcA"/>
+                <outlet property="stepViewLeftSpacingConstraint" destination="3Vb-RR-Cei" id="Ocg-pg-EI2"/>
+                <outlet property="stepViewWidthConstraint" destination="7xm-dE-tMB" id="F99-2o-WEN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="AVr-F1-vfW">
+            <rect key="frame" x="0.0" y="0.0" width="474" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8g6-a2-CdF">
+                    <rect key="frame" x="2" y="0.0" width="472" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="1V0-sr-PaO"/>
+                    </constraints>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVO-bS-Ojv">
+                    <rect key="frame" x="0.0" y="46" width="0.0" height="4"/>
+                    <color key="backgroundColor" red="1" green="0.48116801697530864" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" id="7xm-dE-tMB"/>
+                        <constraint firstAttribute="height" constant="4" id="xjh-WS-jju"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="28h-dg-ui2">
+                    <rect key="frame" x="0.0" y="49" width="474" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="bQr-FD-EQH"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="8g6-a2-CdF" firstAttribute="leading" secondItem="44F-Cc-Nmc" secondAttribute="leading" constant="2" id="1dY-Wt-0kZ"/>
+                <constraint firstItem="VVO-bS-Ojv" firstAttribute="leading" secondItem="AVr-F1-vfW" secondAttribute="leading" id="3Vb-RR-Cei"/>
+                <constraint firstItem="8g6-a2-CdF" firstAttribute="top" secondItem="44F-Cc-Nmc" secondAttribute="top" id="9y4-wK-0cC"/>
+                <constraint firstItem="44F-Cc-Nmc" firstAttribute="bottom" secondItem="28h-dg-ui2" secondAttribute="bottom" id="MfW-RE-scG"/>
+                <constraint firstItem="44F-Cc-Nmc" firstAttribute="trailing" secondItem="28h-dg-ui2" secondAttribute="trailing" id="RZT-sD-LwV"/>
+                <constraint firstItem="8g6-a2-CdF" firstAttribute="trailing" secondItem="44F-Cc-Nmc" secondAttribute="trailing" id="VRf-Na-B8c"/>
+                <constraint firstItem="VVO-bS-Ojv" firstAttribute="bottom" secondItem="44F-Cc-Nmc" secondAttribute="bottom" id="iFS-8x-T5m"/>
+                <constraint firstItem="28h-dg-ui2" firstAttribute="leading" secondItem="44F-Cc-Nmc" secondAttribute="leading" id="jAk-VD-Owi"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="44F-Cc-Nmc"/>
+            <point key="canvasLocation" x="-131" y="-197"/>
+        </view>
+    </objects>
+</document>

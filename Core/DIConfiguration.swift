@@ -28,9 +28,11 @@ public extension DependencyContainer {
         register(.unique){ try PlayersServiceImpl(reachabilityService: self.resolve(), playersAPIService: self.resolve(), playersStorage: self.resolve()) as PlayersService }
         register(.unique){ try TeamsServiceImpl(reachabilityService: self.resolve(), teamsAPISerivce: self.resolve(), teamsStorage: self.resolve()) as TeamsService }
         register(.unique){ ReachabilityServiceImpl() as ReachabilityService }
+        register(.unique){ try EventsServiceImpl(reachabilityService: self.resolve(), eventsAPIService: self.resolve(), eventsStorage: self.resolve()) as EventsService }
         register(.singleton) { AppEnvironmentImpl() }.implements(AppEnvironment.self, AppEnvironment.self)
         register(.unique){ try API.PlayersAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as PlayersAPIService }
         register(.unique){ try API.TeamsAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as TeamsAPIService }
+        register(.unique){ try API.EventsAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as EventsAPIService }
     }
     
     private func registerViewModels() {
@@ -38,7 +40,7 @@ public extension DependencyContainer {
         register(.unique){ try AppViewModelImpl(userStorage: self.resolve()) as AppViewModel }
         register(.unique){ try PlayersViewModelImpl(playersService: self.resolve()) as PlayersViewModel }
         register(.unique){ try TeamsViewModelImpl(teamsService: self.resolve(), playersBannerViewModel: self.resolve()) as TeamsViewModel }
-        register(.unique){ EventsViewModelImpl() as EventsViewModel }
+        register(.unique){ try EventsContainerViewModelImpl(eventsService: self.resolve()) as EventsContainerViewModel }
         register(.unique){ NewsViewModelImpl() as NewsViewModel }
         register(.unique){ ProfileViewModelImpl() as ProfileViewModel }
         register(.unique){ try PlayersBannerViewModelImpl(playersAPIService: self.resolve()) as PlayersBannerViewModel }

@@ -18,8 +18,10 @@
 // Teams
 "Teams.title" = "Teams";
 
-// Events
-"Events.title" = "Events";
+// EventsContainer
+"Events_Contrainer.title" = "Events";
+"Events_Contrainer.map" = "Map";
+"Events_Contrainer.list" = "List";
 
 // News
 "News.title" = "News";
@@ -36,3 +38,6 @@
 "Player_Banner.updated_today" = "Updated today!";
 "Player_Banner.updated_yesterday" = "Updated yesterday!";
 "Player_Banner.updated_long_time" = "Updated long time ago";
+
+// ListEvents
+"List_Events.description" = "From %@ to %@ at the tournament will fight %d teams for a prize fund of %@";

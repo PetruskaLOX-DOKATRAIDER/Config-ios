@@ -6,3 +6,5 @@ extension ImageSize: AutoInit {}
 extension PlayerPreview: AutoInit {}
 extension PlayerDescription: AutoInit {}
 extension Team: AutoInit {}
+extension Coordinates: AutoInit {}
+extension Event: AutoInit {}

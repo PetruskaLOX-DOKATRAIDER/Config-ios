@@ -70,6 +70,35 @@
 		7CAB612320F63B97003F4276 /* CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB612220F63B97003F4276 /* CDObjectable.swift */; };
 		7CAB612B20F644DF003F4276 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB612A20F644DF003F4276 /* CoreDataStorage.swift */; };
 		7CAB612D20F64636003F4276 /* Storage+Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB612C20F64636003F4276 /* Storage+Players.swift */; };
+		7CAE6D572101DB1A00844B11 /* SegmentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D562101DB1A00844B11 /* SegmentPageViewController.swift */; };
+		7CAE6D592101DBEB00844B11 /* Array+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D582101DBEB00844B11 /* Array+extensions.swift */; };
+		7CAE6D5E2101DC3900844B11 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D5B2101DC3900844B11 /* SegmentView.swift */; };
+		7CAE6D602101DC3900844B11 /* SegmentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CAE6D5D2101DC3900844B11 /* SegmentView.xib */; };
+		7CAE6D622101DF6400844B11 /* UIPageViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D612101DF6400844B11 /* UIPageViewController+extensions.swift */; };
+		7CAE6D6D2101E00300844B11 /* EventsContainerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CAE6D692101E00300844B11 /* EventsContainerViewController.storyboard */; };
+		7CAE6D6E2101E00300844B11 /* EventsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D6A2101E00300844B11 /* EventsContainerViewController.swift */; };
+		7CAE6D6F2101E00300844B11 /* EventsContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D6B2101E00300844B11 /* EventsContainerViewModel.swift */; };
+		7CAE6D772101E07A00844B11 /* MapEventsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D732101E07A00844B11 /* MapEventsViewModelTests.swift */; };
+		7CAE6D782101E07A00844B11 /* MapEventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CAE6D742101E07A00844B11 /* MapEventsViewController.storyboard */; };
+		7CAE6D792101E07A00844B11 /* MapEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D752101E07A00844B11 /* MapEventsViewController.swift */; };
+		7CAE6D7A2101E07A00844B11 /* MapEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D762101E07A00844B11 /* MapEventsViewModel.swift */; };
+		7CAE6D812101E08D00844B11 /* ListEventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CAE6D7D2101E08D00844B11 /* ListEventsViewController.storyboard */; };
+		7CAE6D822101E08D00844B11 /* ListEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D7E2101E08D00844B11 /* ListEventsViewController.swift */; };
+		7CAE6D832101E08D00844B11 /* ListEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D7F2101E08D00844B11 /* ListEventsViewModel.swift */; };
+		7CAE6D842101E68400844B11 /* ListEventsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D7C2101E08D00844B11 /* ListEventsViewModelTests.swift */; };
+		7CAE6D852101E68E00844B11 /* EventsContainerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D682101E00300844B11 /* EventsContainerViewModelTests.swift */; };
+		7CAE6D882101EF1500844B11 /* EventItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D872101EF1500844B11 /* EventItemViewModel.swift */; };
+		7CAE6D8A2101EF2700844B11 /* EventItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D892101EF2700844B11 /* EventItemViewModelTests.swift */; };
+		7CAE6D8C2101EF3200844B11 /* EventItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D8B2101EF3200844B11 /* EventItemCell.swift */; };
+		7CAE6D8E2101EF3C00844B11 /* EventItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CAE6D8D2101EF3C00844B11 /* EventItemCell.xib */; };
+		7CAE6D902101F0F100844B11 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D8F2101F0F100844B11 /* Event.swift */; };
+		7CAE6D922101F16E00844B11 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAE6D912101F16E00844B11 /* MapKit.framework */; };
+		7CAE6D9421020FB300844B11 /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D9321020FB300844B11 /* EventsService.swift */; };
+		7CAE6D9621020FE500844B11 /* API+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D9521020FE500844B11 /* API+Events.swift */; };
+		7CAE6D982102107100844B11 /* EventsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D972102107100844B11 /* EventsStorage.swift */; };
+		7CAE6D9A210210A600844B11 /* Storage+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D99210210A600844B11 /* Storage+Events.swift */; };
+		7CAE6D9C2102133E00844B11 /* CDEvent+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D9B2102133E00844B11 /* CDEvent+CDObjectable.swift */; };
+		7CAE6D9E210215B800844B11 /* CDCoordinates+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D9D210215B800844B11 /* CDCoordinates+CDObjectable.swift */; };
 		7CDAF94520D7A67E009B9B87 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */; };
 		7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94620D7A776009B9B87 /* Runes.swift */; };
 		7CDAF95920D7C0A3009B9B87 /* TutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF95520D7C0A3009B9B87 /* TutorialViewController.storyboard */; };
@@ -125,9 +154,6 @@
 		7CFA24E820D932D30059378F /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFA24E420D932D30059378F /* ProfileViewController.storyboard */; };
 		7CFA24E920D932D30059378F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24E520D932D30059378F /* ProfileViewController.swift */; };
 		7CFA24EA20D932D30059378F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24E620D932D30059378F /* ProfileViewModel.swift */; };
-		7CFA24F020D932DC0059378F /* EventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFA24EC20D932DC0059378F /* EventsViewController.storyboard */; };
-		7CFA24F120D932DC0059378F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24ED20D932DC0059378F /* EventsViewController.swift */; };
-		7CFA24F220D932DC0059378F /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24EE20D932DC0059378F /* EventsViewModel.swift */; };
 		7CFA24F820D932E70059378F /* TeamsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFA24F420D932E70059378F /* TeamsViewController.storyboard */; };
 		7CFA24F920D932E70059378F /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24F520D932E70059378F /* TeamsViewController.swift */; };
 		7CFA24FA20D932E70059378F /* TeamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24F620D932E70059378F /* TeamsViewModel.swift */; };
@@ -136,7 +162,6 @@
 		7CFA250220D932EF0059378F /* PlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24FE20D932EF0059378F /* PlayersViewModel.swift */; };
 		7CFA250320D935890059378F /* NewsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24DB20D932C80059378F /* NewsViewModelTests.swift */; };
 		7CFA250420D9358B0059378F /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24E320D932D30059378F /* ProfileViewModelTests.swift */; };
-		7CFA250520D9358E0059378F /* EventsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24EB20D932DC0059378F /* EventsViewModelTests.swift */; };
 		7CFA250620D935910059378F /* TeamsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24F320D932E70059378F /* TeamsViewModelTests.swift */; };
 		7CFA250720D935930059378F /* PlayersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24FB20D932EF0059378F /* PlayersViewModelTests.swift */; };
 		8C28C067DD90B8D9B1A8E6C2 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DDEBEFB6BE691D7B41F9D7 /* Pods_Tests.framework */; };
@@ -329,6 +354,35 @@
 		7CAB612220F63B97003F4276 /* CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDObjectable.swift; sourceTree = "<group>"; };
 		7CAB612A20F644DF003F4276 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		7CAB612C20F64636003F4276 /* Storage+Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Players.swift"; sourceTree = "<group>"; };
+		7CAE6D562101DB1A00844B11 /* SegmentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPageViewController.swift; sourceTree = "<group>"; };
+		7CAE6D582101DBEB00844B11 /* Array+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extensions.swift"; sourceTree = "<group>"; };
+		7CAE6D5B2101DC3900844B11 /* SegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
+		7CAE6D5D2101DC3900844B11 /* SegmentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentView.xib; sourceTree = "<group>"; };
+		7CAE6D612101DF6400844B11 /* UIPageViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+extensions.swift"; sourceTree = "<group>"; };
+		7CAE6D682101E00300844B11 /* EventsContainerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsContainerViewModelTests.swift; sourceTree = "<group>"; };
+		7CAE6D692101E00300844B11 /* EventsContainerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsContainerViewController.storyboard; sourceTree = "<group>"; };
+		7CAE6D6A2101E00300844B11 /* EventsContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsContainerViewController.swift; sourceTree = "<group>"; };
+		7CAE6D6B2101E00300844B11 /* EventsContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsContainerViewModel.swift; sourceTree = "<group>"; };
+		7CAE6D732101E07A00844B11 /* MapEventsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEventsViewModelTests.swift; sourceTree = "<group>"; };
+		7CAE6D742101E07A00844B11 /* MapEventsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapEventsViewController.storyboard; sourceTree = "<group>"; };
+		7CAE6D752101E07A00844B11 /* MapEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEventsViewController.swift; sourceTree = "<group>"; };
+		7CAE6D762101E07A00844B11 /* MapEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEventsViewModel.swift; sourceTree = "<group>"; };
+		7CAE6D7C2101E08D00844B11 /* ListEventsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEventsViewModelTests.swift; sourceTree = "<group>"; };
+		7CAE6D7D2101E08D00844B11 /* ListEventsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListEventsViewController.storyboard; sourceTree = "<group>"; };
+		7CAE6D7E2101E08D00844B11 /* ListEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEventsViewController.swift; sourceTree = "<group>"; };
+		7CAE6D7F2101E08D00844B11 /* ListEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEventsViewModel.swift; sourceTree = "<group>"; };
+		7CAE6D872101EF1500844B11 /* EventItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemViewModel.swift; sourceTree = "<group>"; };
+		7CAE6D892101EF2700844B11 /* EventItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemViewModelTests.swift; sourceTree = "<group>"; };
+		7CAE6D8B2101EF3200844B11 /* EventItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemCell.swift; sourceTree = "<group>"; };
+		7CAE6D8D2101EF3C00844B11 /* EventItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventItemCell.xib; sourceTree = "<group>"; };
+		7CAE6D8F2101F0F100844B11 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		7CAE6D912101F16E00844B11 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7CAE6D9321020FB300844B11 /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsService.swift; sourceTree = "<group>"; };
+		7CAE6D9521020FE500844B11 /* API+Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Events.swift"; sourceTree = "<group>"; };
+		7CAE6D972102107100844B11 /* EventsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsStorage.swift; sourceTree = "<group>"; };
+		7CAE6D99210210A600844B11 /* Storage+Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Events.swift"; sourceTree = "<group>"; };
+		7CAE6D9B2102133E00844B11 /* CDEvent+CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDEvent+CDObjectable.swift"; sourceTree = "<group>"; };
+		7CAE6D9D210215B800844B11 /* CDCoordinates+CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCoordinates+CDObjectable.swift"; sourceTree = "<group>"; };
 		7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
 		7CDAF94620D7A776009B9B87 /* Runes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runes.swift; sourceTree = "<group>"; };
 		7CDAF95420D7C0A3009B9B87 /* TutorialViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModelTests.swift; sourceTree = "<group>"; };
@@ -376,10 +430,6 @@
 		7CFA24E420D932D30059378F /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		7CFA24E520D932D30059378F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7CFA24E620D932D30059378F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		7CFA24EB20D932DC0059378F /* EventsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModelTests.swift; sourceTree = "<group>"; };
-		7CFA24EC20D932DC0059378F /* EventsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsViewController.storyboard; sourceTree = "<group>"; };
-		7CFA24ED20D932DC0059378F /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
-		7CFA24EE20D932DC0059378F /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		7CFA24F320D932E70059378F /* TeamsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewModelTests.swift; sourceTree = "<group>"; };
 		7CFA24F420D932E70059378F /* TeamsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TeamsViewController.storyboard; sourceTree = "<group>"; };
 		7CFA24F520D932E70059378F /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
@@ -505,6 +555,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CAE6D922101F16E00844B11 /* MapKit.framework in Frameworks */,
 				72F42439D27E5BEFFFEBF861 /* Pods_AT_Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,6 +602,7 @@
 		547B7748DD6720F039F2E374 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7CAE6D912101F16E00844B11 /* MapKit.framework */,
 				4F7B02FCEEE6B75C6E9FA289 /* Pods_AT_Core.framework */,
 				D1DDEBEFB6BE691D7B41F9D7 /* Pods_Tests.framework */,
 				AD78308B844DDD390B1D0E95 /* Pods_TestsHelper.framework */,
@@ -603,13 +655,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		7C1DEC8720DA98A7007BE96E /* CommonViews */ = {
+		7C1DEC8720DA98A7007BE96E /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				7CAE6D5A2101DC3900844B11 /* SegmentView */,
 				7CE76E4520EA5CED009422EF /* PinterestLayout.swift */,
 				7C1DEC8820DA98B8007BE96E /* GradientButton.swift */,
+				7CAE6D562101DB1A00844B11 /* SegmentPageViewController.swift */,
 			);
-			path = CommonViews;
+			path = CommonUI;
 			sourceTree = "<group>";
 		};
 		7C1DEC8A20DAA726007BE96E /* Images */ = {
@@ -715,6 +769,7 @@
 			children = (
 				7CAB611020F5F8AD003F4276 /* PlayersService.swift */,
 				7C11D39020FCBFEE00FC8599 /* TeamsService.swift */,
+				7CAE6D9321020FB300844B11 /* EventsService.swift */,
 			);
 			path = Facades;
 			sourceTree = "<group>";
@@ -735,6 +790,8 @@
 				7C53C42C20F74B56001FC864 /* CDPlayerPreview+CDObjectable.swift */,
 				7C53C42E20F74B8F001FC864 /* CDImageSize+CDObjectable.swift */,
 				7C11D39D20FCC33200FC8599 /* CDTeam+CDObjectable.swift */,
+				7CAE6D9B2102133E00844B11 /* CDEvent+CDObjectable.swift */,
+				7CAE6D9D210215B800844B11 /* CDCoordinates+CDObjectable.swift */,
 			);
 			path = CDObjectable;
 			sourceTree = "<group>";
@@ -747,6 +804,70 @@
 				7CAB612A20F644DF003F4276 /* CoreDataStorage.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		7CAE6D5A2101DC3900844B11 /* SegmentView */ = {
+			isa = PBXGroup;
+			children = (
+				7CAE6D5B2101DC3900844B11 /* SegmentView.swift */,
+				7CAE6D5D2101DC3900844B11 /* SegmentView.xib */,
+			);
+			path = SegmentView;
+			sourceTree = "<group>";
+		};
+		7CAE6D632101DFCF00844B11 /* EventsContainer */ = {
+			isa = PBXGroup;
+			children = (
+				7CAE6D6B2101E00300844B11 /* EventsContainerViewModel.swift */,
+				7CAE6D682101E00300844B11 /* EventsContainerViewModelTests.swift */,
+				7CAE6D6A2101E00300844B11 /* EventsContainerViewController.swift */,
+				7CAE6D692101E00300844B11 /* EventsContainerViewController.storyboard */,
+			);
+			path = EventsContainer;
+			sourceTree = "<group>";
+		};
+		7CAE6D712101E05E00844B11 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				7CAE6D632101DFCF00844B11 /* EventsContainer */,
+				7CAE6D7B2101E08000844B11 /* ListEvents */,
+				7CAE6D722101E06400844B11 /* MapEvents */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		7CAE6D722101E06400844B11 /* MapEvents */ = {
+			isa = PBXGroup;
+			children = (
+				7CAE6D762101E07A00844B11 /* MapEventsViewModel.swift */,
+				7CAE6D732101E07A00844B11 /* MapEventsViewModelTests.swift */,
+				7CAE6D752101E07A00844B11 /* MapEventsViewController.swift */,
+				7CAE6D742101E07A00844B11 /* MapEventsViewController.storyboard */,
+			);
+			path = MapEvents;
+			sourceTree = "<group>";
+		};
+		7CAE6D7B2101E08000844B11 /* ListEvents */ = {
+			isa = PBXGroup;
+			children = (
+				7CAE6D862101EEF500844B11 /* EventItem */,
+				7CAE6D7F2101E08D00844B11 /* ListEventsViewModel.swift */,
+				7CAE6D7C2101E08D00844B11 /* ListEventsViewModelTests.swift */,
+				7CAE6D7E2101E08D00844B11 /* ListEventsViewController.swift */,
+				7CAE6D7D2101E08D00844B11 /* ListEventsViewController.storyboard */,
+			);
+			path = ListEvents;
+			sourceTree = "<group>";
+		};
+		7CAE6D862101EEF500844B11 /* EventItem */ = {
+			isa = PBXGroup;
+			children = (
+				7CAE6D872101EF1500844B11 /* EventItemViewModel.swift */,
+				7CAE6D892101EF2700844B11 /* EventItemViewModelTests.swift */,
+				7CAE6D8B2101EF3200844B11 /* EventItemCell.swift */,
+				7CAE6D8D2101EF3C00844B11 /* EventItemCell.xib */,
+			);
+			path = EventItem;
 			sourceTree = "<group>";
 		};
 		7CDAF95320D7C08D009B9B87 /* Tutotiral */ = {
@@ -768,6 +889,7 @@
 				7CDAF96220D7EEB9009B9B87 /* Storage.swift */,
 				7CDCFDF320EE27E60046C818 /* PlayersStorage.swift */,
 				7C11D39B20FCC2DF00FC8599 /* TeamsStorage.swift */,
+				7CAE6D972102107100844B11 /* EventsStorage.swift */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -796,6 +918,7 @@
 		7CDCFDDF20EE229B0046C818 /* CoreDataStorage */ = {
 			isa = PBXGroup;
 			children = (
+				7CAE6D99210210A600844B11 /* Storage+Events.swift */,
 				7CAB612C20F64636003F4276 /* Storage+Players.swift */,
 				7C11D39720FCC26400FC8599 /* Storage+Teams.swift */,
 				7CAB612920F644C5003F4276 /* Core */,
@@ -842,6 +965,7 @@
 				7CA5526A21008CC90097E866 /* PlayerDescription.swift */,
 				7C9105D620FC904E00970FA7 /* Team.swift */,
 				7CA5526E21008E090097E866 /* PlayerBanner.swift */,
+				7CAE6D8F2101F0F100844B11 /* Event.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -868,17 +992,6 @@
 				7CFA24F420D932E70059378F /* TeamsViewController.storyboard */,
 			);
 			path = Teams;
-			sourceTree = "<group>";
-		};
-		7CFA24D820D9323D0059378F /* Events */ = {
-			isa = PBXGroup;
-			children = (
-				7CFA24EE20D932DC0059378F /* EventsViewModel.swift */,
-				7CFA24EB20D932DC0059378F /* EventsViewModelTests.swift */,
-				7CFA24ED20D932DC0059378F /* EventsViewController.swift */,
-				7CFA24EC20D932DC0059378F /* EventsViewController.storyboard */,
-			);
-			path = Events;
 			sourceTree = "<group>";
 		};
 		7CFA24D920D9324E0059378F /* Profile */ = {
@@ -923,13 +1036,13 @@
 		C02C45B8202C84D3008AE9B0 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				7CAE6D712101E05E00844B11 /* Events */,
 				7CA552702100921B0097E866 /* PlayerDescription */,
 				7C9105BD20FC803200970FA7 /* PlayersBanner */,
 				7C5F308120E10DEB0050E9AE /* AppSections */,
 				7CDF6D1020DBC40F0096D913 /* Message */,
 				7CFA24DA20D932B20059378F /* News */,
 				7CFA24D920D9324E0059378F /* Profile */,
-				7CFA24D820D9323D0059378F /* Events */,
 				7CFA24D720D9322C0059378F /* Teams */,
 				7CFA24D620D932230059378F /* Players */,
 				7CDAF95320D7C08D009B9B87 /* Tutotiral */,
@@ -990,6 +1103,8 @@
 				7CDAF94620D7A776009B9B87 /* Runes.swift */,
 				7C2FDEF520DE38B100EDD11E /* CollectionViewManager+extensions.swift */,
 				7C59436020F7518D009D8D7D /* Bundle+extensions.swift */,
+				7CAE6D582101DBEB00844B11 /* Array+extensions.swift */,
+				7CAE6D612101DF6400844B11 /* UIPageViewController+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1011,6 +1126,7 @@
 				7C11D39220FCC1C500FC8599 /* Base */,
 				7CDE34B720DD09760055F304 /* API+Players.swift */,
 				7C11D39520FCC1E800FC8599 /* API+Teams.swift */,
+				7CAE6D9521020FE500844B11 /* API+Events.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1170,7 +1286,7 @@
 			isa = PBXGroup;
 			children = (
 				7CDF6D1920DBD6A60096D913 /* Models */,
-				7C1DEC8720DA98A7007BE96E /* CommonViews */,
+				7C1DEC8720DA98A7007BE96E /* CommonUI */,
 				C02C460E202C8885008AE9B0 /* Extensions */,
 				C02C45B9202C84E6008AE9B0 /* Services */,
 				C0F8680D202C68D600D15CDA /* Autogeneration */,
@@ -1473,6 +1589,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CAE6D812101E08D00844B11 /* ListEventsViewController.storyboard in Resources */,
+				7CAE6D6D2101E00300844B11 /* EventsContainerViewController.storyboard in Resources */,
 				7C9105C520FC807100970FA7 /* PlayersBannerView.xib in Resources */,
 				C0F8680B202C676C00D15CDA /* Media.xcassets in Resources */,
 				7CDAF97320D7FBE9009B9B87 /* filsonsoft-bold.otf in Resources */,
@@ -1485,17 +1603,19 @@
 				7CA5527C2100925E0097E866 /* PlayerDescriptionViewController.storyboard in Resources */,
 				7CDE34BF20DD248A0055F304 /* PlayerPreviewCell.xib in Resources */,
 				7C2BF74420D91BDD0026DAB4 /* TutoriaItemCell.xib in Resources */,
-				7CFA24F020D932DC0059378F /* EventsViewController.storyboard in Resources */,
 				7CFA24E020D932C80059378F /* NewsViewController.storyboard in Resources */,
+				7CAE6D602101DC3900844B11 /* SegmentView.xib in Resources */,
 				7CDAF97920D7FDF0009B9B87 /* Localizable.strings in Resources */,
 				C02C463C202CACED008AE9B0 /* LaunchScreen.storyboard in Resources */,
 				7CFA250020D932EF0059378F /* PlayersViewController.storyboard in Resources */,
+				7CAE6D782101E07A00844B11 /* MapEventsViewController.storyboard in Resources */,
 				7CDAF97220D7FBE9009B9B87 /* filsonsoft-regular.otf in Resources */,
 				7CFA24E820D932D30059378F /* ProfileViewController.storyboard in Resources */,
 				7CDF6D1620DBC4320096D913 /* MessageView.xib in Resources */,
 				7C9105DE20FC93B200970FA7 /* PlayerInTeamView.xib in Resources */,
 				7CFA24F820D932E70059378F /* TeamsViewController.storyboard in Resources */,
 				7C9105D520FC8FDA00970FA7 /* TeamItemCell.xib in Resources */,
+				7CAE6D8E2101EF3C00844B11 /* EventItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1791,11 +1911,14 @@
 				7CAB612D20F64636003F4276 /* Storage+Players.swift in Sources */,
 				7C53C42F20F74B8F001FC864 /* CDImageSize+CDObjectable.swift in Sources */,
 				7CAB612B20F644DF003F4276 /* CoreDataStorage.swift in Sources */,
+				7CAE6D9C2102133E00844B11 /* CDEvent+CDObjectable.swift in Sources */,
 				7C11D39820FCC26400FC8599 /* Storage+Teams.swift in Sources */,
 				7C59436420F7523F009D8D7D /* Bundle+extensions.swift in Sources */,
 				7C11D39E20FCC33200FC8599 /* CDTeam+CDObjectable.swift in Sources */,
 				7CDCFDED20EE23260046C818 /* CoreDataStorage.framework in Sources */,
 				7CAB612320F63B97003F4276 /* CDObjectable.swift in Sources */,
+				7CAE6D9A210210A600844B11 /* Storage+Events.swift in Sources */,
+				7CAE6D9E210215B800844B11 /* CDCoordinates+CDObjectable.swift in Sources */,
 				7C53C42D20F74B56001FC864 /* CDPlayerPreview+CDObjectable.swift in Sources */,
 				7CDCFDF620EE37230046C818 /* CoreDataStack.swift in Sources */,
 			);
@@ -1816,7 +1939,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C02C4650202D8F68008AE9B0 /* ActivityTrackerTests.swift in Sources */,
-				7CFA250520D9358E0059378F /* EventsViewModelTests.swift in Sources */,
 				7CFA250420D9358B0059378F /* ProfileViewModelTests.swift in Sources */,
 				A84BD4092031D5420060E520 /* TableViewManager+extensionsTests.swift in Sources */,
 				7C5F307520E0E2000050E9AE /* RouterTests.swift in Sources */,
@@ -1825,6 +1947,8 @@
 				C02C4648202D8E4B008AE9B0 /* PaginatorTests.swift in Sources */,
 				C02C461E202C8AF8008AE9B0 /* DictionaryErrorTests.swift in Sources */,
 				A874368720330E530000FE56 /* DebuggerTests.swift in Sources */,
+				7CAE6D852101E68E00844B11 /* EventsContainerViewModelTests.swift in Sources */,
+				7CAE6D842101E68400844B11 /* ListEventsViewModelTests.swift in Sources */,
 				7CDAF95E20D7C693009B9B87 /* TutorialViewModelTests.swift in Sources */,
 				7CFA250620D935910059378F /* TeamsViewModelTests.swift in Sources */,
 				C02C4637202CA726008AE9B0 /* AppViewModelTests.swift in Sources */,
@@ -1848,17 +1972,19 @@
 				C02C464A202D8E68008AE9B0 /* Page.swift in Sources */,
 				7C9105CE20FC810100970FA7 /* PlayerBannerItemCell.swift in Sources */,
 				7CDAF96820D7FB72009B9B87 /* UINavigationBar+extensions.swift in Sources */,
-				7CFA24F220D932DC0059378F /* EventsViewModel.swift in Sources */,
 				7C11D39120FCBFEE00FC8599 /* TeamsService.swift in Sources */,
 				7CFA24D520D92F930059378F /* UICollectionView+extension.swift in Sources */,
 				C02C4623202C8C03008AE9B0 /* PublishRelay+extensions.swift in Sources */,
+				7CAE6D792101E07A00844B11 /* MapEventsViewController.swift in Sources */,
 				7CE76E4420EA5848009422EF /* AppEnvironment.swift in Sources */,
+				7CAE6D572101DB1A00844B11 /* SegmentPageViewController.swift in Sources */,
 				7C11D39C20FCC2DF00FC8599 /* TeamsStorage.swift in Sources */,
 				C02C465F202D94B9008AE9B0 /* RxKeyboard+extension.swift in Sources */,
 				7C5F307420E0E1F60050E9AE /* Route.swift in Sources */,
 				7CA55280210098D00097E866 /* UIView+ActivityIndicatorView.swift in Sources */,
 				7CA5526921008CA50097E866 /* PlayerPreview.swift in Sources */,
 				7CAB611120F5F8AD003F4276 /* PlayersService.swift in Sources */,
+				7CAE6D9621020FE500844B11 /* API+Events.swift in Sources */,
 				C0F8681D202C6A0600D15CDA /* AutoPublicInitMarker.swift in Sources */,
 				C02C4629202C8EEC008AE9B0 /* Rx+accessors.swift in Sources */,
 				C02C45F3202C87DA008AE9B0 /* ContextStorage.swift in Sources */,
@@ -1868,12 +1994,15 @@
 				7C59436820F791CF009D8D7D /* DataLoaderHelper.swift in Sources */,
 				C02C4665202D9A70008AE9B0 /* Optional+extensions.swift in Sources */,
 				7C1DEC8920DA98B8007BE96E /* GradientButton.swift in Sources */,
+				7CAE6D902101F0F100844B11 /* Event.swift in Sources */,
 				7CFA24EA20D932D30059378F /* ProfileViewModel.swift in Sources */,
 				7C9105C320FC806300970FA7 /* PlayersBannerViewModelTests.swift in Sources */,
 				7CDE34BB20DD246F0055F304 /* PlayerPreviewViewModel.swift in Sources */,
 				7CDAF96120D7ED55009B9B87 /* UserStorage.swift in Sources */,
 				7C9105DC20FC93AB00970FA7 /* PlayerInTeamView.swift in Sources */,
 				7CFA250220D932EF0059378F /* PlayersViewModel.swift in Sources */,
+				7CAE6D5E2101DC3900844B11 /* SegmentView.swift in Sources */,
+				7CAE6D982102107100844B11 /* EventsStorage.swift in Sources */,
 				7CDCFDF420EE27E60046C818 /* PlayersStorage.swift in Sources */,
 				C02C45FD202C87DA008AE9B0 /* JSONDeserializationFactory.swift in Sources */,
 				C02C465A202D9423008AE9B0 /* UIView+extensions.swift in Sources */,
@@ -1891,10 +2020,15 @@
 				7CA5527E2100925E0097E866 /* PlayerDescriptionViewModel.swift in Sources */,
 				7CDAF97D20D7FFA4009B9B87 /* Strings.generated.swift in Sources */,
 				7CA552822100990E0097E866 /* UIView+MessageView.swift in Sources */,
+				7CAE6D832101E08D00844B11 /* ListEventsViewModel.swift in Sources */,
+				7CAE6D6F2101E00300844B11 /* EventsContainerViewModel.swift in Sources */,
 				7CFA24FA20D932E70059378F /* TeamsViewModel.swift in Sources */,
 				7CFA250120D932EF0059378F /* PlayersViewController.swift in Sources */,
+				7CAE6D772101E07A00844B11 /* MapEventsViewModelTests.swift in Sources */,
+				7CAE6D882101EF1500844B11 /* EventItemViewModel.swift in Sources */,
 				7CAB611420F5FB62003F4276 /* ReachabilityService.swift in Sources */,
 				7C5F307D20E0E44B0050E9AE /* DIConfiguration.swift in Sources */,
+				7CAE6D9421020FB300844B11 /* EventsService.swift in Sources */,
 				7CDF6D0D20DBAE450096D913 /* TabBarItemFactory.swift in Sources */,
 				7C9105D320FC8FCD00970FA7 /* TeamItemViewModel.swift in Sources */,
 				7CA5527D2100925E0097E866 /* PlayerDescriptionViewController.swift in Sources */,
@@ -1902,18 +2036,22 @@
 				C02C4627202C8E3D008AE9B0 /* AlamofireBridge.swift in Sources */,
 				7CDE34B820DD09760055F304 /* API+Players.swift in Sources */,
 				7C11D39620FCC1E800FC8599 /* API+Teams.swift in Sources */,
+				7CAE6D8A2101EF2700844B11 /* EventItemViewModelTests.swift in Sources */,
 				7CFA24E120D932C80059378F /* NewsViewController.swift in Sources */,
 				7CDAF98020D80180009B9B87 /* AutoStoryboard.swift in Sources */,
 				7CDAF96A20D7FBB2009B9B87 /* UIFont+extensions.swift in Sources */,
 				7CFA24F920D932E70059378F /* TeamsViewController.swift in Sources */,
 				C02C45C6202C8630008AE9B0 /* Environments.swift in Sources */,
+				7CAE6D7A2101E07A00844B11 /* MapEventsViewModel.swift in Sources */,
 				7C2BF74220D91BD30026DAB4 /* TutoriaItemCell.swift in Sources */,
-				7CFA24F120D932DC0059378F /* EventsViewController.swift in Sources */,
 				7C9105D720FC904E00970FA7 /* Team.swift in Sources */,
+				7CAE6D8C2101EF3200844B11 /* EventItemCell.swift in Sources */,
 				C02C4636202CA722008AE9B0 /* AppViewModel.swift in Sources */,
 				7CA552882100B8A40097E866 /* UIColor+themeColors.swift in Sources */,
+				7CAE6D6E2101E00300844B11 /* EventsContainerViewController.swift in Sources */,
 				7C5F307920E0E2770050E9AE /* ViewModelFactory.swift in Sources */,
 				7CFA24E920D932D30059378F /* ProfileViewController.swift in Sources */,
+				7CAE6D592101DBEB00844B11 /* Array+extensions.swift in Sources */,
 				7C9105C120FC805900970FA7 /* PlayersBannerViewModel.swift in Sources */,
 				7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */,
 				C02C4663202D9A09008AE9B0 /* Attributer.swift in Sources */,
@@ -1928,12 +2066,14 @@
 				7CFA24E220D932C80059378F /* NewsViewModel.swift in Sources */,
 				7C9105D120FC8FC100970FA7 /* TeamItemCell.swift in Sources */,
 				7C5F308520E10E0D0050E9AE /* AppSectionsTabBarController.swift in Sources */,
+				7CAE6D622101DF6400844B11 /* UIPageViewController+extensions.swift in Sources */,
 				7CDAF95D20D7C49D009B9B87 /* TutorialItemViewModel.swift in Sources */,
 				7CDE34BD20DD247F0055F304 /* PlayerPreviewCell.swift in Sources */,
 				C02C4641202D8DD3008AE9B0 /* TableViewManager+extensions.swift in Sources */,
 				C02C4661202D99D2008AE9B0 /* Delay.swift in Sources */,
 				7C5F308320E10DFB0050E9AE /* AppSectionsViewModel.swift in Sources */,
 				7CDF6D1220DBC4210096D913 /* MessageViewModel.swift in Sources */,
+				7CAE6D822101E08D00844B11 /* ListEventsViewController.swift in Sources */,
 				7CA5527B2100925E0097E866 /* PlayerDescriptionViewModelTests.swift in Sources */,
 				7C9105C820FC80CB00970FA7 /* PlayerBannerItemViewModel.swift in Sources */,
 				7C9BF76820D3E3290016D224 /* Error+extensions.swift in Sources */,

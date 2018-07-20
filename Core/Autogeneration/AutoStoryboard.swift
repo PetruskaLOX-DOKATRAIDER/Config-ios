@@ -42,11 +42,31 @@ extension UIViewController {
 }
 
 enum StoryboardScene {
-  enum Events: StoryboardSceneType {
-    static let storyboardName = "EventsViewController"
+  enum EventsContainer: StoryboardSceneType {
+    static let storyboardName = "EventsContainerViewController"
 
-    static func initialViewController() -> EventsViewController {
-      guard let vc = storyboard().instantiateInitialViewController() as? EventsViewController else {
+    static func initialViewController() -> EventsContainerViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? EventsContainerViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+  }
+  enum ListEvents: StoryboardSceneType {
+    static let storyboardName = "ListEventsViewController"
+
+    static func initialViewController() -> ListEventsViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? ListEventsViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+  }
+  enum MapEvents: StoryboardSceneType {
+    static let storyboardName = "MapEventsViewController"
+
+    static func initialViewController() -> MapEventsViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? MapEventsViewController else {
         fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
       }
       return vc

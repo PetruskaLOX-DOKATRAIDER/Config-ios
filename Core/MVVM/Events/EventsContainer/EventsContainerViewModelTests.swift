@@ -1,8 +1,8 @@
 //
-//  EventsViewModelTests.swift
+//  EventsContainerViewModelTests.swift
 //  Config
 //
-//  Created by Oleg Petrychuk on 19.06.2018.
+//  Created by Oleg Petrychuk on 20.07.2018.
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ import Nimble
 import RxTest
 import RxBlocking
 
-class EventsViewModelTests: BaseTestCase {
+class EventsContainerViewModelTests: BaseTestCase {
     func testBehaviour() {
 
     }
