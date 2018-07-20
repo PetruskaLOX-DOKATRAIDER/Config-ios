@@ -52,7 +52,7 @@ public class PlayersBannerView: LoadableView, ReusableViewProtocol, DTCollection
         viewModel.errorMessage.drive(errorLabel.rx.text).disposed(by: disposeBag)
         viewModel.currentPage.drive(pageControl.rx.currentPage).disposed(by: disposeBag)
         Driver.merge(
-            collectionView?.rx.didEndScrollingAnimation.asDriver() ?? .empty(),
+            collectionView?.rx.didEndDecelerating.asDriver() ?? .empty(),
             collectionView?.rx.didEndScrollingAnimation.asDriver() ?? .empty()
         ).drive(onNext: {
             viewModel.pageTrigger.onNext(self.collectionView?.centerPage ?? 0)

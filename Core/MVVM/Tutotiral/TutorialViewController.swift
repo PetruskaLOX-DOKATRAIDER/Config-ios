@@ -42,14 +42,11 @@ public final class TutorialViewController: UIViewController, NonReusableViewProt
         viewModel.isMoveBackAvailable.map{ !$0 }.drive(skipButton.rx.isHidden).disposed(by: disposeBag)
         nextButton.rx.tap.bind(to: viewModel.nextTrigger).disposed(by: disposeBag)
         skipButton.rx.tap.bind(to: viewModel.skipTrigger).disposed(by: disposeBag)
-//        viewModel.currentPage.distinctUntilChanged().drive(onNext: { page in
-//            self.collectionView?.scrollToItem(at: IndexPath(row: page, section: 0), at: .left, animated: true)
-//        }).disposed(by: disposeBag)
         Driver.merge(
-            collectionView?.rx.didEndScrollingAnimation.asDriver() ?? .empty(),
+            collectionView?.rx.didEndDecelerating.asDriver() ?? .empty(),
             collectionView?.rx.didEndScrollingAnimation.asDriver() ?? .empty()
         ).drive(onNext: {
-            viewModel.pageTrigger.onNext(self.collectionView?.centerPage ?? 0)
+                viewModel.pageTrigger.onNext(self.collectionView?.centerPage ?? 0)
         }).disposed(by: rx.disposeBag)
     }
 }
