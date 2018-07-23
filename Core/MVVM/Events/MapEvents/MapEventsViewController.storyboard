@@ -20,12 +20,26 @@
                     <view key="view" contentMode="scaleToFill" id="cEO-6E-8qo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.1456236600592512" green="1" blue="0.27460083874602537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kaZ-5K-kJS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="kaZ-5K-kJS" secondAttribute="bottom" id="67f-Tw-DQm"/>
+                            <constraint firstAttribute="trailing" secondItem="kaZ-5K-kJS" secondAttribute="trailing" id="Sb3-MF-PbU"/>
+                            <constraint firstItem="kaZ-5K-kJS" firstAttribute="top" secondItem="cEO-6E-8qo" secondAttribute="top" id="Wnm-5x-Z61"/>
+                            <constraint firstItem="kaZ-5K-kJS" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="k1o-KI-dD9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="kaZ-5K-kJS" id="BYt-rf-Puv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="142.57871064467767"/>
+            <point key="canvasLocation" x="-356" y="122"/>
         </scene>
     </scenes>
 </document>

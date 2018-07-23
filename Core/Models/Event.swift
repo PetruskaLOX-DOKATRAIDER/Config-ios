@@ -60,6 +60,6 @@ extension Event: JSONDecodable {
         logoURL = json["eventLogo"].url
         prizePool = json["prizePool"].stringValue
         countOfTeams = json["countOfTeams"].intValue
-        coordinates = Coordinates(lat: json["lat"].double ?? 0, lng: json["lng"].double ?? 0)
+        coordinates = Coordinates(lat: Double(json["lat"].stringValue) ?? 0, lng: Double(json["lng"].stringValue) ?? 0)
     }
 }

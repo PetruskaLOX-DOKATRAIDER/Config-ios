@@ -16,7 +16,6 @@ public extension Reactive where Base: ReusableViewProtocol {
     }
 }
 
-
 // MARK: UIViewController
 
 public extension Reactive where Base: UIViewController {
@@ -49,6 +48,17 @@ public extension Reactive where Base: UIImageView {
     public var imageURL: Binder<URL?> {
         return Binder(base) { imageView, url in
             imageView.setImage(withURL: url)
+        }
+    }
+}
+
+// MARK: FF
+
+public extension Reactive where Base: MKMapView {
+    public var annotations: Binder<[EventItemAnnotationViewModel]> {
+        return Binder(base) { mapView, annotations in
+            mapView.removeAnnotations(annotations)
+            mapView.addAnnotations(annotations)
         }
     }
 }

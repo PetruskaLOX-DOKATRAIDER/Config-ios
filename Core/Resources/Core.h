@@ -15,6 +15,8 @@
 @import ReusableView;
 @import Result;
 @import RxViewController;
+@import MapKit;
+@import RxMapKit;
 
 //! Project version number for Core.
 FOUNDATION_EXPORT double CoreVersionNumber;
