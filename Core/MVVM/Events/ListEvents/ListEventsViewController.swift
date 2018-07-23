@@ -14,6 +14,7 @@ public class ListEventsViewController: UIViewController, NonReusableViewProtocol
     override public func viewDidLoad() {
         super.viewDidLoad()
         setupManager()
+        view.backgroundColor = .bagdet
     }
     
     private func setupManager() {

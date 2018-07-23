@@ -9,18 +9,17 @@
 public protocol EventsContainerViewModel {
     var listEventsViewModel: ListEventsViewModel { get }
     var mapEventsViewModel: MapEventsViewModel { get }
-    var refreshTrigger: PublishSubject<Void> { get }
+    var eventsPaginator: Paginator<Event> { get }
 }
 
 public final class EventsContainerViewModelImpl: EventsContainerViewModel, ReactiveCompatible {
     public let listEventsViewModel: ListEventsViewModel
     public let mapEventsViewModel: MapEventsViewModel
-    public let refreshTrigger = PublishSubject<Void>()
+    public let eventsPaginator: Paginator<Event>
     
     public init(eventsService: EventsService) {
-        let events = Paginator(factory: { eventsService.getEvents(forPage: $0).success().asObservable() })
-        listEventsViewModel = ListEventsViewModelImpl(events: events)
-        mapEventsViewModel = MapEventsViewModelImpl(events: events)
-        refreshTrigger.flatMapLatest{ events.refreshTrigger }.subscribe().disposed(by: rx.disposeBag)
+        eventsPaginator = Paginator(factory: { eventsService.getEvents(forPage: $0).success().asObservable() })
+        listEventsViewModel = ListEventsViewModelImpl(events: eventsPaginator)
+        mapEventsViewModel = MapEventsViewModelImpl(events: eventsPaginator)
     }
 }

@@ -28,23 +28,29 @@ extension NSMutableAttributedString {
     func setColor(_ color: UIColor) -> NSMutableAttributedString {
         return setColor(color, range: fullLengthRange)
     }
+    
     func setFont(_ font: UIFont) -> NSMutableAttributedString {
         return setFont(font, range: fullLengthRange)
     }
+    
     func setAttributes(_ attributes: [NSAttributedStringKey : Any]) -> NSMutableAttributedString {
         setAttributes(attributes, range: fullLengthRange)
         return self
     }
-}
-
-extension NSMutableAttributedString {
+    
     func setColor(_ color: UIColor, range: NSRange) -> NSMutableAttributedString {
         addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: range)
         return self
     }
+    
     func setFont(_ font: UIFont, range: NSRange) -> NSMutableAttributedString {
         addAttribute(NSAttributedStringKey.font, value: font, range: range)
         return self
+    }
+    
+    func setColorForText(textForAttribute: String, withColor color: UIColor) {
+        let range: NSRange = self.mutableString.range(of: textForAttribute, options: .caseInsensitive)
+        self.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: range)
     }
 }
 

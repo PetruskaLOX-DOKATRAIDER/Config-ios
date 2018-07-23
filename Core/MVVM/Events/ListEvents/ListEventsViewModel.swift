@@ -22,7 +22,6 @@ public final class ListEventsViewModelImpl: ListEventsViewModel {
             vm.selectionTrigger.asDriver(onErrorJustReturn: ()).map{ evemt.detailsURL }.drive(detailURL).disposed(by: vm.rx.disposeBag)
             return vm
         }
-        
         eventDetailsURLTrigger = detailURL.asDriver(onErrorJustReturn: nil).filterNil()
         self.events = events.elements.asDriver().map{ $0.map{ remapToViewModels(evemt: $0) } }
     }

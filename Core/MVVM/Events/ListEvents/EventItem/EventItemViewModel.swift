@@ -8,7 +8,7 @@
 
 public struct EventDescription {
     public let fullText: String
-    public let countOfTeams: Int
+    public let countOfTeams: String
     public let prizePool: String
     public let startDateStr: String
     public let finishDateStr: String
@@ -40,7 +40,7 @@ public final class EventItemViewModelImpl: EventItemViewModel, ReactiveCompatibl
         let finishDateStr = DateFormatters.default.string(from: event.finishDate)
         let eventDescription = EventDescription(
             fullText: Strings.ListEvents.description(startDateStr, finishDateStr, event.countOfTeams, event.prizePool),
-            countOfTeams: event.countOfTeams,
+            countOfTeams: String(event.countOfTeams),
             prizePool: event.prizePool,
             startDateStr: startDateStr,
             finishDateStr: finishDateStr

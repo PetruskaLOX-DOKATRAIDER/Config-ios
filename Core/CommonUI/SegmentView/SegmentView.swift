@@ -45,7 +45,7 @@ public class SegmentView: LoadableView {
     private func getButton(withTitle title: String) -> UIButton {
         let button = UIButton()
         button.setTitle(title, for: .normal)
-        button.titleLabel?.font = .filsonMediumWithSize(16)
+        button.titleLabel?.font = .filsonMediumWithSize(17)
         button.addTarget(self, action: #selector(onButtonDidTap), for: .touchUpInside)
         return button
     }

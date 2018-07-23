@@ -14,6 +14,7 @@
 @import RxOptional;
 @import ReusableView;
 @import Result;
+@import RxViewController;
 
 //! Project version number for Core.
 FOUNDATION_EXPORT double CoreVersionNumber;

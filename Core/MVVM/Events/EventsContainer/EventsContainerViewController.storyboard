@@ -22,25 +22,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbZ-zS-PEy" customClass="SegmentView" customModule="Core" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="29" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="89" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="8RP-a6-F39"/>
+                                    <constraint firstAttribute="height" constant="44" id="XNC-T8-Guf"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1V-mc-MFy">
-                                <rect key="frame" x="0.0" y="73" width="375" height="594"/>
+                                <rect key="frame" x="0.0" y="133" width="375" height="534"/>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Btk-U4-VpK">
+                                <rect key="frame" x="0.0" y="29" width="375" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Ukv-V3-4Kg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="d1V-mc-MFy" secondAttribute="bottom" id="HfW-yH-cRk"/>
-                            <constraint firstAttribute="trailing" secondItem="d1V-mc-MFy" secondAttribute="trailing" id="MoW-5J-bd3"/>
-                            <constraint firstAttribute="trailing" secondItem="ZbZ-zS-PEy" secondAttribute="trailing" id="OqX-Kz-mCk"/>
-                            <constraint firstItem="d1V-mc-MFy" firstAttribute="top" secondItem="ZbZ-zS-PEy" secondAttribute="bottom" id="dT6-ei-D6O"/>
-                            <constraint firstItem="d1V-mc-MFy" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="eH1-PS-cOk"/>
-                            <constraint firstItem="ZbZ-zS-PEy" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="evm-0t-CVX"/>
-                            <constraint firstItem="ZbZ-zS-PEy" firstAttribute="top" secondItem="UUI-Gp-oci" secondAttribute="bottom" constant="9" id="udh-Im-5pu"/>
+                            <constraint firstAttribute="trailing" secondItem="ZbZ-zS-PEy" secondAttribute="trailing" id="QH2-br-f0g"/>
+                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="d1V-mc-MFy" secondAttribute="bottom" id="X3b-l3-QgA"/>
+                            <constraint firstItem="ZbZ-zS-PEy" firstAttribute="top" secondItem="Btk-U4-VpK" secondAttribute="bottom" id="YeH-FD-Ilr"/>
+                            <constraint firstItem="d1V-mc-MFy" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="Zaf-UR-k1n"/>
+                            <constraint firstItem="Btk-U4-VpK" firstAttribute="top" secondItem="UUI-Gp-oci" secondAttribute="bottom" constant="9" id="b7B-c2-g1t"/>
+                            <constraint firstItem="ZbZ-zS-PEy" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="dhd-BQ-1Lt"/>
+                            <constraint firstItem="d1V-mc-MFy" firstAttribute="top" secondItem="ZbZ-zS-PEy" secondAttribute="bottom" id="frL-8l-g4h"/>
+                            <constraint firstAttribute="trailing" secondItem="Btk-U4-VpK" secondAttribute="trailing" id="ipg-dw-8Kl"/>
+                            <constraint firstAttribute="trailing" secondItem="d1V-mc-MFy" secondAttribute="trailing" id="lGT-1r-Q04"/>
+                            <constraint firstItem="Btk-U4-VpK" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="zho-8Y-AJh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PES-BT-I1j">
@@ -60,6 +70,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="indicatorContainerView" destination="Btk-U4-VpK" id="6ch-zX-DlL"/>
+                        <outlet property="indicatorContainerViewHeightConstraint" destination="Ukv-V3-4Kg" id="6Xl-MP-8Uj"/>
                         <outlet property="refreshButton" destination="aIy-xU-w0c" id="iUc-qn-qzr"/>
                         <outlet property="segmentPageViewControllerContainer" destination="d1V-mc-MFy" id="hIZ-Vx-dPh"/>
                         <outlet property="segmentView" destination="ZbZ-zS-PEy" id="3Ph-fl-Fp1"/>
