@@ -35,7 +35,7 @@ extension CDEvent: CDObjectable {
             startDate: startDate ?? Date(),
             finishDate: finishDate ?? Date(),
             logoURL: URL(string: logoURL ?? ""),
-            prizePool: prizePool ?? "",
+            prizePool: prizePool,
             countOfTeams: Int(countOfTeams),
             coordinates: coordinates?.toPlainObject() ?? Coordinates.new(lat: 0, lng: 0)
         )

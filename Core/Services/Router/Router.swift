@@ -49,7 +49,9 @@ open class Router: ReactiveCompatible {
     }
     
     public func events() -> Route<EventsContainerViewController> {
-        return route()
+        return route().configure({ [ eventFilters = eventFilters() ] in
+            $0.viewModel?.shouldRouteFilters.map(to: eventFilters).present().disposed(by: $0.rx.disposeBag)
+        }).embedInNavigation(NavigationControllerFactory.new())
     }
     
     public func teams() -> Route<TeamsViewController> {
@@ -66,6 +68,13 @@ open class Router: ReactiveCompatible {
                 vc.tabBarController?.setSelectedViewController(ProfileViewController.self)
             }).disposed(by: vc.rx.disposeBag)
         })
+    }
+    
+    public func eventFilters() -> Route<EventsFilterViewController> {
+        return route().configure({ vc in
+            guard let navigationController = vc.navigationController else { return }
+            vc.viewModel?.shouldCloseFilters.map(to: true).drive(navigationController.rx.close).disposed(by: vc.rx.disposeBag)
+        }).embedInNavigation(NavigationControllerFactory.new())
     }
     
     private func route<T: UIViewController>() -> Route<T> where T: ViewModelHolderProtocol {

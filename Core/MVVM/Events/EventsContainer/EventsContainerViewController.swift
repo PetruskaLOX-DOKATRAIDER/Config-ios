@@ -19,6 +19,7 @@ public class EventsContainerViewController: UIViewController, NonReusableViewPro
     @IBOutlet private weak var indicatorContainerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var segmentPageViewControllerContainer: UIView!
     @IBOutlet private weak var refreshButton: UIButton!
+    @IBOutlet private weak var filterButton: UIButton!
     @IBOutlet private weak var segmentView: SegmentView!
     
     public override func viewDidLoad() {
@@ -33,7 +34,6 @@ public class EventsContainerViewController: UIViewController, NonReusableViewPro
         )
         setupSegmentView()
         setupSegmentPageViewController()
-        if #available(iOS 11.0, *) { navigationItem.largeTitleDisplayMode = .never }
     }
     
     private func setupSegmentPageViewController() {
@@ -65,6 +65,9 @@ public class EventsContainerViewController: UIViewController, NonReusableViewPro
         listEventsViewController.viewModel = viewModel.listEventsViewModel
         mapEventsViewController.viewModel = viewModel.mapEventsViewModel
         refreshButton.rx.tap.bind(to: viewModel.eventsPaginator.refreshTrigger).disposed(by: disposeBag)
+        filterButton.rx.tap.bind(to: viewModel.filtersTrigger).disposed(by: disposeBag)
+        rx.viewDidAppear.toVoid().take(1).bind(to: viewModel.eventsPaginator.refreshTrigger).disposed(by: disposeBag)
+
         let showIndicatorTrigger = viewModel.eventsPaginator.isWorking.filter{ $0 }
         let hideIndicatorTrigger = viewModel.eventsPaginator.isWorking.filter{ !$0 }.delay(0.7)
         showIndicatorTrigger.drive(indicatorContainerView.rx.activityIndicator).disposed(by: disposeBag)
@@ -77,6 +80,5 @@ public class EventsContainerViewController: UIViewController, NonReusableViewPro
             self?.indicatorContainerViewHeightConstraint.constant = 0
             UIView.animate(withDuration: 0.5, animations: { self?.view.layoutIfNeeded() })
         }).disposed(by: disposeBag)
-        rx.viewDidAppear.toVoid().bind(to: viewModel.eventsPaginator.refreshTrigger).disposed(by: disposeBag)
     }
 }

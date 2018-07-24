@@ -30,12 +30,12 @@ public struct Event {
     public let startDate: Date
     public let finishDate: Date
     public let logoURL: URL?
-    public let prizePool: String
+    public let prizePool: Double
     public let countOfTeams: Int
     public let coordinates: Coordinates
     
     // TODO: Fix Autoinit
-    public init(name: String, city: String, flagURL: URL?, detailsURL: URL?, startDate: Date, finishDate: Date, logoURL: URL?, prizePool: String, countOfTeams: Int, coordinates: Coordinates) {
+    public init(name: String, city: String, flagURL: URL?, detailsURL: URL?, startDate: Date, finishDate: Date, logoURL: URL?, prizePool: Double, countOfTeams: Int, coordinates: Coordinates) {
         self.name = name
         self.city = city
         self.flagURL = flagURL
@@ -58,7 +58,7 @@ extension Event: JSONDecodable {
         startDate = Date(timeIntervalSince1970: Double(json["dateStart"].stringValue) ?? 0)
         finishDate = Date(timeIntervalSince1970: Double(json["dateEnd"].stringValue) ?? 0)
         logoURL = json["eventLogo"].url
-        prizePool = json["prizePool"].stringValue
+        prizePool = json["prizePool"].doubleValue
         countOfTeams = json["countOfTeams"].intValue
         coordinates = Coordinates(lat: Double(json["lat"].stringValue) ?? 0, lng: Double(json["lng"].stringValue) ?? 0)
     }

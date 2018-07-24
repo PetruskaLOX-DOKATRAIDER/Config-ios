@@ -38,10 +38,11 @@ public final class EventItemViewModelImpl: EventItemViewModel, ReactiveCompatibl
         logoURL = .just(event.logoURL)
         let startDateStr = DateFormatters.default.string(from: event.startDate)
         let finishDateStr = DateFormatters.default.string(from: event.finishDate)
+        let prizePool = String(event.prizePool) + Strings.ListEvents.currency
         let eventDescription = EventDescription(
-            fullText: Strings.ListEvents.description(startDateStr, finishDateStr, event.countOfTeams, event.prizePool),
+            fullText: Strings.ListEvents.description(startDateStr, finishDateStr, event.countOfTeams, prizePool),
             countOfTeams: String(event.countOfTeams),
-            prizePool: event.prizePool,
+            prizePool: prizePool,
             startDateStr: startDateStr,
             finishDateStr: finishDateStr
         )

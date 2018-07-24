@@ -25,6 +25,11 @@
 		7C29AC05210731EF00DF6DCB /* EventDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C29AC04210731EF00DF6DCB /* EventDescriptionViewModel.swift */; };
 		7C29AC07210731FE00DF6DCB /* EventDescriptionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C29AC06210731FE00DF6DCB /* EventDescriptionViewModelTests.swift */; };
 		7C29AC092107320C00DF6DCB /* EventDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C29AC082107320C00DF6DCB /* EventDescriptionView.xib */; };
+		7C29AC112107581900DF6DCB /* EventsFilterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C29AC0D2107581900DF6DCB /* EventsFilterViewModelTests.swift */; };
+		7C29AC122107581900DF6DCB /* EventsFilterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C29AC0E2107581900DF6DCB /* EventsFilterViewController.storyboard */; };
+		7C29AC132107581900DF6DCB /* EventsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C29AC0F2107581900DF6DCB /* EventsFilterViewController.swift */; };
+		7C29AC142107581900DF6DCB /* EventsFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C29AC102107581900DF6DCB /* EventsFilterViewModel.swift */; };
+		7C29AC16210758B800DF6DCB /* EventsFiltersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C29AC15210758B800DF6DCB /* EventsFiltersStorage.swift */; };
 		7C2BF74220D91BD30026DAB4 /* TutoriaItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BF74120D91BD30026DAB4 /* TutoriaItemCell.swift */; };
 		7C2BF74420D91BDD0026DAB4 /* TutoriaItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2BF74320D91BDD0026DAB4 /* TutoriaItemCell.xib */; };
 		7C2FDEF620DE38B100EDD11E /* CollectionViewManager+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2FDEF520DE38B100EDD11E /* CollectionViewManager+extensions.swift */; };
@@ -321,6 +326,11 @@
 		7C29AC04210731EF00DF6DCB /* EventDescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDescriptionViewModel.swift; sourceTree = "<group>"; };
 		7C29AC06210731FE00DF6DCB /* EventDescriptionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDescriptionViewModelTests.swift; sourceTree = "<group>"; };
 		7C29AC082107320C00DF6DCB /* EventDescriptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDescriptionView.xib; sourceTree = "<group>"; };
+		7C29AC0D2107581900DF6DCB /* EventsFilterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFilterViewModelTests.swift; sourceTree = "<group>"; };
+		7C29AC0E2107581900DF6DCB /* EventsFilterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsFilterViewController.storyboard; sourceTree = "<group>"; };
+		7C29AC0F2107581900DF6DCB /* EventsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFilterViewController.swift; sourceTree = "<group>"; };
+		7C29AC102107581900DF6DCB /* EventsFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFilterViewModel.swift; sourceTree = "<group>"; };
+		7C29AC15210758B800DF6DCB /* EventsFiltersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFiltersStorage.swift; sourceTree = "<group>"; };
 		7C2BF74120D91BD30026DAB4 /* TutoriaItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutoriaItemCell.swift; sourceTree = "<group>"; };
 		7C2BF74320D91BDD0026DAB4 /* TutoriaItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutoriaItemCell.xib; sourceTree = "<group>"; };
 		7C2FDEF520DE38B100EDD11E /* CollectionViewManager+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewManager+extensions.swift"; sourceTree = "<group>"; };
@@ -708,6 +718,17 @@
 			path = EventDescription;
 			sourceTree = "<group>";
 		};
+		7C29AC0A210757FC00DF6DCB /* EventsFilter */ = {
+			isa = PBXGroup;
+			children = (
+				7C29AC102107581900DF6DCB /* EventsFilterViewModel.swift */,
+				7C29AC0D2107581900DF6DCB /* EventsFilterViewModelTests.swift */,
+				7C29AC0F2107581900DF6DCB /* EventsFilterViewController.swift */,
+				7C29AC0E2107581900DF6DCB /* EventsFilterViewController.storyboard */,
+			);
+			path = EventsFilter;
+			sourceTree = "<group>";
+		};
 		7C2BF74020D91BAB0026DAB4 /* TutorialItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -863,6 +884,7 @@
 		7CAE6D712101E05E00844B11 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				7C29AC0A210757FC00DF6DCB /* EventsFilter */,
 				7CAE6D632101DFCF00844B11 /* EventsContainer */,
 				7CAE6D7B2101E08000844B11 /* ListEvents */,
 				7CAE6D722101E06400844B11 /* MapEvents */,
@@ -931,8 +953,9 @@
 		7CDAF95F20D7ED42009B9B87 /* Storages */ = {
 			isa = PBXGroup;
 			children = (
-				7CDAF96020D7ED55009B9B87 /* UserStorage.swift */,
 				7CDAF96220D7EEB9009B9B87 /* Storage.swift */,
+				7CDAF96020D7ED55009B9B87 /* UserStorage.swift */,
+				7C29AC15210758B800DF6DCB /* EventsFiltersStorage.swift */,
 				7CDCFDF320EE27E60046C818 /* PlayersStorage.swift */,
 				7C11D39B20FCC2DF00FC8599 /* TeamsStorage.swift */,
 				7CAE6D972102107100844B11 /* EventsStorage.swift */,
@@ -1645,6 +1668,7 @@
 				C0F8680B202C676C00D15CDA /* Media.xcassets in Resources */,
 				7CDAF97320D7FBE9009B9B87 /* filsonsoft-bold.otf in Resources */,
 				7CDAF98220D8018C009B9B87 /* AutoStoryboard.stencil in Resources */,
+				7C29AC122107581900DF6DCB /* EventsFilterViewController.storyboard in Resources */,
 				7CDAF97020D7FBE9009B9B87 /* filsonsoft-medium.otf in Resources */,
 				7CDAF95920D7C0A3009B9B87 /* TutorialViewController.storyboard in Resources */,
 				7CDAF97120D7FBE9009B9B87 /* filsonsoft-light.otf in Resources */,
@@ -2062,6 +2086,7 @@
 				7CDAF96120D7ED55009B9B87 /* UserStorage.swift in Sources */,
 				7C9105DC20FC93AB00970FA7 /* PlayerInTeamView.swift in Sources */,
 				7CFA250220D932EF0059378F /* PlayersViewModel.swift in Sources */,
+				7C29AC132107581900DF6DCB /* EventsFilterViewController.swift in Sources */,
 				7CAE6D5E2101DC3900844B11 /* SegmentView.swift in Sources */,
 				7CAE6D982102107100844B11 /* EventsStorage.swift in Sources */,
 				7CDCFDF420EE27E60046C818 /* PlayersStorage.swift in Sources */,
@@ -2082,6 +2107,7 @@
 				7CDAF97D20D7FFA4009B9B87 /* Strings.generated.swift in Sources */,
 				7CA552822100990E0097E866 /* UIView+MessageView.swift in Sources */,
 				7CAE6D832101E08D00844B11 /* ListEventsViewModel.swift in Sources */,
+				7C29AC142107581900DF6DCB /* EventsFilterViewModel.swift in Sources */,
 				7CAE6D6F2101E00300844B11 /* EventsContainerViewModel.swift in Sources */,
 				7CFA24FA20D932E70059378F /* TeamsViewModel.swift in Sources */,
 				7CFA250120D932EF0059378F /* PlayersViewController.swift in Sources */,
@@ -2115,10 +2141,12 @@
 				7C5F307920E0E2770050E9AE /* ViewModelFactory.swift in Sources */,
 				7CFA24E920D932D30059378F /* ProfileViewController.swift in Sources */,
 				7CAE6D592101DBEB00844B11 /* Array+extensions.swift in Sources */,
+				7C29AC112107581900DF6DCB /* EventsFilterViewModelTests.swift in Sources */,
 				7C9105C120FC805900970FA7 /* PlayersBannerViewModel.swift in Sources */,
 				7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */,
 				7CB97D20210629F5002CA594 /* MKMapView+extensions.swift in Sources */,
 				C02C4663202D9A09008AE9B0 /* Attributer.swift in Sources */,
+				7C29AC16210758B800DF6DCB /* EventsFiltersStorage.swift in Sources */,
 				7CB97D1E210622E4002CA594 /* ImageDownloader.swift in Sources */,
 				7CDAF95B20D7C0A3009B9B87 /* TutorialViewModel.swift in Sources */,
 				7CDAF96320D7EEB9009B9B87 /* Storage.swift in Sources */,

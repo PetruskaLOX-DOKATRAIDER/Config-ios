@@ -13,7 +13,7 @@
         <attribute name="flagURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="logoURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="prizePool" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prizePool" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="coordinates" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CCCoordinates" inverseName="event" inverseEntity="CCCoordinates" syncable="YES"/>
     </entity>
@@ -61,13 +61,13 @@
         <relationship name="playerPreview" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDPlayerPreview" inverseName="teamRelationshep" inverseEntity="CDPlayerPreview" syncable="YES"/>
     </entity>
     <elements>
+        <element name="CCCoordinates" positionX="-1251" positionY="135" width="128" height="88"/>
+        <element name="CDEvent" positionX="-981" positionY="54" width="225" height="193"/>
         <element name="CDFavoritePlayers" positionX="-1152" positionY="608" width="234" height="58"/>
         <element name="CDImageSize" positionX="-882" positionY="603" width="128" height="73"/>
         <element name="CDPlayer" positionX="-1080" positionY="288" width="630" height="43"/>
         <element name="CDPlayerDescription" positionX="-657" positionY="437" width="209" height="328"/>
         <element name="CDPlayerPreview" positionX="-884" positionY="432" width="191" height="133"/>
         <element name="CDTeam" positionX="-1080" positionY="434" width="153" height="103"/>
-        <element name="CDEvent" positionX="-981" positionY="54" width="225" height="193"/>
-        <element name="CCCoordinates" positionX="-1251" positionY="135" width="128" height="88"/>
     </elements>
 </model>

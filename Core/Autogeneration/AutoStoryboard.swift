@@ -52,6 +52,16 @@ enum StoryboardScene {
       return vc
     }
   }
+  enum EventsFilter: StoryboardSceneType {
+    static let storyboardName = "EventsFilterViewController"
+
+    static func initialViewController() -> EventsFilterViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? EventsFilterViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+  }
   enum ListEvents: StoryboardSceneType {
     static let storyboardName = "ListEventsViewController"
 
