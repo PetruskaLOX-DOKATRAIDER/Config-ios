@@ -19,6 +19,6 @@ extension PlayerBanner: JSONDecodable {
     public init(json: JSON) throws {
         coverImageURL = json["imageLink"].url
         id = json["id"].intValue
-        updatedDate = Date(timeIntervalSince1970: json["date"].double ?? 0)
+        updatedDate = Date(timeIntervalSince1970: Double(json["date"].stringValue) ?? 0)
     }
 }

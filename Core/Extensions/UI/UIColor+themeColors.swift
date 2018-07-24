@@ -14,5 +14,6 @@ public extension UIColor {
     static var bagdet: UIColor { return UIColor(hexString: "#272727") }
     static var tapped: UIColor { return UIColor(hexString: "#181818") }
     static var solled: UIColor { return UIColor(hexString: "#D3D3D3") }
+    static var ranje: UIColor { return UIColor(hexString: "#FD8A5C") }
     static var snowWhite: UIColor { return .white }
 }

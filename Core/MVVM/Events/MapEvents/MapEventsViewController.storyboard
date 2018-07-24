@@ -24,22 +24,39 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kaZ-5K-kJS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CA-pO-B5U" customClass="EventDescriptionView" customModule="Core" customModuleProvider="target">
+                                <rect key="frame" x="16" y="497" width="343" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Ov9-jL-Bdv"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="8CA-pO-B5U" secondAttribute="bottom" constant="20" id="1U8-04-4Jh"/>
                             <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="kaZ-5K-kJS" secondAttribute="bottom" id="67f-Tw-DQm"/>
+                            <constraint firstItem="8CA-pO-B5U" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" constant="16" id="NSF-qN-HFk"/>
                             <constraint firstAttribute="trailing" secondItem="kaZ-5K-kJS" secondAttribute="trailing" id="Sb3-MF-PbU"/>
                             <constraint firstItem="kaZ-5K-kJS" firstAttribute="top" secondItem="cEO-6E-8qo" secondAttribute="top" id="Wnm-5x-Z61"/>
+                            <constraint firstAttribute="trailing" secondItem="8CA-pO-B5U" secondAttribute="trailing" constant="16" id="aSr-C1-b5b"/>
                             <constraint firstItem="kaZ-5K-kJS" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="k1o-KI-dD9"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="eventDescriptionView" destination="8CA-pO-B5U" id="uHN-bK-8u8"/>
+                        <outlet property="eventDescriptionViewBottomConstraint" destination="1U8-04-4Jh" id="bUx-HW-7T0"/>
                         <outlet property="mapView" destination="kaZ-5K-kJS" id="BYt-rf-Puv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-356" y="122"/>
+            <point key="canvasLocation" x="-356" y="121.88905547226388"/>
         </scene>
     </scenes>
 </document>

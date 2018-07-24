@@ -8,7 +8,7 @@
 
 import LoadableViews
 
-class MessageView: LoadableView, NonReusableViewProtocol, ViewModelHolderProtocol {
+class MessageView: LoadableView, NonReusableViewProtocol {
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!

@@ -66,7 +66,7 @@ public class EventsContainerViewController: UIViewController, NonReusableViewPro
         mapEventsViewController.viewModel = viewModel.mapEventsViewModel
         refreshButton.rx.tap.bind(to: viewModel.eventsPaginator.refreshTrigger).disposed(by: disposeBag)
         let showIndicatorTrigger = viewModel.eventsPaginator.isWorking.filter{ $0 }
-        let hideIndicatorTrigger = viewModel.eventsPaginator.isWorking.filter{ !$0 }.delay(1)
+        let hideIndicatorTrigger = viewModel.eventsPaginator.isWorking.filter{ !$0 }.delay(0.7)
         showIndicatorTrigger.drive(indicatorContainerView.rx.activityIndicator).disposed(by: disposeBag)
         showIndicatorTrigger.toVoid().drive(onNext: { [weak self] in
             self?.indicatorContainerViewHeightConstraint.constant = 60

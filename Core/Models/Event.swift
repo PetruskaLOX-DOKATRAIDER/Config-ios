@@ -55,8 +55,8 @@ extension Event: JSONDecodable {
         city = json["cityName"].stringValue
         flagURL = json["flagImage"].url
         detailsURL = json["ling"].url
-        startDate = Date(timeIntervalSince1970: json["dateStart"].double ?? 0)
-        finishDate = Date(timeIntervalSince1970: json["dateEnd"].double ?? 0)
+        startDate = Date(timeIntervalSince1970: Double(json["dateStart"].stringValue) ?? 0)
+        finishDate = Date(timeIntervalSince1970: Double(json["dateEnd"].stringValue) ?? 0)
         logoURL = json["eventLogo"].url
         prizePool = json["prizePool"].stringValue
         countOfTeams = json["countOfTeams"].intValue

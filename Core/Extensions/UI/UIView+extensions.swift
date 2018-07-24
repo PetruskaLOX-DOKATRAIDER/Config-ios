@@ -68,4 +68,11 @@ extension UIView {
         topAnchor.constraint(equalTo: subview.topAnchor).isActive = true
         bottomAnchor.constraint(equalTo: subview.bottomAnchor).isActive = true
     }
+    
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
 }

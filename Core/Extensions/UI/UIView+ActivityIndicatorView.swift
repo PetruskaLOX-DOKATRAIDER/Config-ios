@@ -18,9 +18,9 @@ extension UIView {
         indicatorView.layer.zPosition = 101
         indicatorView.tag = indicatorViewTag
         addSubview(indicatorView)
-        indicatorView.snp.makeConstraints { make in
-            make.width.height.equalTo(60)
-            make.center.equalTo(self)
+        indicatorView.snp.makeConstraints {
+            $0.width.height.equalTo(60)
+            $0.center.equalTo(self)
         }
         indicatorView.startAnimating()
     }

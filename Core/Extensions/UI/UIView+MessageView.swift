@@ -16,11 +16,11 @@ extension UIView {
         messageView.layer.zPosition = 101
         
         addSubview(messageView)
-        messageView.snp.makeConstraints { make in
-            make.bottom.equalTo(self).offset(-100)
-            make.left.equalTo(self).offset(12)
-            make.right.equalTo(self).offset(-12)
-            make.bottom.equalTo(messageView.descriptionLabel.snp.bottom).offset(8)
+        messageView.snp.makeConstraints {
+            $0.bottom.equalTo(self).offset(-100)
+            $0.left.equalTo(self).offset(12)
+            $0.right.equalTo(self).offset(-12)
+            $0.bottom.equalTo(messageView.descriptionLabel.snp.bottom).offset(8)
         }
         
         UIView.animate(withDuration: 0.4, animations: {

@@ -19,12 +19,16 @@ public class EventItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer
     override public func awakeFromNib() {
         super.awakeFromNib()
         colorContainerView.backgroundColor = .amethyst
+        
         nameLabel.font = .filsonMediumWithSize(17)
         nameLabel.textColor = .snowWhite
+        
         cityLabel.font = .filsonRegularWithSize(17)
         cityLabel.textColor = .solled
+        
         descriptionLabel.font = .filsonRegularWithSize(30)
         descriptionLabel.textColor = .solled
+        
         colorContainerView.applyShadow(color: UIColor.solled.cgColor)
     }
     
