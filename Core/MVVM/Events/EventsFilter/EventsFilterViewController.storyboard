@@ -1,36 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ek-ct-1Xt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Events Filter View Controller-->
-        <scene sceneID="tEr-Pp-f1g">
+        <scene sceneID="eGA-Mx-dtE">
             <objects>
-                <viewController id="7ek-ct-1Xt" customClass="EventsFilterViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UUI-Gp-oci"/>
-                        <viewControllerLayoutGuide type="bottom" id="4af-qR-9ib"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cEO-6E-8qo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="7ap-Iz-bRB" customClass="EventsFilterViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0f2-gT-dEW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="865"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="tlB-mm-dZG">
+                                <rect key="frame" x="0.0" y="47" width="375" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sfq-c0-s0t">
+                                        <rect key="frame" x="1" y="0.0" width="374" height="739"/>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="rQm-tr-Qvt">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="739"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Sfq-c0-s0t" firstAttribute="leading" secondItem="tlB-mm-dZG" secondAttribute="leading" constant="1" id="1Bq-uv-D5a"/>
+                                    <constraint firstAttribute="bottom" secondItem="rQm-tr-Qvt" secondAttribute="bottom" constant="79" id="9fZ-zH-9A4"/>
+                                    <constraint firstItem="Sfq-c0-s0t" firstAttribute="bottom" secondItem="rQm-tr-Qvt" secondAttribute="bottom" id="F5L-ws-Ff7"/>
+                                    <constraint firstAttribute="trailing" secondItem="rQm-tr-Qvt" secondAttribute="trailing" id="GDa-23-qux"/>
+                                    <constraint firstItem="Sfq-c0-s0t" firstAttribute="centerX" secondItem="tlB-mm-dZG" secondAttribute="centerX" id="MCn-pF-oxa"/>
+                                    <constraint firstItem="Sfq-c0-s0t" firstAttribute="centerY" secondItem="tlB-mm-dZG" secondAttribute="centerY" priority="200" constant="-39.5" id="Ov9-jk-HIN"/>
+                                    <constraint firstItem="rQm-tr-Qvt" firstAttribute="top" secondItem="tlB-mm-dZG" secondAttribute="top" id="Rfz-P7-wFw"/>
+                                    <constraint firstItem="Sfq-c0-s0t" firstAttribute="top" secondItem="tlB-mm-dZG" secondAttribute="top" id="V8j-Z8-fZA"/>
+                                    <constraint firstItem="rQm-tr-Qvt" firstAttribute="leading" secondItem="tlB-mm-dZG" secondAttribute="leading" id="WNA-Un-GOu"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sfq-c0-s0t" secondAttribute="trailing" id="oJV-Ge-0nO"/>
+                                </constraints>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLL-1r-GXv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="qCi-Sa-2uO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tlB-mm-dZG" firstAttribute="trailing" secondItem="g57-NF-VK4" secondAttribute="trailing" id="8Zl-po-4tR"/>
+                            <constraint firstAttribute="trailing" secondItem="SLL-1r-GXv" secondAttribute="trailing" id="SHs-ML-LDt"/>
+                            <constraint firstItem="SLL-1r-GXv" firstAttribute="leading" secondItem="0f2-gT-dEW" secondAttribute="leading" id="V0C-TZ-ypU"/>
+                            <constraint firstItem="tlB-mm-dZG" firstAttribute="bottom" secondItem="g57-NF-VK4" secondAttribute="bottom" id="Yna-NP-fB0"/>
+                            <constraint firstItem="SLL-1r-GXv" firstAttribute="top" secondItem="0f2-gT-dEW" secondAttribute="top" id="rr5-Ng-yZv"/>
+                            <constraint firstItem="tlB-mm-dZG" firstAttribute="leading" secondItem="g57-NF-VK4" secondAttribute="leading" id="s7G-k4-0Nz"/>
+                            <constraint firstItem="tlB-mm-dZG" firstAttribute="top" secondItem="g57-NF-VK4" secondAttribute="top" constant="27" id="vvy-Jv-w0m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g57-NF-VK4"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="6jx-nS-I54">
-                        <barButtonItem key="leftBarButtonItem" id="trz-1r-JgF">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ewe-5s-eXM">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="rKb-Xb-x6D">
+                        <barButtonItem key="leftBarButtonItem" id="xMm-AH-LO7">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sYN-Zb-jsU">
                                 <rect key="frame" x="16" y="7" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" width="50" id="eFW-qa-lo8">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lDi-uV-yhQ">
+                        <barButtonItem key="rightBarButtonItem" width="50" id="rHL-tU-88c">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="reX-Qn-xGM">
                                 <rect key="frame" x="309" y="11" width="50" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
@@ -39,14 +78,17 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <size key="freeformSize" width="375" height="865"/>
                     <connections>
-                        <outlet property="applyButton" destination="lDi-uV-yhQ" id="F9P-nK-K1O"/>
-                        <outlet property="cancelButton" destination="Ewe-5s-eXM" id="bgb-cT-W3d"/>
+                        <outlet property="applyButton" destination="reX-Qn-xGM" id="e96-sb-in7"/>
+                        <outlet property="cancelButton" destination="sYN-Zb-jsU" id="ugk-fy-Iqo"/>
+                        <outlet property="scrollViewBottomConstraint" destination="9fZ-zH-9A4" id="aGm-4A-Iqe"/>
+                        <outlet property="stackView" destination="rQm-tr-Qvt" id="i3P-vz-SBw"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UUv-B6-9M9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271" y="165"/>
+            <point key="canvasLocation" x="-326" y="266"/>
         </scene>
     </scenes>
 </document>

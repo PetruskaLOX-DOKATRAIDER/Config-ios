@@ -48,6 +48,7 @@
 		7C5F308320E10DFB0050E9AE /* AppSectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F308220E10DFB0050E9AE /* AppSectionsViewModel.swift */; };
 		7C5F308520E10E0D0050E9AE /* AppSectionsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F308420E10E0D0050E9AE /* AppSectionsTabBarController.swift */; };
 		7C6DC0B120EF8A070059A01F /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
+		7C6F5BED2107789900886CB7 /* DateFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F5BEC2107789900886CB7 /* DateFieldViewModel.swift */; };
 		7C9105BF20FC805000970FA7 /* PlayersBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9105BE20FC805000970FA7 /* PlayersBannerView.swift */; };
 		7C9105C120FC805900970FA7 /* PlayersBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9105C020FC805900970FA7 /* PlayersBannerViewModel.swift */; };
 		7C9105C320FC806300970FA7 /* PlayersBannerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9105C220FC806300970FA7 /* PlayersBannerViewModelTests.swift */; };
@@ -348,6 +349,7 @@
 		7C5F307C20E0E44B0050E9AE /* DIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIConfiguration.swift; sourceTree = "<group>"; };
 		7C5F308220E10DFB0050E9AE /* AppSectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionsViewModel.swift; sourceTree = "<group>"; };
 		7C5F308420E10E0D0050E9AE /* AppSectionsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionsTabBarController.swift; sourceTree = "<group>"; };
+		7C6F5BEC2107789900886CB7 /* DateFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFieldViewModel.swift; sourceTree = "<group>"; };
 		7C9105BE20FC805000970FA7 /* PlayersBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersBannerView.swift; sourceTree = "<group>"; };
 		7C9105C020FC805900970FA7 /* PlayersBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersBannerViewModel.swift; sourceTree = "<group>"; };
 		7C9105C220FC806300970FA7 /* PlayersBannerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersBannerViewModelTests.swift; sourceTree = "<group>"; };
@@ -721,6 +723,7 @@
 		7C29AC0A210757FC00DF6DCB /* EventsFilter */ = {
 			isa = PBXGroup;
 			children = (
+				7C6F5BEB2107787900886CB7 /* DateField */,
 				7C29AC102107581900DF6DCB /* EventsFilterViewModel.swift */,
 				7C29AC0D2107581900DF6DCB /* EventsFilterViewModelTests.swift */,
 				7C29AC0F2107581900DF6DCB /* EventsFilterViewController.swift */,
@@ -764,6 +767,14 @@
 				7C5F308420E10E0D0050E9AE /* AppSectionsTabBarController.swift */,
 			);
 			path = AppSections;
+			sourceTree = "<group>";
+		};
+		7C6F5BEB2107787900886CB7 /* DateField */ = {
+			isa = PBXGroup;
+			children = (
+				7C6F5BEC2107789900886CB7 /* DateFieldViewModel.swift */,
+			);
+			path = DateField;
 			sourceTree = "<group>";
 		};
 		7C9105BD20FC803200970FA7 /* PlayersBanner */ = {
@@ -2087,6 +2098,7 @@
 				7C9105DC20FC93AB00970FA7 /* PlayerInTeamView.swift in Sources */,
 				7CFA250220D932EF0059378F /* PlayersViewModel.swift in Sources */,
 				7C29AC132107581900DF6DCB /* EventsFilterViewController.swift in Sources */,
+				7C6F5BED2107789900886CB7 /* DateFieldViewModel.swift in Sources */,
 				7CAE6D5E2101DC3900844B11 /* SegmentView.swift in Sources */,
 				7CAE6D982102107100844B11 /* EventsStorage.swift in Sources */,
 				7CDCFDF420EE27E60046C818 /* PlayersStorage.swift in Sources */,

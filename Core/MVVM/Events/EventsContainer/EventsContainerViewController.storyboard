@@ -12,6 +12,7 @@
         <!--Onboarding-->
         <scene sceneID="tEr-Pp-f1g">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7ek-ct-1Xt" customClass="EventsContainerViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UUI-Gp-oci"/>
@@ -80,7 +81,6 @@
                         <outlet property="segmentView" destination="ZbZ-zS-PEy" id="3Ph-fl-Fp1"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="142.57871064467767"/>
         </scene>

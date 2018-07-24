@@ -9,6 +9,8 @@
 public class EventsFilterViewController: UIViewController, NonReusableViewProtocol {
     @IBOutlet private weak var cancelButton: UIButton!
     @IBOutlet private weak var applyButton: UIButton!
+    @IBOutlet private weak var scrollViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var stackView: UIStackView!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,8 @@ public class EventsFilterViewController: UIViewController, NonReusableViewProtoc
         applyButton.setTitleColor(.ichigos, for: .normal)
         applyButton.titleLabel?.font = .filsonMediumWithSize(16)
         applyButton.setTitle(Strings.EventFilters.apply, for: .normal)
+        
+        KeyboardAvoiding.avoid(with: scrollViewBottomConstraint, inside: view).disposed(by: rx.disposeBag)
     }
     
     public func onUpdate(with viewModel: EventsFilterViewModel, disposeBag: DisposeBag) {
