@@ -53,7 +53,7 @@ extension UIView {
         self.layer.mask = layer
     }
     
-    func applyShadow(_ offset: CGSize = CGSize(width: 0, height: 2), radius: CGFloat = 4, opacity: Float = 0.3, color: CGColor = UIColor.black.cgColor) {
+    func applyShadow(_ offset: CGSize = CGSize(width: 0, height: 4), radius: CGFloat = 4, opacity: Float = 0.5, color: CGColor = UIColor.black.cgColor) {
         layer.masksToBounds = false
         layer.shadowColor = color
         layer.shadowRadius = radius
@@ -74,5 +74,21 @@ extension UIView {
         return renderer.image { rendererContext in
             layer.render(in: rendererContext.cgContext)
         }
+    }
+    
+    func removeAllSubviews() {
+        subviews.forEach{ $0.removeFromSuperview() }
+        
+    }
+    
+    func findSubviewsOf<T: UIView>() -> [T] {
+        var subviews = [T]()
+        for subview in self.subviews {
+            subviews += subview.findSubviewsOf() as [T]
+            if let subview = subview as? T {
+                subviews.append(subview)
+            }
+        }
+        return subviews
     }
 }

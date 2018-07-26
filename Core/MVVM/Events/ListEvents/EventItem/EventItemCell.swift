@@ -19,6 +19,7 @@ public class EventItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer
     override public func awakeFromNib() {
         super.awakeFromNib()
         colorContainerView.backgroundColor = .amethyst
+        colorContainerView.applyShadow(color: UIColor.amethyst.cgColor)
         
         nameLabel.font = .filsonMediumWithSize(17)
         nameLabel.textColor = .snowWhite
@@ -28,17 +29,14 @@ public class EventItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer
         
         descriptionLabel.font = .filsonRegularWithSize(30)
         descriptionLabel.textColor = .solled
-        
-        colorContainerView.applyShadow(color: UIColor.solled.cgColor)
     }
     
     public func onUpdate(with viewModel: EventItemViewModel, disposeBag: DisposeBag) {
-        func descriptionAttributedString(_ eventDescription: EventDescription) -> NSAttributedString {
-            let attributedStr = NSMutableAttributedString(string: eventDescription.fullText)
-            attributedStr.setColorForText(textForAttribute: eventDescription.finishDateStr, withColor: .ichigos)
-            attributedStr.setColorForText(textForAttribute: eventDescription.startDateStr, withColor: .ichigos)
-            attributedStr.setColorForText(textForAttribute: eventDescription.countOfTeams, withColor: .ichigos)
-            attributedStr.setColorForText(textForAttribute: eventDescription.prizePool, withColor: .ichigos)
+        func descriptionAttributedString(_ eventDescription: HighlightText) -> NSAttributedString {
+            let attributedStr = NSMutableAttributedString(string: eventDescription.full)
+            eventDescription.highlights.forEach{
+                attributedStr.setColorForText(textForAttribute: $0, withColor: .ichigos)
+            }
             return attributedStr
         }
     

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ap-Iz-bRB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,10 +24,17 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sfq-c0-s0t">
                                         <rect key="frame" x="1" y="0.0" width="374" height="739"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="rQm-tr-Qvt">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rQm-tr-Qvt">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="739"/>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfX-th-K3i">
+                                        <rect key="frame" x="16" y="771" width="343" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Sfq-c0-s0t" firstAttribute="leading" secondItem="tlB-mm-dZG" secondAttribute="leading" constant="1" id="1Bq-uv-D5a"/>
@@ -34,11 +42,14 @@
                                     <constraint firstItem="Sfq-c0-s0t" firstAttribute="bottom" secondItem="rQm-tr-Qvt" secondAttribute="bottom" id="F5L-ws-Ff7"/>
                                     <constraint firstAttribute="trailing" secondItem="rQm-tr-Qvt" secondAttribute="trailing" id="GDa-23-qux"/>
                                     <constraint firstItem="Sfq-c0-s0t" firstAttribute="centerX" secondItem="tlB-mm-dZG" secondAttribute="centerX" id="MCn-pF-oxa"/>
+                                    <constraint firstItem="HfX-th-K3i" firstAttribute="top" secondItem="Sfq-c0-s0t" secondAttribute="bottom" constant="32" id="Oqy-Pw-Z2s"/>
                                     <constraint firstItem="Sfq-c0-s0t" firstAttribute="centerY" secondItem="tlB-mm-dZG" secondAttribute="centerY" priority="200" constant="-39.5" id="Ov9-jk-HIN"/>
                                     <constraint firstItem="rQm-tr-Qvt" firstAttribute="top" secondItem="tlB-mm-dZG" secondAttribute="top" id="Rfz-P7-wFw"/>
                                     <constraint firstItem="Sfq-c0-s0t" firstAttribute="top" secondItem="tlB-mm-dZG" secondAttribute="top" id="V8j-Z8-fZA"/>
                                     <constraint firstItem="rQm-tr-Qvt" firstAttribute="leading" secondItem="tlB-mm-dZG" secondAttribute="leading" id="WNA-Un-GOu"/>
+                                    <constraint firstAttribute="trailing" secondItem="HfX-th-K3i" secondAttribute="trailing" constant="16" id="j72-vL-mSE"/>
                                     <constraint firstAttribute="trailing" secondItem="Sfq-c0-s0t" secondAttribute="trailing" id="oJV-Ge-0nO"/>
+                                    <constraint firstItem="HfX-th-K3i" firstAttribute="leading" secondItem="tlB-mm-dZG" secondAttribute="leading" constant="16" id="tyC-jq-fLY"/>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLL-1r-GXv">
@@ -49,7 +60,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tlB-mm-dZG" firstAttribute="trailing" secondItem="g57-NF-VK4" secondAttribute="trailing" id="8Zl-po-4tR"/>
                             <constraint firstAttribute="trailing" secondItem="SLL-1r-GXv" secondAttribute="trailing" id="SHs-ML-LDt"/>
@@ -61,34 +72,47 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g57-NF-VK4"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="rKb-Xb-x6D">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="rKb-Xb-x6D">
                         <barButtonItem key="leftBarButtonItem" id="xMm-AH-LO7">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sYN-Zb-jsU">
-                                <rect key="frame" x="16" y="7" width="25" height="25"/>
+                                <rect key="frame" x="16" y="7" width="50" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" width="50" id="rHL-tU-88c">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="reX-Qn-xGM">
-                                <rect key="frame" x="309" y="11" width="50" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem width="50" id="rHL-tU-88c">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="reX-Qn-xGM">
+                                    <rect key="frame" x="309" y="11" width="50" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem width="50" id="Ec5-f6-VUF">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kgm-aF-Mv8">
+                                    <rect key="frame" x="309" y="11" width="50" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="865"/>
                     <connections>
                         <outlet property="applyButton" destination="reX-Qn-xGM" id="e96-sb-in7"/>
                         <outlet property="cancelButton" destination="sYN-Zb-jsU" id="ugk-fy-Iqo"/>
+                        <outlet property="descriptionLabel" destination="HfX-th-K3i" id="lIe-9K-nEh"/>
+                        <outlet property="resetButton" destination="kgm-aF-Mv8" id="mWr-mr-wQa"/>
                         <outlet property="scrollViewBottomConstraint" destination="9fZ-zH-9A4" id="aGm-4A-Iqe"/>
                         <outlet property="stackView" destination="rQm-tr-Qvt" id="i3P-vz-SBw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUv-B6-9M9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-326" y="266"/>
+            <point key="canvasLocation" x="-327.19999999999999" y="265.81709145427288"/>
         </scene>
     </scenes>
 </document>

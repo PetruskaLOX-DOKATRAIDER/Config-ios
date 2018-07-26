@@ -17,5 +17,4 @@ public protocol Storage: AutoMockable {
     func set(_ value: Int, forKey defaultName: String)
 }
 
-extension UserDefaults: Storage {
-}
+extension UserDefaults: Storage {}

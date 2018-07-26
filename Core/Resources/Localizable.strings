@@ -47,5 +47,29 @@
 "Event_Description.details" = "More Details";
 
 // EventsFilters
+"Event_Filters.title" = "Filters";
 "Event_Filters.cancel" = "Cancel";
 "Event_Filters.apply" = "Apply";
+"Event_Filters.reset" = "Reset";
+"Event_Filters.date_title" = "Event date range";
+"Event_Filters.date.start" = "Start";
+"Event_Filters.date.finish" = "Finish";
+"Event_Filters.location_title" = "Location";
+"Event_Filters.details_title" = "More options";
+"Event_Filters.max_count_of_teams" = "Max count of teams";
+"Event_Filters.min_prize_pool" = "Min prize pool";
+"Event_Filters.description" = "You can setup your events filters here\nAll changes will be saved after you click save";
+"Event_Filters.date_start_not_selected" = "Event start date not selected";
+"Event_Filters.date_finish_not_selected" = "Event finish date not selected";
+"Event_Filters.max_teams_not_selected" = "Max count of teams in event not selected";
+"Event_Filters.min_prize_pool_not_selected" = "Min event prize pool not selected";
+"Event_Filters.teams" = "teams";
+"Event_Filters.dollar_char" = "$";
+
+// Picker
+"Picker.cancel" = "Close";
+"Picker.done" = "Done";
+
+// DatePicker
+"DatePicker.cancel" = "Close";
+"DatePicker.done" = "Done";

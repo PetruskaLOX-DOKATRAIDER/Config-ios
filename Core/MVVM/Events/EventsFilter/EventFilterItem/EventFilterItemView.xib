@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventFilterItemView" customModule="Core" customModuleProvider="target">
+            <connections>
+                <outlet property="detailImageView" destination="upv-w8-FSx" id="qQC-Pu-59F"/>
+                <outlet property="detailImageViewWidthConstraint" destination="1Oj-je-c7r" id="REw-JM-AAG"/>
+                <outlet property="iconImageView" destination="2Xd-uG-gra" id="5qQ-7g-A3J"/>
+                <outlet property="selectionButton" destination="GUl-IO-EHi" id="aTx-2T-Wub"/>
+                <outlet property="titleLabel" destination="tYI-o4-0Aq" id="IdD-8B-bTJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Prg-oz-a93">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ia4-xc-QOe">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="XWN-Gb-TOh"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQc-ny-Eor">
+                    <rect key="frame" x="0.0" y="55" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="vlr-sE-5nY"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="details" translatesAutoresizingMaskIntoConstraints="NO" id="upv-w8-FSx">
+                    <rect key="frame" x="347" y="19" width="12" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="12" id="1Oj-je-c7r"/>
+                        <constraint firstAttribute="height" constant="18" id="eIA-Ge-Yof"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYI-o4-0Aq">
+                    <rect key="frame" x="40" y="20" width="299" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUl-IO-EHi">
+                    <rect key="frame" x="0.0" y="1" width="375" height="54"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Xd-uG-gra">
+                    <rect key="frame" x="8" y="16" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="Szf-XJ-tqm"/>
+                        <constraint firstAttribute="width" constant="24" id="TLf-du-krR"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="2Xd-uG-gra" firstAttribute="leading" secondItem="KCC-re-39a" secondAttribute="leading" constant="8" id="06w-en-kYT"/>
+                <constraint firstItem="upv-w8-FSx" firstAttribute="centerY" secondItem="Prg-oz-a93" secondAttribute="centerY" id="6Tx-md-jEQ"/>
+                <constraint firstItem="KCC-re-39a" firstAttribute="trailing" secondItem="upv-w8-FSx" secondAttribute="trailing" constant="16" id="BsS-1L-JH3"/>
+                <constraint firstAttribute="trailing" secondItem="UQc-ny-Eor" secondAttribute="trailing" id="Ks3-vo-iRh"/>
+                <constraint firstItem="GUl-IO-EHi" firstAttribute="top" secondItem="Ia4-xc-QOe" secondAttribute="bottom" id="LsX-sB-Wrg"/>
+                <constraint firstItem="UQc-ny-Eor" firstAttribute="leading" secondItem="Prg-oz-a93" secondAttribute="leading" id="PtJ-kA-uZK"/>
+                <constraint firstItem="Ia4-xc-QOe" firstAttribute="top" secondItem="KCC-re-39a" secondAttribute="top" id="Rbx-JQ-4cs"/>
+                <constraint firstItem="GUl-IO-EHi" firstAttribute="trailing" secondItem="KCC-re-39a" secondAttribute="trailing" id="Scu-b6-38p"/>
+                <constraint firstItem="Ia4-xc-QOe" firstAttribute="leading" secondItem="Prg-oz-a93" secondAttribute="leading" id="UtI-sg-oB3"/>
+                <constraint firstItem="GUl-IO-EHi" firstAttribute="leading" secondItem="KCC-re-39a" secondAttribute="leading" id="av9-jT-pWV"/>
+                <constraint firstItem="UQc-ny-Eor" firstAttribute="top" secondItem="GUl-IO-EHi" secondAttribute="bottom" id="cMG-Hs-u09"/>
+                <constraint firstAttribute="trailing" secondItem="Ia4-xc-QOe" secondAttribute="trailing" id="h0L-mz-ahB"/>
+                <constraint firstItem="2Xd-uG-gra" firstAttribute="centerY" secondItem="Prg-oz-a93" secondAttribute="centerY" id="qYG-jJ-svV"/>
+                <constraint firstItem="tYI-o4-0Aq" firstAttribute="leading" secondItem="2Xd-uG-gra" secondAttribute="trailing" constant="8" id="sFK-5l-W4p"/>
+                <constraint firstItem="UQc-ny-Eor" firstAttribute="bottom" secondItem="KCC-re-39a" secondAttribute="bottom" id="xVL-EW-LgD"/>
+                <constraint firstItem="upv-w8-FSx" firstAttribute="leading" secondItem="tYI-o4-0Aq" secondAttribute="trailing" constant="8" id="zQL-kd-QrV"/>
+                <constraint firstItem="tYI-o4-0Aq" firstAttribute="centerY" secondItem="Prg-oz-a93" secondAttribute="centerY" constant="2.5" id="zcu-dq-PV1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="KCC-re-39a"/>
+            <point key="canvasLocation" x="-226.5" y="-235"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="details" width="18" height="34"/>
+    </resources>
+</document>

@@ -25,7 +25,7 @@ func nonMarkedText(_ textInput: UITextInput) -> String? {
 }
 
 @discardableResult
-public func <-> <Base>(textInput: TextInput<Base>, variable: Variable<String>) -> Disposable {
+public func <-> <Base>(textInput: TextInput<Base>, variable: BehaviorRelay<String>) -> Disposable {
     let bindToUIDisposable = variable.asObservable().bind(to: textInput.text)
     let bindToVariable = textInput.text
         .subscribe(onNext: { [weak base = textInput.base] _ in
@@ -44,7 +44,7 @@ public func <-> <Base>(textInput: TextInput<Base>, variable: Variable<String>) -
              and you hit "Done" button on keyboard.
              */
             if let nonMarkedTextValue = nonMarkedTextValue, nonMarkedTextValue != variable.value {
-                variable.value = nonMarkedTextValue
+                variable.accept(nonMarkedTextValue)
             }
             (textInput.base as? UIView)?.setNeedsDisplay()
         }, onCompleted: { bindToUIDisposable.dispose() })

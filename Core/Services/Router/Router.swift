@@ -71,10 +71,24 @@ open class Router: ReactiveCompatible {
     }
     
     public func eventFilters() -> Route<EventsFilterViewController> {
-        return route().configure({ vc in
+        return route().configure({ [ picekrVC = picekr(), datePicekrVC = datePicekr() ] vc in
             guard let navigationController = vc.navigationController else { return }
-            vc.viewModel?.shouldCloseFilters.map(to: true).drive(navigationController.rx.close).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldClose.map(to: true).drive(navigationController.rx.close).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRoutePicker.map{ picekrVC.with(viewModel: $0) }.present().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRouteDatePicker.map{ datePicekrVC.with(viewModel: $0) }.present().disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.new())
+    }
+    
+    public func datePicekr() -> Route<DatePickerViewController> {
+        return route().configure({ vc in
+            vc.viewModel?.shouldClose.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
+        })
+    }
+    
+    public func picekr() -> Route<PickerViewController> {
+        return route().configure({ vc in
+            vc.viewModel?.shouldClose.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
+        })
     }
     
     private func route<T: UIViewController>() -> Route<T> where T: ViewModelHolderProtocol {

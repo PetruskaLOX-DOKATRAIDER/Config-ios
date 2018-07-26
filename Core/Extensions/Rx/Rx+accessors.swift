@@ -52,7 +52,24 @@ public extension Reactive where Base: UIImageView {
     }
 }
 
-// MARK: FF
+// MARK: UIDatePicker
+
+public extension Reactive where Base: UIDatePicker {
+    public var minimumDate: Binder<Date?> {
+        return Binder(base) { datePicker, date in
+            datePicker.minimumDate = date
+        }
+    }
+    
+    public var maximumDate: Binder<Date?> {
+        return Binder(base) { datePicker, date in
+            datePicker.maximumDate = date
+        }
+    }
+}
+
+
+// MARK: MKMapView
 
 public extension Reactive where Base: MKMapView {
     public var annotations: Binder<[EventItemAnnotationViewModel]> {

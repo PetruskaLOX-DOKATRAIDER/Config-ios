@@ -28,7 +28,7 @@ public class TeamItemCell: UITableViewCell, ModelTransfer, ReusableViewProtocol 
     }
     
     private func updatePlayers(_ players: [PlayerPreviewViewModel]) {
-        stackView.subviews.forEach{ $0.removeFromSuperview() }
+        stackView.removeAllSubviews()
         players.forEach { vm in
             let view = PlayerInTeamView()
             view.viewModel = vm

@@ -42,6 +42,16 @@ extension UIViewController {
 }
 
 enum StoryboardScene {
+  enum DatePicker: StoryboardSceneType {
+    static let storyboardName = "DatePickerViewController"
+
+    static func initialViewController() -> DatePickerViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? DatePickerViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+  }
   enum EventsContainer: StoryboardSceneType {
     static let storyboardName = "EventsContainerViewController"
 
@@ -54,6 +64,13 @@ enum StoryboardScene {
   }
   enum EventsFilter: StoryboardSceneType {
     static let storyboardName = "EventsFilterViewController"
+
+    static func initialViewController() -> EventsFilterViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? EventsFilterViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
   }
   enum ListEvents: StoryboardSceneType {
     static let storyboardName = "ListEventsViewController"
@@ -80,6 +97,16 @@ enum StoryboardScene {
 
     static func initialViewController() -> NewsViewController {
       guard let vc = storyboard().instantiateInitialViewController() as? NewsViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+  }
+  enum Picker: StoryboardSceneType {
+    static let storyboardName = "PickerViewController"
+
+    static func initialViewController() -> PickerViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? PickerViewController else {
         fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
       }
       return vc

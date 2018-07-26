@@ -6,12 +6,17 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public struct EventDescription {
-    public let fullText: String
-    public let countOfTeams: String
-    public let prizePool: String
-    public let startDateStr: String
-    public let finishDateStr: String
+public struct HighlightText {
+    public let full: String
+    public let highlights: [String]
+    
+    init(
+        full: String,
+        highlights: [String] = []
+    ) {
+        self.full = full
+        self.highlights = highlights
+    }
 }
 
 public protocol EventItemViewModel {
@@ -19,7 +24,7 @@ public protocol EventItemViewModel {
     var city: Driver<String> { get }
     var flagURL: Driver<URL?> { get }
     var logoURL: Driver<URL?> { get }
-    var description: Driver<EventDescription> { get }
+    var description: Driver<HighlightText> { get }
     var selectionTrigger: PublishSubject<Void> { get }
 }
 
@@ -28,7 +33,7 @@ public final class EventItemViewModelImpl: EventItemViewModel, ReactiveCompatibl
     public let city: Driver<String>
     public let flagURL: Driver<URL?>
     public let logoURL: Driver<URL?>
-    public let description: Driver<EventDescription>
+    public let description: Driver<HighlightText>
     public let selectionTrigger = PublishSubject<Void>()
     
     public init(event: Event) {
@@ -39,13 +44,15 @@ public final class EventItemViewModelImpl: EventItemViewModel, ReactiveCompatibl
         let startDateStr = DateFormatters.default.string(from: event.startDate)
         let finishDateStr = DateFormatters.default.string(from: event.finishDate)
         let prizePool = String(event.prizePool) + Strings.ListEvents.currency
-        let eventDescription = EventDescription(
-            fullText: Strings.ListEvents.description(startDateStr, finishDateStr, event.countOfTeams, prizePool),
-            countOfTeams: String(event.countOfTeams),
-            prizePool: prizePool,
-            startDateStr: startDateStr,
-            finishDateStr: finishDateStr
+        let descriptionhigHlights = [
+            String(event.countOfTeams),
+            prizePool,
+            startDateStr,
+            finishDateStr
+        ]
+        description = .just(HighlightText(
+            full: Strings.ListEvents.description(startDateStr, finishDateStr, event.countOfTeams, prizePool),
+            highlights: descriptionhigHlights)
         )
-        description = .just(eventDescription)
     }
 }
