@@ -13,11 +13,12 @@ public protocol PlayerPreviewViewModel {
     func imageHeight(withContainerWidth containerWidth: Double) -> Double
 }
 
-public final class PlayerPreviewViewModelImpl: PlayerPreviewViewModel {
+public final class PlayerPreviewViewModelImpl: PlayerPreviewViewModel, ReactiveCompatible {
     public let nickname: Driver<String>
     public let avatarURL: Driver<URL?>
     public let selectionTrigger = PublishSubject<Void>()
-    private let player: PlayerPreview
+    
+    public let player: PlayerPreview
     
     public init(player: PlayerPreview) {
         self.player = player

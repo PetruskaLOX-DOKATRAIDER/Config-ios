@@ -7,13 +7,14 @@
 //
 
 public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
+
     private let coreDataStorage: CoreDataStorage<CDPlayerPreview>
     
     public init(coreDataStorage: CoreDataStorage<CDPlayerPreview> = CoreDataStorage()) {
         self.coreDataStorage = coreDataStorage
     }
     
-    public func update(withNewPlayers newPlayers: [PlayerPreview]) throws {
+    public func updatePlayerPreview(withNewPlayers newPlayers: [PlayerPreview]) throws {
         try? coreDataStorage.update(withNewData: newPlayers)
     }
     
@@ -23,5 +24,13 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         } catch {
             throw PlayersStorageError.unknown
         }
+    }
+    
+    public func updatePlayerDescription(withNewPlayer newPlayer: PlayerDescription) throws {
+        
+    }
+    
+    public func fetchPlayerDescription(byPlayerID playerID: PlayerID) throws -> PlayerDescription {
+        
     }
 }

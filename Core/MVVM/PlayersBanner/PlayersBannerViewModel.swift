@@ -11,7 +11,7 @@ public protocol PlayersBannerViewModel {
     var currentPage: Driver<Int> { get }
     var pageTrigger: PublishSubject<Int> { get }
     var errorMessage: Driver<String> { get }
-    var shouldRouteProfile: Driver<PlayerID> { get }
+    var shouldRoutePlayerDescription: Driver<PlayerID> { get }
 }
 
 public final class PlayersBannerViewModelImpl: PlayersBannerViewModel, ReactiveCompatible {
@@ -19,11 +19,11 @@ public final class PlayersBannerViewModelImpl: PlayersBannerViewModel, ReactiveC
     public let currentPage: Driver<Int>
     public let pageTrigger = PublishSubject<Int>()
     public let errorMessage: Driver<String>
-    public let shouldRouteProfile: Driver<PlayerID>
+    public let shouldRoutePlayerDescription: Driver<PlayerID>
     
     public init(playersAPIService: PlayersAPIService) {
         let route = PublishSubject<PlayerID>()
-        shouldRouteProfile = route.asDriver(onErrorJustReturn: 0)
+        shouldRoutePlayerDescription = route.asDriver(onErrorJustReturn: 0)
         
         func remapToViewModels(page: Page<PlayerBanner>) -> Page<PlayerBannerItemViewModel> {
             return Page.new(

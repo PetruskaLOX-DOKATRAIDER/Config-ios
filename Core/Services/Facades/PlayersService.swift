@@ -8,6 +8,7 @@
 
 public protocol PlayersService: AutoMockable {
     func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError>
+    func getPlayerDescription(byPlayerID playerID: PlayerID) -> Response<PlayerDescription, RequestError>
 }
 
 public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
@@ -28,5 +29,9 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
     
     public func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError> {
         return dataLoaderHelper.loadData(forPage: page)
+    }
+    
+    public func getPlayerDescription(byPlayerID playerID: PlayerID) -> Response<PlayerDescription, RequestError> {
+        
     }
 }

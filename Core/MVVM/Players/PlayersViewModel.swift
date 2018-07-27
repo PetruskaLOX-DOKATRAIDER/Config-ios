@@ -11,6 +11,7 @@ public protocol PlayersViewModel {
     var messageViewModel: Driver<MessageViewModel> { get }
     var profileTrigger: BehaviorRelay<Void> { get }
     var shouldRouteProfile: Driver<Void> { get }
+    var shouldRoutePlayerDescription: Driver<PlayerID> { get }
 }
 
 public final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
@@ -18,11 +19,18 @@ public final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
     public let messageViewModel: Driver<MessageViewModel>
     public let profileTrigger = BehaviorRelay(value: ())
     public let shouldRouteProfile: Driver<Void>
+    public let shouldRoutePlayerDescription: Driver<PlayerID>
     
     public init(playersService: PlayersService) {
+        let route = PublishSubject<PlayerID>()
+        shouldRoutePlayerDescription = route.asDriver(onErrorJustReturn: 0)
         func remapToViewModels(page: Page<PlayerPreview>) -> Page<PlayerPreviewViewModel> {
             return Page.new(
-                content: page.content.map{ PlayerPreviewViewModelImpl(player: $0) },
+                content: page.content.map{ player in
+                    let vm = PlayerPreviewViewModelImpl(player: player)
+                    vm.selectionTrigger.asDriver(onErrorJustReturn: ()).map{ player.id }.drive(route).disposed(by: vm.rx.disposeBag)
+                    return vm
+                },
                 index: page.index,
                 totalPages: page.totalPages
             )

@@ -9,13 +9,18 @@
 public typealias PlayerID = Int
 
 public protocol PlayerDescriptionViewModel {
-
+    var closeTrigger: PublishSubject<Void> { get }
+    var shouldClose: Driver<Void> { get }
 }
 
 public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel {
+    public let closeTrigger = PublishSubject<Void>()
+    public let shouldClose: Driver<Void>
 
-
-    public init(playerID: PlayerID) {
-
+    public init(
+        playerID: PlayerID,
+        playersService: PlayersService
+    ) {
+        shouldClose = closeTrigger.asDriver(onErrorJustReturn: ())
     }
 }

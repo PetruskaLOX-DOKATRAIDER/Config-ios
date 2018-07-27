@@ -18,6 +18,7 @@ public extension UIColor {
     static var blued: UIColor { return UIColor(hexString: "#007aff") }
     static var snowWhite: UIColor { return .white }
     static var vired: UIColor { return UIColor(hexString: "#181818") }
+    static var rodo: UIColor { return UIColor(hexString: "#1A1E1F") }
     static var sungray: UIColor { return .lightGray }
     static var wonded: UIColor { return .groupTableViewBackground }
 }

@@ -25,6 +25,7 @@ final class SegmentPageViewController: UIPageViewController {
     }
     
     public func setupViewControllers(_ viewControllers: [UIViewController]) {
+        viewControllers.forEach{ $0.loadView() }
         _viewControllers = viewControllers
         if let firstViewController = viewControllers.first {
             setViewControllers([firstViewController], direction: .forward, animated: false, completion: nil)

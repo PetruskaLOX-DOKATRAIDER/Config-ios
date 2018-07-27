@@ -7,10 +7,10 @@
 //
 
 public class NavigationControllerFactory {
-    public static func new(viewControllers: [UIViewController] = []) -> UINavigationController {
+    public static func `default`(viewControllers: [UIViewController] = []) -> UINavigationController {
         let navigationController = UINavigationController()
         navigationController.setViewControllers(viewControllers, animated: false)
-        navigationController.navigationBar.tintColor = .red
+        //navigationController.navigationBar.tintColor = .red
         navigationController.navigationBar.titleColor(.ichigos)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.titleFont(UIFont.filsonRegularWithSize(18))
@@ -19,6 +19,22 @@ public class NavigationControllerFactory {
             navigationController.navigationBar.prefersLargeTitles = true
             navigationController.navigationBar.largeTitleFont(.filsonRegularWithSize(30))
             navigationController.navigationBar.largeTitleColor(.ichigos)
+        }
+        return navigationController
+    }
+    
+    public static func clear(viewControllers: [UIViewController] = []) -> UINavigationController {
+        let navigationController = UINavigationController()
+        navigationController.setViewControllers(viewControllers, animated: false)
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.isTranslucent = true
+        navigationController.navigationBar.titleFont(UIFont.filsonRegularWithSize(18))
+        navigationController.navigationBar.titleColor(.rodo)
+        if #available(iOS 11.0, *) {
+            navigationController.navigationBar.prefersLargeTitles = true
+            navigationController.navigationBar.largeTitleFont(.filsonRegularWithSize(30))
+            navigationController.navigationBar.largeTitleColor(.rodo)
         }
         return navigationController
     }

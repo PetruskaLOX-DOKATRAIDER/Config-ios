@@ -179,6 +179,11 @@
 		7CDF6D1620DBC4320096D913 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1520DBC4320096D913 /* MessageView.xib */; };
 		7CE76E4420EA5848009422EF /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C16FCD120DE7F3D000E7079 /* AppEnvironment.swift */; };
 		7CE76E4620EA5CED009422EF /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE76E4520EA5CED009422EF /* PinterestLayout.swift */; };
+		7CEEE56F210B396600BE106E /* PlayerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CEEE56E210B396600BE106E /* PlayerInfoView.xib */; };
+		7CEEE571210B397000BE106E /* PlayerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEE570210B397000BE106E /* PlayerInfoView.swift */; };
+		7CEEE580210B3EB100BE106E /* PlayerInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEE57C210B3EB100BE106E /* PlayerInfoPageViewController.swift */; };
+		7CEEE583210B497800BE106E /* PlayerInfoPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CEEE582210B497800BE106E /* PlayerInfoPageViewController.storyboard */; };
+		7CEEE585210B6AE800BE106E /* CDPlayerDescription+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEE584210B6AE800BE106E /* CDPlayerDescription+CDObjectable.swift */; };
 		7CFA24D520D92F930059378F /* UICollectionView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24D420D92F930059378F /* UICollectionView+extension.swift */; };
 		7CFA24E020D932C80059378F /* NewsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFA24DC20D932C80059378F /* NewsViewController.storyboard */; };
 		7CFA24E120D932C80059378F /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA24DD20D932C80059378F /* NewsViewController.swift */; };
@@ -485,6 +490,11 @@
 		7CDF6D1320DBC42A0096D913 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		7CDF6D1520DBC4320096D913 /* MessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
 		7CE76E4520EA5CED009422EF /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		7CEEE56E210B396600BE106E /* PlayerInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerInfoView.xib; sourceTree = "<group>"; };
+		7CEEE570210B397000BE106E /* PlayerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoView.swift; sourceTree = "<group>"; };
+		7CEEE57C210B3EB100BE106E /* PlayerInfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoPageViewController.swift; sourceTree = "<group>"; };
+		7CEEE582210B497800BE106E /* PlayerInfoPageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayerInfoPageViewController.storyboard; sourceTree = "<group>"; };
+		7CEEE584210B6AE800BE106E /* CDPlayerDescription+CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDPlayerDescription+CDObjectable.swift"; sourceTree = "<group>"; };
 		7CFA24D420D92F930059378F /* UICollectionView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+extension.swift"; sourceTree = "<group>"; };
 		7CFA24DB20D932C80059378F /* NewsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModelTests.swift; sourceTree = "<group>"; };
 		7CFA24DC20D932C80059378F /* NewsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsViewController.storyboard; sourceTree = "<group>"; };
@@ -896,6 +906,7 @@
 		7CA552702100921B0097E866 /* PlayerDescription */ = {
 			isa = PBXGroup;
 			children = (
+				7CEEE568210B38C800BE106E /* PlayerInfoPageViewController */,
 				7CA5527A2100925E0097E866 /* PlayerDescriptionViewModel.swift */,
 				7CA552772100925E0097E866 /* PlayerDescriptionViewModelTests.swift */,
 				7CA552792100925E0097E866 /* PlayerDescriptionViewController.swift */,
@@ -932,6 +943,7 @@
 				7C11D39D20FCC33200FC8599 /* CDTeam+CDObjectable.swift */,
 				7CAE6D9B2102133E00844B11 /* CDEvent+CDObjectable.swift */,
 				7CAE6D9D210215B800844B11 /* CDCoordinates+CDObjectable.swift */,
+				7CEEE584210B6AE800BE106E /* CDPlayerDescription+CDObjectable.swift */,
 			);
 			path = CDObjectable;
 			sourceTree = "<group>";
@@ -1122,6 +1134,25 @@
 				7CAE6D8F2101F0F100844B11 /* Event.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7CEEE568210B38C800BE106E /* PlayerInfoPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7CEEE56D210B394E00BE106E /* PlayerInfoView */,
+				7CEEE57C210B3EB100BE106E /* PlayerInfoPageViewController.swift */,
+				7CEEE582210B497800BE106E /* PlayerInfoPageViewController.storyboard */,
+			);
+			path = PlayerInfoPageViewController;
+			sourceTree = "<group>";
+		};
+		7CEEE56D210B394E00BE106E /* PlayerInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				7CEEE570210B397000BE106E /* PlayerInfoView.swift */,
+				7CEEE56E210B396600BE106E /* PlayerInfoView.xib */,
+			);
+			path = PlayerInfoView;
 			sourceTree = "<group>";
 		};
 		7CFA24D620D932230059378F /* Players */ = {
@@ -1767,8 +1798,10 @@
 				7CDE34BF20DD248A0055F304 /* PlayerPreviewCell.xib in Resources */,
 				7C2BF74420D91BDD0026DAB4 /* TutoriaItemCell.xib in Resources */,
 				7CFA24E020D932C80059378F /* NewsViewController.storyboard in Resources */,
+				7CEEE56F210B396600BE106E /* PlayerInfoView.xib in Resources */,
 				7CAE6D602101DC3900844B11 /* SegmentView.xib in Resources */,
 				7CDAF97920D7FDF0009B9B87 /* Localizable.strings in Resources */,
+				7CEEE583210B497800BE106E /* PlayerInfoPageViewController.storyboard in Resources */,
 				C02C463C202CACED008AE9B0 /* LaunchScreen.storyboard in Resources */,
 				7CFA250020D932EF0059378F /* PlayersViewController.storyboard in Resources */,
 				7C1D76FC2108B3B60021A4CF /* DatePickerViewController.storyboard in Resources */,
@@ -2085,6 +2118,7 @@
 				7C53C42F20F74B8F001FC864 /* CDImageSize+CDObjectable.swift in Sources */,
 				7CAB612B20F644DF003F4276 /* CoreDataStorage.swift in Sources */,
 				7CAE6D9C2102133E00844B11 /* CDEvent+CDObjectable.swift in Sources */,
+				7CEEE585210B6AE800BE106E /* CDPlayerDescription+CDObjectable.swift in Sources */,
 				7C11D39820FCC26400FC8599 /* Storage+Teams.swift in Sources */,
 				7C59436420F7523F009D8D7D /* Bundle+extensions.swift in Sources */,
 				7C11D39E20FCC33200FC8599 /* CDTeam+CDObjectable.swift in Sources */,
@@ -2152,6 +2186,7 @@
 				7C29AC07210731FE00DF6DCB /* EventDescriptionViewModelTests.swift in Sources */,
 				C02C4623202C8C03008AE9B0 /* PublishRelay+extensions.swift in Sources */,
 				7CB97D1021061A40002CA594 /* EventItemAnnotationViewModel.swift in Sources */,
+				7CEEE571210B397000BE106E /* PlayerInfoView.swift in Sources */,
 				7CB97D1621061BC6002CA594 /* CLLocationCoordinate2D+extensions.swift in Sources */,
 				7CAE6D792101E07A00844B11 /* MapEventsViewController.swift in Sources */,
 				7CE76E4420EA5848009422EF /* AppEnvironment.swift in Sources */,
@@ -2176,6 +2211,7 @@
 				C02C4665202D9A70008AE9B0 /* Optional+extensions.swift in Sources */,
 				7C1DEC8920DA98B8007BE96E /* GradientButton.swift in Sources */,
 				7CAE6D902101F0F100844B11 /* Event.swift in Sources */,
+				7CEEE580210B3EB100BE106E /* PlayerInfoPageViewController.swift in Sources */,
 				7CFA24EA20D932D30059378F /* ProfileViewModel.swift in Sources */,
 				7C9105C320FC806300970FA7 /* PlayersBannerViewModelTests.swift in Sources */,
 				7CDE34BB20DD246F0055F304 /* PlayerPreviewViewModel.swift in Sources */,

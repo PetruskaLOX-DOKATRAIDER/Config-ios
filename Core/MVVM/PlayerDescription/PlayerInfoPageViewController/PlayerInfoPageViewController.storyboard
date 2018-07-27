@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bk2-Wy-8aF">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Player Info Page View Controller-->
+        <scene sceneID="rmT-Sh-shA">
+            <objects>
+                <viewController id="bk2-Wy-8aF" customClass="PlayerInfoPageViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="swd-n3-D9e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="CO7-5h-XZa">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odL-DN-gTq">
+                                        <rect key="frame" x="1" y="0.0" width="374" height="568"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="d75-0B-b2E">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="568"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="d75-0B-b2E" secondAttribute="bottom" id="2fx-Ly-oHR"/>
+                                    <constraint firstItem="odL-DN-gTq" firstAttribute="centerY" secondItem="CO7-5h-XZa" secondAttribute="centerY" priority="200" constant="-39.5" id="300-B4-tPS"/>
+                                    <constraint firstItem="odL-DN-gTq" firstAttribute="leading" secondItem="CO7-5h-XZa" secondAttribute="leading" constant="1" id="RcB-gH-5un"/>
+                                    <constraint firstItem="d75-0B-b2E" firstAttribute="leading" secondItem="CO7-5h-XZa" secondAttribute="leading" id="WR5-2f-QhW"/>
+                                    <constraint firstItem="odL-DN-gTq" firstAttribute="bottom" secondItem="d75-0B-b2E" secondAttribute="bottom" id="eah-oj-k8z"/>
+                                    <constraint firstAttribute="trailing" secondItem="d75-0B-b2E" secondAttribute="trailing" id="fEj-IJ-NJx"/>
+                                    <constraint firstItem="odL-DN-gTq" firstAttribute="centerX" secondItem="CO7-5h-XZa" secondAttribute="centerX" id="rcL-ko-EOH"/>
+                                    <constraint firstItem="d75-0B-b2E" firstAttribute="top" secondItem="CO7-5h-XZa" secondAttribute="top" id="uaL-wn-bIZ"/>
+                                    <constraint firstItem="odL-DN-gTq" firstAttribute="top" secondItem="CO7-5h-XZa" secondAttribute="top" id="xOE-1c-22D"/>
+                                    <constraint firstAttribute="trailing" secondItem="odL-DN-gTq" secondAttribute="trailing" id="ys4-a9-M7D"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CO7-5h-XZa" firstAttribute="bottom" secondItem="Yp8-y3-wxb" secondAttribute="bottom" id="7Ow-C2-2EI"/>
+                            <constraint firstItem="CO7-5h-XZa" firstAttribute="trailing" secondItem="Yp8-y3-wxb" secondAttribute="trailing" id="Ovf-d7-fxq"/>
+                            <constraint firstItem="CO7-5h-XZa" firstAttribute="leading" secondItem="Yp8-y3-wxb" secondAttribute="leading" id="faW-g3-xIk"/>
+                            <constraint firstItem="CO7-5h-XZa" firstAttribute="top" secondItem="Yp8-y3-wxb" secondAttribute="top" id="ziv-Lk-lCq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yp8-y3-wxb"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="AhR-ls-IoA">
+                        <barButtonItem key="leftBarButtonItem" id="0g2-fI-e3x">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1Tc-WJ-ARd">
+                                <rect key="frame" x="16" y="7" width="50" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" width="50" id="lJF-Ft-UkF">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SM9-Qh-eXm">
+                                <rect key="frame" x="309" y="11" width="50" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="stackView" destination="d75-0B-b2E" id="tzl-xC-dBS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oir-pe-5oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79" y="108"/>
+        </scene>
+    </scenes>
+</document>

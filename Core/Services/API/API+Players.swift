@@ -11,6 +11,7 @@ import TRON
 public protocol PlayersAPIService: AutoMockable {
     func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError>
     func getBannerPlayers(forPage page: Int) -> Response<Page<PlayerBanner>, RequestError>
+    func getPlayerDescription(byPlayerID playerID: PlayerID) -> Response<PlayerDescription, RequestError>
 }
 
 extension API {
@@ -24,6 +25,13 @@ extension API {
         
         public func getBannerPlayers(forPage page: Int) -> Response<Page<PlayerBanner>, RequestError> {
             let request: Request<Page<PlayerBanner>, RequestError> = tron.swiftyJSON.request("bannersData/bannersData\(page).json")
+            request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL)
+            request.method = .get
+            return request.asResult()
+        }
+        
+        public func getPlayerDescription(byPlayerID playerID: PlayerID) -> Response<PlayerDescription, RequestError> {
+            let request: Request<PlayerDescription, RequestError> = tron.swiftyJSON.request("bannersData/bannersData\(playerID).json")
             request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL)
             request.method = .get
             return request.asResult()

@@ -45,6 +45,7 @@ public extension DependencyContainer {
         register(.unique){ ProfileViewModelImpl() as ProfileViewModel }
         register(.unique){ try PlayersBannerViewModelImpl(playersAPIService: self.resolve()) as PlayersBannerViewModel }
         register(.unique){ try EventsFilterViewModelImpl(eventsFiltersStorage: self.resolve()) as EventsFilterViewModel }
+        register(.unique){ try PlayerDescriptionViewModelImpl(playerID: $0, playersService: self.resolve()) as PlayerDescriptionViewModel }
     }
     
     private func registerStorages() {

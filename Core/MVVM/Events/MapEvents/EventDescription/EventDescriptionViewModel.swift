@@ -11,8 +11,8 @@ public protocol EventDescriptionViewModel {
     var city: Driver<String> { get }
     var flagURL: Driver<URL?> { get }
     var logoURL: Driver<URL?> { get }
-    var shareTrigger: PublishRelay<Void> { get }
-    var detailsTrigger: PublishRelay<Void> { get }
+    var shareTrigger: PublishSubject<Void> { get }
+    var detailsTrigger: PublishSubject<Void> { get }
 }
 
 public class EventDescriptionViewModelImpl: EventDescriptionViewModel {
@@ -20,8 +20,8 @@ public class EventDescriptionViewModelImpl: EventDescriptionViewModel {
     public let city: Driver<String>
     public let flagURL: Driver<URL?>
     public let logoURL: Driver<URL?>
-    public let shareTrigger = PublishRelay<Void>()
-    public let detailsTrigger = PublishRelay<Void>()
+    public let shareTrigger = PublishSubject<Void>()
+    public let detailsTrigger = PublishSubject<Void>()
     
     public let eventTrigger = PublishRelay<Event>()
     

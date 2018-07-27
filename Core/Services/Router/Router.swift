@@ -23,18 +23,18 @@ open class Router: ReactiveCompatible {
         return route().configure({ [ appSections = appSections() ] in
             $0.viewModel?.shouldRouteSettings.map(to: true).drive($0.rx.close).disposed(by: $0.rx.disposeBag)
             $0.viewModel?.shouldRouteApp.map(to: appSections).setAsRoot().disposed(by: $0.rx.disposeBag)
-        }).embedInNavigation(NavigationControllerFactory.new())
+        }).embedInNavigation(NavigationControllerFactory.default())
     }
     
     public func appSections() -> AppRouter.Presenter.Configuration<AppSectionsTabBarController> {
         return AppSectionsTabBarController.presenter().from {
             let tabbarVC = AppSectionsTabBarController()
             tabbarVC.setViewControllers([
-                NavigationControllerFactory.new(viewControllers: [try self.players().provideSourceController()]),
-                NavigationControllerFactory.new(viewControllers: [try self.teams().provideSourceController()]),
-                NavigationControllerFactory.new(viewControllers: [try self.events().provideSourceController()]),
-                NavigationControllerFactory.new(viewControllers: [try self.news().provideSourceController()]),
-                NavigationControllerFactory.new(viewControllers: [try self.profile().provideSourceController()])
+                NavigationControllerFactory.default(viewControllers: [try self.players().provideSourceController()]),
+                NavigationControllerFactory.default(viewControllers: [try self.teams().provideSourceController()]),
+                NavigationControllerFactory.default(viewControllers: [try self.events().provideSourceController()]),
+                NavigationControllerFactory.default(viewControllers: [try self.news().provideSourceController()]),
+                NavigationControllerFactory.default(viewControllers: [try self.profile().provideSourceController()])
             ], animated: false)
             return tabbarVC
         }
@@ -51,22 +51,27 @@ open class Router: ReactiveCompatible {
     public func events() -> Route<EventsContainerViewController> {
         return route().configure({ [ eventFilters = eventFilters() ] in
             $0.viewModel?.shouldRouteFilters.map(to: eventFilters).present().disposed(by: $0.rx.disposeBag)
-        }).embedInNavigation(NavigationControllerFactory.new())
+        }).embedInNavigation(NavigationControllerFactory.default())
     }
     
     public func teams() -> Route<TeamsViewController> {
-        return route().configure({ vc in
+        return route().configure({ [playerDescription = playerDescription()] vc in
             vc.viewModel?.shouldRouteProfile.drive(onNext: {
                 vc.tabBarController?.setSelectedViewController(ProfileViewController.self)
             }).disposed(by: vc.rx.disposeBag)
+            Driver.merge([
+                vc.viewModel?.shouldRoutePlayerDescription,
+                vc.viewModel?.playersBannerViewModel.shouldRoutePlayerDescription
+            ].flatMap{ $0 }).map(playerDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
         })
     }
     
     public func players() -> Route<PlayersViewController> {
-        return route().configure({ vc in
+        return route().configure({ [ playerDescription = playerDescription() ] vc in
             vc.viewModel?.shouldRouteProfile.drive(onNext: {
                 vc.tabBarController?.setSelectedViewController(ProfileViewController.self)
             }).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRoutePlayerDescription.map(playerDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
         })
     }
     
@@ -76,7 +81,7 @@ open class Router: ReactiveCompatible {
             vc.viewModel?.shouldClose.map(to: true).drive(navigationController.rx.close).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRoutePicker.map{ picekrVC.with(viewModel: $0) }.present().disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteDatePicker.map{ datePicekrVC.with(viewModel: $0) }.present().disposed(by: vc.rx.disposeBag)
-        }).embedInNavigation(NavigationControllerFactory.new())
+        }).embedInNavigation(NavigationControllerFactory.default())
     }
     
     public func datePicekr() -> Route<DatePickerViewController> {
@@ -90,6 +95,14 @@ open class Router: ReactiveCompatible {
             vc.viewModel?.shouldClose.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
         })
     }
+    
+    public func playerDescription() -> Route<PlayerDescriptionViewController> {
+        return route().configure({ vc in
+            vc.viewModel?.shouldClose.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
+        }).embedInNavigation(NavigationControllerFactory.clear())
+    }
+    
+    
     
     private func route<T: UIViewController>() -> Route<T> where T: ViewModelHolderProtocol {
         return Route<T>(router: router, viewFactory: viewFactory, viewModelFactory: viewModelFactory).fromFactory().buildViewModel()

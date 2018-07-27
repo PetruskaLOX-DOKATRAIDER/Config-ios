@@ -9,27 +9,27 @@
 import SwiftyJSON
 import TRON
 
-struct PlayerDescription {
-    let id: Int
-    let nickname: String
-    let name: String
-    let surname: String
-    let profileImageURL: URL?
-    let country: String
-    let teamName: String
-    let teamImageURL: URL?
-    let flagImageURL: URL?
-    let moreInfoURL: URL?
-    let mouse: String
-    let mousepad: String
-    let monitor: String
-    let keyboard: String
-    let headSet: String
-    let effectiveDPI: String
-    let gameResolution: String
-    let windowsSensitivity: String
-    let pollingRate: String
-    let downloadURL: URL?
+public struct PlayerDescription {
+    public let id: Int
+    public let nickname: String
+    public let name: String
+    public let surname: String
+    public let profileImageURL: URL?
+    public let country: String
+    public let teamName: String
+    public let teamImageURL: URL?
+    public let flagImageURL: URL?
+    public let moreInfoURL: URL?
+    public let mouse: String
+    public let mousepad: String
+    public let monitor: String
+    public let keyboard: String
+    public let headSet: String
+    public let effectiveDPI: String
+    public let gameResolution: String
+    public let windowsSensitivity: String
+    public let pollingRate: String
+    public let downloadURL: URL?
 }
 
 extension PlayerDescription: JSONDecodable {
