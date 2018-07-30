@@ -11,16 +11,14 @@ public class PlayerInfoPageViewController: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        print("sackView1: \(stackView)")
     }
     
-    public func updateInfo(withTitles titles: [String]) {
-        print("sackView2: \(stackView)")
+    public func updateInfoTitles(_ titles: [HighlightText]) {
         stackView.removeAllSubviews()
         titles.map{ PlayerInfoView(title: $0) }.forEach{ infoView in
             stackView.addArrangedSubview(infoView)
             infoView.snp.makeConstraints{
-                $0.height.equalTo(55)
+                $0.height.equalTo(48)
             }
         }
         view.layoutIfNeeded()

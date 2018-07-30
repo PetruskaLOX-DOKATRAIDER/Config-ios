@@ -32,13 +32,13 @@
         <attribute name="flagURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gameResolution" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="headset" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="keyboard" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="monitor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="moreInfoURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mouse" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mousepad" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="playerID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="pollingRate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="teamLogoURL" optional="YES" attributeType="String" syncable="YES"/>

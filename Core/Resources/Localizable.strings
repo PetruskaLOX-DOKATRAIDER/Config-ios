@@ -79,8 +79,9 @@
 "Player_Description.hardvare" = "Hardvare";
 "Player_Description.personal_info" = "Personal info";
 "Player_Description.settings" = "Settings";
-"Player_Description.send_cfg" = "Send CFG";
-"Player_Description.description" = "Description";
+"Player_Description.options" = "Options";
+"Player_Description.send_cfg" = "CFG";
+"Player_Description.details" = "More";
 "Player_Description.share" = "Share link";
 "Player_Description.add_favorite" = "Add to Favorites";
 "Player_Description.remove_favorite" = "Remove from Favorites";
@@ -88,3 +89,17 @@
 "Player_Description.favorite_message" = "Favorite players";
 "Player_Description.added_favorite_message" = "Player has been added to Favorites";
 "Player_Description.removed_favorite_message" = "Player has been removed from Favorites";
+"Player_Description.real_name" = "Real name: %@";
+"Player_Description.nickname" = "Name in the game: %@";
+"Player_Description.from_country" = "Was born in %@";
+"Player_Description.team" = "Memeber of %@";
+"Player_Description.mouse" = "Uses %@ mouse";
+"Player_Description.mousepad" = "Uses %@ mousepad";
+"Player_Description.monitor" = "Play on %@ monitor";
+"Player_Description.keyboard" = "Uses %@ keyboard";
+"Player_Description.headSet" = "Uses %@ headSet";
+"Player_Description.effective_DPI" = "Plays with %@ DPI";
+"Player_Description.game_resolution" = "Plays on %@ resolution";
+"Player_Description.sens" = "Plays with %@ windows sens";
+"Player_Description.polling_rate" = "Plays with %@ polling rate";
+

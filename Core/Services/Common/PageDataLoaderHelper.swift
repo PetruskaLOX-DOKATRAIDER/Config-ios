@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-final class DataLoaderHelper<Model>: ReactiveCompatible {
+final class PageDataLoaderHelper<Model>: ReactiveCompatible {
     private let reachabilityService: ReachabilityService
     private let apiSource: Func<Int, Response<Page<Model>, RequestError>>
     private let storageSource: Func<Void, [Model]?>

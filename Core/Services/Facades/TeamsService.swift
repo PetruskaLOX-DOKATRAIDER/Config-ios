@@ -11,14 +11,14 @@ public protocol TeamsService: AutoMockable {
 }
 
 public final class TeamsServiceImpl: TeamsService, ReactiveCompatible {
-    private let dataLoaderHelper: DataLoaderHelper<Team>
+    private let dataLoaderHelper: PageDataLoaderHelper<Team>
 
     public init(
         reachabilityService: ReachabilityService,
         teamsAPISerivce: TeamsAPIService,
         teamsStorage: TeamsStorage
     ) {
-        dataLoaderHelper = DataLoaderHelper(
+        dataLoaderHelper = PageDataLoaderHelper(
             reachabilityService: reachabilityService,
             apiSource: { teamsAPISerivce.getTeams(forPage: $0) },
             storageSource: { try? teamsStorage.fetchTeams() },

@@ -7,31 +7,40 @@
 //
 
 public protocol PlayersService: AutoMockable {
-    func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError>
+    func getPlayerPreview(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError>
     func getPlayerDescription(byPlayerID playerID: PlayerID) -> Response<PlayerDescription, RequestError>
 }
 
 public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
-    private let dataLoaderHelper: DataLoaderHelper<PlayerPreview>
+    private let playerPreviewLoaderHelper: PageDataLoaderHelper<PlayerPreview>
+    private let playerDescriptionLoaderHelper: SingleDataLoaderHelper<PlayerDescription>
     
     public init(
         reachabilityService: ReachabilityService,
         playersAPIService: PlayersAPIService,
         playersStorage: PlayersStorage
     ) {
-        dataLoaderHelper = DataLoaderHelper(
+        playerPreviewLoaderHelper = PageDataLoaderHelper(
             reachabilityService: reachabilityService,
-            apiSource: { playersAPIService.getPlayers(forPage: $0) },
+            apiSource: { playersAPIService.getPlayersPreview(forPage: $0) },
             storageSource: { try? playersStorage.fetchPlayersPreview() },
-            updateStorage: { try? playersStorage.update(withNewPlayers: $0) }
+            updateStorage: { try? playersStorage.updatePlayerPreview(withNewPlayers: $0) }
+        )
+
+        
+        playerDescriptionLoaderHelper = SingleDataLoaderHelper(
+            reachabilityService: reachabilityService,
+            apiSource: { playersAPIService.getPlayerDescription(byPlayerID: $0) },
+            storageSource: { try? playersStorage.fetchPlayerDescription(byPlayerID: $0) },
+            updateStorage: { try? playersStorage.updatePlayerDescription(withNewPlayer: $0) }
         )
     }
     
-    public func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError> {
-        return dataLoaderHelper.loadData(forPage: page)
+    public func getPlayerPreview(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError> {
+        return playerPreviewLoaderHelper.loadData(forPage: page)
     }
     
     public func getPlayerDescription(byPlayerID playerID: PlayerID) -> Response<PlayerDescription, RequestError> {
-        
+        return playerDescriptionLoaderHelper.loadModel(byID: playerID)
     }
 }

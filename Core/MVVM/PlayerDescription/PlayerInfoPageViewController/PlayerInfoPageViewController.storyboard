@@ -26,7 +26,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="d75-0B-b2E">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="568"/>
+                                        <rect key="frame" x="0.0" y="10" width="375" height="558"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -37,13 +37,13 @@
                                     <constraint firstItem="odL-DN-gTq" firstAttribute="bottom" secondItem="d75-0B-b2E" secondAttribute="bottom" id="eah-oj-k8z"/>
                                     <constraint firstAttribute="trailing" secondItem="d75-0B-b2E" secondAttribute="trailing" id="fEj-IJ-NJx"/>
                                     <constraint firstItem="odL-DN-gTq" firstAttribute="centerX" secondItem="CO7-5h-XZa" secondAttribute="centerX" id="rcL-ko-EOH"/>
-                                    <constraint firstItem="d75-0B-b2E" firstAttribute="top" secondItem="CO7-5h-XZa" secondAttribute="top" id="uaL-wn-bIZ"/>
+                                    <constraint firstItem="d75-0B-b2E" firstAttribute="top" secondItem="CO7-5h-XZa" secondAttribute="top" constant="10" id="uaL-wn-bIZ"/>
                                     <constraint firstItem="odL-DN-gTq" firstAttribute="top" secondItem="CO7-5h-XZa" secondAttribute="top" id="xOE-1c-22D"/>
                                     <constraint firstAttribute="trailing" secondItem="odL-DN-gTq" secondAttribute="trailing" id="ys4-a9-M7D"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CO7-5h-XZa" firstAttribute="bottom" secondItem="Yp8-y3-wxb" secondAttribute="bottom" id="7Ow-C2-2EI"/>
                             <constraint firstItem="CO7-5h-XZa" firstAttribute="trailing" secondItem="Yp8-y3-wxb" secondAttribute="trailing" id="Ovf-d7-fxq"/>
@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oir-pe-5oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-79" y="108"/>
+            <point key="canvasLocation" x="-79.200000000000003" y="107.49625187406298"/>
         </scene>
     </scenes>
 </document>

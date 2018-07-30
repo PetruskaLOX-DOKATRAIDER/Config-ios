@@ -79,3 +79,13 @@ public extension Reactive where Base: MKMapView {
         }
     }
 }
+
+// PlayerInfoPageViewController
+
+public extension Reactive where Base: PlayerInfoPageViewController {
+    public var infoTitles: Binder<[HighlightText]> {
+        return Binder(base) { vc, titles in
+            vc.updateInfoTitles(titles)
+        }
+    }
+}

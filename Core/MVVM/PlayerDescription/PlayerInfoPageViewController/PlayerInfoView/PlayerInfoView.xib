@@ -22,26 +22,26 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNv-cA-LAr">
-                    <rect key="frame" x="16" y="12.5" width="30" height="30"/>
+                    <rect key="frame" x="16" y="22.5" width="10" height="10"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="FNh-rZ-5xk"/>
-                        <constraint firstAttribute="height" constant="30" id="hwW-7t-R6B"/>
+                        <constraint firstAttribute="width" constant="10" id="FNh-rZ-5xk"/>
+                        <constraint firstAttribute="height" constant="10" id="hwW-7t-R6B"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="15"/>
+                            <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eg3-Go-wct">
-                    <rect key="frame" x="54" y="17" width="313" height="21"/>
+                    <rect key="frame" x="34" y="17" width="333" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="cNv-cA-LAr" firstAttribute="leading" secondItem="evs-vj-gal" secondAttribute="leading" constant="16" id="UQe-Aa-nlO"/>
                 <constraint firstItem="Eg3-Go-wct" firstAttribute="centerY" secondItem="KVA-yD-Fkx" secondAttribute="centerY" id="gHN-Kq-0Vz"/>

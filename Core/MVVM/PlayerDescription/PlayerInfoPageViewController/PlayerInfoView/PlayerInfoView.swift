@@ -13,12 +13,16 @@ final class PlayerInfoView: LoadableView {
     @IBOutlet private weak var pointView: UIView!
     
     init(
-        title: String,
+        title: HighlightText,
         frame: CGRect = .zero
     ) {
         super.init(frame: frame)
         setup()
-        titleLabel.text = title
+        let attributedStr = NSMutableAttributedString(string: title.full)
+        title.highlights.forEach {
+            attributedStr.setColorForText(textForAttribute: $0, withColor: .ichigos)
+        }
+        titleLabel.attributedText = attributedStr
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,9 +30,9 @@ final class PlayerInfoView: LoadableView {
         setup()
     }
     
-
-    
     private func setup() {
-        
+        titleLabel.font = .filsonMediumWithSize(16)
+        titleLabel.textColor = UIColor.solled
+        pointView.backgroundColor = .ichigos
     }
 }

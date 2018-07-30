@@ -9,14 +9,14 @@
 import TRON
 
 public protocol PlayersAPIService: AutoMockable {
-    func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError>
+    func getPlayersPreview(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError>
     func getBannerPlayers(forPage page: Int) -> Response<Page<PlayerBanner>, RequestError>
-    func getPlayerDescription(byPlayerID playerID: PlayerID) -> Response<PlayerDescription, RequestError>
+    func getPlayerDescription(byPlayerID playerID: Int) -> Response<PlayerDescription, RequestError>
 }
 
 extension API {
     open class PlayersAPIServiceImpl: API, PlayersAPIService {
-        public func getPlayers(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError> {
+        public func getPlayersPreview(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError> {
             let request: Request<Page<PlayerPreview>, RequestError> = tron.swiftyJSON.request("playersData/playersData\(page).json")
             request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL)
             request.method = .get
@@ -30,8 +30,8 @@ extension API {
             return request.asResult()
         }
         
-        public func getPlayerDescription(byPlayerID playerID: PlayerID) -> Response<PlayerDescription, RequestError> {
-            let request: Request<PlayerDescription, RequestError> = tron.swiftyJSON.request("bannersData/bannersData\(playerID).json")
+        public func getPlayerDescription(byPlayerID playerID: Int) -> Response<PlayerDescription, RequestError> {
+            let request: Request<PlayerDescription, RequestError> = tron.swiftyJSON.request("playerDescriptionData/playerID\(playerID).json")
             request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL)
             request.method = .get
             return request.asResult()

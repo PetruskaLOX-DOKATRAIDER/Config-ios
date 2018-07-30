@@ -21,7 +21,7 @@ public final class EventsStorageImpl: EventsStorage, ReactiveCompatible {
         do {
             return try coreDataStorage.fetch()
         } catch {
-            throw PlayersStorageError.unknown
+            throw CoreDataStorageError.unknown
         }
     }
 }

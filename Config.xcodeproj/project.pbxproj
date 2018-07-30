@@ -53,7 +53,7 @@
 		7C53C42F20F74B8F001FC864 /* CDImageSize+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53C42E20F74B8F001FC864 /* CDImageSize+CDObjectable.swift */; };
 		7C59436120F7518D009D8D7D /* Bundle+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59436020F7518D009D8D7D /* Bundle+extensions.swift */; };
 		7C59436420F7523F009D8D7D /* Bundle+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59436320F7523F009D8D7D /* Bundle+extensions.swift */; };
-		7C59436820F791CF009D8D7D /* DataLoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59436720F791CF009D8D7D /* DataLoaderHelper.swift */; };
+		7C59436820F791CF009D8D7D /* PageDataLoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59436720F791CF009D8D7D /* PageDataLoaderHelper.swift */; };
 		7C5F307320E0E1F60050E9AE /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F307020E0E1F60050E9AE /* Router.swift */; };
 		7C5F307420E0E1F60050E9AE /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F307120E0E1F60050E9AE /* Route.swift */; };
 		7C5F307520E0E2000050E9AE /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F306F20E0E1F60050E9AE /* RouterTests.swift */; };
@@ -179,6 +179,7 @@
 		7CDF6D1620DBC4320096D913 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1520DBC4320096D913 /* MessageView.xib */; };
 		7CE76E4420EA5848009422EF /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C16FCD120DE7F3D000E7079 /* AppEnvironment.swift */; };
 		7CE76E4620EA5CED009422EF /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE76E4520EA5CED009422EF /* PinterestLayout.swift */; };
+		7CEDFD19210F0524009A6980 /* SingleDataLoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDFD18210F0524009A6980 /* SingleDataLoaderHelper.swift */; };
 		7CEEE56F210B396600BE106E /* PlayerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CEEE56E210B396600BE106E /* PlayerInfoView.xib */; };
 		7CEEE571210B397000BE106E /* PlayerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEE570210B397000BE106E /* PlayerInfoView.swift */; };
 		7CEEE580210B3EB100BE106E /* PlayerInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEE57C210B3EB100BE106E /* PlayerInfoPageViewController.swift */; };
@@ -375,7 +376,7 @@
 		7C53C42E20F74B8F001FC864 /* CDImageSize+CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDImageSize+CDObjectable.swift"; sourceTree = "<group>"; };
 		7C59436020F7518D009D8D7D /* Bundle+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extensions.swift"; sourceTree = "<group>"; };
 		7C59436320F7523F009D8D7D /* Bundle+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extensions.swift"; sourceTree = "<group>"; };
-		7C59436720F791CF009D8D7D /* DataLoaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderHelper.swift; sourceTree = "<group>"; };
+		7C59436720F791CF009D8D7D /* PageDataLoaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDataLoaderHelper.swift; sourceTree = "<group>"; };
 		7C5F306F20E0E1F60050E9AE /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		7C5F307020E0E1F60050E9AE /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7C5F307120E0E1F60050E9AE /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -490,6 +491,7 @@
 		7CDF6D1320DBC42A0096D913 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		7CDF6D1520DBC4320096D913 /* MessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
 		7CE76E4520EA5CED009422EF /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		7CEDFD18210F0524009A6980 /* SingleDataLoaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDataLoaderHelper.swift; sourceTree = "<group>"; };
 		7CEEE56E210B396600BE106E /* PlayerInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerInfoView.xib; sourceTree = "<group>"; };
 		7CEEE570210B397000BE106E /* PlayerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoView.swift; sourceTree = "<group>"; };
 		7CEEE57C210B3EB100BE106E /* PlayerInfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoPageViewController.swift; sourceTree = "<group>"; };
@@ -928,7 +930,8 @@
 		7CAB611220F5FB53003F4276 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				7C59436720F791CF009D8D7D /* DataLoaderHelper.swift */,
+				7CEDFD18210F0524009A6980 /* SingleDataLoaderHelper.swift */,
+				7C59436720F791CF009D8D7D /* PageDataLoaderHelper.swift */,
 				7CAB611320F5FB62003F4276 /* ReachabilityService.swift */,
 			);
 			path = Common;
@@ -2207,7 +2210,7 @@
 				7CDAF95A20D7C0A3009B9B87 /* TutorialViewController.swift in Sources */,
 				C02C4645202D8E33008AE9B0 /* Paginator.swift in Sources */,
 				A8D09DDB2036DC780057F9D9 /* TwoWayBinding.swift in Sources */,
-				7C59436820F791CF009D8D7D /* DataLoaderHelper.swift in Sources */,
+				7C59436820F791CF009D8D7D /* PageDataLoaderHelper.swift in Sources */,
 				C02C4665202D9A70008AE9B0 /* Optional+extensions.swift in Sources */,
 				7C1DEC8920DA98B8007BE96E /* GradientButton.swift in Sources */,
 				7CAE6D902101F0F100844B11 /* Event.swift in Sources */,
@@ -2263,6 +2266,7 @@
 				7CFA24E120D932C80059378F /* NewsViewController.swift in Sources */,
 				7C29AC05210731EF00DF6DCB /* EventDescriptionViewModel.swift in Sources */,
 				7CDAF98020D80180009B9B87 /* AutoStoryboard.swift in Sources */,
+				7CEDFD19210F0524009A6980 /* SingleDataLoaderHelper.swift in Sources */,
 				7CDAF96A20D7FBB2009B9B87 /* UIFont+extensions.swift in Sources */,
 				7CFA24F920D932E70059378F /* TeamsViewController.swift in Sources */,
 				7CB97D0E21061A39002CA594 /* EventItemAnnotationView.swift in Sources */,

@@ -41,11 +41,9 @@ public final class TeamsViewModelImpl: TeamsViewModel, ReactiveCompatible {
             )
         }
         
-        let message = PublishSubject<MessageViewModel>()
-        messageViewModel = message.asDriver(onErrorJustReturn: MessageViewModelFactory.error())
         teamsPaginator = Paginator(factory: { teamsService.getTeams(forPage: $0).success().map(remapToViewModels).asObservable() })
         shouldRouteProfile = profileTrigger.asDriver()
         self.playersBannerViewModel = playersBannerViewModel
-        teamsPaginator.error.map{ MessageViewModelFactory.error(description: $0.localizedDescription) }.drive(message).disposed(by: rx.disposeBag)
+        messageViewModel = teamsPaginator.error.map{ MessageViewModelFactory.error(description: $0.localizedDescription) }
     }
 }

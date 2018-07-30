@@ -10,7 +10,6 @@ public class NavigationControllerFactory {
     public static func `default`(viewControllers: [UIViewController] = []) -> UINavigationController {
         let navigationController = UINavigationController()
         navigationController.setViewControllers(viewControllers, animated: false)
-        //navigationController.navigationBar.tintColor = .red
         navigationController.navigationBar.titleColor(.ichigos)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.titleFont(UIFont.filsonRegularWithSize(18))
@@ -29,12 +28,12 @@ public class NavigationControllerFactory {
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.isTranslucent = true
-        navigationController.navigationBar.titleFont(UIFont.filsonRegularWithSize(18))
-        navigationController.navigationBar.titleColor(.rodo)
+        navigationController.navigationBar.titleFont(.filsonMediumWithSize(19))
+        navigationController.navigationBar.titleColor(.snowWhite)
         if #available(iOS 11.0, *) {
             navigationController.navigationBar.prefersLargeTitles = true
-            navigationController.navigationBar.largeTitleFont(.filsonRegularWithSize(30))
-            navigationController.navigationBar.largeTitleColor(.rodo)
+            navigationController.navigationBar.largeTitleFont(.filsonMediumWithSize(30))
+            navigationController.navigationBar.largeTitleColor(.snowWhite)
         }
         return navigationController
     }

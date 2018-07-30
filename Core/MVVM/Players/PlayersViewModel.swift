@@ -38,7 +38,7 @@ public final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
         
         let message = PublishSubject<MessageViewModel>()
         messageViewModel = message.asDriver(onErrorJustReturn: MessageViewModelFactory.error())
-        playersPaginator = Paginator(factory: { playersService.getPlayers(forPage: $0).success().map(remapToViewModels).asObservable() })
+        playersPaginator = Paginator(factory: { playersService.getPlayerPreview(forPage: $0).success().map(remapToViewModels).asObservable() })
         shouldRouteProfile = profileTrigger.asDriver()
         playersPaginator.error.map{ MessageViewModelFactory.error(description: $0.localizedDescription) }.drive(message).disposed(by: rx.disposeBag)
     }

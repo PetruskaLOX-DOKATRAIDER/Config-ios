@@ -11,14 +11,14 @@ public protocol EventsService: AutoMockable {
 }
 
 public final class EventsServiceImpl: EventsService, ReactiveCompatible {
-    private let dataLoaderHelper: DataLoaderHelper<Event>
+    private let dataLoaderHelper: PageDataLoaderHelper<Event>
     
     public init(
         reachabilityService: ReachabilityService,
         eventsAPIService: EventsAPIService,
         eventsStorage: EventsStorage
     ) {
-        dataLoaderHelper = DataLoaderHelper(
+        dataLoaderHelper = PageDataLoaderHelper(
             reachabilityService: reachabilityService,
             apiSource: { eventsAPIService.getEvents(forPage: $0) },
             storageSource: { try? eventsStorage.fetchEvents() },

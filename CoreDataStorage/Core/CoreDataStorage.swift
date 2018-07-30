@@ -8,7 +8,8 @@
 
 import Core
 
-enum PlayersStorageError: Error {
+enum CoreDataStorageError: Error {
+    case notFound
     case unknown
 }
 
@@ -22,7 +23,7 @@ public final class CoreDataStorage<CDObject: CDObjectable> where CDObject: NSMan
     func update(withNewData newData: [CDObject.PlainObject]) throws {
         //let request: NSFetchRequest = CDObject.fetchRequest()
         let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: NSStringFromClass(CDObject.self))
-        guard let oldData = (try? coreDataStack.privateContext.fetch(request) as? [CDObject]) ?? [] else { throw PlayersStorageError.unknown }
+        guard let oldData = (try? coreDataStack.privateContext.fetch(request) as? [CDObject]) ?? [] else { throw CoreDataStorageError.unknown }
         newData.forEach { new in
             let toDelete = oldData.filter{ $0.compare(withPlainObject: new) }.first
             toDelete >>- coreDataStack.privateContext.delete
@@ -36,9 +37,10 @@ public final class CoreDataStorage<CDObject: CDObjectable> where CDObject: NSMan
         try? saveContexts()
     }
     
-    func fetch() throws -> [CDObject.PlainObject] {
+    func fetch(withPredicate predicate: NSPredicate? = nil) throws -> [CDObject.PlainObject] {
         let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: NSStringFromClass(CDObject.self))
-        guard let data = (try? coreDataStack.privateContext.fetch(request) as? [CDObject]) ?? [] else { throw PlayersStorageError.unknown }
+        request.predicate = predicate
+        guard let data = (try? coreDataStack.privateContext.fetch(request) as? [CDObject]) ?? [] else { throw CoreDataStorageError.unknown }
         return data.map{ $0.toPlainObject() }
     }
     
@@ -47,7 +49,7 @@ public final class CoreDataStorage<CDObject: CDObjectable> where CDObject: NSMan
             try coreDataStack.privateContext.save()
             try coreDataStack.managedContext.save()
         } catch {
-            throw PlayersStorageError.unknown
+            throw CoreDataStorageError.unknown
         }
     }
 }

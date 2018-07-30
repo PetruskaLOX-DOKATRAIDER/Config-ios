@@ -14,11 +14,11 @@ public struct PlayerDescription {
     public let nickname: String
     public let name: String
     public let surname: String
-    public let profileImageURL: URL?
+    public let avatarURL: URL?
     public let country: String
     public let teamName: String
-    public let teamImageURL: URL?
-    public let flagImageURL: URL?
+    public let teamLogoURL: URL?
+    public let flagURL: URL?
     public let moreInfoURL: URL?
     public let mouse: String
     public let mousepad: String
@@ -29,7 +29,32 @@ public struct PlayerDescription {
     public let gameResolution: String
     public let windowsSensitivity: String
     public let pollingRate: String
-    public let downloadURL: URL?
+    public let configURL: URL?
+    
+    public init(xyq: Int, nickname: String, name: String, surname: String, avatarURL: URL?, country: String, teamName: String,
+                teamLogoURL: URL?, flagURL: URL?, moreInfoURL: URL?, mouse: String, mousepad: String, monitor: String, keyboard: String,
+                headSet: String, effectiveDPI: String, gameResolution: String, windowsSensitivity: String, pollingRate: String, configURL: URL?) {
+        self.id = xyq
+        self.nickname = nickname
+        self.name = name
+        self.surname = surname
+        self.avatarURL = avatarURL
+        self.country = country
+        self.teamName = teamName
+        self.teamLogoURL = teamLogoURL
+        self.flagURL = flagURL
+        self.moreInfoURL = moreInfoURL
+        self.mouse = mouse
+        self.mousepad = mousepad
+        self.monitor = monitor
+        self.keyboard = keyboard
+        self.headSet = headSet
+        self.effectiveDPI = effectiveDPI
+        self.gameResolution = gameResolution
+        self.windowsSensitivity = windowsSensitivity
+        self.pollingRate = pollingRate
+        self.configURL = configURL
+    }
 }
 
 extension PlayerDescription: JSONDecodable {
@@ -38,11 +63,11 @@ extension PlayerDescription: JSONDecodable {
         nickname = json["nick"].stringValue
         name = json["name"].stringValue
         surname = json["surName"].stringValue
-        profileImageURL = json["image"].url
+        avatarURL = json["image"].url
         country = json["country"].stringValue
         teamName = json[""].stringValue
-        teamImageURL = json["teamImage"].url
-        flagImageURL = json["flagImage"].url
+        teamLogoURL = json["teamImage"].url
+        flagURL = json["flagImage"].url
         moreInfoURL = json["moreInfoLink"].url
         mouse = json["mouse"].stringValue
         mousepad = json["mousepad"].stringValue
@@ -53,6 +78,6 @@ extension PlayerDescription: JSONDecodable {
         gameResolution = json["InGameResolution"].stringValue
         windowsSensitivity = json["windowsSen"].stringValue
         pollingRate = json["PollingRate"].stringValue
-        downloadURL = json["downloadLink"].url
+        configURL = json["downloadLink"].url
     }
 }

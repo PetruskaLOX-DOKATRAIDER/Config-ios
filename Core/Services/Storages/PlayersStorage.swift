@@ -10,5 +10,5 @@ public protocol PlayersStorage: AutoMockable {
     func updatePlayerPreview(withNewPlayers newPlayers: [PlayerPreview]) throws
     func fetchPlayersPreview() throws -> [PlayerPreview]
     func updatePlayerDescription(withNewPlayer newPlayer: PlayerDescription) throws
-    func fetchPlayerDescription(byPlayerID playerID: PlayerID) throws -> PlayerDescription
+    func fetchPlayerDescription(byPlayerID playerID: PlayerID) throws -> PlayerDescription?
 }
