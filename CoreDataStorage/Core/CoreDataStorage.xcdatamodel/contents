@@ -5,6 +5,25 @@
         <attribute name="lng" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDEvent" inverseName="coordinates" inverseEntity="CDEvent" syncable="YES"/>
     </entity>
+    <entity name="CCNewsContent" representedClassName="CCNewsContent" syncable="YES" codeGenerationType="class">
+        <relationship name="newsDescription" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="CCNewsDescription" syncable="YES"/>
+    </entity>
+    <entity name="CCNewsDescription" representedClassName="CCNewsDescription" parentEntity="CDNews" syncable="YES" codeGenerationType="class">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="descriptionURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="content" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="CCNewsContent" syncable="YES"/>
+    </entity>
+    <entity name="CCNewsPreview" representedClassName="CCNewsPreview" parentEntity="CDNews" syncable="YES" codeGenerationType="class">
+        <attribute name="coverImageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CCNewsTextContent" representedClassName="CCNewsTextContent" parentEntity="CCNewsContent" syncable="YES" codeGenerationType="class">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="CDEvent" representedClassName="CDEvent" syncable="YES" codeGenerationType="class">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="countOfTeams" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -25,6 +44,7 @@
         <attribute name="width" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="playerPreview" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDPlayerPreview" inverseName="profileImageSize" inverseEntity="CDPlayerPreview" syncable="YES"/>
     </entity>
+    <entity name="CDNews" representedClassName="CDNews" isAbstract="YES" syncable="YES" codeGenerationType="class"/>
     <entity name="CDPlayer" representedClassName="CDPlayer" isAbstract="YES" syncable="YES" codeGenerationType="class"/>
     <entity name="CDPlayerDescription" representedClassName="CDPlayerDescription" parentEntity="CDPlayer" syncable="YES" codeGenerationType="class">
         <attribute name="configURL" optional="YES" attributeType="String" syncable="YES"/>
@@ -61,14 +81,23 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="playerPreview" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDPlayerPreview" inverseName="teamRelationshep" inverseEntity="CDPlayerPreview" syncable="YES"/>
     </entity>
+    <entity name="NewsImageContent" representedClassName="NewsImageContent" parentEntity="CCNewsContent" syncable="YES" codeGenerationType="class">
+        <attribute name="coverImageURL" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="CCCoordinates" positionX="-1251" positionY="135" width="128" height="88"/>
-        <element name="CDEvent" positionX="-981" positionY="54" width="225" height="193"/>
-        <element name="CDFavoritePlayers" positionX="-1152" positionY="608" width="234" height="58"/>
-        <element name="CDImageSize" positionX="-882" positionY="603" width="128" height="88"/>
-        <element name="CDPlayer" positionX="-1080" positionY="288" width="630" height="43"/>
-        <element name="CDPlayerDescription" positionX="-657" positionY="437" width="209" height="328"/>
-        <element name="CDPlayerPreview" positionX="-884" positionY="432" width="191" height="133"/>
-        <element name="CDTeam" positionX="-1080" positionY="434" width="153" height="103"/>
+        <element name="CCCoordinates" positionX="450" positionY="416" width="128" height="88"/>
+        <element name="CDEvent" positionX="441" positionY="189" width="225" height="193"/>
+        <element name="CDFavoritePlayers" positionX="-1089" positionY="536" width="234" height="58"/>
+        <element name="CDImageSize" positionX="-810" positionY="504" width="128" height="88"/>
+        <element name="CDPlayer" positionX="-1008" positionY="189" width="630" height="43"/>
+        <element name="CDPlayerDescription" positionX="-585" positionY="338" width="209" height="328"/>
+        <element name="CDPlayerPreview" positionX="-812" positionY="333" width="191" height="133"/>
+        <element name="CDTeam" positionX="-1008" positionY="335" width="153" height="103"/>
+        <element name="CCNewsDescription" positionX="63" positionY="333" width="225" height="133"/>
+        <element name="CCNewsPreview" positionX="-218" positionY="333" width="200" height="88"/>
+        <element name="CCNewsContent" positionX="63" positionY="540" width="234" height="58"/>
+        <element name="CDNews" positionX="-117" positionY="189" width="308" height="43"/>
+        <element name="CCNewsTextContent" positionX="117" positionY="630" width="128" height="58"/>
+        <element name="NewsImageContent" positionX="117" positionY="707" width="128" height="58"/>
     </elements>
 </model>

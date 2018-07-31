@@ -9,7 +9,7 @@
 public protocol PlayersViewModel {
     var playersPaginator: Paginator<PlayerPreviewViewModel> { get }
     var messageViewModel: Driver<MessageViewModel> { get }
-    var profileTrigger: BehaviorRelay<Void> { get }
+    var profileTrigger: BehaviorSubject<Void> { get }
     var shouldRouteProfile: Driver<Void> { get }
     var shouldRoutePlayerDescription: Driver<PlayerID> { get }
 }
@@ -17,7 +17,7 @@ public protocol PlayersViewModel {
 public final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
     public let playersPaginator: Paginator<PlayerPreviewViewModel>
     public let messageViewModel: Driver<MessageViewModel>
-    public let profileTrigger = BehaviorRelay(value: ())
+    public let profileTrigger = BehaviorSubject<Void>()
     public let shouldRouteProfile: Driver<Void>
     public let shouldRoutePlayerDescription: Driver<PlayerID>
     

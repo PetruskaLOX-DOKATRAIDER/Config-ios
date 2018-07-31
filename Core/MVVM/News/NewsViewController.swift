@@ -6,7 +6,12 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public final class NewsViewController: UIViewController, NonReusableViewProtocol {
+import DTCollectionViewManager
+import DTModelStorage
+
+public final class NewsViewController: UIViewController, NonReusableViewProtocol, DTCollectionViewManageable {
+    @IBOutlet public weak var collectionView: UICollectionView?
+    @IBOutlet private weak var profileButton: UIButton!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +24,14 @@ public final class NewsViewController: UIViewController, NonReusableViewProtocol
         )
     }
     
+    private func setupManagerAndCollectionView() {
+        collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        manager.startManaging(withDelegate: self)
+        manager.register(NewsItemCell.self)
+        manager.didSelect(NewsItemCell.self) { (_, viewModel, _) in
+            viewModel.selectionTrigger.onNext(())
+        }
+    }
     public func onUpdate(with viewModel: NewsViewModel, disposeBag: DisposeBag) {
 
     }

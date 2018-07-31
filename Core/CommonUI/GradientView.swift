@@ -1,12 +1,12 @@
 //
-//  GradientButton.swift
+//  GradientView.swift
 //  Core
 //
-//  Created by Oleg Petrychuk on 20.06.2018.
+//  Created by Oleg Petrychuk on 31.07.2018.
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-class GradientButton: UIButton {
+class GradientView: UIView {
     @IBInspectable var startColor: UIColor = .black { didSet { updateColors() } }
     @IBInspectable var endColor: UIColor = .white { didSet { updateColors() } }
     @IBInspectable var startLocation: Double = 0.05 { didSet { updateLocations() } }
