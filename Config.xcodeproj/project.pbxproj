@@ -45,6 +45,7 @@
 		7C2BF74220D91BD30026DAB4 /* TutoriaItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BF74120D91BD30026DAB4 /* TutoriaItemCell.swift */; };
 		7C2BF74420D91BDD0026DAB4 /* TutoriaItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2BF74320D91BDD0026DAB4 /* TutoriaItemCell.xib */; };
 		7C2FDEF620DE38B100EDD11E /* CollectionViewManager+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2FDEF520DE38B100EDD11E /* CollectionViewManager+extensions.swift */; };
+		7C37222A2110A8B200A5D525 /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3722292110A8B200A5D525 /* UIViewController+extensions.swift */; };
 		7C46053B2109E5D600DA0724 /* Numeric+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C46053A2109E5D600DA0724 /* Numeric+extensions.swift */; };
 		7C46053D2109F72300DA0724 /* EventFilterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C46053C2109F72300DA0724 /* EventFilterItemView.swift */; };
 		7C46053F2109F72E00DA0724 /* EventFilterItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C46053E2109F72E00DA0724 /* EventFilterItemView.xib */; };
@@ -368,6 +369,7 @@
 		7C2BF74120D91BD30026DAB4 /* TutoriaItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutoriaItemCell.swift; sourceTree = "<group>"; };
 		7C2BF74320D91BDD0026DAB4 /* TutoriaItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutoriaItemCell.xib; sourceTree = "<group>"; };
 		7C2FDEF520DE38B100EDD11E /* CollectionViewManager+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewManager+extensions.swift"; sourceTree = "<group>"; };
+		7C3722292110A8B200A5D525 /* UIViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
 		7C46053A2109E5D600DA0724 /* Numeric+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+extensions.swift"; sourceTree = "<group>"; };
 		7C46053C2109F72300DA0724 /* EventFilterItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterItemView.swift; sourceTree = "<group>"; };
 		7C46053E2109F72E00DA0724 /* EventFilterItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventFilterItemView.xib; sourceTree = "<group>"; };
@@ -1388,6 +1390,7 @@
 				7CCA5D002107254E00B50573 /* UIImage+extensions.swift */,
 				7C46053A2109E5D600DA0724 /* Numeric+extensions.swift */,
 				7C460540210A145300DA0724 /* UIDatePicker+extensions.swift */,
+				7C3722292110A8B200A5D525 /* UIViewController+extensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1952,6 +1955,7 @@
 				"${BUILT_PRODUCTS_DIR}/Dip/Dip.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LoadableViews/LoadableViews.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -1982,6 +1986,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoadableViews.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -2063,6 +2068,7 @@
 				"${BUILT_PRODUCTS_DIR}/Dip/Dip.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LoadableViews/LoadableViews.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -2089,6 +2095,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoadableViews.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -2272,6 +2279,7 @@
 				7CB97D0E21061A39002CA594 /* EventItemAnnotationView.swift in Sources */,
 				C02C45C6202C8630008AE9B0 /* Environments.swift in Sources */,
 				7CAE6D7A2101E07A00844B11 /* MapEventsViewModel.swift in Sources */,
+				7C37222A2110A8B200A5D525 /* UIViewController+extensions.swift in Sources */,
 				7C2BF74220D91BD30026DAB4 /* TutoriaItemCell.swift in Sources */,
 				7C9105D720FC904E00970FA7 /* Team.swift in Sources */,
 				7C1D76FE2108B3B60021A4CF /* DatePickerViewModel.swift in Sources */,

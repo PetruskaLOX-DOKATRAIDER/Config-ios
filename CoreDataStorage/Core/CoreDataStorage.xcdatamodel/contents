@@ -23,6 +23,7 @@
     <entity name="CDImageSize" representedClassName="CDImageSize" syncable="YES" codeGenerationType="class">
         <attribute name="height" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="width" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="playerPreview" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDPlayerPreview" inverseName="profileImageSize" inverseEntity="CDPlayerPreview" syncable="YES"/>
     </entity>
     <entity name="CDPlayer" representedClassName="CDPlayer" isAbstract="YES" syncable="YES" codeGenerationType="class"/>
     <entity name="CDPlayerDescription" representedClassName="CDPlayerDescription" parentEntity="CDPlayer" syncable="YES" codeGenerationType="class">
@@ -51,7 +52,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="playerDescription" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDPlayerDescription" inverseName="playerPreview" inverseEntity="CDPlayerDescription" syncable="YES"/>
-        <relationship name="profileImageSize" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDImageSize" syncable="YES"/>
+        <relationship name="profileImageSize" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDImageSize" inverseName="playerPreview" inverseEntity="CDImageSize" syncable="YES"/>
         <relationship name="teamRelationshep" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTeam" inverseName="playerPreview" inverseEntity="CDTeam" syncable="YES"/>
     </entity>
     <entity name="CDTeam" representedClassName="CDTeam" parentEntity="CDPlayer" syncable="YES" codeGenerationType="class">
@@ -64,7 +65,7 @@
         <element name="CCCoordinates" positionX="-1251" positionY="135" width="128" height="88"/>
         <element name="CDEvent" positionX="-981" positionY="54" width="225" height="193"/>
         <element name="CDFavoritePlayers" positionX="-1152" positionY="608" width="234" height="58"/>
-        <element name="CDImageSize" positionX="-882" positionY="603" width="128" height="73"/>
+        <element name="CDImageSize" positionX="-882" positionY="603" width="128" height="88"/>
         <element name="CDPlayer" positionX="-1080" positionY="288" width="630" height="43"/>
         <element name="CDPlayerDescription" positionX="-657" positionY="437" width="209" height="328"/>
         <element name="CDPlayerPreview" positionX="-884" positionY="432" width="191" height="133"/>

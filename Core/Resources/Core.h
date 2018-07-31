@@ -18,6 +18,7 @@
 @import MapKit;
 @import RxMapKit;
 @import RxKeyboard;
+@import Motion;
 
 //! Project version number for Core.
 FOUNDATION_EXPORT double CoreVersionNumber;

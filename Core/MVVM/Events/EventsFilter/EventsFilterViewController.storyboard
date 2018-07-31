@@ -75,7 +75,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="rKb-Xb-x6D">
                         <barButtonItem key="leftBarButtonItem" id="xMm-AH-LO7">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sYN-Zb-jsU">
-                                <rect key="frame" x="16" y="7" width="50" height="25"/>
+                                <rect key="frame" x="16" y="7" width="56" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                         </barButtonItem>

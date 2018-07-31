@@ -24,6 +24,13 @@ public extension Reactive where Base: UIViewController {
             view.close()
         }
     }
+    
+    public var motiondClose: Binder<MotionTransitionAnimationType> {
+        return Binder(base) { vc, transition in
+            vc.addMotionTransition(transition)
+            vc.close()
+        }
+    }
 }
 
 // MARK: UIView

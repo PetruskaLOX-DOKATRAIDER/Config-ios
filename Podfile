@@ -28,6 +28,7 @@ abstract_target 'AT' do
         pod 'SnapKit', '~> 4.0.0'
         pod 'NVActivityIndicatorView'
         pod 'Kingfisher', '~> 4.0'
+        pod 'Motion'
         
         #MVVM
         pod 'Dip', '~> 6.0'

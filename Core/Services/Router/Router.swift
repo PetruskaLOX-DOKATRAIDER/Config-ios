@@ -20,9 +20,9 @@ open class Router: ReactiveCompatible {
     }
 
     public func tutorial() -> Route<TutorialViewController> {
-        return route().configure({ [ appSections = appSections() ] in
-            $0.viewModel?.shouldRouteSettings.map(to: true).drive($0.rx.close).disposed(by: $0.rx.disposeBag)
-            $0.viewModel?.shouldRouteApp.map(to: appSections).setAsRoot().disposed(by: $0.rx.disposeBag)
+        return route().configure({ [ appSections = appSections() ] vc in
+            vc.viewModel?.shouldRouteSettings.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRouteApp.map(to: appSections).setAsRoot().disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.default())
     }
     
@@ -49,15 +49,15 @@ open class Router: ReactiveCompatible {
     }
     
     public func events() -> Route<EventsContainerViewController> {
-        return route().configure({ [ eventFilters = eventFilters() ] in
-            $0.viewModel?.shouldRouteFilters.map(to: eventFilters).present().disposed(by: $0.rx.disposeBag)
+        return route().configure({ [ eventFilters = eventFilters() ] vc in
+            vc.viewModel?.shouldRouteFilters.map(to: eventFilters).present().disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.default())
     }
     
     public func teams() -> Route<TeamsViewController> {
         return route().configure({ [playerDescription = playerDescription()] vc in
-            vc.viewModel?.shouldRouteProfile.drive(onNext: {
-                vc.tabBarController?.setSelectedViewController(ProfileViewController.self)
+            vc.viewModel?.shouldRouteProfile.drive(onNext: { [weak vc] in
+                vc?.tabBarController?.setSelectedViewController(ProfileViewController.self)
             }).disposed(by: vc.rx.disposeBag)
             Driver.merge([
                 vc.viewModel?.shouldRoutePlayerDescription,
@@ -68,8 +68,8 @@ open class Router: ReactiveCompatible {
     
     public func players() -> Route<PlayersViewController> {
         return route().configure({ [ playerDescription = playerDescription() ] vc in
-            vc.viewModel?.shouldRouteProfile.drive(onNext: {
-                vc.tabBarController?.setSelectedViewController(ProfileViewController.self)
+            vc.viewModel?.shouldRouteProfile.drive(onNext: { [weak vc] in
+                vc?.tabBarController?.setSelectedViewController(ProfileViewController.self)
             }).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRoutePlayerDescription.map(playerDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
         })
@@ -77,8 +77,9 @@ open class Router: ReactiveCompatible {
     
     public func eventFilters() -> Route<EventsFilterViewController> {
         return route().configure({ [ picekrVC = picekr(), datePicekrVC = datePicekr() ] vc in
-            guard let navigationController = vc.navigationController else { return }
-            vc.viewModel?.shouldClose.map(to: true).drive(navigationController.rx.close).disposed(by: vc.rx.disposeBag)
+            guard let nvc = vc.navigationController else { return }
+            nvc.addMotionTransition(.zoom)
+            vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomOut).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRoutePicker.map{ picekrVC.with(viewModel: $0) }.present().disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteDatePicker.map{ datePicekrVC.with(viewModel: $0) }.present().disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.default())
@@ -98,11 +99,11 @@ open class Router: ReactiveCompatible {
     
     public func playerDescription() -> Route<PlayerDescriptionViewController> {
         return route().configure({ vc in
-            vc.viewModel?.shouldClose.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
+            guard let nvc = vc.navigationController else { return }
+            nvc.addMotionTransition(.zoomSlide(direction: .left))
+            vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomSlide(direction: .right)).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.clear())
     }
-    
-    
     
     private func route<T: UIViewController>() -> Route<T> where T: ViewModelHolderProtocol {
         return Route<T>(router: router, viewFactory: viewFactory, viewModelFactory: viewModelFactory).fromFactory().buildViewModel()

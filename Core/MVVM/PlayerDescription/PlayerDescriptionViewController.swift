@@ -30,7 +30,7 @@ public class PlayerDescriptionViewController: UIViewController, NonReusableViewP
     @IBOutlet private weak var segmentPageContainerHeightConstraint: NSLayoutConstraint!
     
     override public func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
         setupSegmentPageViewController()
         setupSegmentView()
         title = Strings.PlayerDescription.title
@@ -59,7 +59,9 @@ public class PlayerDescriptionViewController: UIViewController, NonReusableViewP
     
     private func setupSegmentPageViewController() {
         segmentPageViewController.isPageScrollEnabled = false
-        segmentPageViewController.setupViewControllers([personalInfoVC, hardwareVC, settingsVC])
+        let vcs = [personalInfoVC, hardwareVC, settingsVC]
+        vcs.forEach { $0.loadView() }
+        segmentPageViewController.setupViewControllers(vcs)
         addChildViewController(segmentPageViewController)
         segmentPageViewControllerContainer.addSubview(segmentPageViewController.view)
         segmentPageViewController.view.snp.makeConstraints {

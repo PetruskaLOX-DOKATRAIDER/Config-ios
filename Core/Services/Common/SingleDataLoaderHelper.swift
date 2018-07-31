@@ -25,7 +25,7 @@ final class SingleDataLoaderHelper<Model>: ReactiveCompatible {
     }
     
     func loadModel(byID id: Int) -> Response<Model, RequestError> {
-        if reachabilityService.connection == .none {
+        if reachabilityService.connection != .none {
             return loadAndUpdateData(byID: id)
         } else {
             return getStroedData(byID: id)
