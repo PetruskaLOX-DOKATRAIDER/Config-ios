@@ -24,7 +24,9 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
     
     public func fetchPlayersPreview() throws -> [PlayerPreview] {
         do {
-            return try playerPreviewCoreDataStorage.fetch()
+            let fuck = try playerPreviewCoreDataStorage.fetch()
+            print("FUCK: \(fuck)")
+            return fuck
         } catch {
             throw CoreDataStorageError.unknown
         }
@@ -37,8 +39,6 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
     public func fetchPlayerDescription(byPlayerID playerID: PlayerID) throws -> PlayerDescription? {
         do {
             let predicate = NSPredicate(format: "%K = %d", #keyPath(CDPlayerDescription.id), playerID)
-            
-            //let predicate = NSPredicate(format: "id = %d", playerID)
             return try playerDescriptionCoreDataStorage.fetch(withPredicate: predicate).first
         } catch {
             throw CoreDataStorageError.unknown

@@ -29,6 +29,7 @@ open class Router: ReactiveCompatible {
     public func appSections() -> AppRouter.Presenter.Configuration<AppSectionsTabBarController> {
         return AppSectionsTabBarController.presenter().from {
             let tabbarVC = AppSectionsTabBarController()
+            tabbarVC.hidesBottomBarWhenPushed = true
             tabbarVC.setViewControllers([
                 NavigationControllerFactory.default(viewControllers: [try self.players().provideSourceController()]),
                 NavigationControllerFactory.default(viewControllers: [try self.teams().provideSourceController()]),
@@ -41,7 +42,12 @@ open class Router: ReactiveCompatible {
     }
     
     public func news() -> Route<NewsViewController> {
-        return route()
+        return route().configure({ [ newsDescription = newsDescription() ] vc in
+            vc.viewModel?.shouldRouteProfile.drive(onNext: { [weak vc] in
+                vc?.tabBarController?.setSelectedViewController(ProfileViewController.self)
+            }).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRouteNewsDescription.map(newsDescription.buildViewModel).push().disposed(by: vc.rx.disposeBag)
+        })
     }
     
     public func profile() -> Route<ProfileViewController> {
@@ -103,6 +109,13 @@ open class Router: ReactiveCompatible {
             nvc.addMotionTransition(.zoomSlide(direction: .left))
             vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomSlide(direction: .right)).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.clear())
+    }
+    
+    public func newsDescription() -> Route<NewsDescriptionViewController> {
+        return route().configure({ vc in
+            vc.addMotionTransition(.zoomSlide(direction: .left))
+            vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomSlide(direction: .right)).drive(vc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
+        })
     }
     
     private func route<T: UIViewController>() -> Route<T> where T: ViewModelHolderProtocol {

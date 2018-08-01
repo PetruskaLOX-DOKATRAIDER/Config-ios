@@ -13,6 +13,7 @@ extension CDPlayerPreview: CDObjectable {
         cdObject.profileImageSize = CDImageSize.new(conext: conext, plainObject: plainObject.profileImageSize)
         cdObject.avatarURL = plainObject.avatarURL?.absoluteString
         cdObject.id = Int32(plainObject.id)
+        print("TO SAVE: \(cdObject.profileImageSize?.height):\(cdObject.profileImageSize?.width)")
         return cdObject
     }
     
@@ -25,6 +26,9 @@ extension CDPlayerPreview: CDObjectable {
         if let cdProfileImageSize = self.profileImageSize {
             profileImageSize = ImageSize.new(height: cdProfileImageSize.height, weight: cdProfileImageSize.width)
         }
+        
+        print("GOT: \(self.profileImageSize?.height):\(self.profileImageSize?.width)")
+        
         return PlayerPreview.new(
             nickname: nickname ?? "",
             profileImageSize: profileImageSize,

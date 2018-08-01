@@ -11,10 +11,13 @@
     <entity name="CCNewsDescription" representedClassName="CCNewsDescription" parentEntity="CDNews" syncable="YES" codeGenerationType="class">
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="descriptionURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="moreInfoURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="content" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="CCNewsContent" syncable="YES"/>
+    </entity>
+    <entity name="CCNewsImageContent" representedClassName="CCNewsImageContent" parentEntity="CCNewsContent" syncable="YES" codeGenerationType="class">
+        <attribute name="coverImageURL" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="CCNewsPreview" representedClassName="CCNewsPreview" parentEntity="CDNews" syncable="YES" codeGenerationType="class">
         <attribute name="coverImageURL" optional="YES" attributeType="String" syncable="YES"/>
@@ -81,23 +84,20 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="playerPreview" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDPlayerPreview" inverseName="teamRelationshep" inverseEntity="CDPlayerPreview" syncable="YES"/>
     </entity>
-    <entity name="NewsImageContent" representedClassName="NewsImageContent" parentEntity="CCNewsContent" syncable="YES" codeGenerationType="class">
-        <attribute name="coverImageURL" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <elements>
         <element name="CCCoordinates" positionX="450" positionY="416" width="128" height="88"/>
+        <element name="CCNewsContent" positionX="63" positionY="540" width="234" height="58"/>
+        <element name="CCNewsDescription" positionX="63" positionY="333" width="225" height="133"/>
+        <element name="CCNewsPreview" positionX="-218" positionY="333" width="200" height="88"/>
+        <element name="CCNewsTextContent" positionX="117" positionY="630" width="128" height="58"/>
         <element name="CDEvent" positionX="441" positionY="189" width="225" height="193"/>
         <element name="CDFavoritePlayers" positionX="-1089" positionY="536" width="234" height="58"/>
         <element name="CDImageSize" positionX="-810" positionY="504" width="128" height="88"/>
+        <element name="CDNews" positionX="-117" positionY="189" width="308" height="43"/>
         <element name="CDPlayer" positionX="-1008" positionY="189" width="630" height="43"/>
         <element name="CDPlayerDescription" positionX="-585" positionY="338" width="209" height="328"/>
         <element name="CDPlayerPreview" positionX="-812" positionY="333" width="191" height="133"/>
         <element name="CDTeam" positionX="-1008" positionY="335" width="153" height="103"/>
-        <element name="CCNewsDescription" positionX="63" positionY="333" width="225" height="133"/>
-        <element name="CCNewsPreview" positionX="-218" positionY="333" width="200" height="88"/>
-        <element name="CCNewsContent" positionX="63" positionY="540" width="234" height="58"/>
-        <element name="CDNews" positionX="-117" positionY="189" width="308" height="43"/>
-        <element name="CCNewsTextContent" positionX="117" positionY="630" width="128" height="58"/>
-        <element name="NewsImageContent" positionX="117" positionY="707" width="128" height="58"/>
+        <element name="CCNewsImageContent" positionX="117" positionY="707" width="128" height="58"/>
     </elements>
 </model>

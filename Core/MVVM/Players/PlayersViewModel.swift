@@ -9,7 +9,7 @@
 public protocol PlayersViewModel {
     var playersPaginator: Paginator<PlayerPreviewViewModel> { get }
     var messageViewModel: Driver<MessageViewModel> { get }
-    var profileTrigger: BehaviorSubject<Void> { get }
+    var profileTrigger: PublishSubject<Void> { get }
     var shouldRouteProfile: Driver<Void> { get }
     var shouldRoutePlayerDescription: Driver<PlayerID> { get }
 }
@@ -17,7 +17,7 @@ public protocol PlayersViewModel {
 public final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
     public let playersPaginator: Paginator<PlayerPreviewViewModel>
     public let messageViewModel: Driver<MessageViewModel>
-    public let profileTrigger = BehaviorSubject<Void>()
+    public let profileTrigger = PublishSubject<Void>()
     public let shouldRouteProfile: Driver<Void>
     public let shouldRoutePlayerDescription: Driver<PlayerID>
     
@@ -39,7 +39,7 @@ public final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
         let message = PublishSubject<MessageViewModel>()
         messageViewModel = message.asDriver(onErrorJustReturn: MessageViewModelFactory.error())
         playersPaginator = Paginator(factory: { playersService.getPlayerPreview(forPage: $0).success().map(remapToViewModels).asObservable() })
-        shouldRouteProfile = profileTrigger.asDriver()
+        shouldRouteProfile = profileTrigger.asDriver(onErrorJustReturn: ())
         playersPaginator.error.map{ MessageViewModelFactory.error(description: $0.localizedDescription) }.drive(message).disposed(by: rx.disposeBag)
     }
 }

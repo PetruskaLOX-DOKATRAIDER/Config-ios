@@ -8,3 +8,7 @@ extension PlayerDescription: AutoInit {}
 extension Team: AutoInit {}
 extension Coordinates: AutoInit {}
 extension Event: AutoInit {}
+extension NewsPreview: AutoInit {}
+extension NewsDescription: AutoInit {}
+extension NewsImageContent: AutoInit {}
+extension NewsTextContent: AutoInit {}

@@ -25,7 +25,7 @@ final class PageDataLoaderHelper<Model>: ReactiveCompatible {
     }
     
     func loadData(forPage page: Int) -> Response<Page<Model>, RequestError> {
-        if reachabilityService.connection != .none {
+        if reachabilityService.connection == .none {
             return loadAndUpdateData(forPage: page)
         } else {
             return getStroedData()

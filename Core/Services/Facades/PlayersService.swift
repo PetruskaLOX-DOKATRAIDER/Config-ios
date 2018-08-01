@@ -27,7 +27,6 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
             updateStorage: { try? playersStorage.updatePlayerPreview(withNewPlayers: $0) }
         )
 
-        
         playerDescriptionLoaderHelper = SingleDataLoaderHelper(
             reachabilityService: reachabilityService,
             apiSource: { playersAPIService.getPlayerDescription(byPlayerID: $0) },

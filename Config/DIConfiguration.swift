@@ -16,6 +16,7 @@ extension DependencyContainer {
         register(.singleton){ PlayersStorageImpl() as PlayersStorage }
         register(.singleton){ TeamsStorageImpl() as TeamsStorage }
         register(.singleton){ EventsStorageImpl() as EventsStorage }
+        register(.singleton){ NewsStorageImpl() as NewsStorage }
         return self
     }
 }

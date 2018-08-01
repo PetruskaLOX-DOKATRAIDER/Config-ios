@@ -9,24 +9,27 @@
 import DTModelStorage
 
 public class NewsItemCell: UICollectionViewCell, ModelTransfer, ReusableViewProtocol {
-    @IBOutlet weak var gradeintView: GradientView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet private weak var gradeintView: GradientView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var coverImageView: UIImageView!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var shareButton: UIButton!
     
     public override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = .bagdet
-        contentView.applyShadow()
-        
+        containerView.backgroundColor = .ichigos
+        containerView.applyShadow(color: UIColor.amethyst.cgColor)
+
         titleLabel.textColor = .snowWhite
-        titleLabel.font = .filsonMediumWithSize(17)
-        
-        gradeintView.startColor = .ichigos
-        gradeintView.endColor = .clear
+        titleLabel.font = .filsonMediumWithSize(21)
+
+        gradeintView.startColor = .clear
+        gradeintView.endColor = .ichigos
     }
     
     public func onUpdate(with viewModel: NewsItemViewModel, disposeBag: DisposeBag) {
         viewModel.title.drive(titleLabel.rx.text).disposed(by: disposeBag)
         viewModel.coverImage.drive(coverImageView.rx.imageURL).disposed(by: disposeBag)
+        shareButton.rx.tap.bind(to: viewModel.shareTrigger).disposed(by: disposeBag)
     }
 }

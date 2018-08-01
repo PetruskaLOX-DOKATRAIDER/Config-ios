@@ -8,26 +8,38 @@
 
 public protocol NewsService: AutoMockable {
     func getNewsPreview(forPage page: Int) -> Response<Page<NewsPreview>, RequestError>
-    //func getPlayerDescription(byID id: Int) -> Response<PlayerDescription, RequestError>
+    func getPlayerDescription(byID id: Int) -> Response<NewsDescription, RequestError>
 }
 
 public final class NewsServiceImpl: NewsService, ReactiveCompatible {
-    //private let dataLoaderHelper: PageDataLoaderHelper<NewsPreview>
+    private let newsPreviewLoaderHelper: PageDataLoaderHelper<NewsPreview>
+    private let newsDescriptionLoaderHelper: SingleDataLoaderHelper<NewsDescription>
     
     public init(
         reachabilityService: ReachabilityService,
-        eventsAPIService: EventsAPIService,
-        eventsStorage: EventsStorage
+        eventsAPIService: NewsAPIService,
+        eventsStorage: NewsStorage
     ) {
-//        dataLoaderHelper = PageDataLoaderHelper(
-//            reachabilityService: reachabilityService,
-//            apiSource: { eventsAPIService.getEvents(forPage: $0) },
-//            storageSource: { try? eventsStorage.fetchEvents() },
-//            updateStorage: { try? eventsStorage.update(withNewEvents: $0) }
-//        )
+        newsPreviewLoaderHelper = PageDataLoaderHelper(
+            reachabilityService: reachabilityService,
+            apiSource: { eventsAPIService.getNewsPreview(forPage: $0) },
+            storageSource: { try? eventsStorage.fetchNewsPreview() },
+            updateStorage: { try? eventsStorage.updateNewsPreview(withNewNews: $0) }
+        )
+        
+        newsDescriptionLoaderHelper = SingleDataLoaderHelper(
+            reachabilityService: reachabilityService,
+            apiSource: { eventsAPIService.getNewsDescription(byID: $0) },
+            storageSource: { try? eventsStorage.fetchNewsDescription(byID: $0) },
+            updateStorage: { try? eventsStorage.updateNewsDescription(withNewNews: $0) }
+        )
     }
     
     public func getNewsPreview(forPage page: Int) -> Response<Page<NewsPreview>, RequestError> {
-        //return dataLoaderHelper.loadData(forPage: page)
+        return newsPreviewLoaderHelper.loadData(forPage: page)
+    }
+    
+    public func getPlayerDescription(byID id: Int) -> Response<NewsDescription, RequestError> {
+        return newsDescriptionLoaderHelper.loadModel(byID: id)
     }
 }

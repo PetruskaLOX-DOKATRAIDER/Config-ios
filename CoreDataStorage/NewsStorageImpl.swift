@@ -7,25 +7,39 @@
 //
 
 public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
-    private let coreDataStorage: CoreDataStorage<CDEvent>
+    private let newsPreviewCoreDataStorage: CoreDataStorage<CCNewsPreview>
+    private let newsDescriptionCoreDataStorage: CoreDataStorage<CCNewsDescription>
     
-    public init(coreDataStorage: CoreDataStorage<CDEvent> = CoreDataStorage()) {
-        self.coreDataStorage = coreDataStorage
+    public init(
+        newsPreviewCoreDataStorage: CoreDataStorage<CCNewsPreview> = CoreDataStorage(),
+        newsDescriptionCoreDataStorage: CoreDataStorage<CCNewsDescription> = CoreDataStorage()
+    ) {
+        self.newsPreviewCoreDataStorage = newsPreviewCoreDataStorage
+        self.newsDescriptionCoreDataStorage = newsDescriptionCoreDataStorage
     }
     
-    func updateNewsPreview(withNewNews newNews: [NewsPreview]) throws {
-        
+    public func updateNewsPreview(withNewNews newNews: [NewsPreview]) throws {
+        try? newsPreviewCoreDataStorage.update(withNewData: newNews)
     }
     
-    func fetchNewsPreview() throws -> [NewsPreview] {
-        
+    public func fetchNewsPreview() throws -> [NewsPreview] {
+        do {
+            return try newsPreviewCoreDataStorage.fetch()
+        } catch {
+            throw CoreDataStorageError.unknown
+        }
     }
     
-    func updateNewsDescription(withNewNews newNews: NewsDescription) throws {
-        
+    public func updateNewsDescription(withNewNews newNews: NewsDescription) throws {
+        try? newsDescriptionCoreDataStorage.update(withNewData: [newNews])
     }
     
-    func fetchNewsDescription(byID id: Int) throws -> NewsDescription? {
-        
+    public func fetchNewsDescription(byID id: Int) throws -> NewsDescription? {
+        do {
+            let predicate = NSPredicate(format: "%K = %d", #keyPath(CCNewsDescription.id), id)
+            return try newsDescriptionCoreDataStorage.fetch(withPredicate: predicate).first
+        } catch {
+            throw CoreDataStorageError.unknown
+        }
     }
 }

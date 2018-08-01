@@ -19,7 +19,7 @@ public class Paginator<ModelType>: BasePaginator<ModelType, Page<ModelType>> {
 }
 
 public class BasePaginator<Model, Page: PaginatedResponseProtocol>: WorkerType where Page.Content == Model {
-    public let refreshTrigger = PublishRelay<Void>()
+    public let refreshTrigger = PublishSubject<Void>()
     public let loadNextPageTrigger = PublishRelay<Void>()
     public let elements = BehaviorRelay<[Model]>(value: [])
     public let error: Driver<Error>

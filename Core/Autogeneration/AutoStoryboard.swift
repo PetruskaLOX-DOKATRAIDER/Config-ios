@@ -92,6 +92,16 @@ enum StoryboardScene {
       return vc
     }
   }
+  enum NewsDescription: StoryboardSceneType {
+    static let storyboardName = "NewsDescriptionViewController"
+
+    static func initialViewController() -> NewsDescriptionViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? NewsDescriptionViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+  }
   enum News: StoryboardSceneType {
     static let storyboardName = "NewsViewController"
 

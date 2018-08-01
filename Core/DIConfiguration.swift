@@ -17,6 +17,7 @@ public extension DependencyContainer {
         registerStorages()
         registerServices()
         registerViewModels()
+        registerAPIServices()
         return self
     }
     
@@ -30,9 +31,14 @@ public extension DependencyContainer {
         register(.unique){ ReachabilityServiceImpl() as ReachabilityService }
         register(.unique){ try EventsServiceImpl(reachabilityService: self.resolve(), eventsAPIService: self.resolve(), eventsStorage: self.resolve()) as EventsService }
         register(.singleton) { AppEnvironmentImpl() }.implements(AppEnvironment.self, AppEnvironment.self)
+        register(.unique){ try NewsServiceImpl(reachabilityService: self.resolve(), eventsAPIService: self.resolve(), eventsStorage: self.resolve()) as NewsService }
+    }
+    
+    private func registerAPIServices() {
         register(.unique){ try API.PlayersAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as PlayersAPIService }
         register(.unique){ try API.TeamsAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as TeamsAPIService }
         register(.unique){ try API.EventsAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as EventsAPIService }
+        register(.unique){ try API.NewsAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as NewsAPIService }
     }
     
     private func registerViewModels() {
@@ -41,11 +47,12 @@ public extension DependencyContainer {
         register(.unique){ try PlayersViewModelImpl(playersService: self.resolve()) as PlayersViewModel }
         register(.unique){ try TeamsViewModelImpl(teamsService: self.resolve(), playersBannerViewModel: self.resolve()) as TeamsViewModel }
         register(.unique){ try EventsContainerViewModelImpl(eventsService: self.resolve()) as EventsContainerViewModel }
-        register(.unique){ NewsViewModelImpl() as NewsViewModel }
+        register(.unique){ try NewsViewModelImpl(newsService: self.resolve()) as NewsViewModel }
         register(.unique){ ProfileViewModelImpl() as ProfileViewModel }
         register(.unique){ try PlayersBannerViewModelImpl(playersAPIService: self.resolve()) as PlayersBannerViewModel }
         register(.unique){ try EventsFilterViewModelImpl(eventsFiltersStorage: self.resolve()) as EventsFilterViewModel }
         register(.unique){ try PlayerDescriptionViewModelImpl(playerID: $0, playersService: self.resolve()) as PlayerDescriptionViewModel }
+        register(.unique){ try NewsDescriptionViewModelImpl(news: $0, newsService: self.resolve()) as NewsDescriptionViewModel }
     }
     
     private func registerStorages() {

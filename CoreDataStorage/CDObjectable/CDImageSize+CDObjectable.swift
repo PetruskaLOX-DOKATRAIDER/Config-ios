@@ -8,6 +8,7 @@
 
 extension CDImageSize: CDObjectable {
     public static func new(conext: NSManagedObjectContext, plainObject: ImageSize) -> CDImageSize {
+        print("I WILL SAVE: \(plainObject)")
         let cdObject = CDImageSize(context: conext)
         cdObject.height = plainObject.height
         cdObject.width = plainObject.weight
