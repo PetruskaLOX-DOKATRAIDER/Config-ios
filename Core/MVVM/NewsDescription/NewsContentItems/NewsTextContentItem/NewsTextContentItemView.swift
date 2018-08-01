@@ -22,7 +22,7 @@ final class NewsTextContentItemView: LoadableView, NonReusableViewProtocol {
     }
     
     private func setup() {
-        textLabel.font = .filsonMediumWithSize(16)
+        textLabel.font = .filsonRegularWithSize(16)
         textLabel.textColor = .solled
     }
     

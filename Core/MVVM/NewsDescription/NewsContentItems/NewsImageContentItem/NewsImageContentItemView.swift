@@ -24,7 +24,7 @@ final class NewsImageContentItemView: LoadableView, NonReusableViewProtocol {
     
     private func setup() {
         coverImageView.backgroundColor = .wonded
-        coverImageView.applyShadow()
+        selectionButton.applyShadow()
     }
     
     public func onUpdate(with viewModel: NewsImageContentItemViewModel, disposeBag: DisposeBag) {

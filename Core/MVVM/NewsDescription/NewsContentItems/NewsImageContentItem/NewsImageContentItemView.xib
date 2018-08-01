@@ -21,23 +21,23 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sji-bV-ZQr">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sji-bV-ZQr">
+                    <rect key="frame" x="16" y="4" width="343" height="183"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J68-wl-WeS">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
+                    <rect key="frame" x="16" y="4" width="343" height="183"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="b4o-Xx-F52" firstAttribute="trailing" secondItem="Sji-bV-ZQr" secondAttribute="trailing" id="1Wu-Bt-y5N"/>
-                <constraint firstItem="b4o-Xx-F52" firstAttribute="bottom" secondItem="J68-wl-WeS" secondAttribute="bottom" id="7p3-1v-If1"/>
-                <constraint firstItem="Sji-bV-ZQr" firstAttribute="top" secondItem="b4o-Xx-F52" secondAttribute="top" id="LdD-ax-MSc"/>
-                <constraint firstItem="b4o-Xx-F52" firstAttribute="trailing" secondItem="J68-wl-WeS" secondAttribute="trailing" id="ebu-yG-rqa"/>
-                <constraint firstItem="Sji-bV-ZQr" firstAttribute="bottom" secondItem="b4o-Xx-F52" secondAttribute="bottom" id="iYc-Bf-W3b"/>
-                <constraint firstItem="Sji-bV-ZQr" firstAttribute="leading" secondItem="b4o-Xx-F52" secondAttribute="leading" id="k4J-T4-Hmh"/>
-                <constraint firstItem="J68-wl-WeS" firstAttribute="leading" secondItem="b4o-Xx-F52" secondAttribute="leading" id="pmC-zn-kc5"/>
-                <constraint firstItem="J68-wl-WeS" firstAttribute="top" secondItem="b4o-Xx-F52" secondAttribute="top" id="tH1-eQ-1Sa"/>
+                <constraint firstItem="b4o-Xx-F52" firstAttribute="trailing" secondItem="J68-wl-WeS" secondAttribute="trailing" constant="16" id="1pv-F2-zY1"/>
+                <constraint firstItem="Sji-bV-ZQr" firstAttribute="leading" secondItem="b4o-Xx-F52" secondAttribute="leading" constant="16" id="5td-AM-aoe"/>
+                <constraint firstItem="J68-wl-WeS" firstAttribute="top" secondItem="b4o-Xx-F52" secondAttribute="top" constant="4" id="AbC-4y-Ua0"/>
+                <constraint firstItem="b4o-Xx-F52" firstAttribute="bottom" secondItem="Sji-bV-ZQr" secondAttribute="bottom" constant="4" id="CRc-ss-Rgk"/>
+                <constraint firstItem="b4o-Xx-F52" firstAttribute="bottom" secondItem="J68-wl-WeS" secondAttribute="bottom" constant="4" id="Mrd-4q-MBn"/>
+                <constraint firstItem="J68-wl-WeS" firstAttribute="leading" secondItem="b4o-Xx-F52" secondAttribute="leading" constant="16" id="R7j-n5-nkx"/>
+                <constraint firstItem="b4o-Xx-F52" firstAttribute="trailing" secondItem="Sji-bV-ZQr" secondAttribute="trailing" constant="16" id="phq-MX-w3q"/>
+                <constraint firstItem="Sji-bV-ZQr" firstAttribute="top" secondItem="b4o-Xx-F52" secondAttribute="top" constant="4" id="vwO-R5-hYn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="b4o-Xx-F52"/>

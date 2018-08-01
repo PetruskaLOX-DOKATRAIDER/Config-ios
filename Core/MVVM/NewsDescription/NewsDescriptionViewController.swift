@@ -7,26 +7,35 @@
 //
 
 public class NewsDescriptionViewController: UIViewController, NonReusableViewProtocol {
-    @IBOutlet private weak var coverImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var subtitleLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var detailsButton: UIButton!
     @IBOutlet private weak var shareButton: UIButton!
     @IBOutlet private weak var scrollViewTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var contentStackView: UIStackView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var subtitleLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var buttonsContainerView: UIView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var coverImageGradientView: GradientView!
+    @IBOutlet private weak var coverImageView: UIImageView!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.textColor = .amethyst
-        titleLabel.font = UIFont.filsonMediumWithSize(23)
+        scrollView.backgroundColor = .amethyst
+        view.backgroundColor = .bagdet
         
-        subtitleLabel.textColor = .amethyst
-        subtitleLabel.font = UIFont.filsonMediumWithSize(18)
+        titleLabel.textColor = .snowWhite
+        titleLabel.font = .filsonMediumWithSize(23)
         
-        descriptionLabel.textColor = .sungray
+        subtitleLabel.textColor = .snowWhite
+        subtitleLabel.font = .filsonMediumWithSize(18)
+        
+        descriptionLabel.textColor = .solled
         descriptionLabel.font = .filsonRegularWithSize(15)
+        
+//        coverImageGradientView.startColor = .clear
+//        coverImageGradientView.endColor = .bagdet
         
         shareButton.setTitle(Strings.Newsdescription.share, for: .normal)
         detailsButton.setTitle(Strings.Newsdescription.details, for: .normal)
@@ -50,20 +59,23 @@ public class NewsDescriptionViewController: UIViewController, NonReusableViewPro
         shareButton.rx.tap.bind(to: viewModel.shareTrigger).disposed(by: disposeBag)
         
         viewModel.content.drive(onNext: { [weak self] content in
-            guard let strongSelf = self else { return }
-            //strongSelf.contentStackView.removeAllSubviews()
             content.forEach{ item in
                 if let viewModel = item as? NewsImageContentItemViewModel {
-                    strongSelf.addImageContentView(withViewModel: viewModel)
+                    self?.addImageContentView(withViewModel: viewModel)
                 } else if let viewModel = item as? NewsTextContentItemViewModel {
-                    strongSelf.addTextContentView(withViewModel: viewModel)
+                    self?.addTextContentView(withViewModel: viewModel)
                 }
             }
+            self?.addSeparatorView(height: 55)
+            self?.view.layoutIfNeeded()
         }).disposed(by: rx.disposeBag)
         
         let animationsDuration = 0.8
         viewModel.isDataAvaliable.map{ $0 ? 1 : 0 }.drive(onNext: { [weak self] alpha in
-            UIView.animate(withDuration: animationsDuration, animations:{ self?.coverImageView.alpha = alpha })
+            UIView.animate(withDuration: animationsDuration, animations: {
+                self?.coverImageView.alpha = CGFloat(alpha)
+                self?.buttonsContainerView.alpha = CGFloat(alpha)
+            })
         }).disposed(by: disposeBag)
         viewModel.isDataAvaliable.drive(onNext: { [weak self] isDataAvaliable in
             let newConstant: CGFloat = isDataAvaliable ? 60 : self?.view.bounds.size.height ?? 0
@@ -87,8 +99,14 @@ public class NewsDescriptionViewController: UIViewController, NonReusableViewPro
         let view = NewsTextContentItemView()
         view.viewModel = viewModel
         contentStackView.addArrangedSubview(view)
+    }
+    
+    private func addSeparatorView(height: CGFloat) {
+        let view = UIView()
+        view.backgroundColor = .clear
+        contentStackView.addArrangedSubview(view)
         view.snp.makeConstraints {
-            $0.height.equalTo(100)
+            $0.height.equalTo(height)
         }
     }
 }

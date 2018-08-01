@@ -76,9 +76,12 @@ extension UIView {
         }
     }
     
-    func removeAllSubviews() {
-        subviews.forEach{ $0.removeFromSuperview() }
-        
+    func removeAllSubviews(except: [UIView] = []) {
+        subviews.forEach{ subview in
+            if !except.contains(subview) {
+                subview.removeFromSuperview()
+            }
+        }
     }
     
     func findSubviewsOf<T: UIView>() -> [T] {
