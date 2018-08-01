@@ -71,8 +71,7 @@ public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel {
         ] }.startWith([])
         isWorking = Driver.merge(
             refreshTrigger.asDriver(onErrorJustReturn: ()).map(to: true),
-            playerRequest.success().map(to: false),
-            playerRequest.failure().map(to: false)
+            playerRequest.success().map(to: false)
         ).startWith(false)
         
         messageViewModel = playerRequest.failure().map(to: MessageViewModelFactory.error())

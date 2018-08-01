@@ -13,7 +13,7 @@ public class NavigationControllerFactory {
         navigationController.navigationBar.titleColor(.ichigos)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.titleFont(.filsonRegularWithSize(18))
-        navigationController.navigationBar.barTintColor = .navos
+        navigationController.navigationBar.barTintColor = .tapped
         if #available(iOS 11.0, *) {
             navigationController.navigationBar.prefersLargeTitles = true
             navigationController.navigationBar.largeTitleFont(.filsonRegularWithSize(30))

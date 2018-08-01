@@ -13,6 +13,7 @@ public final class AppSectionsTabBarController: UITabBarController {
         super.viewDidLoad()
         tabBar.tintColor = .ichigos
         tabBar.barTintColor = .tapped
+        hidesBottomBarWhenPushed = true
     }
     
     //public func onUpdate(with viewModel: AppSectionsViewModel, disposeBag: DisposeBag) {}

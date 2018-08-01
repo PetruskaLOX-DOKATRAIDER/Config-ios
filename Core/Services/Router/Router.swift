@@ -29,7 +29,6 @@ open class Router: ReactiveCompatible {
     public func appSections() -> AppRouter.Presenter.Configuration<AppSectionsTabBarController> {
         return AppSectionsTabBarController.presenter().from {
             let tabbarVC = AppSectionsTabBarController()
-            tabbarVC.hidesBottomBarWhenPushed = true
             tabbarVC.setViewControllers([
                 NavigationControllerFactory.default(viewControllers: [try self.players().provideSourceController()]),
                 NavigationControllerFactory.default(viewControllers: [try self.teams().provideSourceController()]),
@@ -46,7 +45,7 @@ open class Router: ReactiveCompatible {
             vc.viewModel?.shouldRouteProfile.drive(onNext: { [weak vc] in
                 vc?.tabBarController?.setSelectedViewController(ProfileViewController.self)
             }).disposed(by: vc.rx.disposeBag)
-            vc.viewModel?.shouldRouteNewsDescription.map(newsDescription.buildViewModel).push().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRouteNewsDescription.map(newsDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
         })
     }
     
@@ -113,9 +112,10 @@ open class Router: ReactiveCompatible {
     
     public func newsDescription() -> Route<NewsDescriptionViewController> {
         return route().configure({ vc in
-            vc.addMotionTransition(.zoomSlide(direction: .left))
-            vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomSlide(direction: .right)).drive(vc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
-        })
+            guard let nvc = vc.navigationController else { return }
+            nvc.addMotionTransition(.zoomSlide(direction: .left))
+            vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomSlide(direction: .right)).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
+        }).embedInNavigation(NavigationControllerFactory.clear())
     }
     
     private func route<T: UIViewController>() -> Route<T> where T: ViewModelHolderProtocol {

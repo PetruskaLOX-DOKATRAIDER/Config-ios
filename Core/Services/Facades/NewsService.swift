@@ -8,7 +8,7 @@
 
 public protocol NewsService: AutoMockable {
     func getNewsPreview(forPage page: Int) -> Response<Page<NewsPreview>, RequestError>
-    func getPlayerDescription(byID id: Int) -> Response<NewsDescription, RequestError>
+    func getNewsDescription(byID id: Int) -> Response<NewsDescription, RequestError>
 }
 
 public final class NewsServiceImpl: NewsService, ReactiveCompatible {
@@ -39,7 +39,7 @@ public final class NewsServiceImpl: NewsService, ReactiveCompatible {
         return newsPreviewLoaderHelper.loadData(forPage: page)
     }
     
-    public func getPlayerDescription(byID id: Int) -> Response<NewsDescription, RequestError> {
+    public func getNewsDescription(byID id: Int) -> Response<NewsDescription, RequestError> {
         return newsDescriptionLoaderHelper.loadModel(byID: id)
     }
 }

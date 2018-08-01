@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsImageContentItemView" customModule="Core" customModuleProvider="target">
+            <connections>
+                <outlet property="coverImageView" destination="Sji-bV-ZQr" id="IRa-Yg-jhi"/>
+                <outlet property="selectionButton" destination="J68-wl-WeS" id="1XT-x9-3Db"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="GJ5-qE-PkF">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sji-bV-ZQr">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J68-wl-WeS">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="b4o-Xx-F52" firstAttribute="trailing" secondItem="Sji-bV-ZQr" secondAttribute="trailing" id="1Wu-Bt-y5N"/>
+                <constraint firstItem="b4o-Xx-F52" firstAttribute="bottom" secondItem="J68-wl-WeS" secondAttribute="bottom" id="7p3-1v-If1"/>
+                <constraint firstItem="Sji-bV-ZQr" firstAttribute="top" secondItem="b4o-Xx-F52" secondAttribute="top" id="LdD-ax-MSc"/>
+                <constraint firstItem="b4o-Xx-F52" firstAttribute="trailing" secondItem="J68-wl-WeS" secondAttribute="trailing" id="ebu-yG-rqa"/>
+                <constraint firstItem="Sji-bV-ZQr" firstAttribute="bottom" secondItem="b4o-Xx-F52" secondAttribute="bottom" id="iYc-Bf-W3b"/>
+                <constraint firstItem="Sji-bV-ZQr" firstAttribute="leading" secondItem="b4o-Xx-F52" secondAttribute="leading" id="k4J-T4-Hmh"/>
+                <constraint firstItem="J68-wl-WeS" firstAttribute="leading" secondItem="b4o-Xx-F52" secondAttribute="leading" id="pmC-zn-kc5"/>
+                <constraint firstItem="J68-wl-WeS" firstAttribute="top" secondItem="b4o-Xx-F52" secondAttribute="top" id="tH1-eQ-1Sa"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="b4o-Xx-F52"/>
+            <point key="canvasLocation" x="-117.5" y="-11.5"/>
+        </view>
+    </objects>
+</document>

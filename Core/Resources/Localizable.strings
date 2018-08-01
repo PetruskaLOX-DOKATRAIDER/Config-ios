@@ -103,3 +103,9 @@
 "Player_Description.sens" = "Plays with %@ windows sens";
 "Player_Description.polling_rate" = "Plays with %@ polling rate";
 
+// NewsDescription
+"NewsDescription.share" = "Share";
+"NewsDescription.details" = "More Details";
+"NewsDescription.posted" = "Posted";
+"NewsDescription.by" = "by";
+

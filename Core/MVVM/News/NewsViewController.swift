@@ -30,7 +30,8 @@ public final class NewsViewController: UIViewController, NonReusableViewProtocol
         manager.startManaging(withDelegate: self)
         manager.register(NewsItemCell.self)
         manager.sizeForCell(withItem: NewsItemCell.ModelType.self, { [collectionView] _, _ in
-            return CGSize(width: (collectionView?.bounds.size.width ?? 0) - 16, height: 210)
+            guard let collectionView = collectionView else { return CGSize (width: 0, height: 0) }
+            return CGSize(width: collectionView.bounds.size.width - 16, height: collectionView.bounds.size.height * 0.65)
         })
         manager.didSelect(NewsItemCell.self) { (_, viewModel, _) in
             viewModel.selectionTrigger.onNext(())

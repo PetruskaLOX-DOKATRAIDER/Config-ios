@@ -21,7 +21,7 @@ public class NewsItemCell: UICollectionViewCell, ModelTransfer, ReusableViewProt
         containerView.applyShadow(color: UIColor.amethyst.cgColor)
 
         titleLabel.textColor = .snowWhite
-        titleLabel.font = .filsonMediumWithSize(21)
+        titleLabel.font = .filsonMediumWithSize(23)
 
         gradeintView.startColor = .clear
         gradeintView.endColor = .ichigos
