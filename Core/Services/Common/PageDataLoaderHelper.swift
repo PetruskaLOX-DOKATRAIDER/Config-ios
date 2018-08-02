@@ -9,7 +9,7 @@
 final class PageDataLoaderHelper<Model>: ReactiveCompatible {
     private let reachabilityService: ReachabilityService
     private let apiSource: Func<Int, Response<Page<Model>, RequestError>>
-    private let storageSource: Func<Void, [Model]?>
+    private let storageSource: Driver<[Model]>
     private let updateStorage: Func<[Model], Void>
     
     init(
