@@ -41,6 +41,14 @@ final class PageDataLoaderHelper<Model>: ReactiveCompatible {
     private func loadAndUpdateData(forPage page: Int) -> Response<Page<Model>, RequestError> {
         let request = apiSource(page)
         request.success().drive(onNext: { [weak self] in
+//            var content = [Model]()
+//            for _ in 1...200 {
+//                $0.content.forEach({ (mod) in
+//                    content.append(mod)
+//                })
+//            }
+//
+//            self?.updateStorage(content)
             self?.updateStorage($0.content)
         }).disposed(by: rx.disposeBag)
         return request

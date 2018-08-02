@@ -26,10 +26,6 @@ extension PlayerPreview: JSONDecodable {
         let imageSizeArray = json["imageResolution"].stringValue.components(separatedBy: "x")
         nickname = json["nickName"].stringValue
         profileImageSize = ImageSize(height: Double(imageSizeArray.first ?? "") ?? 100, weight: Double(imageSizeArray.last ?? "") ?? 100)
-        print("FROM JSON: \(profileImageSize)")
-        
-
-        
         avatarURL = json["image"].url
         id = json["id"].intValue
     }

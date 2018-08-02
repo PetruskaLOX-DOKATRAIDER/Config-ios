@@ -22,6 +22,7 @@ public extension DependencyContainer {
     }
     
     private func registerRouter() {
+        register(.unique){ DeviceRouterImpl() as DeviceRouter }
         register(.singleton) { try Router(router: AppRouter.shared, viewFactory: self, viewModelFactory: self, deviceRouter: self.resolve()) }
     }
     
@@ -35,7 +36,6 @@ public extension DependencyContainer {
         register(.unique){ PhotosAlbumServiceImpl() as PhotosAlbumService }
         register(.unique){ ImageLoaderServiceImpl() as ImageLoaderService }
         register(.unique){ CameraServiceImpl() as CameraService }
-        register(.unique){ DeviceRouterImpl() as DeviceRouter }
     }
     
     private func registerAPIServices() {

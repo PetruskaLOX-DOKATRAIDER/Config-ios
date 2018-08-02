@@ -40,6 +40,13 @@ public final class CoreDataStorage<CDObject: CDObjectable> where CDObject: NSMan
     func fetch(withPredicate predicate: NSPredicate? = nil) throws -> [CDObject.PlainObject] {
         let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: NSStringFromClass(CDObject.self))
         request.predicate = predicate
+        
+//        print("step 1111")
+//        coreDataStack.privateContext.perform { [weak self] in
+//            let lul = try? self?.coreDataStack.privateContext.fetch(request) as? [CDObject]
+//            print("step 2222: \(lul)")
+//        }
+//        print("step 333")
         guard let data = (try? coreDataStack.privateContext.fetch(request) as? [CDObject]) ?? [] else { throw CoreDataStorageError.unknown }
         return data.map{ $0.toPlainObject() }
     }

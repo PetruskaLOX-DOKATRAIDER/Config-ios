@@ -72,6 +72,16 @@ enum StoryboardScene {
       return vc
     }
   }
+  enum FavoritePlayers: StoryboardSceneType {
+    static let storyboardName = "FavoritePlayersViewController"
+
+    static func initialViewController() -> FavoritePlayersViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? FavoritePlayersViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+  }
   enum ImageViewer: StoryboardSceneType {
     static let storyboardName = "ImageViewerViewController"
 

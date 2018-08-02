@@ -14,6 +14,10 @@
 		4A2E3316FDB3139D92EA9A37 /* Pods_Config.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D89218CA741C6C3C39F355 /* Pods_Config.framework */; };
 		6E4A80160DE3B1F5DE05D4E3 /* Pods_CoreDataStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315938C8BA64E5889A67F17B /* Pods_CoreDataStorage.framework */; };
 		72F42439D27E5BEFFFEBF861 /* Pods_AT_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7B02FCEEE6B75C6E9FA289 /* Pods_AT_Core.framework */; };
+		7C0530ED211337E100924C1B /* FavoritePlayersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0530E9211337E100924C1B /* FavoritePlayersViewModelTests.swift */; };
+		7C0530EE211337E100924C1B /* FavoritePlayersViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0530EA211337E100924C1B /* FavoritePlayersViewController.storyboard */; };
+		7C0530EF211337E100924C1B /* FavoritePlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0530EB211337E100924C1B /* FavoritePlayersViewController.swift */; };
+		7C0530F0211337E100924C1B /* FavoritePlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0530EC211337E100924C1B /* FavoritePlayersViewModel.swift */; };
 		7C11D39120FCBFEE00FC8599 /* TeamsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39020FCBFEE00FC8599 /* TeamsService.swift */; };
 		7C11D39620FCC1E800FC8599 /* API+Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39520FCC1E800FC8599 /* API+Teams.swift */; };
 		7C11D39820FCC26400FC8599 /* Storage+Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39720FCC26400FC8599 /* Storage+Teams.swift */; };
@@ -373,6 +377,10 @@
 		701D671AE2ED80BE073ABC39 /* Pods-Tests.stagingdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.stagingdebug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.stagingdebug.xcconfig"; sourceTree = "<group>"; };
 		7557B52DFE2FF9D642EFDBE4 /* Pods-CoreDataStorage.stagingdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataStorage.stagingdebug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataStorage/Pods-CoreDataStorage.stagingdebug.xcconfig"; sourceTree = "<group>"; };
 		79D89218CA741C6C3C39F355 /* Pods_Config.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Config.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C0530E9211337E100924C1B /* FavoritePlayersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlayersViewModelTests.swift; sourceTree = "<group>"; };
+		7C0530EA211337E100924C1B /* FavoritePlayersViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritePlayersViewController.storyboard; sourceTree = "<group>"; };
+		7C0530EB211337E100924C1B /* FavoritePlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlayersViewController.swift; sourceTree = "<group>"; };
+		7C0530EC211337E100924C1B /* FavoritePlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlayersViewModel.swift; sourceTree = "<group>"; };
 		7C11D39020FCBFEE00FC8599 /* TeamsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsService.swift; sourceTree = "<group>"; };
 		7C11D39520FCC1E800FC8599 /* API+Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Teams.swift"; sourceTree = "<group>"; };
 		7C11D39720FCC26400FC8599 /* Storage+Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Teams.swift"; sourceTree = "<group>"; };
@@ -792,6 +800,17 @@
 				7F47289A953A9E22A222B457 /* Pods-CoreDataStorage.productionrelease.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		7C0530E82113377C00924C1B /* FavoritePlayers */ = {
+			isa = PBXGroup;
+			children = (
+				7C0530EC211337E100924C1B /* FavoritePlayersViewModel.swift */,
+				7C0530E9211337E100924C1B /* FavoritePlayersViewModelTests.swift */,
+				7C0530EB211337E100924C1B /* FavoritePlayersViewController.swift */,
+				7C0530EA211337E100924C1B /* FavoritePlayersViewController.storyboard */,
+			);
+			path = FavoritePlayers;
 			sourceTree = "<group>";
 		};
 		7C11D39220FCC1C500FC8599 /* Base */ = {
@@ -1386,6 +1405,7 @@
 		C02C45B8202C84D3008AE9B0 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				7C0530E82113377C00924C1B /* FavoritePlayers */,
 				7C13B01C2112CF07007DFE98 /* ImageViewer */,
 				7C22BE0E2111A6AF00E3F681 /* NewsDescription */,
 				7C1D76DB210867850021A4CF /* Common */,
@@ -1980,6 +2000,7 @@
 				7CFA250020D932EF0059378F /* PlayersViewController.storyboard in Resources */,
 				7C16F51421120A3800EB68BA /* NewsTextContentItemView.xib in Resources */,
 				7C1D76FC2108B3B60021A4CF /* DatePickerViewController.storyboard in Resources */,
+				7C0530EE211337E100924C1B /* FavoritePlayersViewController.storyboard in Resources */,
 				7CAE6D782101E07A00844B11 /* MapEventsViewController.storyboard in Resources */,
 				7CDAF97220D7FBE9009B9B87 /* filsonsoft-regular.otf in Resources */,
 				7CFA24E820D932D30059378F /* ProfileViewController.storyboard in Resources */,
@@ -2362,6 +2383,7 @@
 				7CAB0FE620ECE68400F796F1 /* UIImageView+extensions.swift in Sources */,
 				7CA5526F21008E090097E866 /* PlayerBanner.swift in Sources */,
 				C02C461A202C8A65008AE9B0 /* API.swift in Sources */,
+				7C0530F0211337E100924C1B /* FavoritePlayersViewModel.swift in Sources */,
 				7C9105BF20FC805000970FA7 /* PlayersBannerView.swift in Sources */,
 				7C59436120F7518D009D8D7D /* Bundle+extensions.swift in Sources */,
 				7C1D77032108C6B40021A4CF /* EventFilterItemViewModel.swift in Sources */,
@@ -2389,6 +2411,7 @@
 				7CA5526921008CA50097E866 /* PlayerPreview.swift in Sources */,
 				7CAB611120F5F8AD003F4276 /* PlayersService.swift in Sources */,
 				7CAE6D9621020FE500844B11 /* API+Events.swift in Sources */,
+				7C0530EF211337E100924C1B /* FavoritePlayersViewController.swift in Sources */,
 				C0F8681D202C6A0600D15CDA /* AutoPublicInitMarker.swift in Sources */,
 				C02C4629202C8EEC008AE9B0 /* Rx+accessors.swift in Sources */,
 				C02C45F3202C87DA008AE9B0 /* ContextStorage.swift in Sources */,
@@ -2464,6 +2487,7 @@
 				7C11D39620FCC1E800FC8599 /* API+Teams.swift in Sources */,
 				7C1D76DF2108679B0021A4CF /* TextFieldViewModel.swift in Sources */,
 				7CAE6D8A2101EF2700844B11 /* EventItemViewModelTests.swift in Sources */,
+				7C0530ED211337E100924C1B /* FavoritePlayersViewModelTests.swift in Sources */,
 				7CFA24E120D932C80059378F /* NewsViewController.swift in Sources */,
 				7C29AC05210731EF00DF6DCB /* EventDescriptionViewModel.swift in Sources */,
 				7CDAF98020D80180009B9B87 /* AutoStoryboard.swift in Sources */,
