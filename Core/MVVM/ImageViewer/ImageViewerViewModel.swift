@@ -17,6 +17,8 @@ public protocol ImageViewerViewModel {
     var closeTrigger: PublishSubject<Void> { get }
     var shouldClose: Driver<Void> { get }
     var shouldOpenURL: Driver<URL> { get }
+    var shouldRouteAppSettings: Driver<Void> { get }
+    var shoudShowAlert: Driver<AlertViewModel> { get }
 }
 
 public final class ImageViewerViewModelImpl: ImageViewerViewModel {
@@ -30,6 +32,8 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
     public let closeTrigger = PublishSubject<Void>()
     public let shouldClose: Driver<Void>
     public let shouldOpenURL: Driver<URL>
+    public let shouldRouteAppSettings: Driver<Void>
+    public let shoudShowAlert: Driver<AlertViewModel>
 
     public init(
         title: String = Strings.Imageviewer.title,
@@ -58,17 +62,21 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
             ),
             successSaveImage.asDriver(onErrorJustReturn: ()).map(to:
                 MessageViewModelFactory.new(title: Strings.Imageviewer.SuccessSaveImage.title, description: Strings.Imageviewer.SuccessSaveImage.description)
-            ),
-            cameraDenied.asDriver(onErrorJustReturn: ()).map(to:
-                MessageViewModelFactory.new(title: Strings.Imageviewer.CameraDenied.title, description: Strings.Imageviewer.CameraDenied.message)
             )
         )
         isWorking = Observable.merge(
-            saveTrigger.map(to: true),
+            cameraAuthorizated.map(to: true),
             failureLoadImage.map(to: false),
             saveImage.map(to: false)
         ).startWith(false).asDriver(onErrorJustReturn: false)
         shouldClose = closeTrigger.asDriver(onErrorJustReturn: ())
         shouldOpenURL = browserTrigger.asDriver(onErrorJustReturn: ()).map(to: imageURL)
+        
+        let appSettings = PublishSubject<Void>()
+        let givePermissions = AlertActionViewModelImpl(title: Strings.Imageviewer.CameraDenied.permissions, action: appSettings)
+        let cancel = AlertActionViewModelImpl(title: Strings.Imageviewer.CameraDenied.cancel, style: .cancelActionStyle)
+        let alertVM = AlertViewModelImpl(title: Strings.Imageviewer.CameraDenied.title, message: Strings.Imageviewer.CameraDenied.message, actions: [givePermissions, cancel])
+        shoudShowAlert = cameraDenied.asDriver(onErrorJustReturn: ()).map(to: alertVM)
+        shouldRouteAppSettings = appSettings.asDriver(onErrorJustReturn: ())
     }
 }

@@ -6,11 +6,18 @@ open class Router: ReactiveCompatible {
     public let viewFactory: ViewFactory
     public let viewModelFactory: ViewModelFactory
     public let router: AppRouterType
+    public let deviceRouter: DeviceRouter
     
-    public init(router: AppRouterType, viewFactory: ViewFactory, viewModelFactory: ViewModelFactory) {
+    public init(
+        router: AppRouterType,
+        viewFactory: ViewFactory,
+        viewModelFactory: ViewModelFactory,
+        deviceRouter: DeviceRouter
+    ) {
         self.router = router
         self.viewFactory = viewFactory
         self.viewModelFactory = viewModelFactory
+        self.deviceRouter = deviceRouter
     }
 
     public func splash() -> AppRouter.Presenter.Configuration<UIViewController> {
@@ -126,6 +133,12 @@ open class Router: ReactiveCompatible {
             vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomOut).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldOpenURL.drive(onNext: { [weak nvc] url in
                 nvc?.pushViewController(SFSafariViewController(url: url), animated: true)
+            }).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shoudShowAlert.map{ UIAlertControllerFactory.alertController(fromViewModelAlert: $0) }.drive(onNext: { [weak nvc] alert in
+                nvc?.present(alert, animated: true, completion: nil)
+            }).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRouteAppSettings.drive(onNext: { [weak self] in
+                try? self?.deviceRouter.openSettings()
             }).disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.default())
     }

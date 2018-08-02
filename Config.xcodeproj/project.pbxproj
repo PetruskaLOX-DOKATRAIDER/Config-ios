@@ -32,6 +32,10 @@
 		7C174E572112DE49008CD96D /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C174E562112DE49008CD96D /* ImageLoaderService.swift */; };
 		7C174E592112DEC7008CD96D /* PhotosAlbumService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C174E582112DEC7008CD96D /* PhotosAlbumService.swift */; };
 		7C174E5B2112FBAD008CD96D /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C174E5A2112FBAD008CD96D /* CameraService.swift */; };
+		7C174E6021131546008CD96D /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C174E5D21131545008CD96D /* AlertViewModel.swift */; };
+		7C174E6121131546008CD96D /* AlertActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C174E5E21131546008CD96D /* AlertActionViewModel.swift */; };
+		7C174E6221131546008CD96D /* UIAlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C174E5F21131546008CD96D /* UIAlertControllerFactory.swift */; };
+		7C174E6421131D5A008CD96D /* DeviceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C174E6321131D5A008CD96D /* DeviceRouter.swift */; };
 		7C1D76DF2108679B0021A4CF /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1D76DD2108679B0021A4CF /* TextFieldViewModel.swift */; };
 		7C1D76E02108679B0021A4CF /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1D76DE2108679B0021A4CF /* TextFieldView.swift */; };
 		7C1D76E6210868C00021A4CF /* PickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1D76E2210868C00021A4CF /* PickerViewModelTests.swift */; };
@@ -388,6 +392,10 @@
 		7C174E562112DE49008CD96D /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 		7C174E582112DEC7008CD96D /* PhotosAlbumService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAlbumService.swift; sourceTree = "<group>"; };
 		7C174E5A2112FBAD008CD96D /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		7C174E5D21131545008CD96D /* AlertViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
+		7C174E5E21131546008CD96D /* AlertActionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertActionViewModel.swift; sourceTree = "<group>"; };
+		7C174E5F21131546008CD96D /* UIAlertControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerFactory.swift; sourceTree = "<group>"; };
+		7C174E6321131D5A008CD96D /* DeviceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRouter.swift; sourceTree = "<group>"; };
 		7C1D76DD2108679B0021A4CF /* TextFieldViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
 		7C1D76DE2108679B0021A4CF /* TextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		7C1D76E2210868C00021A4CF /* PickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewModelTests.swift; sourceTree = "<group>"; };
@@ -838,6 +846,16 @@
 			path = NewsTextContentItem;
 			sourceTree = "<group>";
 		};
+		7C174E5C21131538008CD96D /* AlertViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7C174E5D21131545008CD96D /* AlertViewModel.swift */,
+				7C174E5E21131546008CD96D /* AlertActionViewModel.swift */,
+				7C174E5F21131546008CD96D /* UIAlertControllerFactory.swift */,
+			);
+			path = AlertViewModel;
+			sourceTree = "<group>";
+		};
 		7C1D76DB210867850021A4CF /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -980,6 +998,7 @@
 				7C5F307020E0E1F60050E9AE /* Router.swift */,
 				7C5F307120E0E1F60050E9AE /* Route.swift */,
 				7C5F306F20E0E1F60050E9AE /* RouterTests.swift */,
+				7C174E6321131D5A008CD96D /* DeviceRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1402,6 +1421,7 @@
 		C02C45E4202C87DA008AE9B0 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				7C174E5C21131538008CD96D /* AlertViewModel */,
 				7CDAF96420D7FB3F009B9B87 /* UI */,
 				C02C45E5202C87DA008AE9B0 /* ContextStorage.swift */,
 				C02C45F1202C87DA008AE9B0 /* JSONDeserializationFactory.swift */,
@@ -2408,10 +2428,12 @@
 				7CDF6D1420DBC42A0096D913 /* MessageView.swift in Sources */,
 				C02C463F202CB409008AE9B0 /* Debugger.swift in Sources */,
 				C02C4631202CA6D9008AE9B0 /* Rx+extensions.swift in Sources */,
+				7C174E6421131D5A008CD96D /* DeviceRouter.swift in Sources */,
 				7C174E5B2112FBAD008CD96D /* CameraService.swift in Sources */,
 				7CDAF96620D7FB4C009B9B87 /* NavigationControllerFactory.swift in Sources */,
 				7CE76E4620EA5CED009422EF /* PinterestLayout.swift in Sources */,
 				7CA552862100B8760097E866 /* Date+extensions.swift in Sources */,
+				7C174E6121131546008CD96D /* AlertActionViewModel.swift in Sources */,
 				C02C45B1202C7737008AE9B0 /* StaticEnvironment.swift in Sources */,
 				7CA5527E2100925E0097E866 /* PlayerDescriptionViewModel.swift in Sources */,
 				7CDAF97D20D7FFA4009B9B87 /* Strings.generated.swift in Sources */,
@@ -2450,6 +2472,7 @@
 				7CFA24F920D932E70059378F /* TeamsViewController.swift in Sources */,
 				7CB97D0E21061A39002CA594 /* EventItemAnnotationView.swift in Sources */,
 				C02C45C6202C8630008AE9B0 /* Environments.swift in Sources */,
+				7C174E6021131546008CD96D /* AlertViewModel.swift in Sources */,
 				7CAE6D7A2101E07A00844B11 /* MapEventsViewModel.swift in Sources */,
 				7C37222A2110A8B200A5D525 /* UIViewController+extensions.swift in Sources */,
 				7C174E592112DEC7008CD96D /* PhotosAlbumService.swift in Sources */,
@@ -2498,6 +2521,7 @@
 				7C460541210A145300DA0724 /* UIDatePicker+extensions.swift in Sources */,
 				C02C4641202D8DD3008AE9B0 /* TableViewManager+extensions.swift in Sources */,
 				C02C4661202D99D2008AE9B0 /* Delay.swift in Sources */,
+				7C174E6221131546008CD96D /* UIAlertControllerFactory.swift in Sources */,
 				7C5F308320E10DFB0050E9AE /* AppSectionsViewModel.swift in Sources */,
 				7CDF6D1220DBC4210096D913 /* MessageViewModel.swift in Sources */,
 				7CAE6D822101E08D00844B11 /* ListEventsViewController.swift in Sources */,
