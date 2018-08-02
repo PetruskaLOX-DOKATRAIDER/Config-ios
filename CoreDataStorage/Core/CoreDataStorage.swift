@@ -8,55 +8,63 @@
 
 import Core
 
-enum CoreDataStorageError: Error {
-    case notFound
-    case unknown
-}
-
 public final class CoreDataStorage<CDObject: CDObjectable> where CDObject: NSManagedObject {
     let coreDataStack: CoreDataStack
     
     public init(coreDataStack: CoreDataStack = CoreDataStack()) {
         self.coreDataStack = coreDataStack
     }
-    
-    func update(withNewData newData: [CDObject.PlainObject]) throws {
-        //let request: NSFetchRequest = CDObject.fetchRequest()
-        let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: NSStringFromClass(CDObject.self))
-        guard let oldData = (try? coreDataStack.privateContext.fetch(request) as? [CDObject]) ?? [] else { throw CoreDataStorageError.unknown }
-        newData.forEach { new in
-            let toDelete = oldData.filter{ $0.compare(withPlainObject: new) }.first
-            toDelete >>- coreDataStack.privateContext.delete
+
+    func update(withNewData newData: [CDObject.PlainObject], completion: (() -> Void)? = nil) {
+        coreDataStack.privateContext.perform { [weak self] in
+            guard let strongSelf = self else { return }
+            //let request: NSFetchRequest = CDObject.fetchRequest() // doesn't work with Generics
+            let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: NSStringFromClass(CDObject.self))
+            let oldData = try? strongSelf.coreDataStack.privateContext.fetch(request) as? [CDObject]
+            newData.forEach { new in
+                let toDelete = oldData??.filter{ $0.compare(withPlainObject: new) }.first
+                toDelete >>- strongSelf.coreDataStack.privateContext.delete
+            }
+            _ = newData.map{ CDObject.new(conext: strongSelf.coreDataStack.privateContext, plainObject: $0) }
+            try? strongSelf.coreDataStack.privateContext.save()
+            try? strongSelf.coreDataStack.managedContext.save()
+            completion?()
         }
-        
-        try? add(newData: newData)
+    }
+
+    func fetch(withPredicate predicate: NSPredicate? = nil, completion: (([CDObject.PlainObject]) -> Void)? = nil) {
+        coreDataStack.privateContext.perform { [weak self] in
+            guard let strongSelf = self else { return }
+            let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: NSStringFromClass(CDObject.self))
+            request.predicate = predicate
+            let data = try? strongSelf.coreDataStack.privateContext.fetch(request) as? [CDObject]
+            completion?(data??.map{ $0.toPlainObject() } ?? [])
+        }
     }
     
-    func add(newData data: [CDObject.PlainObject]) throws {
-        _ = data.map{ CDObject.new(conext: coreDataStack.privateContext, plainObject: $0) }
-        try? saveContexts()
+    func save(newData: [CDObject.PlainObject], completion: (() -> Void)? = nil) {
+        coreDataStack.privateContext.perform { [weak self] in
+            guard let strongSelf = self else { return }
+            _ = newData.map{ CDObject.new(conext: strongSelf.coreDataStack.privateContext, plainObject: $0) }
+            try? strongSelf.coreDataStack.privateContext.save()
+            try? strongSelf.coreDataStack.managedContext.save()
+            completion?()
+        }
     }
     
-    func fetch(withPredicate predicate: NSPredicate? = nil) throws -> [CDObject.PlainObject] {
-        let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: NSStringFromClass(CDObject.self))
-        request.predicate = predicate
-        
-//        print("step 1111")
-//        coreDataStack.privateContext.perform { [weak self] in
-//            let lul = try? self?.coreDataStack.privateContext.fetch(request) as? [CDObject]
-//            print("step 2222: \(lul)")
-//        }
-//        print("step 333")
-        guard let data = (try? coreDataStack.privateContext.fetch(request) as? [CDObject]) ?? [] else { throw CoreDataStorageError.unknown }
-        return data.map{ $0.toPlainObject() }
-    }
-    
-    func saveContexts() throws {
-        do {
-            try coreDataStack.privateContext.save()
-            try coreDataStack.managedContext.save()
-        } catch {
-            throw CoreDataStorageError.unknown
+    func delete(withPredicate predicate: NSPredicate? = nil, completion: (() -> Void)? = nil) {
+        coreDataStack.privateContext.perform { [weak self] in
+            guard let strongSelf = self else { return }
+            let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: NSStringFromClass(CDObject.self))
+            request.predicate = predicate
+            let optinalData = try? strongSelf.coreDataStack.privateContext.fetch(request) as? [CDObject]
+            let data = (optinalData ?? []) ?? []
+            data.forEach{ object in
+                strongSelf.coreDataStack.privateContext.delete(object)
+            }
+            try? strongSelf.coreDataStack.privateContext.save()
+            try? strongSelf.coreDataStack.managedContext.save()
+            completion?()
         }
     }
 }

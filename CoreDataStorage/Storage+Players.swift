@@ -21,64 +21,60 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         self.coreDataStack = coreDataStack
     }
     
-    public func updatePlayerPreview(withNewPlayers newPlayers: [PlayerPreview]) throws {
-        try? playerPreviewCoreDataStorage.update(withNewData: newPlayers)
+    public func updatePlayerPreview(withNewPlayers newPlayers: [PlayerPreview], completion: (() -> Void)? = nil) {
+        playerPreviewCoreDataStorage.update(withNewData: newPlayers, completion: completion)
     }
     
-    public func fetchPlayersPreview() throws -> [PlayerPreview] {
-        do {
-            return try playerPreviewCoreDataStorage.fetch()
-        } catch {
-            throw CoreDataStorageError.unknown
+    public func fetchPlayersPreview(completion: (([PlayerPreview]) -> Void)? = nil) {
+        playerPreviewCoreDataStorage.fetch(completion: completion)
+    }
+    
+    public func updatePlayerDescription(withNewPlayer newPlayer: PlayerDescription, completion: (() -> Void)? = nil) {
+        playerDescriptionCoreDataStorage.update(withNewData: [newPlayer], completion: completion)
+    }
+    
+    public func fetchPlayerDescription(withID id: Int, completion: ((PlayerDescription?) -> Void)? = nil) {
+        let predicate = NSPredicate(format: "%K = %d", #keyPath(CDPlayerDescription.id), id)
+        playerDescriptionCoreDataStorage.fetch(withPredicate: predicate) { players in
+            completion?(players.first)
         }
     }
     
-    public func updatePlayerDescription(withNewPlayer newPlayer: PlayerDescription) throws {
-        try? playerDescriptionCoreDataStorage.update(withNewData: [newPlayer])
-    }
-    
-    public func fetchPlayerDescription(withID id: Int) throws -> PlayerDescription? {
-        do {
-            let predicate = NSPredicate(format: "%K = %d", #keyPath(CDPlayerDescription.id), id)
-            return try playerDescriptionCoreDataStorage.fetch(withPredicate: predicate).first
-        } catch {
-            throw CoreDataStorageError.unknown
+    public func fetchFavoritePlayersPreview(completion: (([PlayerPreview]) -> Void)? = nil) {
+        coreDataStack.privateContext.perform { [weak self] in
+            guard let strongSelf = self else { return }
+            let idsRequest: NSFetchRequest = CDFavoritePlayerID.fetchRequest()
+            let favoritePlayerID = try? strongSelf.coreDataStack.privateContext.fetch(idsRequest)
+            let ids = (favoritePlayerID ?? []).map{ $0.id }
+            
+            let playersRequest: NSFetchRequest = CDPlayerPreview.fetchRequest()
+            playersRequest.predicate = NSPredicate(format: "%K IN %@", #keyPath(CDPlayerPreview.id), ids)
+            let players = try? strongSelf.coreDataStack.privateContext.fetch(playersRequest)
+            completion?(players?.map{ $0.toPlainObject() } ?? [])
         }
-    }
-    
-    public func fetchFavoritePlayersPreview() throws -> [PlayerPreview] {
-        func fetchFavoritePlayerIDs() throws -> [Int32] {
-            let request: NSFetchRequest = CDFavoritePlayerID.fetchRequest()
-            guard let data = try? coreDataStack.privateContext.fetch(request) else { throw CoreDataStorageError.unknown }
-            return data.map{ $0.id }
-        }
-        
-        guard let favoritePlayerIDs = try? fetchFavoritePlayerIDs() else { throw CoreDataStorageError.unknown }
-        let predicate = NSPredicate(format: "%K IN %@", #keyPath(CDPlayerPreview.id), favoritePlayerIDs)
-        guard let players = try? playerPreviewCoreDataStorage.fetch(withPredicate: predicate) else { throw CoreDataStorageError.unknown }
-        return players
     }
 
-    public func addPlayerToFavorites(withID id: Int) throws {
-        let playerID = CDFavoritePlayerID(context: coreDataStack.privateContext)
-        playerID.id = Int32(id)
-        coreDataStack.saveContext()
-    }
-    
-    public func removePlayerFromFavorites(withID id: Int) throws {
-        let request: NSFetchRequest = CDFavoritePlayerID.fetchRequest()
-        request.predicate = NSPredicate(format: "%K = %d", #keyPath(CDFavoritePlayerID.id), id)
-        guard let data = try? coreDataStack.privateContext.fetch(request) else { throw CoreDataStorageError.unknown }
-        data.forEach { objcet in
-            coreDataStack.privateContext.delete(objcet)
+    public func addPlayerToFavorites(withID id: Int, completion: (() -> Void)? = nil) {
+        coreDataStack.privateContext.perform { [weak self] in
+            guard let strongSelf = self else { return }
+            let playerID = CDFavoritePlayerID(context: strongSelf.coreDataStack.privateContext)
+            playerID.id = Int32(id)
+            
+            try? strongSelf.coreDataStack.privateContext.save()
+            try? strongSelf.coreDataStack.managedContext.save()
+            completion?()
         }
-        coreDataStack.saveContext()
     }
     
-    public func isPlayerInFavorites(withID id: Int) throws -> Bool {
-        let request: NSFetchRequest = CDFavoritePlayerID.fetchRequest()
-        request.predicate = NSPredicate(format: "%K = %d", #keyPath(CDFavoritePlayerID.id), id)
-        guard let data = try? coreDataStack.privateContext.fetch(request) else { throw CoreDataStorageError.unknown }
-        return data.count > 1
+    public func removePlayerFromFavorites(withID id: Int, completion: (() -> Void)? = nil) {
+        let predicate = NSPredicate(format: "%K = %d", #keyPath(CDFavoritePlayerID.id), id)
+        playerDescriptionCoreDataStorage.delete(withPredicate: predicate, completion: completion)
+    }
+    
+    public func isPlayerInFavorites(withID id: Int, completion: ((Bool) -> Void)? = nil) {
+        let predicate = NSPredicate(format: "%K = %d", #keyPath(CDFavoritePlayerID.id), id)
+        playerPreviewCoreDataStorage.fetch(withPredicate: predicate) { players in
+            completion?(players.count > 1)
+        }
     }
 }

@@ -13,15 +13,11 @@ public final class EventsStorageImpl: EventsStorage, ReactiveCompatible {
         self.coreDataStorage = coreDataStorage
     }
     
-    public func update(withNewEvents newEvents: [Event]) throws {
-        try? coreDataStorage.update(withNewData: newEvents)
+    public func update(withNewEvents newEvents: [Event], completion: (() -> Void)? = nil) {
+        coreDataStorage.update(withNewData: newEvents, completion: completion)
     }
     
-    public func fetchEvents() throws -> [Event] {
-        do {
-            return try coreDataStorage.fetch()
-        } catch {
-            throw CoreDataStorageError.unknown
-        }
+    public func fetchEvents(completion: (([Event]) -> Void)? = nil) {
+        coreDataStorage.fetch(completion: completion)
     }
 }

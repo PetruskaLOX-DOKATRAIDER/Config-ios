@@ -18,28 +18,22 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
         self.newsDescriptionCoreDataStorage = newsDescriptionCoreDataStorage
     }
     
-    public func updateNewsPreview(withNewNews newNews: [NewsPreview]) throws {
-        try? newsPreviewCoreDataStorage.update(withNewData: newNews)
+    public func updateNewsPreview(withNewNews newNews: [NewsPreview], completion: (() -> Void)? = nil) {
+        newsPreviewCoreDataStorage.update(withNewData: newNews, completion: completion)
     }
     
-    public func fetchNewsPreview() throws -> [NewsPreview] {
-        do {
-            return try newsPreviewCoreDataStorage.fetch()
-        } catch {
-            throw CoreDataStorageError.unknown
-        }
+    public func fetchNewsPreview(completion: (([NewsPreview]) -> Void)? = nil) {
+        newsPreviewCoreDataStorage.fetch(completion: completion)
     }
     
-    public func updateNewsDescription(withNewNews newNews: NewsDescription) throws {
-        try? newsDescriptionCoreDataStorage.update(withNewData: [newNews])
+    public func updateNewsDescription(withNewNews newNews: NewsDescription, completion: (() -> Void)? = nil) {
+        newsDescriptionCoreDataStorage.update(withNewData: [newNews], completion: completion)
     }
     
-    public func fetchNewsDescription(byID id: Int) throws -> NewsDescription? {
-        do {
-            let predicate = NSPredicate(format: "%K = %d", #keyPath(CCNewsDescription.id), id)
-            return try newsDescriptionCoreDataStorage.fetch(withPredicate: predicate).first
-        } catch {
-            throw CoreDataStorageError.unknown
+    public func fetchNewsDescription(byID id: Int, completion: ((NewsDescription?) -> Void)? = nil) {
+        let predicate = NSPredicate(format: "%K = %d", #keyPath(CCNewsDescription.id), id)
+        newsDescriptionCoreDataStorage.fetch(withPredicate: predicate) { news in
+            completion?(news.first)
         }
     }
 }

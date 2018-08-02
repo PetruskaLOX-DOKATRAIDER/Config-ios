@@ -7,8 +7,8 @@
 //
 
 public protocol NewsStorage: AutoMockable {
-    func updateNewsPreview(withNewNews newNews: [NewsPreview]) throws
-    func fetchNewsPreview() throws -> [NewsPreview]
-    func updateNewsDescription(withNewNews newNews: NewsDescription) throws
-    func fetchNewsDescription(byID id: Int) throws -> NewsDescription?
+    func updateNewsPreview(withNewNews newNews: [NewsPreview], completion: (() -> Void)?)
+    func fetchNewsPreview(completion: (([NewsPreview]) -> Void)?)
+    func updateNewsDescription(withNewNews newNews: NewsDescription, completion: (() -> Void)?)
+    func fetchNewsDescription(byID id: Int, completion: ((NewsDescription?) -> Void)?)
 }

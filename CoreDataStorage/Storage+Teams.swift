@@ -13,15 +13,11 @@ public final class TeamsStorageImpl: TeamsStorage, ReactiveCompatible {
         self.coreDataStorage = coreDataStorage
     }
     
-    public func update(withNewTeams newTeams: [Team]) throws {
-        try? coreDataStorage.update(withNewData: newTeams)
+    public func update(withNewTeams newTeams: [Team], completion: (() -> Void)? = nil) {
+        coreDataStorage.update(withNewData: newTeams, completion: completion)
     }
     
-    public func fetchTeams() throws -> [Team] {
-        do {
-            return try coreDataStorage.fetch()
-        } catch {
-            throw CoreDataStorageError.unknown
-        }
+    public func fetchTeams(completion: (([Team]) -> Void)? = nil) {
+        coreDataStorage.fetch(completion: completion)
     }
 }

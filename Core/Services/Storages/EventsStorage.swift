@@ -7,6 +7,6 @@
 //
 
 public protocol EventsStorage: AutoMockable {
-    func update(withNewEvents newEvents: [Event]) throws
-    func fetchEvents() throws -> [Event]
+    func update(withNewEvents newEvents: [Event], completion: (() -> Void)?)
+    func fetchEvents(completion: (([Event]) -> Void)?)
 }

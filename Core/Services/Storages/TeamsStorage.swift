@@ -7,6 +7,6 @@
 //
 
 public protocol TeamsStorage: AutoMockable {
-    func update(withNewTeams newTeams: [Team]) throws
-    func fetchTeams() throws -> [Team]
+    func update(withNewTeams newTeams: [Team], completion: (() -> Void)?)
+    func fetchTeams(completion: (([Team]) -> Void)?)
 }
