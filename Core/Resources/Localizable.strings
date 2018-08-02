@@ -109,3 +109,14 @@
 "NewsDescription.posted" = "Posted";
 "NewsDescription.by" = "by";
 
+// ImageViewer
+"ImageViewer.title" = "";
+"ImageViewer.failure_load_image" = "Failed to load the image";
+"ImageViewer.failure_save_image" = "Failed to save the image";
+"ImageViewer.success_save_image.title" = "Info";
+"ImageViewer.success_save_image.description" = "The image has been saved";
+"ImageViewer.camera_denied.title" = "Error";
+"ImageViewer.camera_denied.message" = "Please, give us permissions for saving images into your device";
+"ImageViewer.camera_denied.permissions" = "Give permissions";
+"ImageViewer.camera_denied.cancel" = "Cancel";
+

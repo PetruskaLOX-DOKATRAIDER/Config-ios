@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ek-ct-1Xt">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image Viewer View Controller-->
+        <scene sceneID="tEr-Pp-f1g">
+            <objects>
+                <viewController id="7ek-ct-1Xt" customClass="ImageViewerViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UUI-Gp-oci"/>
+                        <viewControllerLayoutGuide type="bottom" id="4af-qR-9ib"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cEO-6E-8qo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hhg-T7-X1r">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3j7-os-CEO">
+                                <rect key="frame" x="16" y="607" width="343" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="JV4-7J-bZC">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8I-cQ-Pe7">
+                                                <rect key="frame" x="0.0" y="0.0" width="121" height="50"/>
+                                                <state key="normal" image="share"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhQ-am-bSf">
+                                                <rect key="frame" x="121" y="0.0" width="101" height="50"/>
+                                                <state key="normal" image="save"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPs-ud-kFz">
+                                                <rect key="frame" x="222" y="0.0" width="121" height="50"/>
+                                                <state key="normal" image="browser"/>
+                                            </button>
+                                        </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="JV4-7J-bZC" secondAttribute="trailing" id="Jeo-Qq-pcw"/>
+                                    <constraint firstItem="JV4-7J-bZC" firstAttribute="top" secondItem="3j7-os-CEO" secondAttribute="top" id="rov-p7-OMa"/>
+                                    <constraint firstAttribute="bottom" secondItem="JV4-7J-bZC" secondAttribute="bottom" id="sku-Tk-KWj"/>
+                                    <constraint firstItem="JV4-7J-bZC" firstAttribute="leading" secondItem="3j7-os-CEO" secondAttribute="leading" id="tkb-62-a8I"/>
+                                    <constraint firstAttribute="height" constant="50" id="x3A-J6-w19"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hhg-T7-X1r" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="5Ua-5m-g5h"/>
+                            <constraint firstAttribute="trailing" secondItem="Hhg-T7-X1r" secondAttribute="trailing" id="GKh-ZR-wV1"/>
+                            <constraint firstItem="3j7-os-CEO" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" constant="16" id="Nwb-ud-Hez"/>
+                            <constraint firstAttribute="trailing" secondItem="3j7-os-CEO" secondAttribute="trailing" constant="16" id="ObY-4x-7zD"/>
+                            <constraint firstItem="Hhg-T7-X1r" firstAttribute="top" secondItem="UUI-Gp-oci" secondAttribute="bottom" id="PNH-35-BrM"/>
+                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="3j7-os-CEO" secondAttribute="bottom" constant="10" id="Yhg-N9-NH0"/>
+                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="Hhg-T7-X1r" secondAttribute="bottom" id="cnF-Qa-sWm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="xMP-GV-H5C">
+                        <barButtonItem key="leftBarButtonItem" id="uD4-dd-x99">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uVe-5b-agW">
+                                <rect key="frame" x="16" y="7" width="13" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="theme_close"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="browserButton" destination="XPs-ud-kFz" id="BDv-1d-6fk"/>
+                        <outlet property="buttonsContainerView" destination="3j7-os-CEO" id="4W8-61-SnM"/>
+                        <outlet property="closeButton" destination="uVe-5b-agW" id="Ifo-i7-9MN"/>
+                        <outlet property="imageView" destination="Hhg-T7-X1r" id="5DY-DB-wUi"/>
+                        <outlet property="saveButton" destination="fhQ-am-bSf" id="m4g-Db-sOW"/>
+                        <outlet property="shareButton" destination="R8I-cQ-Pe7" id="QY3-w0-NAZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-18" y="144"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="browser" width="25" height="25"/>
+        <image name="save" width="21" height="25"/>
+        <image name="share" width="25" height="25"/>
+        <image name="theme_close" width="12" height="12"/>
+    </resources>
+</document>

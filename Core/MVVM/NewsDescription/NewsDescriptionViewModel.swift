@@ -25,7 +25,7 @@ public protocol NewsDescriptionViewModel {
     var shareTrigger: PublishSubject<Void> { get }
     var closeTrigger: PublishSubject<Void> { get }
     
-    var shouldRouteImageViewer: Driver<URL?> { get }
+    var shouldRouteImageViewer: Driver<URL> { get }
     var shouldClose: Driver<Void> { get }
 }
 
@@ -44,7 +44,7 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
     public let shareTrigger = PublishSubject<Void>()
     public let closeTrigger = PublishSubject<Void>()
     
-    public let shouldRouteImageViewer: Driver<URL?>
+    public let shouldRouteImageViewer: Driver<URL>
     public let shouldClose: Driver<Void>
     
     public init(
@@ -52,7 +52,7 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
         newsService: NewsService
     ) {
         let openImage = PublishSubject<URL?>()
-        shouldRouteImageViewer = openImage.asDriver(onErrorJustReturn: nil)
+        shouldRouteImageViewer = openImage.asDriver(onErrorJustReturn: nil).filterNil()
         
         func remapToViewModel(_ news: NewsDescription) -> [NewsContentItemViewModel] {
             var contentVMs = [NewsContentItemViewModel]()
@@ -78,8 +78,9 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
         content = newsRequest.success().map{ remapToViewModel($0) }.startWith([])
         isDataAvaliable = Driver.merge(newsRequest.success().map(to: true), newsRequest.failure().map(to: false)).startWith(false)
         isWorking = Driver.merge(
-            refreshTrigger.asDriver(onErrorJustReturn: ()).map(to: true),
-            newsRequest.map(to: false)
+            newsRequest.map(to: true),
+            newsRequest.success().map(to: false),
+            newsRequest.failure().map(to: false)
         ).startWith(false)
         messageViewModel = newsRequest.failure().map(to: MessageViewModelFactory.error())
         shouldClose = closeTrigger.asDriver(onErrorJustReturn: ())

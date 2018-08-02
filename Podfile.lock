@@ -43,6 +43,9 @@ PODS:
   - RxKeyboard (0.8.3):
     - RxCocoa (>= 4.1.0)
     - RxSwift (>= 4.1.0)
+  - RxKingfisher (0.1.1):
+    - Kingfisher (~> 4)
+    - RxSwift (~> 4)
   - RxMapKit (1.2.0):
     - RxCocoa (~> 4.2)
     - RxSwift (~> 4.2)
@@ -92,6 +95,7 @@ DEPENDENCIES:
   - RxBlocking
   - RxCocoa (~> 4.1)
   - RxKeyboard
+  - RxKingfisher
   - RxMapKit
   - RxOptional
   - RxSwift (~> 4.1)
@@ -128,6 +132,7 @@ SPEC REPOS:
     - RxBlocking
     - RxCocoa
     - RxKeyboard
+    - RxKingfisher
     - RxMapKit
     - RxOptional
     - RxSwift
@@ -163,6 +168,7 @@ SPEC CHECKSUMS:
   RxBlocking: e339d8a6e752e25ade95ff858466c55436668f59
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
   RxKeyboard: e5efbaa109c35be909dd888e53de0f0efdf5169e
+  RxKingfisher: bc866e6a9f3d3028f235f9496b74fdc161d692f0
   RxMapKit: 5c8cc66f231fc8b75a2e58eb37f6c6420787585b
   RxOptional: bd32ff8ca9df4177683d56ffeb618a9d4d5d5cad
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
@@ -175,6 +181,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TRON: eb0f572d97dd51ec309a27bc785ec82148500512
 
-PODFILE CHECKSUM: 9b49ce194b9c2a052c58d58f9db44347df89c3d8
+PODFILE CHECKSUM: ab770a039e3275614e0e708115e7ec7f81ace736
 
 COCOAPODS: 1.5.3

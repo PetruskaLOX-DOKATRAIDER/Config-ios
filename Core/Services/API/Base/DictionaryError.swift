@@ -30,10 +30,11 @@ public struct DictionaryError<T: BackendError>: JSONDecodable, Error, StatusCode
         self.unsupported = converted.unsupported
     }
     
-    public init(key: String, value: String) {
+    public init(key: String, value: String, statusCode: Int? = 0) {
         let converted = DictionaryError.convert(dictionary: [key:[value]])
         self.errors = converted.supported
         self.unsupported = converted.unsupported
+        self.statusCode = statusCode
     }
     
     public init(_ errors: [String:[String]]) {

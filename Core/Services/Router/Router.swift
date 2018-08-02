@@ -111,11 +111,23 @@ open class Router: ReactiveCompatible {
     }
     
     public func newsDescription() -> Route<NewsDescriptionViewController> {
-        return route().configure({ vc in
+        return route().configure({ [ imageViewer = imageViewer() ] vc in
             guard let nvc = vc.navigationController else { return }
             nvc.addMotionTransition(.zoomSlide(direction: .left))
             vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomSlide(direction: .right)).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRouteImageViewer.map(imageViewer.buildViewModel).present().disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.clear())
+    }
+    
+    public func imageViewer() -> Route<ImageViewerViewController> {
+        return route().configure({ vc in
+            guard let nvc = vc.navigationController else { return }
+            nvc.addMotionTransition(.zoom)
+            vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomOut).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldOpenURL.drive(onNext: { [weak nvc] url in
+                nvc?.pushViewController(SFSafariViewController(url: url), animated: true)
+            }).disposed(by: vc.rx.disposeBag)
+        }).embedInNavigation(NavigationControllerFactory.default())
     }
     
     private func route<T: UIViewController>() -> Route<T> where T: ViewModelHolderProtocol {

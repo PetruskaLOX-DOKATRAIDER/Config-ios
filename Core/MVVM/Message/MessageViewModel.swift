@@ -37,7 +37,7 @@ private final class MessageViewModelImpl: MessageViewModel {
 public class MessageViewModelFactory {
     public static func new(
         title: String,
-        description: String = "",
+        description: String,
         icon: UIImage = Images.General.message
     ) -> MessageViewModel {
         return MessageViewModelImpl(
