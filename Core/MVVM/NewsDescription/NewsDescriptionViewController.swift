@@ -16,26 +16,26 @@ public class NewsDescriptionViewController: UIViewController, NonReusableViewPro
     @IBOutlet private weak var scrollViewTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var contentStackView: UIStackView!
     @IBOutlet private weak var buttonsContainerView: UIView!
-    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var coverImageGradientView: GradientView!
     @IBOutlet private weak var coverImageView: UIImageView!
+    @IBOutlet private weak var coverImageContainerView: UIView!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.backgroundColor = .amethyst
+        title = Strings.News.title
         view.backgroundColor = .bagdet
         
         titleLabel.textColor = .snowWhite
         titleLabel.font = .filsonMediumWithSize(23)
         
-        subtitleLabel.textColor = .snowWhite
+        subtitleLabel.textColor = .solled
         subtitleLabel.font = .filsonMediumWithSize(18)
         
         descriptionLabel.textColor = .solled
         descriptionLabel.font = .filsonRegularWithSize(15)
-        
-//        coverImageGradientView.startColor = .clear
-//        coverImageGradientView.endColor = .bagdet
+
+        coverImageGradientView.startColor = .clear
+        coverImageGradientView.endColor = .bagdet
         
         shareButton.setTitle(Strings.Newsdescription.share, for: .normal)
         detailsButton.setTitle(Strings.Newsdescription.details, for: .normal)
@@ -58,7 +58,7 @@ public class NewsDescriptionViewController: UIViewController, NonReusableViewPro
         detailsButton.rx.tap.bind(to: viewModel.detailsTrigger).disposed(by: disposeBag)
         shareButton.rx.tap.bind(to: viewModel.shareTrigger).disposed(by: disposeBag)
         
-        viewModel.content.drive(onNext: { [weak self] content in
+        viewModel.content.filterEmpty().drive(onNext: { [weak self] content in
             content.forEach{ item in
                 if let viewModel = item as? NewsImageContentItemViewModel {
                     self?.addImageContentView(withViewModel: viewModel)
@@ -70,10 +70,10 @@ public class NewsDescriptionViewController: UIViewController, NonReusableViewPro
             self?.view.layoutIfNeeded()
         }).disposed(by: rx.disposeBag)
         
-        let animationsDuration = 0.8
+        let animationsDuration = 1.3
         viewModel.isDataAvaliable.map{ $0 ? 1 : 0 }.drive(onNext: { [weak self] alpha in
             UIView.animate(withDuration: animationsDuration, animations: {
-                self?.coverImageView.alpha = CGFloat(alpha)
+                self?.coverImageContainerView.alpha = CGFloat(alpha)
                 self?.buttonsContainerView.alpha = CGFloat(alpha)
             })
         }).disposed(by: disposeBag)
