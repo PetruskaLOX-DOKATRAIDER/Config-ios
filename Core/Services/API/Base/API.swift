@@ -13,6 +13,7 @@ public typealias ResponseModel<T, U: BackendError> = Result<T, DictionaryError<U
 public typealias Response<T, U: BackendError> = Driver<ResponseModel<T, U>>
 public typealias Request<T, U: BackendError> = APIRequest<T, DictionaryError<U>>
 public typealias UploadRequest<T, U: BackendError> = UploadAPIRequest<T, DictionaryError<U>>
+public typealias DriverResult<T, U: Error> = Driver<Result<T, U>>
 
 open class API {
     public let tron: TRON

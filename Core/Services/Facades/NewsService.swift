@@ -6,40 +6,90 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
+public enum NewsServiceError: Error {
+    case serverError(Error)
+    case noData
+    case unknown
+}
+
 public protocol NewsService: AutoMockable {
-    func getNewsPreview(forPage page: Int) -> Response<Page<NewsPreview>, RequestError>
-    func getNewsDescription(byID id: Int) -> Response<NewsDescription, RequestError>
+    func getNewsPreview(forPage page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError>
+    func getNewsDescription(byID id: Int) -> DriverResult<NewsDescription, NewsServiceError>
 }
 
 public final class NewsServiceImpl: NewsService, ReactiveCompatible {
-    private let newsPreviewLoaderHelper: PageDataLoaderHelper<NewsPreview>
-    private let newsDescriptionLoaderHelper: SingleDataLoaderHelper<NewsDescription>
+    private let reachabilityService: ReachabilityService
+    private let newsAPIService: NewsAPIService
+    private let newsStorage: NewsStorage
     
     public init(
         reachabilityService: ReachabilityService,
-        eventsAPIService: NewsAPIService,
-        eventsStorage: NewsStorage
+        newsAPIService: NewsAPIService,
+        newsStorage: NewsStorage
     ) {
-        newsPreviewLoaderHelper = PageDataLoaderHelper(
-            reachabilityService: reachabilityService,
-            apiSource: { eventsAPIService.getNewsPreview(forPage: $0) },
-            storageSource: { try? eventsStorage.fetchNewsPreview() },
-            updateStorage: { try? eventsStorage.updateNewsPreview(withNewNews: $0) }
-        )
-        
-        newsDescriptionLoaderHelper = SingleDataLoaderHelper(
-            reachabilityService: reachabilityService,
-            apiSource: { eventsAPIService.getNewsDescription(byID: $0) },
-            storageSource: { try? eventsStorage.fetchNewsDescription(byID: $0) },
-            updateStorage: { try? eventsStorage.updateNewsDescription(withNewNews: $0) }
+        self.reachabilityService = reachabilityService
+        self.newsAPIService = newsAPIService
+        self.newsStorage = newsStorage
+    }
+
+    public func getNewsPreview(forPage page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError> {
+        guard reachabilityService.connection != .none else { return getStoredNewsPreview() }
+        let request = getRemoteNewsPreview(forPage: page)
+        return .merge(request, updateNewsPreview(request.success()))
+    }
+    
+    public func getNewsDescription(byID id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
+        guard reachabilityService.connection != .none else { return getStoredNewsDescription(byID: id) }
+        let request = getRemoteNewsDescription(byID: id)
+        return .merge(request, updateNewsDescription(request.success()))
+    }
+    
+    private func getRemoteNewsPreview(forPage page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError> {
+        let request = newsAPIService.getNewsPreview(forPage: page)
+        let noData = request.success().filter{ $0.content.isEmpty }.toVoid()
+        let successData = request.success().filter{ $0.content.isNotEmpty }
+        return .merge(
+            successData.map{ Result(value: $0) },
+            noData.map(to: Result(error: .noData)),
+            request.failure().map{ Result(error: .serverError($0.localizedDescription)) }
         )
     }
     
-    public func getNewsPreview(forPage page: Int) -> Response<Page<NewsPreview>, RequestError> {
-        return newsPreviewLoaderHelper.loadData(forPage: page)
+    private func updateNewsPreview(_ remoteNewsPreview: Driver<Page<NewsPreview>>) -> DriverResult<Page<NewsPreview>, NewsServiceError> {
+        return remoteNewsPreview.flatMapLatest{ [weak self] page -> Driver<Page<NewsPreview>> in
+            guard let strongSelf = self else { return .empty() }
+            return strongSelf.newsStorage.updateNewsPreview(withNewNews: page.content).map(to: page)
+        }.map{ Result(value: $0) }
     }
     
-    public func getNewsDescription(byID id: Int) -> Response<NewsDescription, RequestError> {
-        return newsDescriptionLoaderHelper.loadModel(byID: id)
+    private func getStoredNewsPreview() -> DriverResult<Page<NewsPreview>, NewsServiceError> {
+        let data = newsStorage.fetchNewsPreview()
+        return .merge(
+            data.map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) },
+            data.filterEmpty().map(to: Result(error: .noData))
+        )
+    }
+    
+    private func getRemoteNewsDescription(byID id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
+        let request = newsAPIService.getNewsDescription(byID: id)
+        return .merge(
+            request.success().map{ Result(value: $0) },
+            request.failure().map{ Result(error: .serverError($0.localizedDescription)) }
+        )
+    }
+    
+    private func updateNewsDescription(_ remoteNewsDescription: Driver<NewsDescription>) -> DriverResult<NewsDescription, NewsServiceError> {
+        return remoteNewsDescription.flatMapLatest { [weak self] news -> Driver<NewsDescription> in
+            guard let strongSelf = self else { return .empty() }
+            return strongSelf.newsStorage.updateNewsDescription(withNewNews: news).map(to: news)
+        }.map{ Result(value: $0) }
+    }
+    
+    private func getStoredNewsDescription(byID id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
+        let data = newsStorage.fetchNewsDescription(byID: id)
+        return Driver.merge(
+            data.filter{ $0 == nil }.map(to: Result(error: .noData)),
+            data.filterNil().map{ Result(value: $0) }
+        )
     }
 }

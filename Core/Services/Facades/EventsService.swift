@@ -13,7 +13,7 @@ public enum EventsServiceError: Error {
 }
 
 public protocol EventsService: AutoMockable {
-    func getEvents(forPage page: Int) -> Driver<Result<Page<Event>, EventsServiceError>>
+    func getEvents(forPage page: Int) -> DriverResult<Page<Event>, EventsServiceError>
 }
 
 public final class EventsServiceImpl: EventsService, ReactiveCompatible {
@@ -31,20 +31,16 @@ public final class EventsServiceImpl: EventsService, ReactiveCompatible {
         self.eventsStorage = eventsStorage
     }
 
-    public func getEvents(forPage page: Int) -> Driver<Result<Page<Event>, EventsServiceError>> {
-        return reachabilityService.connection != .none ? loadAndSaveEvents(forPage: page) : getStoredEvents()
+    public func getEvents(forPage page: Int) -> DriverResult<Page<Event>, EventsServiceError> {
+        guard reachabilityService.connection != .none else { return getStoredEvents() }
+        let request = getRemoteEvents(forPage: page)
+        return .merge(request, updateEvents(request.success()))
     }
     
-    private func loadAndSaveEvents(forPage page: Int) -> Driver<Result<Page<Event>, EventsServiceError>> {
+    private func getRemoteEvents(forPage page: Int) -> DriverResult<Page<Event>, EventsServiceError> {
         let request = eventsAPIService.getEvents(forPage: page)
         let noData = request.success().filter{ $0.content.isEmpty }.toVoid()
         let successData = request.success().filter{ $0.content.isNotEmpty }
-        
-        successData.map{ $0.content }.drive(onNext: { [weak self] newEvents in
-            self?.eventsStorage.update(withNewEvents: newEvents, completion: nil)
-        }).disposed(by: rx.disposeBag)
-        
-    
         return .merge(
             successData.map{ Result(value: $0) },
             noData.map(to: Result(error: .noData)),
@@ -52,13 +48,18 @@ public final class EventsServiceImpl: EventsService, ReactiveCompatible {
         )
     }
     
-    private func getStoredEvents() -> Driver<Result<Page<Event>, EventsServiceError>> {
-        return Observable<Result<Page<Event>, EventsServiceError>>.create{ [weak self] observer in
-            self?.eventsStorage.fetchEvents(completion: { events in
-                observer.onNext(Result(value: .new(content: events, index: 1, totalPages: 1)))
-                observer.onCompleted()
-            })
-            return Disposables.create()
-        }.asDriver(onErrorJustReturn: Result(error: .unknown))
+    private func updateEvents(_ remoteEvents: Driver<Page<Event>>) -> DriverResult<Page<Event>, EventsServiceError> {
+        return remoteEvents.flatMapLatest{ [weak self] page -> Driver<Page<Event>> in
+            guard let strongSelf = self else { return .empty() }
+            return strongSelf.eventsStorage.update(withNewEvents: page.content).map(to: page)
+        }.map{ Result(value: $0) }
+    }
+    
+    private func getStoredEvents() -> DriverResult<Page<Event>, EventsServiceError> {
+        let data = eventsStorage.fetchEvents()
+        return .merge(
+            data.map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) },
+            data.filterEmpty().map(to: Result(error: .noData))
+        )
     }
 }

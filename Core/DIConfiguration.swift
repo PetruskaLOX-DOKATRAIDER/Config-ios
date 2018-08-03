@@ -28,11 +28,11 @@ public extension DependencyContainer {
     
     private func registerServices() {
         register(.unique){ try PlayersServiceImpl(reachabilityService: self.resolve(), playersAPIService: self.resolve(), playersStorage: self.resolve()) as PlayersService }
-        register(.unique){ try TeamsServiceImpl(reachabilityService: self.resolve(), teamsAPISerivce: self.resolve(), teamsStorage: self.resolve()) as TeamsService }
+        register(.unique){ try TeamsServiceImpl(reachabilityService: self.resolve(), teamsAPIService: self.resolve(), teamsStorage: self.resolve()) as TeamsService }
         register(.unique){ ReachabilityServiceImpl() as ReachabilityService }
         register(.unique){ try EventsServiceImpl(reachabilityService: self.resolve(), eventsAPIService: self.resolve(), eventsStorage: self.resolve()) as EventsService }
         register(.singleton) { AppEnvironmentImpl() }.implements(AppEnvironment.self, AppEnvironment.self)
-        register(.unique){ try NewsServiceImpl(reachabilityService: self.resolve(), eventsAPIService: self.resolve(), eventsStorage: self.resolve()) as NewsService }
+        register(.unique){ try NewsServiceImpl(reachabilityService: self.resolve(), newsAPIService: self.resolve(), newsStorage: self.resolve()) as NewsService }
         register(.unique){ PhotosAlbumServiceImpl() as PhotosAlbumService }
         register(.unique){ ImageLoaderServiceImpl() as ImageLoaderService }
         register(.unique){ CameraServiceImpl() as CameraService }

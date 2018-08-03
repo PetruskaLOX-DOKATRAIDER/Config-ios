@@ -18,22 +18,41 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
         self.newsDescriptionCoreDataStorage = newsDescriptionCoreDataStorage
     }
     
-    public func updateNewsPreview(withNewNews newNews: [NewsPreview], completion: (() -> Void)? = nil) {
-        newsPreviewCoreDataStorage.update(withNewData: newNews, completion: completion)
+    
+    func updateNewsPreview(withNewNews newNews: [NewsPreview]) -> Driver<Void> {
+        
     }
     
-    public func fetchNewsPreview(completion: (([NewsPreview]) -> Void)? = nil) {
-        newsPreviewCoreDataStorage.fetch(completion: completion)
+    func fetchNewsPreview() -> Driver<[NewsPreview]> {
+        
     }
     
-    public func updateNewsDescription(withNewNews newNews: NewsDescription, completion: (() -> Void)? = nil) {
-        newsDescriptionCoreDataStorage.update(withNewData: [newNews], completion: completion)
+    func updateNewsDescription(withNewNews newNews: NewsDescription) -> Driver<Void> {
+        
     }
     
-    public func fetchNewsDescription(byID id: Int, completion: ((NewsDescription?) -> Void)? = nil) {
-        let predicate = NSPredicate(format: "%K = %d", #keyPath(CCNewsDescription.id), id)
-        newsDescriptionCoreDataStorage.fetch(withPredicate: predicate) { news in
-            completion?(news.first)
-        }
+    func fetchNewsDescription(byID id: Int) -> Driver<NewsDescription?> {
+        
     }
+    
+    
+    
+//    public func updateNewsPreview(withNewNews newNews: [NewsPreview], completion: (() -> Void)? = nil) {
+//        newsPreviewCoreDataStorage.update(withNewData: newNews, completion: completion)
+//    }
+//
+//    public func fetchNewsPreview(completion: (([NewsPreview]) -> Void)? = nil) {
+//        newsPreviewCoreDataStorage.fetch(completion: completion)
+//    }
+//
+//    public func updateNewsDescription(withNewNews newNews: NewsDescription, completion: (() -> Void)? = nil) {
+//        newsDescriptionCoreDataStorage.update(withNewData: [newNews], completion: completion)
+//    }
+//
+//    public func fetchNewsDescription(byID id: Int, completion: ((NewsDescription?) -> Void)? = nil) {
+//        let predicate = NSPredicate(format: "%K = %d", #keyPath(CCNewsDescription.id), id)
+//        newsDescriptionCoreDataStorage.fetch(withPredicate: predicate) { news in
+//            completion?(news.first)
+//        }
+//    }
 }

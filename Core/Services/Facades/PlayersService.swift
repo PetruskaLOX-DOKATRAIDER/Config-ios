@@ -9,21 +9,23 @@
 public enum PlayersServiceError: Error {
     case playerIsNotInFavorites
     case playerAlreadyInFavorites
+    case serverError(Error)
+    case noData
     case unknown
 }
 
 public protocol PlayersService: AutoMockable {
-    func getPlayerPreview(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError>
-    func getPlayerDescription(byPlayerID playerID: PlayerID) -> Response<PlayerDescription, RequestError>
-    func getFavoritePlayersPreview(forPage page: Int) throws -> Page<PlayerPreview>
-    func addPlayerToFavorites(byID id: Int) throws
-    func removePlayerFromFavorites(byID id: Int) throws
-    func isPlayerInFavorites(playerID id: Int) throws -> Bool
+    func getPlayerPreview(forPage page: Int) -> DriverResult<Page<PlayerPreview>, PlayersServiceError>
+    func getPlayerDescription(byPlayerID playerID: PlayerID) -> DriverResult<PlayerDescription, PlayersServiceError>
+    func getFavoritePlayersPreview(forPage page: Int) -> DriverResult<[PlayerPreview], PlayersServiceError>
+    func addPlayerToFavorites(byID id: Int) -> DriverResult<Void, PlayersServiceError>
+    func removePlayerFromFavorites(byID id: Int) -> DriverResult<Void, PlayersServiceError>
+    func isPlayerInFavorites(playerID id: Int) -> DriverResult<Bool, PlayersServiceError>
 }
 
 public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
-    private let playerPreviewLoaderHelper: PageDataLoaderHelper<PlayerPreview>
-    private let playerDescriptionLoaderHelper: SingleDataLoaderHelper<PlayerDescription>
+    private let reachabilityService: ReachabilityService
+    private let playersAPIService: PlayersAPIService
     private let playersStorage: PlayersStorage
     
     public init(
@@ -31,49 +33,99 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
         playersAPIService: PlayersAPIService,
         playersStorage: PlayersStorage
     ) {
+        self.reachabilityService = reachabilityService
+        self.playersAPIService = playersAPIService
         self.playersStorage = playersStorage
-        playerPreviewLoaderHelper = PageDataLoaderHelper(
-            reachabilityService: reachabilityService,
-            apiSource: { playersAPIService.getPlayersPreview(forPage: $0) },
-            storageSource: { try? playersStorage.fetchPlayersPreview() },
-            updateStorage: { try? playersStorage.updatePlayerPreview(withNewPlayers: $0) }
-        )
+    }
+    
+    public func getPlayerPreview(forPage page: Int) -> DriverResult<Page<PlayerPreview>, PlayersServiceError> {
+        guard reachabilityService.connection != .none else { return getStoredPlayerPreview() }
+        let request = getRemotePlayerPreview(forPage: page)
+        return .merge(request, updatePlayerPreview(request.success()))
+    }
+    
+    public func getPlayerDescription(byPlayerID playerID: PlayerID) -> DriverResult<PlayerDescription, PlayersServiceError> {
+        guard reachabilityService.connection != .none else { return getStoredPlayerDescription(byID: playerID) }
+        let request = getRemotePlayerDescription(byID: playerID)
+        return .merge(request, updatePlayerDescription(request.success()))
+    }
 
-        playerDescriptionLoaderHelper = SingleDataLoaderHelper(
-            reachabilityService: reachabilityService,
-            apiSource: { playersAPIService.getPlayerDescription(byPlayerID: $0) },
-            storageSource: { try? playersStorage.fetchPlayerDescription(withID: $0) },
-            updateStorage: { try? playersStorage.updatePlayerDescription(withNewPlayer: $0) }
+    public func getFavoritePlayersPreview(forPage page: Int) -> DriverResult<[PlayerPreview], PlayersServiceError> {
+        let players = playersStorage.fetchFavoritePlayersPreview()
+        return .merge(
+            players.filter{ $0.isEmpty }.map(to: Result(error: .noData)),
+            players.filterEmpty().map{ Result(value: $0) }
         )
     }
     
-    public func getPlayerPreview(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError> {
-        return playerPreviewLoaderHelper.loadData(forPage: page)
+    public func addPlayerToFavorites(byID id: Int) -> DriverResult<Void, PlayersServiceError> {
+        let alreadyInFavorites = playersStorage.isPlayerInFavorites(withID: id).filter{ $0 }
+        let success = playersStorage.addPlayerToFavorites(withID: id)
+        return .merge(
+            alreadyInFavorites.map(to: Result(error: .playerAlreadyInFavorites) ),
+            success.map{ Result(value: ()) }
+        )
     }
     
-    public func getPlayerDescription(byPlayerID playerID: PlayerID) -> Response<PlayerDescription, RequestError> {
-        return playerDescriptionLoaderHelper.loadModel(byID: playerID)
+    public func removePlayerFromFavorites(byID id: Int) -> DriverResult<Void, PlayersServiceError> {
+        let isNotInFavorites = playersStorage.isPlayerInFavorites(withID: id).filter{ !$0 }
+        let success = playersStorage.removePlayerFromFavorites(withID: id)
+        return .merge(
+            isNotInFavorites.map(to: Result(error: .playerIsNotInFavorites) ),
+            success.map{ Result(value: ()) }
+        )
     }
     
-    public func addPlayerToFavorites(byID id: Int) throws {
-        guard let isPlayerInFavorites = try? playersStorage.isPlayerInFavorites(withID: id) else { throw PlayersServiceError.unknown }
-        guard isPlayerInFavorites else { throw PlayersServiceError.playerAlreadyInFavorites }
-        try? playersStorage.addPlayerToFavorites(withID: id)
+    public func isPlayerInFavorites(playerID id: Int) -> DriverResult<Bool, PlayersServiceError> {
+        return playersStorage.isPlayerInFavorites(withID: id).map{ Result(value: $0) }
     }
     
-    public func removePlayerFromFavorites(byID id: Int) throws {
-        guard let isPlayerInFavorites = try? playersStorage.isPlayerInFavorites(withID: id) else { throw PlayersServiceError.unknown }
-        guard !isPlayerInFavorites else { throw PlayersServiceError.playerIsNotInFavorites }
-        try? playersStorage.removePlayerFromFavorites(withID: id)
+    private func getRemotePlayerPreview(forPage page: Int) -> DriverResult<Page<PlayerPreview>, PlayersServiceError> {
+        let request = playersAPIService.getPlayersPreview(forPage: page)
+        let noData = request.success().filter{ $0.content.isEmpty }.toVoid()
+        let successData = request.success().filter{ $0.content.isNotEmpty }
+        return .merge(
+            successData.map{ Result(value: $0) },
+            noData.map(to: Result(error: .noData)),
+            request.failure().map{ Result(error: .serverError($0.localizedDescription)) }
+        )
     }
     
-    public func isPlayerInFavorites(playerID id: Int) throws -> Bool {
-        guard let isPlayerInFavorites = try? playersStorage.isPlayerInFavorites(withID: id) else { throw PlayersServiceError.unknown }
-        return isPlayerInFavorites
+    private func updatePlayerPreview(_ remotePlayerPreview: Driver<Page<PlayerPreview>>) -> DriverResult<Page<PlayerPreview>, PlayersServiceError> {
+        return remotePlayerPreview.flatMapLatest{ [weak self] page -> Driver<Page<PlayerPreview>> in
+            guard let strongSelf = self else { return .empty() }
+            return strongSelf.playersStorage.updatePlayerPreview(withNewPlayers: page.content).map(to: page)
+            }.map{ Result(value: $0) }
     }
     
-    public func getFavoritePlayersPreview(forPage page: Int) throws -> Page<PlayerPreview> {
-        guard let players = try? playersStorage.fetchFavoritePlayersPreview() else { throw PlayersServiceError.unknown }
-        return Page.new(content: players, index: 1, totalPages: 1)
+    private func getStoredPlayerPreview() -> DriverResult<Page<PlayerPreview>, PlayersServiceError> {
+        let data = playersStorage.fetchPlayersPreview()
+        return .merge(
+            data.map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) },
+            data.filterEmpty().map(to: Result(error: .noData))
+        )
+    }
+    
+    private func getRemotePlayerDescription(byID id: Int) -> DriverResult<PlayerDescription, PlayersServiceError> {
+        let request = playersAPIService.getPlayerDescription(byPlayerID: id)
+        return .merge(
+            request.success().map{ Result(value: $0) },
+            request.failure().map{ Result(error: .serverError($0.localizedDescription)) }
+        )
+    }
+    
+    private func updatePlayerDescription(_ remotePlayerDescription: Driver<PlayerDescription>) -> DriverResult<PlayerDescription, PlayersServiceError> {
+        return remotePlayerDescription.flatMapLatest { [weak self] player -> Driver<PlayerDescription> in
+            guard let strongSelf = self else { return .empty() }
+            return strongSelf.playersStorage.updatePlayerDescription(withNewPlayer: player).map(to: player)
+            }.map{ Result(value: $0) }
+    }
+    
+    private func getStoredPlayerDescription(byID id: Int) -> DriverResult<PlayerDescription, PlayersServiceError> {
+        let data = playersStorage.fetchPlayerDescription(withID: id)
+        return .merge(
+            data.filter{ $0 == nil }.map(to: Result(error: .noData)),
+            data.filterNil().map{ Result(value: $0) }
+        )
     }
 }

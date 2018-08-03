@@ -7,12 +7,12 @@
 //
 
 public protocol PlayersStorage: AutoMockable {
-    func updatePlayerPreview(withNewPlayers newPlayers: [PlayerPreview], completion: (() -> Void)?)
-    func fetchPlayersPreview(completion: (([PlayerPreview]) -> Void)?)
-    func updatePlayerDescription(withNewPlayer newPlayer: PlayerDescription, completion: (() -> Void)?)
-    func fetchPlayerDescription(withID id: Int, completion: ((PlayerDescription?) -> Void)?)
-    func fetchFavoritePlayersPreview(completion: (([PlayerPreview]) -> Void)?)
-    func addPlayerToFavorites(withID id: Int, completion: (() -> Void)?)
-    func removePlayerFromFavorites(withID id: Int, completion: (() -> Void)?)
-    func isPlayerInFavorites(withID id: Int, completion: ((Bool) -> Void)?)
+    func updatePlayerPreview(withNewPlayers newPlayers: [PlayerPreview]) -> Driver<Void>
+    func fetchPlayersPreview() -> Driver<[PlayerPreview]>
+    func updatePlayerDescription(withNewPlayer newPlayer: PlayerDescription) -> Driver<Void>
+    func fetchPlayerDescription(withID id: Int) -> Driver<PlayerDescription?>
+    func fetchFavoritePlayersPreview() -> Driver<[PlayerPreview]>
+    func addPlayerToFavorites(withID id: Int) -> Driver<Void>
+    func removePlayerFromFavorites(withID id: Int) -> Driver<Void>
+    func isPlayerInFavorites(withID id: Int) -> Driver<Bool>
 }
