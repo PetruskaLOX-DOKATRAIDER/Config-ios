@@ -13,11 +13,23 @@ public final class EventsStorageImpl: EventsStorage, ReactiveCompatible {
         self.coreDataStorage = coreDataStorage
     }
     
-    public func update(withNewEvents newEvents: [Event], completion: (() -> Void)? = nil) {
-        coreDataStorage.update(withNewData: newEvents, completion: completion)
+    public func update(withNewEvents newEvents: [Event]) -> Driver<Void> {
+        return Observable.create{ [weak self] observer -> Disposable in
+            self?.coreDataStorage.update(withNewData: newEvents, completion: {
+                observer.onNext(())
+                //observer.onCompleted()
+            })
+            return Disposables.create()
+        }.asDriver(onErrorJustReturn: ())
     }
     
-    public func fetchEvents(completion: (([Event]) -> Void)? = nil) {
-        coreDataStorage.fetch(completion: completion)
+    public func fetchEvents() -> Driver<[Event]> {
+        return Observable.create{ [weak self] observer -> Disposable in
+            self?.coreDataStorage.fetch(completion: { events in
+                observer.onNext(events)
+                //observer.onCompleted()
+            })
+            return Disposables.create()
+        }.asDriver(onErrorJustReturn: [])
     }
 }

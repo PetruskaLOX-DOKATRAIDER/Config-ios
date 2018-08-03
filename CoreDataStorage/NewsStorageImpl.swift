@@ -18,41 +18,44 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
         self.newsDescriptionCoreDataStorage = newsDescriptionCoreDataStorage
     }
     
-    
-    func updateNewsPreview(withNewNews newNews: [NewsPreview]) -> Driver<Void> {
-        
+    public func updateNewsPreview(withNewNews newNews: [NewsPreview]) -> Driver<Void> {
+        return Observable.create{ [weak self] observer -> Disposable in
+            self?.newsPreviewCoreDataStorage.update(withNewData: newNews, completion: {
+                observer.onNext(())
+                //observer.onCompleted()
+            })
+            return Disposables.create()
+        }.asDriver(onErrorJustReturn: ())
     }
     
-    func fetchNewsPreview() -> Driver<[NewsPreview]> {
-        
+    public func fetchNewsPreview() -> Driver<[NewsPreview]> {
+        return Observable.create{ [weak self] observer -> Disposable in
+            self?.newsPreviewCoreDataStorage.fetch(completion: { news in
+                observer.onNext(news)
+                //observer.onCompleted()
+            })
+            return Disposables.create()
+        }.asDriver(onErrorJustReturn: [])
     }
     
-    func updateNewsDescription(withNewNews newNews: NewsDescription) -> Driver<Void> {
-        
+    public func updateNewsDescription(withNewNews newNews: NewsDescription) -> Driver<Void> {
+        return Observable.create{ [weak self] observer -> Disposable in
+            self?.newsDescriptionCoreDataStorage.update(withNewData: [newNews], completion: {
+                observer.onNext(())
+                //observer.onCompleted()
+            })
+            return Disposables.create()
+        }.asDriver(onErrorJustReturn: ())
     }
     
-    func fetchNewsDescription(byID id: Int) -> Driver<NewsDescription?> {
-        
+    public func fetchNewsDescription(byID id: Int) -> Driver<NewsDescription?> {
+        return Observable.create{ [weak self] observer -> Disposable in
+            let predicate = NSPredicate(format: "%K = %d", #keyPath(CCNewsDescription.id), id)
+            self?.newsDescriptionCoreDataStorage.fetch(withPredicate: predicate, completion: { news in
+                observer.onNext(news.first)
+                //observer.onCompleted()
+            })
+            return Disposables.create()
+        }.asDriver(onErrorJustReturn: nil)
     }
-    
-    
-    
-//    public func updateNewsPreview(withNewNews newNews: [NewsPreview], completion: (() -> Void)? = nil) {
-//        newsPreviewCoreDataStorage.update(withNewData: newNews, completion: completion)
-//    }
-//
-//    public func fetchNewsPreview(completion: (([NewsPreview]) -> Void)? = nil) {
-//        newsPreviewCoreDataStorage.fetch(completion: completion)
-//    }
-//
-//    public func updateNewsDescription(withNewNews newNews: NewsDescription, completion: (() -> Void)? = nil) {
-//        newsDescriptionCoreDataStorage.update(withNewData: [newNews], completion: completion)
-//    }
-//
-//    public func fetchNewsDescription(byID id: Int, completion: ((NewsDescription?) -> Void)? = nil) {
-//        let predicate = NSPredicate(format: "%K = %d", #keyPath(CCNewsDescription.id), id)
-//        newsDescriptionCoreDataStorage.fetch(withPredicate: predicate) { news in
-//            completion?(news.first)
-//        }
-//    }
 }

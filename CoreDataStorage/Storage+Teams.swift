@@ -13,11 +13,23 @@ public final class TeamsStorageImpl: TeamsStorage, ReactiveCompatible {
         self.coreDataStorage = coreDataStorage
     }
     
-    public func update(withNewTeams newTeams: [Team], completion: (() -> Void)? = nil) {
-        coreDataStorage.update(withNewData: newTeams, completion: completion)
+    public func update(withNewTeams newTeams: [Team]) -> Driver<Void> {
+        return Observable.create{ [weak self] observer -> Disposable in
+            self?.coreDataStorage.update(withNewData: newTeams, completion: {
+                observer.onNext(())
+                //observer.onCompleted()
+            })
+            return Disposables.create()
+        }.asDriver(onErrorJustReturn: ())
     }
     
-    public func fetchTeams(completion: (([Team]) -> Void)? = nil) {
-        coreDataStorage.fetch(completion: completion)
+    public func fetchTeams() -> Driver<[Team]> {
+        return Observable.create{ [weak self] observer -> Disposable in
+            self?.coreDataStorage.fetch(completion: { teams in
+                observer.onNext(teams)
+                //observer.onCompleted()
+            })
+            return Disposables.create()
+        }.asDriver(onErrorJustReturn: [])
     }
 }
