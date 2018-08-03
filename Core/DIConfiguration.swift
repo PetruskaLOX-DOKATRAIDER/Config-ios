@@ -36,6 +36,7 @@ public extension DependencyContainer {
         register(.unique){ PhotosAlbumServiceImpl() as PhotosAlbumService }
         register(.unique){ ImageLoaderServiceImpl() as ImageLoaderService }
         register(.unique){ CameraServiceImpl() as CameraService }
+        register(.unique){ try BannerServiceImpl(bannerAPIService: self.resolve()) as BannerService }
     }
     
     private func registerAPIServices() {
@@ -43,6 +44,7 @@ public extension DependencyContainer {
         register(.unique){ try API.TeamsAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as TeamsAPIService }
         register(.unique){ try API.EventsAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as EventsAPIService }
         register(.unique){ try API.NewsAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as NewsAPIService }
+        register(.unique){ try API.BannerAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as BannerAPIService }
     }
     
     private func registerViewModels() {
@@ -53,7 +55,7 @@ public extension DependencyContainer {
         register(.unique){ try EventsContainerViewModelImpl(eventsService: self.resolve()) as EventsContainerViewModel }
         register(.unique){ try NewsViewModelImpl(newsService: self.resolve()) as NewsViewModel }
         register(.unique){ ProfileViewModelImpl() as ProfileViewModel }
-        register(.unique){ try PlayersBannerViewModelImpl(playersAPIService: self.resolve()) as PlayersBannerViewModel }
+        register(.unique){ try PlayersBannerViewModelImpl(bannerService: self.resolve()) as PlayersBannerViewModel }
         register(.unique){ try EventsFilterViewModelImpl(eventsFiltersStorage: self.resolve()) as EventsFilterViewModel }
         register(.unique){ try PlayerDescriptionViewModelImpl(playerID: $0, playersService: self.resolve()) as PlayerDescriptionViewModel }
         register(.unique){ try NewsDescriptionViewModelImpl(news: $0, newsService: self.resolve()) as NewsDescriptionViewModel }

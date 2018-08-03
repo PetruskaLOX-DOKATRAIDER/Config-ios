@@ -92,6 +92,8 @@
 		7C53C42F20F74B8F001FC864 /* CDImageSize+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53C42E20F74B8F001FC864 /* CDImageSize+CDObjectable.swift */; };
 		7C59436120F7518D009D8D7D /* Bundle+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59436020F7518D009D8D7D /* Bundle+extensions.swift */; };
 		7C59436420F7523F009D8D7D /* Bundle+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59436320F7523F009D8D7D /* Bundle+extensions.swift */; };
+		7C5ADBF92114ABFF0012C0C8 /* API+Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ADBF82114ABFF0012C0C8 /* API+Banner.swift */; };
+		7C5ADBFB2114AC480012C0C8 /* BannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ADBFA2114AC480012C0C8 /* BannerService.swift */; };
 		7C5F307320E0E1F60050E9AE /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F307020E0E1F60050E9AE /* Router.swift */; };
 		7C5F307420E0E1F60050E9AE /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F307120E0E1F60050E9AE /* Route.swift */; };
 		7C5F307520E0E2000050E9AE /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F306F20E0E1F60050E9AE /* RouterTests.swift */; };
@@ -456,6 +458,8 @@
 		7C53C42E20F74B8F001FC864 /* CDImageSize+CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDImageSize+CDObjectable.swift"; sourceTree = "<group>"; };
 		7C59436020F7518D009D8D7D /* Bundle+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extensions.swift"; sourceTree = "<group>"; };
 		7C59436320F7523F009D8D7D /* Bundle+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extensions.swift"; sourceTree = "<group>"; };
+		7C5ADBF82114ABFF0012C0C8 /* API+Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Banner.swift"; sourceTree = "<group>"; };
+		7C5ADBFA2114AC480012C0C8 /* BannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerService.swift; sourceTree = "<group>"; };
 		7C5F306F20E0E1F60050E9AE /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		7C5F307020E0E1F60050E9AE /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7C5F307120E0E1F60050E9AE /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -1088,6 +1092,7 @@
 				7C11D39020FCBFEE00FC8599 /* TeamsService.swift */,
 				7CAE6D9321020FB300844B11 /* EventsService.swift */,
 				7C37223B2110BA9900A5D525 /* NewsService.swift */,
+				7C5ADBFA2114AC480012C0C8 /* BannerService.swift */,
 			);
 			path = Facades;
 			sourceTree = "<group>";
@@ -1498,6 +1503,7 @@
 				7C11D39520FCC1E800FC8599 /* API+Teams.swift */,
 				7CAE6D9521020FE500844B11 /* API+Events.swift */,
 				7C37223D2110BBC800A5D525 /* API+News.swift */,
+				7C5ADBF82114ABFF0012C0C8 /* API+Banner.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -2444,6 +2450,7 @@
 				7CDF6D1420DBC42A0096D913 /* MessageView.swift in Sources */,
 				C02C463F202CB409008AE9B0 /* Debugger.swift in Sources */,
 				C02C4631202CA6D9008AE9B0 /* Rx+extensions.swift in Sources */,
+				7C5ADBF92114ABFF0012C0C8 /* API+Banner.swift in Sources */,
 				7C174E6421131D5A008CD96D /* DeviceRouter.swift in Sources */,
 				7C174E5B2112FBAD008CD96D /* CameraService.swift in Sources */,
 				7CDAF96620D7FB4C009B9B87 /* NavigationControllerFactory.swift in Sources */,
@@ -2488,6 +2495,7 @@
 				7CFA24F920D932E70059378F /* TeamsViewController.swift in Sources */,
 				7CDB87F4211470F7007E49AC /* PlayersService.swift in Sources */,
 				7CB97D0E21061A39002CA594 /* EventItemAnnotationView.swift in Sources */,
+				7C5ADBFB2114AC480012C0C8 /* BannerService.swift in Sources */,
 				C02C45C6202C8630008AE9B0 /* Environments.swift in Sources */,
 				7C174E6021131546008CD96D /* AlertViewModel.swift in Sources */,
 				7CAE6D7A2101E07A00844B11 /* MapEventsViewModel.swift in Sources */,

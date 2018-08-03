@@ -37,11 +37,11 @@ open class Router: ReactiveCompatible {
         return AppSectionsTabBarController.presenter().from {
             let tabbarVC = AppSectionsTabBarController()
             tabbarVC.setViewControllers([
-                NavigationControllerFactory.default(viewControllers: [try self.players().provideSourceController()])
-//                NavigationControllerFactory.default(viewControllers: [try self.teams().provideSourceController()]),
-//                NavigationControllerFactory.default(viewControllers: [try self.events().provideSourceController()]),
-//                NavigationControllerFactory.default(viewControllers: [try self.news().provideSourceController()]),
-//                NavigationControllerFactory.default(viewControllers: [try self.profile().provideSourceController()])
+                NavigationControllerFactory.default(viewControllers: [try self.players().provideSourceController()]),
+                NavigationControllerFactory.default(viewControllers: [try self.teams().provideSourceController()]),
+                NavigationControllerFactory.default(viewControllers: [try self.events().provideSourceController()]),
+                NavigationControllerFactory.default(viewControllers: [try self.news().provideSourceController()]),
+                NavigationControllerFactory.default(viewControllers: [try self.profile().provideSourceController()])
             ], animated: false)
             return tabbarVC
         }

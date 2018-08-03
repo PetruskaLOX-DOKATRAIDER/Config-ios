@@ -21,7 +21,7 @@ public final class PlayersBannerViewModelImpl: PlayersBannerViewModel, ReactiveC
     public let errorMessage: Driver<String>
     public let shouldRoutePlayerDescription: Driver<PlayerID>
     
-    public init(playersAPIService: PlayersAPIService) {
+    public init(bannerService: BannerService) {
         let route = PublishSubject<PlayerID>()
         shouldRoutePlayerDescription = route.asDriver(onErrorJustReturn: 0)
         
@@ -37,7 +37,7 @@ public final class PlayersBannerViewModelImpl: PlayersBannerViewModel, ReactiveC
             )
         }
         
-        playersPaginator = Paginator(factory: { playersAPIService.getBannerPlayers(forPage: $0).success().map(remapToViewModels).asObservable() })
+        playersPaginator = Paginator(factory: { bannerService.getBannerForPlayers(forPage: $0).success().map(remapToViewModels).asObservable() })
         currentPage = pageTrigger.startWith(0).asDriver(onErrorJustReturn: 0)
         errorMessage = playersPaginator.error.toVoid().map{ Strings.Errors.generalMessage }.startWith("")
     }

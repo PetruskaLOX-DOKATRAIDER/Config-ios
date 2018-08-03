@@ -39,13 +39,13 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
     }
     
     public func getPlayerPreview(forPage page: Int) -> DriverResult<Page<PlayerPreview>, PlayersServiceError> {
-        guard reachabilityService.connection != .none else { return getStoredPlayerPreview() }
+        guard reachabilityService.connection == .none else { return getStoredPlayerPreview() }
         let request = getRemotePlayerPreview(forPage: page)
-        return .merge(request, updatePlayerPreview(request.success()))
+        return Driver.merge(request, updatePlayerPreview(request.success()))
     }
     
     public func getPlayerDescription(byPlayerID playerID: PlayerID) -> DriverResult<PlayerDescription, PlayersServiceError> {
-        guard reachabilityService.connection != .none else { return getStoredPlayerDescription(byID: playerID) }
+        guard reachabilityService.connection == .none else { return getStoredPlayerDescription(byID: playerID) }
         let request = getRemotePlayerDescription(byID: playerID)
         return .merge(request, updatePlayerDescription(request.success()))
     }
@@ -95,7 +95,7 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
         return remotePlayerPreview.flatMapLatest{ [weak self] page -> Driver<Page<PlayerPreview>> in
             guard let strongSelf = self else { return .empty() }
             return strongSelf.playersStorage.updatePlayerPreview(withNewPlayers: page.content).map(to: page)
-            }.map{ Result(value: $0) }
+        }.map{ Result(value: $0) }
     }
     
     private func getStoredPlayerPreview() -> DriverResult<Page<PlayerPreview>, PlayersServiceError> {
@@ -118,7 +118,7 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
         return remotePlayerDescription.flatMapLatest { [weak self] player -> Driver<PlayerDescription> in
             guard let strongSelf = self else { return .empty() }
             return strongSelf.playersStorage.updatePlayerDescription(withNewPlayer: player).map(to: player)
-            }.map{ Result(value: $0) }
+        }.map{ Result(value: $0) }
     }
     
     private func getStoredPlayerDescription(byID id: Int) -> DriverResult<PlayerDescription, PlayersServiceError> {
