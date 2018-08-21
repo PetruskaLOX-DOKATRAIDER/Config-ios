@@ -39,13 +39,13 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
     }
     
     public func getPlayerPreview(forPage page: Int) -> DriverResult<Page<PlayerPreview>, PlayersServiceError> {
-        guard reachabilityService.connection == .none else { return getStoredPlayerPreview() }
+        guard reachabilityService.connection != .none else { return getStoredPlayerPreview() }
         let request = getRemotePlayerPreview(forPage: page)
         return Driver.merge(request, updatePlayerPreview(request.success()))
     }
     
     public func getPlayerDescription(byPlayerID playerID: PlayerID) -> DriverResult<PlayerDescription, PlayersServiceError> {
-        guard reachabilityService.connection == .none else { return getStoredPlayerDescription(byID: playerID) }
+        guard reachabilityService.connection != .none else { return getStoredPlayerDescription(byID: playerID) }
         let request = getRemotePlayerDescription(byID: playerID)
         return .merge(request, updatePlayerDescription(request.success()))
     }

@@ -1,48 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ek-ct-1Xt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xAq-Bd-zYc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Profile View Controller-->
-        <scene sceneID="tEr-Pp-f1g">
+        <scene sceneID="ErK-qv-OHe">
             <objects>
-                <viewController id="7ek-ct-1Xt" customClass="ProfileViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UUI-Gp-oci"/>
-                        <viewControllerLayoutGuide type="bottom" id="4af-qR-9ib"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cEO-6E-8qo">
+                <viewController id="xAq-Bd-zYc" customClass="ProfileViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GvI-y3-aAB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pdq-yX-e3L">
-                                <rect key="frame" x="86" y="222" width="150" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMS-lW-ioD">
-                                <rect key="frame" x="125" y="335" width="95" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0i-h1-2ae">
-                                <rect key="frame" x="186" y="232" width="95" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.45318080357142859" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="BFV-hn-Czs">
+                                <rect key="frame" x="0.0" y="47" width="375" height="620"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gL-0M-pQJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="519"/>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZsH-E0-u0D">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="519"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7gL-0M-pQJ" firstAttribute="centerX" secondItem="BFV-hn-Czs" secondAttribute="centerX" id="1kb-wG-uEr"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZsH-E0-u0D" secondAttribute="bottom" id="BKD-nR-84d"/>
+                                    <constraint firstAttribute="trailing" secondItem="7gL-0M-pQJ" secondAttribute="trailing" id="CDe-qP-j0E"/>
+                                    <constraint firstItem="7gL-0M-pQJ" firstAttribute="centerY" secondItem="BFV-hn-Czs" secondAttribute="centerY" priority="200" constant="-50.5" id="LWe-I5-fbD"/>
+                                    <constraint firstItem="ZsH-E0-u0D" firstAttribute="top" secondItem="BFV-hn-Czs" secondAttribute="top" id="SlK-3g-ZUj"/>
+                                    <constraint firstItem="7gL-0M-pQJ" firstAttribute="top" secondItem="BFV-hn-Czs" secondAttribute="top" id="ahx-Nw-aiT"/>
+                                    <constraint firstItem="7gL-0M-pQJ" firstAttribute="bottom" secondItem="ZsH-E0-u0D" secondAttribute="bottom" id="hKN-ey-M31"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZsH-E0-u0D" secondAttribute="trailing" id="jRZ-sq-RQD"/>
+                                    <constraint firstItem="ZsH-E0-u0D" firstAttribute="leading" secondItem="BFV-hn-Czs" secondAttribute="leading" id="qts-dt-cwE"/>
+                                    <constraint firstItem="7gL-0M-pQJ" firstAttribute="leading" secondItem="BFV-hn-Czs" secondAttribute="leading" id="z6Y-ll-ktJ"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BFV-hn-Czs" firstAttribute="bottom" secondItem="zpA-WK-N65" secondAttribute="bottom" id="E4E-ei-gwB"/>
+                            <constraint firstItem="BFV-hn-Czs" firstAttribute="leading" secondItem="zpA-WK-N65" secondAttribute="leading" id="Ead-En-adD"/>
+                            <constraint firstItem="BFV-hn-Czs" firstAttribute="trailing" secondItem="zpA-WK-N65" secondAttribute="trailing" id="Yrc-sn-Omb"/>
+                            <constraint firstItem="BFV-hn-Czs" firstAttribute="top" secondItem="zpA-WK-N65" secondAttribute="top" constant="27" id="kez-sS-o5J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zpA-WK-N65"/>
                     </view>
+                    <connections>
+                        <outlet property="scrollViewBottomConstraint" destination="E4E-ei-gwB" id="c4w-0b-T7z"/>
+                        <outlet property="stackView" destination="ZsH-E0-u0D" id="kkE-it-DC6"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="voN-Dl-Zgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="142.57871064467767"/>
+            <point key="canvasLocation" x="-465" y="162"/>
         </scene>
     </scenes>
 </document>

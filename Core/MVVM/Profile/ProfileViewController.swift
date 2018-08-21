@@ -6,8 +6,12 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public final class ProfileViewController: UIViewController, NonReusableViewProtocol {
-   
+import DTTableViewManager
+
+public final class ProfileViewController: UIViewController, NonReusableViewProtocol, DTTableViewManageable {
+    @IBOutlet public weak var tableView: UITableView!
+    @IBOutlet private weak var tableViewBottomConstraint: NSLayoutConstraint!
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.Profile.title
@@ -17,9 +21,13 @@ public final class ProfileViewController: UIViewController, NonReusableViewProto
             image: Images.Sections.profileDeselected,
             selectedImage: Images.Sections.profileSelected
         )
+        
+        KeyboardAvoiding.avoid(with: tableViewBottomConstraint, inside: view).disposed(by: rx.disposeBag)
     }
     
     public func onUpdate(with viewModel: ProfileViewModel, disposeBag: DisposeBag) {
-
+        
     }
+
 }
+

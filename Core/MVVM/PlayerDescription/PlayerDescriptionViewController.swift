@@ -75,7 +75,6 @@ public class PlayerDescriptionViewController: UIViewController, NonReusableViewP
         segmentView.addSegmentWithTitle(title: Strings.PlayerDescription.hardvare)
         segmentView.addSegmentWithTitle(title: Strings.PlayerDescription.settings)
         segmentView.setSegment(atIndex: 0)
-        
         segmentView.didSelectAtIndex = { [weak self] index in
             guard let childType = PlayerInfoContainerType(rawValue: index) else { return }
             switch childType {

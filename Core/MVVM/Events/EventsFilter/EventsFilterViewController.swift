@@ -40,7 +40,7 @@ public class EventsFilterViewController: UIViewController, NonReusableViewProtoc
         
         viewModel.items.drive(onNext: { [weak self] items in
             guard let strongSelf = self else { return }
-            strongSelf.stackView.subviews.forEach{ $0.removeFromSuperview() }
+            strongSelf.stackView.removeAllSubviews()
             items.forEach{ self?.addEventFilterAndSeparatorView(withViewModel: $0) }
         }).disposed(by: rx.disposeBag)
     }

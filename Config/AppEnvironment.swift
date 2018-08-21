@@ -6,6 +6,8 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
+private let firstVersion = "0.0.0"
+
 public enum AppEnvironmentImpl: AppEnvironment {
     case develop(info: [String : Any])
     case staging(info: [String : Any])
@@ -33,11 +35,19 @@ public enum AppEnvironmentImpl: AppEnvironment {
     }
     
     public var appVersion: String {
-        return info["CFBundleShortVersionString"] as? String ?? "0.0.0"
+        return info["CFBundleShortVersionString"] as? String ?? firstVersion
     }
     
     public var isDebug: Bool {
         guard let config = info["Configuration"] as? String else { return false }
         return config.lowercased().contains("debug")
+    }
+    
+    public var appStoreURL: URL {
+        if self.appVersion == firstVersion {
+            return URL(string: "https://www.google.com") ?? URL(fileURLWithPath: "")
+        } else {
+            return URL(string: "") ?? URL(fileURLWithPath: "")
+        }
     }
 }

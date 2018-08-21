@@ -18,6 +18,7 @@ public enum ImageLoaderServiceError: Error {
 
 public protocol ImageLoaderService: AutoMockable {
     func loadImage(withURL url: URL) -> Observable<Result<Image, ImageLoaderServiceError>>
+    func clearCache()
 }
 
 public final class ImageLoaderServiceImpl: ImageLoaderService {
@@ -40,5 +41,10 @@ public final class ImageLoaderServiceImpl: ImageLoaderService {
             })
             return Disposables.create()
         }
+    }
+    
+    public func clearCache() {
+        kingfisherManager.cache.clearDiskCache()
+        kingfisherManager.cache.clearMemoryCache()
     }
 }

@@ -28,6 +28,12 @@
 
 // Profile
 "Profile.title" = "Profile";
+"Profile.skins" = "Skins price online";
+"Profile.tutorial" = "Tutorial";
+"Profile.donate" = "Donate";
+"Profile.feedback" = "Send feedback";
+"Profile.rate_app" = "Rate app in appstore";
+"Profile.share" = "Share with friends";
 
 // Errors
 "Errors.error" = "Error";
@@ -119,4 +125,18 @@
 "ImageViewer.camera_denied.message" = "Please, give us permissions for saving images into your device";
 "ImageViewer.camera_denied.permissions" = "Give permissions";
 "ImageViewer.camera_denied.cancel" = "Cancel";
+
+// FavoritePlayers
+"FavoritePlayers.title" = "Favorite players";
+"FavoritePlayers.no_players" = "You don't have favorite players yet";
+"FavoritePlayers.players_count" = "You have %d players in Favorites";
+
+// ProfileEmail
+"ProfileEmail.title" = "Save my email for CFG";
+"ProfileEmail.placeholder" = "example@gmail.com";
+
+// Storage
+"Storage.title" = "Memory storage";
+"Storage.clear" = "Clear local cache";
+"Storage.warning" = "With empty cache you can't work in OFFLINE MODE";
 
