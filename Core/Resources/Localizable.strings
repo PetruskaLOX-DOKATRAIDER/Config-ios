@@ -34,6 +34,9 @@
 "Profile.feedback" = "Send feedback";
 "Profile.rate_app" = "Rate app in appstore";
 "Profile.share" = "Share with friends";
+"Profile.personal_section" = "Personal";
+"Profile.app_section" = "Application";
+"Profile.storage_section" = "Storage";
 
 // Errors
 "Errors.error" = "Error";
@@ -133,7 +136,9 @@
 
 // ProfileEmail
 "ProfileEmail.title" = "Save my email for CFG";
+"ProfileEmail.description" = "Application will insert this email for sending CFG";
 "ProfileEmail.placeholder" = "example@gmail.com";
+"ProfileEmail.save" = "SAVE";
 
 // Storage
 "Storage.title" = "Memory storage";

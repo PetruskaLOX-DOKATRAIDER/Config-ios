@@ -22,4 +22,20 @@ extension TextFieldViewModel {
 public struct TextFieldViewModelImpl: TextFieldViewModel {
     public let text: BehaviorRelay<String>
     public let placeholder: Driver<String>
+    
+    public init(
+        text: BehaviorRelay<String>,
+        placeholder: String = ""
+    ) {
+        self.text = text
+        self.placeholder = .just(placeholder)
+    }
+    
+    public init(
+        text: String = "",
+        placeholder: String = ""
+    ) {
+        self.text = BehaviorRelay(value: text)
+        self.placeholder = .just(placeholder)
+    }
 }

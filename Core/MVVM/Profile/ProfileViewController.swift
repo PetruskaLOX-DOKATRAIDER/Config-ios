@@ -7,6 +7,7 @@
 //
 
 import DTTableViewManager
+import DTModelStorage
 
 public final class ProfileViewController: UIViewController, NonReusableViewProtocol, DTTableViewManageable {
     @IBOutlet public weak var tableView: UITableView!
@@ -21,13 +22,34 @@ public final class ProfileViewController: UIViewController, NonReusableViewProto
             image: Images.Sections.profileDeselected,
             selectedImage: Images.Sections.profileSelected
         )
-        
+        setupManager()
         KeyboardAvoiding.avoid(with: tableViewBottomConstraint, inside: view).disposed(by: rx.disposeBag)
     }
     
-    public func onUpdate(with viewModel: ProfileViewModel, disposeBag: DisposeBag) {
-        
+    private func setupManager() {
+        manager.startManaging(withDelegate: self)
+        manager.configureEvents(for: SectionTopicView.self) { header, model in
+            manager.registerHeader(header)
+            manager.heightForHeader(withItem: model, { _, _ -> CGFloat in
+                return SectionTopicView.defaultHeight()
+            })
+        }
+        manager.registerFooter(SectionSubtopicView.self)
+        manager.register(FavoritePlayersItemCell.self)
+        manager.register(StorageSetupCell.self)
+        manager.register(ProfileEmailItemCell.self)
+        manager.register(SectionItemCell.self)
+        manager.didSelect(FavoritePlayersItemCell.self){ [weak self] _, viewModel, indexPath in
+            self?.tableView.deselectRow(at: indexPath, animated: true)
+            viewModel.selectionTrigger.onNext(())
+        }
+        manager.didSelect(SectionItemCell.self){ [weak self] _, viewModel, indexPath in
+            self?.tableView.deselectRow(at: indexPath, animated: true)
+            viewModel.selectionTrigger.onNext(())
+        }
     }
-
+    
+    public func onUpdate(with viewModel: ProfileViewModel, disposeBag: DisposeBag) {
+        viewModel.sections.drive(manager.memoryStorage.rx.sectionViewModels).disposed(by: disposeBag)
+    }
 }
-

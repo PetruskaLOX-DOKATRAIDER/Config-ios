@@ -27,7 +27,7 @@ public final class CoreDataStorage<CDObject: CDObjectable> where CDObject: NSMan
             }
             _ = newData.map{ CDObject.new(conext: strongSelf.coreDataStack.privateContext, plainObject: $0) }
             try? strongSelf.coreDataStack.privateContext.save()
-            try? strongSelf.coreDataStack.managedContext.save()
+            //try? strongSelf.coreDataStack.managedContext.save()
             completion?()
         }
     }

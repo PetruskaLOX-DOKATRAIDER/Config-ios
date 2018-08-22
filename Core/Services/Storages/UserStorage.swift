@@ -28,7 +28,7 @@ public final class UserStorageImpl: UserStorage, ReactiveCompatible {
             storage.set(passed, forKey: Keys.isOnboardingPassed.rawValue)
         }).disposed(by: rx.disposeBag)
         email.asDriver().drive(onNext: { email in
-            storage.set(email, forKey: Keys.isOnboardingPassed.rawValue)
+            storage.set(email, forKey: Keys.email.rawValue)
         }).disposed(by: rx.disposeBag)
     }
 }

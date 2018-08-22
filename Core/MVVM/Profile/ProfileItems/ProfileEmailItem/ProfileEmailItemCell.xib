@@ -19,52 +19,70 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="ahU-aE-trD">
-                        <rect key="frame" x="16" y="12" width="37" height="28"/>
+                        <rect key="frame" x="16" y="12" width="31" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="37" id="o3h-gw-y43"/>
-                            <constraint firstAttribute="height" constant="28" id="sLF-Wl-jkD"/>
+                            <constraint firstAttribute="width" constant="31" id="o3h-gw-y43"/>
+                            <constraint firstAttribute="height" constant="21" id="sLF-Wl-jkD"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVr-fB-Vif">
-                        <rect key="frame" x="61" y="16" width="298" height="21"/>
+                        <rect key="frame" x="55" y="14.5" width="304" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DpR-Lv-PiN">
-                        <rect key="frame" x="16" y="48" width="343" height="30"/>
+                        <rect key="frame" x="20" y="45" width="271" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="D8g-UF-Cl7"/>
+                            <constraint firstAttribute="height" constant="40" id="D8g-UF-Cl7"/>
                         </constraints>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDu-4l-BQN">
-                        <rect key="frame" x="16" y="86" width="343" height="70.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDu-4l-BQN">
+                        <rect key="frame" x="16" y="93" width="343" height="63.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7h-Yt-QPI">
+                        <rect key="frame" x="299" y="46" width="60" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="IFs-o7-IuL"/>
+                            <constraint firstAttribute="height" constant="40" id="urD-0x-Zsq"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="Y7h-Yt-QPI" firstAttribute="leading" secondItem="DpR-Lv-PiN" secondAttribute="trailing" constant="8" id="5bp-gC-dBZ"/>
                     <constraint firstItem="BVr-fB-Vif" firstAttribute="leading" secondItem="ahU-aE-trD" secondAttribute="trailing" constant="8" id="5ua-si-oIJ"/>
+                    <constraint firstAttribute="trailing" secondItem="Y7h-Yt-QPI" secondAttribute="trailing" constant="16" id="6Z2-bf-QF8"/>
                     <constraint firstItem="ahU-aE-trD" firstAttribute="leading" secondItem="cm5-FQ-1in" secondAttribute="leading" constant="16" id="Inl-LE-6T1"/>
-                    <constraint firstItem="BVr-fB-Vif" firstAttribute="centerY" secondItem="ahU-aE-trD" secondAttribute="centerY" id="NOX-Q0-TUQ"/>
+                    <constraint firstItem="BVr-fB-Vif" firstAttribute="centerY" secondItem="ahU-aE-trD" secondAttribute="centerY" constant="2.5" id="NOX-Q0-TUQ"/>
                     <constraint firstAttribute="trailing" secondItem="NDu-4l-BQN" secondAttribute="trailing" constant="16" id="Qpy-W6-Z4o"/>
                     <constraint firstItem="NDu-4l-BQN" firstAttribute="top" secondItem="DpR-Lv-PiN" secondAttribute="bottom" constant="8" id="TEo-AS-5w4"/>
-                    <constraint firstItem="DpR-Lv-PiN" firstAttribute="top" secondItem="ahU-aE-trD" secondAttribute="bottom" constant="8" id="Vgq-0n-Cu8"/>
+                    <constraint firstItem="DpR-Lv-PiN" firstAttribute="top" secondItem="ahU-aE-trD" secondAttribute="bottom" constant="12" id="Vgq-0n-Cu8"/>
+                    <constraint firstItem="Y7h-Yt-QPI" firstAttribute="top" secondItem="BVr-fB-Vif" secondAttribute="bottom" constant="10.5" id="XG8-ju-p4y"/>
                     <constraint firstAttribute="trailing" secondItem="BVr-fB-Vif" secondAttribute="trailing" constant="16" id="amZ-QF-N7X"/>
                     <constraint firstAttribute="bottom" secondItem="NDu-4l-BQN" secondAttribute="bottom" constant="8" id="lZF-yq-mgT"/>
                     <constraint firstItem="ahU-aE-trD" firstAttribute="top" secondItem="cm5-FQ-1in" secondAttribute="top" constant="12" id="s1I-bW-hPY"/>
-                    <constraint firstAttribute="trailing" secondItem="DpR-Lv-PiN" secondAttribute="trailing" constant="16" id="x8H-Fh-KBN"/>
                     <constraint firstItem="NDu-4l-BQN" firstAttribute="leading" secondItem="cm5-FQ-1in" secondAttribute="leading" constant="16" id="yn0-YT-eag"/>
-                    <constraint firstItem="DpR-Lv-PiN" firstAttribute="leading" secondItem="cm5-FQ-1in" secondAttribute="leading" constant="16" id="zVh-zB-alt"/>
+                    <constraint firstItem="DpR-Lv-PiN" firstAttribute="leading" secondItem="cm5-FQ-1in" secondAttribute="leading" constant="20" id="zVh-zB-alt"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="descriptionLabel" destination="NDu-4l-BQN" id="t3l-de-OM4"/>
                 <outlet property="emailTextField" destination="DpR-Lv-PiN" id="hoL-pV-C9w"/>
+                <outlet property="saveButton" destination="Y7h-Yt-QPI" id="TYn-Af-qtt"/>
                 <outlet property="titleLabel" destination="BVr-fB-Vif" id="WJh-9M-34P"/>
             </connections>
             <point key="canvasLocation" x="-153" y="-236"/>

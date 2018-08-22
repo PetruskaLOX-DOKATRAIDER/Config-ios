@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol StorageSetupViewModel {
+public protocol StorageSetupViewModel: SectionItemViewModelType {
     var clearTrigger: PublishSubject<Void> { get }
 }
 

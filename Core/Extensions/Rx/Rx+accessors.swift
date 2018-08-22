@@ -6,6 +6,8 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
+import DTModelStorage
+
 // MARK: ReusableViewProtocol
 
 public extension Reactive where Base: ReusableViewProtocol {
@@ -93,6 +95,29 @@ public extension Reactive where Base: PlayerInfoPageViewController {
     public var infoTitles: Binder<[HighlightText]> {
         return Binder(base) { vc, titles in
             vc.updateInfoTitles(titles)
+        }
+    }
+}
+
+public extension Reactive where Base: MemoryStorage {
+    public var sectionViewModels: Binder<[SectionViewModelType]> {
+        return Binder(base) { memoryStorage, sections in
+            memoryStorage.removeAllItems()
+            for (index, section) in sections.enumerated() {
+                section.items.drive(onNext: { self.base.setItems($0, forSection: index) }).disposed(by: self.base.rx.disposeBag)
+                section.topic.drive(onNext: { self.base.setSectionHeaderModel($0, forSection: index) }).disposed(by: self.base.rx.disposeBag)
+                section.topic.drive(onNext: { self.base.setSectionFooterModel($0, forSection: index) }).disposed(by: self.base.rx.disposeBag)
+            }
+        }
+    }
+}
+
+// MARK: UITableViewCell
+
+public extension Reactive where Base: UITableViewCell {
+    public var accessoryType: Binder<UITableViewCellAccessoryType> {
+        return Binder(base) { cell, selectionStyle in
+            cell.accessoryType = selectionStyle
         }
     }
 }

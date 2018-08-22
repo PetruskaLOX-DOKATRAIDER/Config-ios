@@ -6,17 +6,17 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol ProfileEmailItemViewModel {
+public protocol ProfileEmailItemViewModel: SectionItemViewModelType {
     var emailVM: TextFieldViewModel { get }
-    var selectionTrigger: PublishSubject<Void> { get }
+    var saveTrigger: PublishSubject<Void> { get }
 }
 
 public final class ProfileEmailItemViewModelImpl: ProfileEmailItemViewModel {
     public let emailVM: TextFieldViewModel
-    public let selectionTrigger = PublishSubject<Void>()
+    public let saveTrigger = PublishSubject<Void>()
     
     init(userStorage: UserStorage) {
-        let text = BehaviorRelay.init(value: "")
-        emailVM = TextFieldViewModelImpl(text: text, placeholder: Driver.just(""))
+        let email = BehaviorRelay(value: "")
+        emailVM = TextFieldViewModelImpl(text: email, placeholder: Strings.Profileemail.placeholder)
     }
 }

@@ -14,20 +14,21 @@ final class FavoritePlayersItemCell: UITableViewCell, ModelTransfer, ReusableVie
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = .amethyst
+        
         titleLabel.textColor = .solled
         titleLabel.font = .filsonMediumWithSize(21)
         titleLabel.text = Strings.Favoriteplayers.title
         
-        countOfPlayersLabel.textColor = .solled
+        countOfPlayersLabel.textColor = .quaded
         countOfPlayersLabel.font = .filsonMediumWithSize(15)
-    }
-    
-    public static func defaultHeight() -> CGFloat {
-        return 57
     }
     
     public func onUpdate(with viewModel: FavoritePlayersItemViewModel, disposeBag: DisposeBag) {
         viewModel.countOfPlayers.drive(countOfPlayersLabel.rx.text).disposed(by: disposeBag)
     }
+    
+    public static func defaultHeight() -> CGFloat {
+        return 79
+    }
 }
-

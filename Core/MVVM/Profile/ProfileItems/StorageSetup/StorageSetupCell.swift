@@ -15,6 +15,8 @@ final class StorageSetupCell: UITableViewCell, ModelTransfer, ReusableViewProtoc
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = .amethyst
+        
         titleLabel.textColor = .solled
         titleLabel.font = .filsonMediumWithSize(18)
         titleLabel.text = Strings.Storage.title
@@ -25,10 +27,15 @@ final class StorageSetupCell: UITableViewCell, ModelTransfer, ReusableViewProtoc
         
         clearButton.setTitle(Strings.Storage.clear, for: .normal)
         clearButton.setTitleColor(.snowWhite, for: .normal)
-        clearButton.titleLabel?.font = .filsonMediumWithSize(18)
+        clearButton.backgroundColor = .ichigos
+        clearButton.titleLabel?.font = .filsonMediumWithSize(16)
     }
     
     public func onUpdate(with viewModel: StorageSetupViewModel, disposeBag: DisposeBag) {
         clearButton.rx.tap.bind(to: viewModel.clearTrigger).disposed(by: disposeBag)
+    }
+    
+    public static func defaultHeight() -> CGFloat {
+        return 161
     }
 }

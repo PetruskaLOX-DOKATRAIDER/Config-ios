@@ -26,29 +26,32 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjv-3f-dVt">
-                        <rect key="frame" x="57" y="42" width="268" height="21"/>
+                        <rect key="frame" x="57" y="42" width="276" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84a-Dl-JIa">
-                        <rect key="frame" x="57" y="16" width="268" height="21"/>
+                        <rect key="frame" x="57" y="16" width="276" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="84a-Dl-JIa" firstAttribute="centerY" secondItem="QNi-56-Jd0" secondAttribute="centerY" constant="-12.75" id="28y-qB-D4D"/>
-                    <constraint firstAttribute="trailing" secondItem="bjv-3f-dVt" secondAttribute="trailing" constant="16" id="8Uy-eC-6zA"/>
-                    <constraint firstItem="bjv-3f-dVt" firstAttribute="centerY" secondItem="QNi-56-Jd0" secondAttribute="centerY" constant="13.25" id="V7X-n8-d25"/>
-                    <constraint firstAttribute="trailing" secondItem="84a-Dl-JIa" secondAttribute="trailing" constant="16" id="aOL-GO-LSl"/>
+                    <constraint firstAttribute="bottom" secondItem="bjv-3f-dVt" secondAttribute="bottom" priority="250" constant="16" id="0Nv-te-4xx"/>
+                    <constraint firstItem="84a-Dl-JIa" firstAttribute="top" secondItem="QNi-56-Jd0" secondAttribute="top" constant="16" id="UaX-2X-El7"/>
+                    <constraint firstAttribute="trailing" secondItem="84a-Dl-JIa" secondAttribute="trailing" constant="8" id="V6n-L8-ALo"/>
+                    <constraint firstAttribute="trailing" secondItem="bjv-3f-dVt" secondAttribute="trailing" constant="8" id="XTD-jE-Cp2"/>
+                    <constraint firstItem="bjv-3f-dVt" firstAttribute="top" secondItem="84a-Dl-JIa" secondAttribute="bottom" constant="5" id="j3k-vX-9zy"/>
                     <constraint firstItem="zYC-XW-q6A" firstAttribute="centerY" secondItem="QNi-56-Jd0" secondAttribute="centerY" id="mU0-2G-W82"/>
-                    <constraint firstItem="bjv-3f-dVt" firstAttribute="leading" secondItem="zYC-XW-q6A" secondAttribute="trailing" constant="12" id="nP8-B3-jvT"/>
-                    <constraint firstItem="84a-Dl-JIa" firstAttribute="leading" secondItem="zYC-XW-q6A" secondAttribute="trailing" constant="12" id="paM-UG-wEg"/>
+                    <constraint firstItem="bjv-3f-dVt" firstAttribute="leading" secondItem="zYC-XW-q6A" secondAttribute="trailing" constant="12" id="prj-p9-bFi"/>
+                    <constraint firstItem="84a-Dl-JIa" firstAttribute="leading" secondItem="zYC-XW-q6A" secondAttribute="trailing" constant="12" id="t2I-NK-qhU"/>
                     <constraint firstItem="zYC-XW-q6A" firstAttribute="leading" secondItem="QNi-56-Jd0" secondAttribute="leading" constant="16" id="zzM-hG-cmn"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="countOfPlayersLabel" destination="bjv-3f-dVt" id="CtD-rO-nkT"/>
                 <outlet property="titleLabel" destination="84a-Dl-JIa" id="h0d-Ok-GIA"/>
