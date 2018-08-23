@@ -16,7 +16,7 @@ extension API {
     open class TeamsAPIServiceImpl: API, TeamsAPIService {
         public func getTeams(forPage page: Int) -> Response<Page<Team>, RequestError> {
             let request: Request<Page<Team>, RequestError> = tron.swiftyJSON.request("teamsData/teamsData\(page).json")
-            request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL)
+            request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL.absoluteString)
             request.method = .get
             return request.asResult()
         }

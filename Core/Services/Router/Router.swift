@@ -57,7 +57,10 @@ open class Router: ReactiveCompatible {
     }
     
     public func profile() -> Route<ProfileViewController> {
-        return route()
+        return route().configure({ [ favoritePlayers = favoritePlayers(), skins = skins() ] vc in
+            vc.viewModel?.shouldRouteFavoritePlayers.map(to: favoritePlayers).push().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRouteSkins.map(to: skins).push().disposed(by: vc.rx.disposeBag)
+        })
     }
     
     public func events() -> Route<EventsContainerViewController> {
@@ -114,6 +117,9 @@ open class Router: ReactiveCompatible {
             guard let nvc = vc.navigationController else { return }
             nvc.addMotionTransition(.zoomSlide(direction: .left))
             vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomSlide(direction: .right)).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shoudShowAlert.map{ UIAlertControllerFactory.alertController(fromViewModelAlert: $0) }.drive(onNext: { [weak nvc] alert in
+                nvc?.present(alert, animated: true, completion: nil)
+            }).disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.clear())
     }
     
@@ -141,6 +147,19 @@ open class Router: ReactiveCompatible {
                 try? self?.deviceRouter.openSettings()
             }).disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.default())
+    }
+    
+    public func favoritePlayers() -> Route<FavoritePlayersViewController> {
+        return route().configure({ [ playerDescription = playerDescription() ] vc in
+            vc.viewModel?.shouldRoutePlayerDescription.map(playerDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldClose.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
+        })
+    }
+    
+    public func skins() -> Route<SkinsViewController> {
+        return route().configure({ vc in
+            vc.viewModel?.shouldClose.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
+        })
     }
     
     private func route<T: UIViewController>() -> Route<T> where T: ViewModelHolderProtocol {

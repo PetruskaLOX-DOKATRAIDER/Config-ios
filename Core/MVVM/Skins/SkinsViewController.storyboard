@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ek-ct-1Xt">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Skins View Controller-->
+        <scene sceneID="tEr-Pp-f1g">
+            <objects>
+                <viewController id="7ek-ct-1Xt" customClass="SkinsViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UUI-Gp-oci"/>
+                        <viewControllerLayoutGuide type="bottom" id="4af-qR-9ib"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cEO-6E-8qo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IAB-Od-Bep">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="2xU-qt-ccu"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Svi-9k-dx1">
+                                <rect key="frame" x="0.0" y="56" width="375" height="611"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vG-4z-B32">
+                                <rect key="frame" x="8" y="80" width="359" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="Svi-9k-dx1" secondAttribute="bottom" id="5iv-xe-lzo"/>
+                            <constraint firstItem="IAB-Od-Bep" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="Ftv-rg-qpk"/>
+                            <constraint firstItem="8vG-4z-B32" firstAttribute="top" secondItem="UUI-Gp-oci" secondAttribute="bottom" constant="60" id="MKK-oy-QQy"/>
+                            <constraint firstAttribute="trailing" secondItem="IAB-Od-Bep" secondAttribute="trailing" id="NoT-oj-YM5"/>
+                            <constraint firstItem="Svi-9k-dx1" firstAttribute="top" secondItem="IAB-Od-Bep" secondAttribute="bottom" id="Op7-2f-aUE"/>
+                            <constraint firstAttribute="trailing" secondItem="8vG-4z-B32" secondAttribute="trailing" constant="8" id="YnI-Pc-GOy"/>
+                            <constraint firstItem="IAB-Od-Bep" firstAttribute="top" secondItem="cEO-6E-8qo" secondAttribute="top" id="r01-44-jDY"/>
+                            <constraint firstAttribute="trailing" secondItem="Svi-9k-dx1" secondAttribute="trailing" id="sx3-9T-28x"/>
+                            <constraint firstItem="Svi-9k-dx1" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="z0y-QJ-Sag"/>
+                            <constraint firstItem="8vG-4z-B32" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" constant="8" id="zIj-pF-yW4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Ns4-cA-gMe">
+                        <barButtonItem key="leftBarButtonItem" id="RQS-tP-ydx">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="noL-mk-Ug4">
+                                <rect key="frame" x="16" y="7" width="13" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="theme_back"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="closeButton" destination="noL-mk-Ug4" id="O2Z-bR-jbd"/>
+                        <outlet property="searchBar" destination="IAB-Od-Bep" id="BQg-DU-b7I"/>
+                        <outlet property="tableView" destination="Svi-9k-dx1" id="i94-p9-q7K"/>
+                        <outlet property="workingStatusLabel" destination="8vG-4z-B32" id="xgW-20-KaQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-44" y="136"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="theme_back" width="12" height="20"/>
+    </resources>
+</document>

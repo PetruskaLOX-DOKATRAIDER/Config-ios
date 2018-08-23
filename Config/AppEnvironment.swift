@@ -26,11 +26,11 @@ public enum AppEnvironmentImpl: AppEnvironment {
         if plistValue.lowercased().contains("staging") { self = .staging(info: info) } else if plistValue.lowercased().contains("production") { self = .production(info: info) } else { self = .develop(info: info) }
     }
     
-    public var apiURL: String {
+    public var apiURL: URL {
         switch self {
-        case .develop: return "https://cscoconfigs.firebaseio.com/"
-        case .staging: return "https://cscoconfigs.firebaseio.com/"
-        case .production: return "https://cscoconfigs.firebaseio.com/"
+        case .develop: return URL(string: "https://cscoconfigs.firebaseio.com/") ?? URL(fileURLWithPath: "")
+        case .staging: return URL(string: "https://cscoconfigs.firebaseio.com/") ?? URL(fileURLWithPath: "")
+        case .production: return URL(string: "https://cscoconfigs.firebaseio.com/") ?? URL(fileURLWithPath: "")
         }
     }
     
@@ -49,5 +49,9 @@ public enum AppEnvironmentImpl: AppEnvironment {
         } else {
             return URL(string: "") ?? URL(fileURLWithPath: "")
         }
+    }
+    
+    public var skinsAPIURL: URL {
+        return URL(string: "wss://wsn.dota2.net/wsn/") ?? URL(fileURLWithPath: "")
     }
 }

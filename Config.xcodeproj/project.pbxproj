@@ -94,6 +94,20 @@
 		7C46053D2109F72300DA0724 /* EventFilterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C46053C2109F72300DA0724 /* EventFilterItemView.swift */; };
 		7C46053F2109F72E00DA0724 /* EventFilterItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C46053E2109F72E00DA0724 /* EventFilterItemView.xib */; };
 		7C460541210A145300DA0724 /* UIDatePicker+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C460540210A145300DA0724 /* UIDatePicker+extensions.swift */; };
+		7C4D9733212ECC750001A93A /* SkinsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D972F212ECC750001A93A /* SkinsViewModelTests.swift */; };
+		7C4D9734212ECC750001A93A /* SkinsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C4D9730212ECC750001A93A /* SkinsViewController.storyboard */; };
+		7C4D9735212ECC750001A93A /* SkinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D9731212ECC750001A93A /* SkinsViewController.swift */; };
+		7C4D9736212ECC750001A93A /* SkinsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D9732212ECC750001A93A /* SkinsViewModel.swift */; };
+		7C4D9739212ED0DE0001A93A /* SkinItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D9738212ED0DE0001A93A /* SkinItemViewModel.swift */; };
+		7C4D973B212ED0E80001A93A /* SkinItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D973A212ED0E80001A93A /* SkinItemViewModelTests.swift */; };
+		7C4D973D212ED0F10001A93A /* SkinItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D973C212ED0F10001A93A /* SkinItemCell.swift */; };
+		7C4D973F212ED1000001A93A /* SkinItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C4D973E212ED1000001A93A /* SkinItemCell.xib */; };
+		7C4D9741212ED1C80001A93A /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D9740212ED1C80001A93A /* Skin.swift */; };
+		7C4D9743212ED4720001A93A /* SkinsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D9742212ED4720001A93A /* SkinsService.swift */; };
+		7C4D9745212ED8940001A93A /* WebsocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D9744212ED8940001A93A /* WebsocketService.swift */; };
+		7C4D9747212EDEDD0001A93A /* SkinsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D9746212EDEDD0001A93A /* SkinsAPIService.swift */; };
+		7C4D9749212EF4C10001A93A /* HighlightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D9748212EF4C10001A93A /* HighlightText.swift */; };
+		7C4D974D212F00D10001A93A /* NSError+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D974C212F00D10001A93A /* NSError+extensions.swift */; };
 		7C53C42D20F74B56001FC864 /* CDPlayerPreview+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53C42C20F74B56001FC864 /* CDPlayerPreview+CDObjectable.swift */; };
 		7C53C42F20F74B8F001FC864 /* CDImageSize+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53C42E20F74B8F001FC864 /* CDImageSize+CDObjectable.swift */; };
 		7C59436120F7518D009D8D7D /* Bundle+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59436020F7518D009D8D7D /* Bundle+extensions.swift */; };
@@ -133,7 +147,6 @@
 		7C9105D720FC904E00970FA7 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9105D620FC904E00970FA7 /* Team.swift */; };
 		7C9105DC20FC93AB00970FA7 /* PlayerInTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9105DB20FC93AB00970FA7 /* PlayerInTeamView.swift */; };
 		7C9105DE20FC93B200970FA7 /* PlayerInTeamView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C9105DD20FC93B200970FA7 /* PlayerInTeamView.xib */; };
-		7C9BF76820D3E3290016D224 /* Error+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF76720D3E3290016D224 /* Error+extensions.swift */; };
 		7CA5526921008CA50097E866 /* PlayerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5526821008CA50097E866 /* PlayerPreview.swift */; };
 		7CA5526B21008CC90097E866 /* PlayerDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5526A21008CC90097E866 /* PlayerDescription.swift */; };
 		7CA5526F21008E090097E866 /* PlayerBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5526E21008E090097E866 /* PlayerBanner.swift */; };
@@ -482,6 +495,20 @@
 		7C46053C2109F72300DA0724 /* EventFilterItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterItemView.swift; sourceTree = "<group>"; };
 		7C46053E2109F72E00DA0724 /* EventFilterItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventFilterItemView.xib; sourceTree = "<group>"; };
 		7C460540210A145300DA0724 /* UIDatePicker+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDatePicker+extensions.swift"; sourceTree = "<group>"; };
+		7C4D972F212ECC750001A93A /* SkinsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsViewModelTests.swift; sourceTree = "<group>"; };
+		7C4D9730212ECC750001A93A /* SkinsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SkinsViewController.storyboard; sourceTree = "<group>"; };
+		7C4D9731212ECC750001A93A /* SkinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsViewController.swift; sourceTree = "<group>"; };
+		7C4D9732212ECC750001A93A /* SkinsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsViewModel.swift; sourceTree = "<group>"; };
+		7C4D9738212ED0DE0001A93A /* SkinItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinItemViewModel.swift; sourceTree = "<group>"; };
+		7C4D973A212ED0E80001A93A /* SkinItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinItemViewModelTests.swift; sourceTree = "<group>"; };
+		7C4D973C212ED0F10001A93A /* SkinItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinItemCell.swift; sourceTree = "<group>"; };
+		7C4D973E212ED1000001A93A /* SkinItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkinItemCell.xib; sourceTree = "<group>"; };
+		7C4D9740212ED1C80001A93A /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
+		7C4D9742212ED4720001A93A /* SkinsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsService.swift; sourceTree = "<group>"; };
+		7C4D9744212ED8940001A93A /* WebsocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsocketService.swift; sourceTree = "<group>"; };
+		7C4D9746212EDEDD0001A93A /* SkinsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsAPIService.swift; sourceTree = "<group>"; };
+		7C4D9748212EF4C10001A93A /* HighlightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightText.swift; sourceTree = "<group>"; };
+		7C4D974C212F00D10001A93A /* NSError+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+extensions.swift"; sourceTree = "<group>"; };
 		7C53C42C20F74B56001FC864 /* CDPlayerPreview+CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDPlayerPreview+CDObjectable.swift"; sourceTree = "<group>"; };
 		7C53C42E20F74B8F001FC864 /* CDImageSize+CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDImageSize+CDObjectable.swift"; sourceTree = "<group>"; };
 		7C59436020F7518D009D8D7D /* Bundle+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extensions.swift"; sourceTree = "<group>"; };
@@ -520,7 +547,6 @@
 		7C9105D620FC904E00970FA7 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		7C9105DB20FC93AB00970FA7 /* PlayerInTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInTeamView.swift; sourceTree = "<group>"; };
 		7C9105DD20FC93B200970FA7 /* PlayerInTeamView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerInTeamView.xib; sourceTree = "<group>"; };
-		7C9BF76720D3E3290016D224 /* Error+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+extensions.swift"; sourceTree = "<group>"; };
 		7CA5526821008CA50097E866 /* PlayerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPreview.swift; sourceTree = "<group>"; };
 		7CA5526A21008CC90097E866 /* PlayerDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDescription.swift; sourceTree = "<group>"; };
 		7CA5526E21008E090097E866 /* PlayerBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBanner.swift; sourceTree = "<group>"; };
@@ -1048,6 +1074,29 @@
 			path = NewsItem;
 			sourceTree = "<group>";
 		};
+		7C4D972E212ECC550001A93A /* Skins */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D9737212ED0CF0001A93A /* SkinItem */,
+				7C4D9732212ECC750001A93A /* SkinsViewModel.swift */,
+				7C4D972F212ECC750001A93A /* SkinsViewModelTests.swift */,
+				7C4D9731212ECC750001A93A /* SkinsViewController.swift */,
+				7C4D9730212ECC750001A93A /* SkinsViewController.storyboard */,
+			);
+			path = Skins;
+			sourceTree = "<group>";
+		};
+		7C4D9737212ED0CF0001A93A /* SkinItem */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D9738212ED0DE0001A93A /* SkinItemViewModel.swift */,
+				7C4D973A212ED0E80001A93A /* SkinItemViewModelTests.swift */,
+				7C4D973C212ED0F10001A93A /* SkinItemCell.swift */,
+				7C4D973E212ED1000001A93A /* SkinItemCell.xib */,
+			);
+			path = SkinItem;
+			sourceTree = "<group>";
+		};
 		7C59436220F75229009D8D7D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1179,6 +1228,7 @@
 				7CAE6D9321020FB300844B11 /* EventsService.swift */,
 				7C37223B2110BA9900A5D525 /* NewsService.swift */,
 				7C5ADBFA2114AC480012C0C8 /* BannerService.swift */,
+				7C4D9742212ED4720001A93A /* SkinsService.swift */,
 			);
 			path = Facades;
 			sourceTree = "<group>";
@@ -1190,6 +1240,7 @@
 				7C174E562112DE49008CD96D /* ImageLoaderService.swift */,
 				7C174E582112DEC7008CD96D /* PhotosAlbumService.swift */,
 				7C174E5A2112FBAD008CD96D /* CameraService.swift */,
+				7C4D9744212ED8940001A93A /* WebsocketService.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1400,6 +1451,8 @@
 				7C9105D620FC904E00970FA7 /* Team.swift */,
 				7CA5526E21008E090097E866 /* PlayerBanner.swift */,
 				7CAE6D8F2101F0F100844B11 /* Event.swift */,
+				7C4D9740212ED1C80001A93A /* Skin.swift */,
+				7C4D9748212EF4C10001A93A /* HighlightText.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1534,6 +1587,7 @@
 		C02C45B8202C84D3008AE9B0 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				7C4D972E212ECC550001A93A /* Skins */,
 				7C0530E82113377C00924C1B /* FavoritePlayers */,
 				7C13B01C2112CF07007DFE98 /* ImageViewer */,
 				7C22BE0E2111A6AF00E3F681 /* NewsDescription */,
@@ -1602,7 +1656,6 @@
 				C02C4640202D8DD3008AE9B0 /* TableViewManager+extensions.swift */,
 				A84BD4082031D5420060E520 /* TableViewManager+extensionsTests.swift */,
 				C02C4664202D9A70008AE9B0 /* Optional+extensions.swift */,
-				7C9BF76720D3E3290016D224 /* Error+extensions.swift */,
 				7CDAF94620D7A776009B9B87 /* Runes.swift */,
 				7C2FDEF520DE38B100EDD11E /* CollectionViewManager+extensions.swift */,
 				7C59436020F7518D009D8D7D /* Bundle+extensions.swift */,
@@ -1610,6 +1663,7 @@
 				7CAE6D612101DF6400844B11 /* UIPageViewController+extensions.swift */,
 				7CB97D1321061AB5002CA594 /* NSObject+extensions.swift */,
 				7CB97D1521061BC6002CA594 /* CLLocationCoordinate2D+extensions.swift */,
+				7C4D974C212F00D10001A93A /* NSError+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1634,6 +1688,7 @@
 				7CAE6D9521020FE500844B11 /* API+Events.swift */,
 				7C37223D2110BBC800A5D525 /* API+News.swift */,
 				7C5ADBF82114ABFF0012C0C8 /* API+Banner.swift */,
+				7C4D9746212EDEDD0001A93A /* SkinsAPIService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -2121,6 +2176,7 @@
 				7CDAF97B20D7FF8E009B9B87 /* AutoStrings.stencil in Resources */,
 				7CA5527C2100925E0097E866 /* PlayerDescriptionViewController.storyboard in Resources */,
 				7CDE34BF20DD248A0055F304 /* PlayerPreviewCell.xib in Resources */,
+				7C4D973F212ED1000001A93A /* SkinItemCell.xib in Resources */,
 				7C13B0222112CF1E007DFE98 /* ImageViewerViewController.storyboard in Resources */,
 				7C2BF74420D91BDD0026DAB4 /* TutoriaItemCell.xib in Resources */,
 				7CFA24E020D932C80059378F /* NewsViewController.storyboard in Resources */,
@@ -2132,6 +2188,7 @@
 				7CFA250020D932EF0059378F /* PlayersViewController.storyboard in Resources */,
 				7C88007D212D5E17002F049A /* SectionSubtopicView.xib in Resources */,
 				7C16F51421120A3800EB68BA /* NewsTextContentItemView.xib in Resources */,
+				7C4D9734212ECC750001A93A /* SkinsViewController.storyboard in Resources */,
 				7C1D76FC2108B3B60021A4CF /* DatePickerViewController.storyboard in Resources */,
 				7C0530EE211337E100924C1B /* FavoritePlayersViewController.storyboard in Resources */,
 				7C226EF6212C67B3002DCB94 /* StorageSetupCell.xib in Resources */,
@@ -2293,6 +2350,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxViewController/RxViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TRON/TRON.framework",
 			);
@@ -2325,6 +2383,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TRON.framework",
 			);
@@ -2409,6 +2468,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxViewController/RxViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TRON/TRON.framework",
 			);
@@ -2437,6 +2497,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TRON.framework",
 			);
@@ -2532,7 +2593,9 @@
 				7CDB87F7211470F7007E49AC /* NewsService.swift in Sources */,
 				C02C464A202D8E68008AE9B0 /* Page.swift in Sources */,
 				7C9105CE20FC810100970FA7 /* PlayerBannerItemCell.swift in Sources */,
+				7C4D9739212ED0DE0001A93A /* SkinItemViewModel.swift in Sources */,
 				7CDAF96820D7FB72009B9B87 /* UINavigationBar+extensions.swift in Sources */,
+				7C4D9741212ED1C80001A93A /* Skin.swift in Sources */,
 				7C37223E2110BBC800A5D525 /* API+News.swift in Sources */,
 				7CFA24D520D92F930059378F /* UICollectionView+extension.swift in Sources */,
 				7C29AC07210731FE00DF6DCB /* EventDescriptionViewModelTests.swift in Sources */,
@@ -2540,10 +2603,12 @@
 				7CB97D1021061A40002CA594 /* EventItemAnnotationViewModel.swift in Sources */,
 				7CEEE571210B397000BE106E /* PlayerInfoView.swift in Sources */,
 				7CED80E6212AD44D00555E7F /* ProfileEmailItemViewModelTests.swift in Sources */,
+				7C4D9749212EF4C10001A93A /* HighlightText.swift in Sources */,
 				7CB97D1621061BC6002CA594 /* CLLocationCoordinate2D+extensions.swift in Sources */,
 				7CAE6D792101E07A00844B11 /* MapEventsViewController.swift in Sources */,
 				7CE76E4420EA5848009422EF /* AppEnvironment.swift in Sources */,
 				7CAE6D572101DB1A00844B11 /* SegmentPageViewController.swift in Sources */,
+				7C4D9745212ED8940001A93A /* WebsocketService.swift in Sources */,
 				7C1D76FD2108B3B60021A4CF /* DatePickerViewController.swift in Sources */,
 				7C11D39C20FCC2DF00FC8599 /* TeamsStorage.swift in Sources */,
 				C02C465F202D94B9008AE9B0 /* RxKeyboard+extension.swift in Sources */,
@@ -2552,6 +2617,7 @@
 				7C46053D2109F72300DA0724 /* EventFilterItemView.swift in Sources */,
 				7CA5526921008CA50097E866 /* PlayerPreview.swift in Sources */,
 				7C880079212D5E07002F049A /* SectionSubtopicViewModel.swift in Sources */,
+				7C4D9733212ECC750001A93A /* SkinsViewModelTests.swift in Sources */,
 				7CAE6D9621020FE500844B11 /* API+Events.swift in Sources */,
 				7C0530EF211337E100924C1B /* FavoritePlayersViewController.swift in Sources */,
 				C0F8681D202C6A0600D15CDA /* AutoPublicInitMarker.swift in Sources */,
@@ -2603,6 +2669,7 @@
 				7C174E6121131546008CD96D /* AlertActionViewModel.swift in Sources */,
 				C02C45B1202C7737008AE9B0 /* StaticEnvironment.swift in Sources */,
 				7CA5527E2100925E0097E866 /* PlayerDescriptionViewModel.swift in Sources */,
+				7C4D973D212ED0F10001A93A /* SkinItemCell.swift in Sources */,
 				7CDAF97D20D7FFA4009B9B87 /* Strings.generated.swift in Sources */,
 				7CA552822100990E0097E866 /* UIView+MessageView.swift in Sources */,
 				7C3722332110B3BB00A5D525 /* NewsItemCell.swift in Sources */,
@@ -2657,13 +2724,16 @@
 				7CED8108212AEF1700555E7F /* FavoritePlayersItemViewModelTests.swift in Sources */,
 				7CA552882100B8A40097E866 /* UIColor+themeColors.swift in Sources */,
 				7CAE6D6E2101E00300844B11 /* EventsContainerViewController.swift in Sources */,
+				7C4D9736212ECC750001A93A /* SkinsViewModel.swift in Sources */,
 				7C5F307920E0E2770050E9AE /* ViewModelFactory.swift in Sources */,
 				7CFA24E920D932D30059378F /* ProfileViewController.swift in Sources */,
+				7C4D9743212ED4720001A93A /* SkinsService.swift in Sources */,
 				7CAE6D592101DBEB00844B11 /* Array+extensions.swift in Sources */,
 				7C29AC112107581900DF6DCB /* EventsFilterViewModelTests.swift in Sources */,
 				7C174E572112DE49008CD96D /* ImageLoaderService.swift in Sources */,
 				7C9105C120FC805900970FA7 /* PlayersBannerViewModel.swift in Sources */,
 				7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */,
+				7C4D973B212ED0E80001A93A /* SkinItemViewModelTests.swift in Sources */,
 				7CB97D20210629F5002CA594 /* MKMapView+extensions.swift in Sources */,
 				C02C4663202D9A09008AE9B0 /* Attributer.swift in Sources */,
 				7C29AC16210758B800DF6DCB /* EventsFiltersStorage.swift in Sources */,
@@ -2671,10 +2741,13 @@
 				7CDAF95B20D7C0A3009B9B87 /* TutorialViewModel.swift in Sources */,
 				7CDAF96320D7EEB9009B9B87 /* Storage.swift in Sources */,
 				C02C465C202D9423008AE9B0 /* UIControl+extension.swift in Sources */,
+				7C4D9747212EDEDD0001A93A /* SkinsAPIService.swift in Sources */,
 				C02C464F202D8F4B008AE9B0 /* ActivityTracker.swift in Sources */,
+				7C4D9735212ECC750001A93A /* SkinsViewController.swift in Sources */,
 				7C3722372110B5D900A5D525 /* GradientView.swift in Sources */,
 				7C88006A212D5073002F049A /* SectionViewModel.swift in Sources */,
 				7C46053B2109E5D600DA0724 /* Numeric+extensions.swift in Sources */,
+				7C4D974D212F00D10001A93A /* NSError+extensions.swift in Sources */,
 				C02C461C202C8AD7008AE9B0 /* DictionaryError.swift in Sources */,
 				7C5F307720E0E2420050E9AE /* ViewFactory.swift in Sources */,
 				7C13B0212112CF1E007DFE98 /* ImageViewerViewModelTests.swift in Sources */,
@@ -2703,7 +2776,6 @@
 				7CAE6D822101E08D00844B11 /* ListEventsViewController.swift in Sources */,
 				7CA5527B2100925E0097E866 /* PlayerDescriptionViewModelTests.swift in Sources */,
 				7C9105C820FC80CB00970FA7 /* PlayerBannerItemViewModel.swift in Sources */,
-				7C9BF76820D3E3290016D224 /* Error+extensions.swift in Sources */,
 				C02C4659202D9423008AE9B0 /* UIColor+extension.swift in Sources */,
 				7CCA5D012107254E00B50573 /* UIImage+extensions.swift in Sources */,
 			);

@@ -16,7 +16,7 @@ extension API {
     open class BannerAPIServiceImpl: API, BannerAPIService {
         public func getBannerForPlayers(forPage page: Int) -> Response<Page<PlayerBanner>, RequestError> {
             let request: Request<Page<PlayerBanner>, RequestError> = tron.swiftyJSON.request("bannersData/bannersData\(page).json")
-            request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL)
+            request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL.absoluteString)
             request.method = .get
             return request.asResult()
         }

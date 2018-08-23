@@ -6,19 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public struct HighlightText {
-    public let full: String
-    public let highlights: [String]
-    
-    init(
-        full: String,
-        highlights: [String] = []
-    ) {
-        self.full = full
-        self.highlights = highlights
-    }
-}
-
 public protocol EventItemViewModel {
     var name: Driver<String> { get }
     var city: Driver<String> { get }

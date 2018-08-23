@@ -35,5 +35,4 @@ public final class BannerServiceImpl: BannerService, ReactiveCompatible {
             serverError.map{ Result(error: $0) }
         )
     }
-    
 }

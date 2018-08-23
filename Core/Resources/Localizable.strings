@@ -111,6 +111,12 @@
 "Player_Description.game_resolution" = "Plays on %@ resolution";
 "Player_Description.sens" = "Plays with %@ windows sens";
 "Player_Description.polling_rate" = "Plays with %@ polling rate";
+"Player_Description.copy_cfg" = "Copy CFG url";
+"Player_Description.share_cfg" = "Share CFG url";
+"Player_Description.add_to_favorites" = "Add to favorites";
+"Player_Description.remove_from_favorites" = "Remove from favorites";
+"Player_Description.copied_message" = "CFG URL has been copied";
+"Player_Description.cancel" = "Cancel";
 
 // NewsDescription
 "NewsDescription.share" = "Share";
@@ -131,8 +137,9 @@
 
 // FavoritePlayers
 "FavoritePlayers.title" = "Favorite players";
-"FavoritePlayers.no_players" = "You don't have favorite players yet";
+"FavoritePlayers.no_content.title" = "You don't have favorite players yet";
 "FavoritePlayers.players_count" = "You have %d players in Favorites";
+"FavoritePlayers.no_content.subtitle" = "You can add any player to Favorites from player description screen";
 
 // ProfileEmail
 "ProfileEmail.title" = "Save my email for CFG";
@@ -144,4 +151,12 @@
 "Storage.title" = "Memory storage";
 "Storage.clear" = "Clear local cache";
 "Storage.warning" = "With empty cache you can't work in OFFLINE MODE";
+
+// Skins
+"Skins.title" = "Skins online";
+"Skins.search" = "Search";
+"Skins.working_status" = "The Application connecting to the server,\n please wait";
+
+// SkinItem
+"SkinItem.price_substr" = "for";
 

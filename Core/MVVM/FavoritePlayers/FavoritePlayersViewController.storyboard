@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ek-ct-1Xt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ek-ct-1Xt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Favorite Players View Controller-->
         <scene sceneID="tEr-Pp-f1g">
             <objects>
-                <viewController id="7ek-ct-1Xt" customClass="FavoritePlayersViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7ek-ct-1Xt" customClass="FavoritePlayersViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UUI-Gp-oci"/>
                         <viewControllerLayoutGuide type="bottom" id="4af-qR-9ib"/>
@@ -18,12 +20,79 @@
                     <view key="view" contentMode="scaleToFill" id="cEO-6E-8qo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OUC-ag-tX5">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mL3-Tn-PG8">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZqL-FL-YTd">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="BFD-GN-cgB">
+                                <rect key="frame" x="16" y="309.5" width="343" height="47"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0E7-Os-e25">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEF-du-q6T">
+                                        <rect key="frame" x="0.0" y="26.5" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BFD-GN-cgB" firstAttribute="centerY" secondItem="cEO-6E-8qo" secondAttribute="centerY" id="BbP-HK-zba"/>
+                            <constraint firstAttribute="trailing" secondItem="OUC-ag-tX5" secondAttribute="trailing" id="FBy-KI-ckc"/>
+                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="OUC-ag-tX5" secondAttribute="bottom" id="SHj-17-3Ww"/>
+                            <constraint firstAttribute="trailing" secondItem="BFD-GN-cgB" secondAttribute="trailing" constant="16" id="XXc-o9-WJ2"/>
+                            <constraint firstItem="OUC-ag-tX5" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="wBJ-yX-Tsf"/>
+                            <constraint firstItem="BFD-GN-cgB" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" constant="16" id="yUi-RB-UWt"/>
+                            <constraint firstItem="OUC-ag-tX5" firstAttribute="top" secondItem="UUI-Gp-oci" secondAttribute="bottom" id="yx4-Ov-KnD"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="3uU-iU-F9D">
+                        <barButtonItem key="leftBarButtonItem" id="wgd-xG-1vA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tey-at-63s">
+                                <rect key="frame" x="16" y="7" width="13" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="theme_back"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="closeButton" destination="tey-at-63s" id="bX8-iz-ZtS"/>
+                        <outlet property="collectionView" destination="OUC-ag-tX5" id="WfT-Oa-hMy"/>
+                        <outlet property="noContentContainerView" destination="BFD-GN-cgB" id="Kcg-bO-Lhp"/>
+                        <outlet property="noContentSubtitleLabel" destination="aEF-du-q6T" id="b7V-rw-eFR"/>
+                        <outlet property="noContentTitleLabel" destination="0E7-Os-e25" id="ADb-gF-alw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="143"/>
+            <point key="canvasLocation" x="-114.40000000000001" y="158.77061469265368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="theme_back" width="12" height="20"/>
+    </resources>
 </document>

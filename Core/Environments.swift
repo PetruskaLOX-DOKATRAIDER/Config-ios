@@ -7,8 +7,9 @@
 //
 
 public protocol AppEnvironment: AutoMockable {
-    var apiURL : String { get }
+    var apiURL : URL { get }
     var appVersion: String { get }
     var isDebug: Bool { get }
     var appStoreURL: URL { get }
+    var skinsAPIURL: URL { get }
 }

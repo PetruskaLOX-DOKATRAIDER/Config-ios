@@ -89,7 +89,7 @@ public extension Reactive where Base: MKMapView {
     }
 }
 
-// PlayerInfoPageViewController
+// MARK: PlayerInfoPageViewController
 
 public extension Reactive where Base: PlayerInfoPageViewController {
     public var infoTitles: Binder<[HighlightText]> {
@@ -98,6 +98,8 @@ public extension Reactive where Base: PlayerInfoPageViewController {
         }
     }
 }
+
+// MARK: MemoryStorage
 
 public extension Reactive where Base: MemoryStorage {
     public var sectionViewModels: Binder<[SectionViewModelType]> {

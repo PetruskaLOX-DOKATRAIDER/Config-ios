@@ -16,7 +16,7 @@ extension API {
     open class EventsAPIServiceImpl: API, EventsAPIService {
         public func getEvents(forPage page: Int) -> Response<Page<Event>, RequestError> {
             let request: Request<Page<Event>, RequestError> = tron.swiftyJSON.request("eventsData\(page).json")
-            request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL)
+            request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL.absoluteString)
             request.method = .get
             return request.asResult()
         }

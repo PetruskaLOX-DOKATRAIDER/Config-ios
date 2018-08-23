@@ -14,10 +14,23 @@ public enum PlayersServiceError: Error {
     case unknown
 }
 
+extension PlayersServiceError: Equatable {
+    public static func == (lhs: PlayersServiceError, rhs: PlayersServiceError) -> Bool {
+        switch (lhs, rhs) {
+        case (.playerIsNotInFavorites, .playerIsNotInFavorites): return true
+        case (.playerAlreadyInFavorites, .playerAlreadyInFavorites): return true
+        case (.serverError, .serverError): return true
+        case (.noData, .noData): return true
+        case (.unknown, .unknown): return true
+        default: return false
+        }
+    }
+}
+
 public protocol PlayersService: AutoMockable {
     func getPlayerPreview(forPage page: Int) -> DriverResult<Page<PlayerPreview>, PlayersServiceError>
     func getPlayerDescription(byPlayerID playerID: PlayerID) -> DriverResult<PlayerDescription, PlayersServiceError>
-    func getFavoritePlayersPreview(forPage page: Int) -> DriverResult<[PlayerPreview], PlayersServiceError>
+    func getFavoritePlayersPreview() -> DriverResult<[PlayerPreview], PlayersServiceError>
     func addPlayerToFavorites(byID id: Int) -> DriverResult<Void, PlayersServiceError>
     func removePlayerFromFavorites(byID id: Int) -> DriverResult<Void, PlayersServiceError>
     func isPlayerInFavorites(playerID id: Int) -> DriverResult<Bool, PlayersServiceError>
@@ -50,7 +63,7 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
         return .merge(request, updatePlayerDescription(request.success()))
     }
 
-    public func getFavoritePlayersPreview(forPage page: Int) -> DriverResult<[PlayerPreview], PlayersServiceError> {
+    public func getFavoritePlayersPreview() -> DriverResult<[PlayerPreview], PlayersServiceError> {
         let players = playersStorage.fetchFavoritePlayersPreview()
         return .merge(
             players.filter{ $0.isEmpty }.map(to: Result(error: .noData)),
@@ -59,7 +72,7 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
     }
     
     public func addPlayerToFavorites(byID id: Int) -> DriverResult<Void, PlayersServiceError> {
-        let alreadyInFavorites = playersStorage.isPlayerInFavorites(withID: id).filter{ $0 }
+        let alreadyInFavorites = playersStorage.isPlayerInFavorites(withID: id).debug("PlayersService addPlayerToFavorites").filter{ $0 }
         let success = playersStorage.addPlayerToFavorites(withID: id)
         return .merge(
             alreadyInFavorites.map(to: Result(error: .playerAlreadyInFavorites) ),
@@ -77,7 +90,7 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
     }
     
     public func isPlayerInFavorites(playerID id: Int) -> DriverResult<Bool, PlayersServiceError> {
-        return playersStorage.isPlayerInFavorites(withID: id).map{ Result(value: $0) }
+        return playersStorage.isPlayerInFavorites(withID: id).debug("PlayersService isPlayerInFavorites:").map{ Result(value: $0) }
     }
     
     private func getRemotePlayerPreview(forPage page: Int) -> DriverResult<Page<PlayerPreview>, PlayersServiceError> {

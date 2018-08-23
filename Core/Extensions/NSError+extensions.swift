@@ -1,12 +1,18 @@
 //
-//  Error+extensions.swift
+//  NSError+extensions.swift
 //  Core
 //
-//  Created by Oleg Petrychuk on 15.06.2018.
+//  Created by Oleg Petrychuk on 23.08.2018.
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
 extension Error {
+    public func rethrow<T>() throws -> T {
+        throw self
+    }
+}
+
+extension NSError {
     public func rethrow<T>() throws -> T {
         throw self
     }
@@ -16,7 +22,7 @@ extension Error {
         code: Int = 0,
         localizedDescription: String
     ) -> Error {
-        return Self.new(domain: domain, code: code, userInfo: [NSLocalizedDescriptionKey : localizedDescription])
+        return new(domain: domain, code: code, userInfo: [NSLocalizedDescriptionKey : localizedDescription])
     }
     
     public static func new(

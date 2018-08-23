@@ -60,6 +60,7 @@ PODS:
     - RxSwift (>= 4.0.0)
   - SnapKit (4.0.0)
   - Sourcery (0.13.1)
+  - Starscream (3.0.5)
   - SwiftGen (5.3.0)
   - SwiftLint (0.26.0)
   - SwiftyJSON (4.1.0)
@@ -103,6 +104,7 @@ DEPENDENCIES:
   - RxViewController
   - SnapKit (~> 4.0.0)
   - Sourcery
+  - Starscream (~> 3.0.2)
   - SwiftGen
   - SwiftLint
   - SwiftyJSON
@@ -140,6 +142,7 @@ SPEC REPOS:
     - RxViewController
     - SnapKit
     - Sourcery
+    - Starscream
     - SwiftGen
     - SwiftLint
     - SwiftyJSON
@@ -176,11 +179,12 @@ SPEC CHECKSUMS:
   RxViewController: 203510707e73dd95f147f0c387710e3ec80d2b0f
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Sourcery: 9ef51b8777516f204d82996441f293813158d0d7
+  Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
   SwiftGen: 4379bd3640b0a212a0f6ea3c494adba385513d10
   SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TRON: eb0f572d97dd51ec309a27bc785ec82148500512
 
-PODFILE CHECKSUM: ab770a039e3275614e0e708115e7ec7f81ace736
+PODFILE CHECKSUM: b9c3e8d9b75da9ca2c7ac4015a522432d3bd7656
 
 COCOAPODS: 1.5.3

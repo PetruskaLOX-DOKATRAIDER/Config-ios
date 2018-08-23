@@ -10,6 +10,8 @@
 public class UIAlertControllerFactory {
     public static func alertController(fromViewModelAlert viewModel: AlertViewModel) -> UIAlertController {
         let alertController = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: alertControllerStyle(fromStyle: viewModel.style))
+        alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = .amethyst
+        alertController.view.tintColor = .solled
         alertControllerActions(fromViewModels: viewModel.actions).forEach { alertController.addAction($0) }
         return alertController
     }

@@ -37,6 +37,8 @@ public extension DependencyContainer {
         register(.unique){ ImageLoaderServiceImpl() as ImageLoaderService }
         register(.unique){ CameraServiceImpl() as CameraService }
         register(.unique){ try BannerServiceImpl(bannerAPIService: self.resolve()) as BannerService }
+        register(.unique){ WebsocketServiceImpl() as WebsocketService }
+        register(.unique){ try SkinsServiceImpl(skinsAPIService: self.resolve()) as SkinsService }
     }
     
     private func registerAPIServices() {
@@ -45,6 +47,7 @@ public extension DependencyContainer {
         register(.unique){ try API.EventsAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as EventsAPIService }
         register(.unique){ try API.NewsAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as NewsAPIService }
         register(.unique){ try API.BannerAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as BannerAPIService }
+        register(.unique){ try SkinsAPIServiceImpl.init(appEnvironment: self.resolve(), websocketService: self.resolve()) as SkinsAPIService }
     }
     
     private func registerViewModels() {
@@ -60,6 +63,8 @@ public extension DependencyContainer {
         register(.unique){ try PlayerDescriptionViewModelImpl(playerID: $0, playersService: self.resolve()) as PlayerDescriptionViewModel }
         register(.unique){ try NewsDescriptionViewModelImpl(news: $0, newsService: self.resolve()) as NewsDescriptionViewModel }
         register(.unique){ try ImageViewerViewModelImpl(imageURL: $0, imageLoaderService: self.resolve(), photosAlbumService: self.resolve(), cameraService: self.resolve()) as ImageViewerViewModel }
+        register(.unique){ try FavoritePlayersViewModelImpl(playersService: self.resolve()) as FavoritePlayersViewModel }
+        register(.unique){ try SkinsViewModelImpl(skinsService: self.resolve()) as SkinsViewModel }
     }
     
     private func registerStorages() {

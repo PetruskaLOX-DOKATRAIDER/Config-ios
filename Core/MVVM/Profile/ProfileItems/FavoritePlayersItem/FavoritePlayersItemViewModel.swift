@@ -17,7 +17,7 @@ public final class FavoritePlayersItemViewModelImpl: FavoritePlayersItemViewMode
     
     init(playersStorage: PlayersStorage) {
         countOfPlayers = playersStorage.fetchFavoritePlayersPreview().map { players in
-            players.isEmpty ? Strings.Favoriteplayers.noPlayers : Strings.Favoriteplayers.playersCount(players.count)
+            players.isEmpty ? Strings.Favoriteplayers.NoContent.title : Strings.Favoriteplayers.playersCount(players.count)
         }
     }
 }

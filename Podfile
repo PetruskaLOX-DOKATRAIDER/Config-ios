@@ -39,6 +39,7 @@ abstract_target 'AT' do
         #Networking
         pod 'TRON'
         pod 'SwiftyJSON'
+        pod 'Starscream', '~> 3.0.2'
 
         #Logging
         pod 'CocoaLumberjack/Swift'

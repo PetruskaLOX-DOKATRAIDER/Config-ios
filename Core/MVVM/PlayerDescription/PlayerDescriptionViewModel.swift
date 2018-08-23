@@ -16,13 +16,14 @@ public protocol PlayerDescriptionViewModel {
     var settings: Driver<[HighlightText]> { get }
     var messageViewModel: Driver<MessageViewModel> { get }
     var isWorking: Driver<Bool> { get }
+    var shoudShowAlert: Driver<AlertViewModel> { get }
     
     var optionsTrigger: PublishSubject<Void> { get }
     var detailsTrigger: PublishSubject<Void> { get }
     var sendCFGTrigger: PublishSubject<Void> { get }
     var refreshTrigger: PublishSubject<Void> { get }
     var closeTrigger: PublishSubject<Void> { get }
-    
+
     var shouldClose: Driver<Void> { get }
 }
 
@@ -34,6 +35,7 @@ public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel {
     public let settings: Driver<[HighlightText]>
     public let messageViewModel: Driver<MessageViewModel>
     public let isWorking: Driver<Bool>
+    public let shoudShowAlert: Driver<AlertViewModel>
     
     public let optionsTrigger = PublishSubject<Void>()
     public let detailsTrigger = PublishSubject<Void>()
@@ -74,7 +76,40 @@ public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel {
             playerRequest.success().map(to: false)
         ).startWith(false)
         
-        messageViewModel = playerRequest.failure().map(to: MessageViewModelFactory.error())
         shouldClose = closeTrigger.asDriver(onErrorJustReturn: ())
+        
+        let copyCFG = PublishSubject<Void>()
+        let shareCFG = PublishSubject<Void>()
+        let addToFavorites = PublishSubject<Void>()
+        let removeFromFavorites = PublishSubject<Void>()
+        
+      
+        let addedSuccess = addToFavorites.asDriver(onErrorJustReturn: ()).flatMapLatest{ playersService.addPlayerToFavorites(byID: playerID).success() }
+        let removedSuccess = removeFromFavorites.asDriver(onErrorJustReturn: ()).flatMapLatest{ playersService.removePlayerFromFavorites(byID: playerID).success() }
+        
+        messageViewModel = .merge([
+            playerRequest.failure().map(to: MessageViewModelFactory.error()),
+            addedSuccess.map(to: MessageViewModelFactory.new(title: Strings.PlayerDescription.options, description: Strings.PlayerDescription.addedFavoriteMessage)),
+            removedSuccess.map(to: MessageViewModelFactory.new(title: Strings.PlayerDescription.options, description: Strings.PlayerDescription.removedFavoriteMessage))
+        ])
+        
+        let isPlayerFavorite = optionsTrigger.asDriver(onErrorJustReturn: ()).flatMapLatest{ playersService.isPlayerInFavorites(playerID: playerID).success() }.debug("isPlayerFavorite observer:")
+        shoudShowAlert = isPlayerFavorite.debug("withLatestFrom isPlayerFavorite:").map{ isPlayerFavorite in
+            print("isPlayerFavorite: \(isPlayerFavorite)")
+            let addRemove = isPlayerFavorite
+                ? AlertActionViewModelImpl(title: Strings.PlayerDescription.removeFromFavorites, action: removeFromFavorites)
+                : AlertActionViewModelImpl(title: Strings.PlayerDescription.addToFavorites, action: addToFavorites)
+    
+            return AlertViewModelImpl(
+                title: Strings.PlayerDescription.options,
+                style: .actionSheet,
+                actions: [
+                    AlertActionViewModelImpl(title: Strings.PlayerDescription.copyCfg, action: copyCFG),
+                    AlertActionViewModelImpl(title: Strings.PlayerDescription.shareCfg, action: shareCFG),
+                    addRemove,
+                    AlertActionViewModelImpl(title: Strings.PlayerDescription.cancel, style: .destructiveActionStyle)
+                ]
+            )
+        }
     }
 }
