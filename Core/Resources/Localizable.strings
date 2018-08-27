@@ -156,7 +156,9 @@
 "Skins.title" = "Skins online";
 "Skins.search" = "Search";
 "Skins.working_status" = "The Application connecting to the server,\n please wait";
+"Skins.disconect" = "Something went wrong, disconnected";
 
 // SkinItem
 "SkinItem.price_substr" = "for";
+"SkinItem.free" = "free";
 

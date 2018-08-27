@@ -14,73 +14,42 @@ public struct Skin {
     public let prise: Int
     public let coverImageURL: URL?
     
-    public init(response: String) throws {
+    public init(
+        response: String,
+        coverImageApiURL: URL
+    ) throws {
         func gunName(response: String) -> String? {
-            return "dsfsd"
-            let tempArray = response.components(separatedBy: ",")
-            if (tempArray.count ?? 0) > 2 {
-                var tempStr = tempArray[3]
-                let tempArray = tempStr.components(separatedBy: "|")
-                if tempArray.count > 0 {
-                    var tempStr = tempArray[0]
-                    if tempStr.count > 0 {
-                        tempStr = (tempStr as? NSString)?.substring(to: tempStr.count - 1) ?? ""
-                        return tempStr
-                    }
-                }
-            }
-            return nil
+            let tempArray1 = response.components(separatedBy: ",")
+            guard let tempStr1 = tempArray1[safe: 3] else { return nil }
+            let tempArray2 = tempStr1.components(separatedBy: "|")
+            guard let tempStr3 = tempArray2.first else { return nil }
+            return (tempStr3 as NSString).substring(to: tempStr3.count - 1)
         }
 
         func name(response: String) -> String? {
-            return "sdfsf"
-            let tempArray = response.components(separatedBy: "|")
-            if (tempArray.count ?? 0) > 0 {
-                var tempStr = tempArray[1]
-                let tempArray = tempStr.components(separatedBy: "(")
-                if tempArray.count > 0 {
-                    var tempStr = tempArray.first
-                    if (tempStr?.count ?? 0) > 0 {
-                        tempStr = (tempStr as? NSString)?.substring(to: (tempStr?.count ?? 0) - 1)
-                        if (tempStr?.count ?? 0) > 1 {
-                            tempStr = (tempStr as? NSString)?.substring(from: 1)
-                            return tempStr
-                        }
-                    }
-                }
-            }
-            return nil
+            let tempArray1 = response.components(separatedBy: "|")
+            guard let tempStr1 = tempArray1[safe: 1] else { return nil }
+            let tempArray2 = tempStr1.components(separatedBy: "(")
+            guard let tempStr2 = tempArray2.first else { return nil }
+            let tempStr3 = (tempStr2 as NSString).substring(to: tempStr2.count - 1)
+            return (tempStr3 as NSString).substring(from: 1)
         }
 
         func price(response: String) -> Int? {
-            return 4
-            let tempArray = response.components(separatedBy: "|")
-            if (tempArray.count ?? 0) > 0 {
-                let tempStr = tempArray[1]
-                let tempArray = tempStr.components(separatedBy: ",")
-                if tempArray.count > 1 {
-                    let tempStr = tempArray[2]
-                    let price = CGFloat(Float(tempStr) ?? 0.0 / 1000.0)
-                    return Int(price)
-                }
-            }
-            return nil
+            let tempArray1 = response.components(separatedBy: "|")
+            guard let tempStr1 = tempArray1[safe: 1] else { return nil }
+            let tempArray2 = tempStr1.components(separatedBy: ",")
+            guard let tempStr2 = tempArray2[safe: 2] else { return nil }
+            guard let price = Double(tempStr2) else { return nil }
+            return Int(price / 1000.0)
         }
 
         func coverImageURL(response: String) -> URL? {
-            return nil
-            let tempArray = response.components(separatedBy: "[")
-            if (tempArray.count ?? 0) > 0 {
-                let tempStr = tempArray[1]
-                let tempArray = tempStr.components(separatedBy: ",")
-                if tempArray.count > 1 {
-                    let firstPart = tempArray[0]
-                    let secondPart = tempArray[1]
-                    let cover = String(format: "INJECT ME", firstPart, secondPart)
-                    return URL(string: cover)
-                }
-            }
-            return nil
+            let tempArray1 = response.components(separatedBy: "[")
+            guard let tempStr1 = tempArray1.first else { return nil }
+            let tempArray2 = tempStr1.components(separatedBy: ",")
+            guard let firstPart = tempArray2[safe: 0], let secondPart = tempArray2[safe: 1] else { return nil }
+            return URL(string: "\(coverImageApiURL.absoluteString)item_\(firstPart)_\(secondPart).png")
         }
 
         guard

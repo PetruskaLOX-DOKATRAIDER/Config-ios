@@ -29,7 +29,7 @@ public class SkinsAPIServiceImpl: SkinsAPIService {
     }
     
     public func subscribeForNewSkins() -> DriverResult<Skin, SkinsAPIServiceError> {
-        let connect = websocketService.connect(withURL: appEnvironment.skinsAPIURL, connectMessage: "history_go")
+        let connect = websocketService.connect(withURL: appEnvironment.skinsApiURL, connectMessage: "history_go")
         return connect.map { result in
             switch result {
             case let .success(receivedMessage):
@@ -37,7 +37,7 @@ public class SkinsAPIServiceImpl: SkinsAPIService {
                 message = message?.replacingOccurrences(of: "\"", with: "")
                 message = message?.replacingOccurrences(of: "\\", with: "")
                 guard let response = message else { return Result(error: .invalidResponse) }
-                guard let skin = try? Skin(response: response) else { return Result(error: .invalidResponse) }
+                guard let skin = try? Skin(response: response, coverImageApiURL: self.appEnvironment.skinsCoverImageApiURL) else { return Result(error: .invalidResponse) }
                 return Result(value: skin)
             case let .failure(error):
                 return Result(error: .serverError(error))

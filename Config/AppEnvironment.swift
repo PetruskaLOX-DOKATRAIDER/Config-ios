@@ -51,7 +51,11 @@ public enum AppEnvironmentImpl: AppEnvironment {
         }
     }
     
-    public var skinsAPIURL: URL {
+    public var skinsApiURL: URL {
         return URL(string: "wss://wsn.dota2.net/wsn/") ?? URL(fileURLWithPath: "")
+    }
+    
+    public var skinsCoverImageApiURL: URL {
+        return URL(string: "https://cdn.csgo.com/") ?? URL(fileURLWithPath: "")
     }
 }

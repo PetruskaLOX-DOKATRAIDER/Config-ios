@@ -14,13 +14,13 @@ public protocol SkinItemViewModel {
 
 public final class SkinItemViewModelImpl: SkinItemViewModel, ReactiveCompatible {
     public let title: Driver<String>
-    public let  description: Driver<HighlightText>
+    public let description: Driver<HighlightText>
     public let coverImageURL: Driver<URL?>
     
     public init(skin: Skin) {
         title = .just(skin.name)
-        let price = String(skin.prise)
-        let full = "\(skin.name) \(Strings.Skinitem.priceSubstr) \(price)"
+        let price = (skin.prise == 0) ? Strings.Skinitem.free : "\(String(skin.prise))$"
+        let full = "\(skin.gunName) \(Strings.Skinitem.priceSubstr) \(price)"
         description = .just(
             HighlightText(full: full, highlights: [price])
         )
