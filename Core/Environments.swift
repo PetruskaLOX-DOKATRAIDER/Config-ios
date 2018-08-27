@@ -11,6 +11,7 @@ public protocol AppEnvironment: AutoMockable {
     var appVersion: String { get }
     var isDebug: Bool { get }
     var appStoreURL: URL { get }
+    var donateURL: URL { get }
     var skinsApiURL: URL { get }
     var skinsCoverImageApiURL: URL { get }
 }

@@ -9,9 +9,8 @@
 extension UIPageViewController {
     func setScrollEnabled(_ enabled: Bool) {
         view.subviews.forEach {
-            if let scrollView = $0 as? UIScrollView {
-                scrollView.isScrollEnabled = enabled
-            }
+            guard let scrollView = $0 as? UIScrollView else { return }
+            scrollView.isScrollEnabled = enabled
         }
     }
 }

@@ -39,6 +39,7 @@ public extension DependencyContainer {
         register(.unique){ try BannerServiceImpl(bannerAPIService: self.resolve()) as BannerService }
         register(.unique){ WebsocketServiceImpl() as WebsocketService }
         register(.unique){ try SkinsServiceImpl(skinsAPIService: self.resolve()) as SkinsService }
+        register(.unique){ AnalyticsServiceImpl() as AnalyticsService }
     }
     
     private func registerAPIServices() {
@@ -65,6 +66,7 @@ public extension DependencyContainer {
         register(.unique){ try ImageViewerViewModelImpl(imageURL: $0, imageLoaderService: self.resolve(), photosAlbumService: self.resolve(), cameraService: self.resolve()) as ImageViewerViewModel }
         register(.unique){ try FavoritePlayersViewModelImpl(playersService: self.resolve()) as FavoritePlayersViewModel }
         register(.unique){ try SkinsViewModelImpl(skinsService: self.resolve()) as SkinsViewModel }
+        register(.unique){ try FeedbackViewModelImpl(analyticsService: self.resolve()) as FeedbackViewModel }
     }
     
     private func registerStorages() {

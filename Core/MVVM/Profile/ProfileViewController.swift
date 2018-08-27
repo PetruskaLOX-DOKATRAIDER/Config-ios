@@ -51,5 +51,6 @@ public final class ProfileViewController: UIViewController, NonReusableViewProto
     
     public func onUpdate(with viewModel: ProfileViewModel, disposeBag: DisposeBag) {
         viewModel.sections.drive(manager.memoryStorage.rx.sectionViewModels).disposed(by: disposeBag)
+        viewModel.messageViewModel.drive(view.rx.messageView).disposed(by: disposeBag)
     }
 }

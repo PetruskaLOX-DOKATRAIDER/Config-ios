@@ -37,6 +37,7 @@
 "Profile.personal_section" = "Personal";
 "Profile.app_section" = "Application";
 "Profile.storage_section" = "Storage";
+"Profile.tutorial" = "Watch tutorial";
 
 // Errors
 "Errors.error" = "Error";
@@ -151,6 +152,10 @@
 "Storage.title" = "Memory storage";
 "Storage.clear" = "Clear local cache";
 "Storage.warning" = "With empty cache you can't work in OFFLINE MODE";
+"Storage.cleared" = "Local cache has been cleared";
+
+// KeyboardToolbar
+"KeybardToolbar.cancel" = "Cancel";
 
 // Skins
 "Skins.title" = "Skins online";
@@ -162,3 +167,7 @@
 "SkinItem.price_substr" = "for";
 "SkinItem.free" = "free";
 
+// Feedback
+"Feedback.title" = "Feedback";
+"Feedback.send" = "Send";
+"Feedback.message_placeholder" = "Your message";

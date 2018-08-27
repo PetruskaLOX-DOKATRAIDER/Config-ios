@@ -51,6 +51,10 @@ public enum AppEnvironmentImpl: AppEnvironment {
         }
     }
     
+    public var donateURL: URL {
+        return URL(string: "https://www.google.com") ?? URL(fileURLWithPath: "")
+    }
+    
     public var skinsApiURL: URL {
         return URL(string: "wss://wsn.dota2.net/wsn/") ?? URL(fileURLWithPath: "")
     }

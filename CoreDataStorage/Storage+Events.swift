@@ -17,7 +17,7 @@ public final class EventsStorageImpl: EventsStorage, ReactiveCompatible {
         return Observable.create{ [weak self] observer -> Disposable in
             self?.coreDataStorage.update(withNewData: newEvents, completion: {
                 observer.onNext(())
-                //observer.onCompleted()
+                observer.onCompleted()
             })
             return Disposables.create()
         }.asDriver(onErrorJustReturn: ())
@@ -27,7 +27,7 @@ public final class EventsStorageImpl: EventsStorage, ReactiveCompatible {
         return Observable.create{ [weak self] observer -> Disposable in
             self?.coreDataStorage.fetch(completion: { events in
                 observer.onNext(events)
-                //observer.onCompleted()
+                observer.onCompleted()
             })
             return Disposables.create()
         }.asDriver(onErrorJustReturn: [])

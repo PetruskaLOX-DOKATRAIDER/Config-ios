@@ -123,6 +123,8 @@
 		7C5F307D20E0E44B0050E9AE /* DIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F307C20E0E44B0050E9AE /* DIConfiguration.swift */; };
 		7C5F308320E10DFB0050E9AE /* AppSectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F308220E10DFB0050E9AE /* AppSectionsViewModel.swift */; };
 		7C5F308520E10E0D0050E9AE /* AppSectionsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F308420E10E0D0050E9AE /* AppSectionsTabBarController.swift */; };
+		7C6033D121343916007B61F2 /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6033D021343916007B61F2 /* KeyboardToolbar.swift */; };
+		7C6033D32134391D007B61F2 /* KeyboardToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6033D22134391D007B61F2 /* KeyboardToolbar.xib */; };
 		7C6DC0B120EF8A070059A01F /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
 		7C88006A212D5073002F049A /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C880069212D5073002F049A /* SectionViewModel.swift */; };
 		7C880071212D5DB4002F049A /* SectionTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C880070212D5DB4002F049A /* SectionTopicViewModel.swift */; };
@@ -239,6 +241,14 @@
 		7CDCFDF420EE27E60046C818 /* PlayersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF320EE27E60046C818 /* PlayersStorage.swift */; };
 		7CDCFDF620EE37230046C818 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF520EE37230046C818 /* CoreDataStack.swift */; };
 		7CDCFDF820EE3B8A0046C818 /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
+		7CDD6C3121340DED00B1B238 /* ShareItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3021340DED00B1B238 /* ShareItem.swift */; };
+		7CDD6C3F2134145000B1B238 /* FeedbackViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3B2134145000B1B238 /* FeedbackViewModelTests.swift */; };
+		7CDD6C402134145000B1B238 /* FeedbackViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3C2134145000B1B238 /* FeedbackViewController.storyboard */; };
+		7CDD6C412134145000B1B238 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3D2134145000B1B238 /* FeedbackViewController.swift */; };
+		7CDD6C422134145000B1B238 /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3E2134145000B1B238 /* FeedbackViewModel.swift */; };
+		7CDD6C452134178400B1B238 /* AlertTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C442134178400B1B238 /* AlertTransitionAnimator.swift */; };
+		7CDD6C4721341C1200B1B238 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C4621341C1200B1B238 /* AnalyticsService.swift */; };
+		7CDD6C4F213434F000B1B238 /* UITextfield+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C4E213434F000B1B238 /* UITextfield+extensions.swift */; };
 		7CDE34B820DD09760055F304 /* API+Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE34B720DD09760055F304 /* API+Players.swift */; };
 		7CDE34BB20DD246F0055F304 /* PlayerPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE34BA20DD246F0055F304 /* PlayerPreviewViewModel.swift */; };
 		7CDE34BD20DD247F0055F304 /* PlayerPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE34BC20DD247F0055F304 /* PlayerPreviewCell.swift */; };
@@ -524,6 +534,8 @@
 		7C5F307C20E0E44B0050E9AE /* DIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIConfiguration.swift; sourceTree = "<group>"; };
 		7C5F308220E10DFB0050E9AE /* AppSectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionsViewModel.swift; sourceTree = "<group>"; };
 		7C5F308420E10E0D0050E9AE /* AppSectionsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionsTabBarController.swift; sourceTree = "<group>"; };
+		7C6033D021343916007B61F2 /* KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
+		7C6033D22134391D007B61F2 /* KeyboardToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyboardToolbar.xib; sourceTree = "<group>"; };
 		7C880069212D5073002F049A /* SectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewModel.swift; sourceTree = "<group>"; };
 		7C880070212D5DB4002F049A /* SectionTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTopicViewModel.swift; sourceTree = "<group>"; };
 		7C880072212D5DC3002F049A /* SectionTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTopicView.swift; sourceTree = "<group>"; };
@@ -628,6 +640,14 @@
 		7CDCFDF320EE27E60046C818 /* PlayersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersStorage.swift; sourceTree = "<group>"; };
 		7CDCFDF520EE37230046C818 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
+		7CDD6C3021340DED00B1B238 /* ShareItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareItem.swift; sourceTree = "<group>"; };
+		7CDD6C3B2134145000B1B238 /* FeedbackViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewModelTests.swift; sourceTree = "<group>"; };
+		7CDD6C3C2134145000B1B238 /* FeedbackViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedbackViewController.storyboard; sourceTree = "<group>"; };
+		7CDD6C3D2134145000B1B238 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		7CDD6C3E2134145000B1B238 /* FeedbackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
+		7CDD6C442134178400B1B238 /* AlertTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTransitionAnimator.swift; sourceTree = "<group>"; };
+		7CDD6C4621341C1200B1B238 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		7CDD6C4E213434F000B1B238 /* UITextfield+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextfield+extensions.swift"; sourceTree = "<group>"; };
 		7CDE34B720DD09760055F304 /* API+Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Players.swift"; sourceTree = "<group>"; };
 		7CDE34BA20DD246F0055F304 /* PlayerPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPreviewViewModel.swift; sourceTree = "<group>"; };
 		7CDE34BC20DD247F0055F304 /* PlayerPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPreviewCell.swift; sourceTree = "<group>"; };
@@ -1001,6 +1021,7 @@
 		7C1DEC8720DA98A7007BE96E /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				7C6033CF21343900007B61F2 /* KeyboardToolbar */,
 				7CAE6D5A2101DC3900844B11 /* SegmentView */,
 				7CE76E4520EA5CED009422EF /* PinterestLayout.swift */,
 				7C1DEC8820DA98B8007BE96E /* GradientButton.swift */,
@@ -1125,6 +1146,15 @@
 			path = AppSections;
 			sourceTree = "<group>";
 		};
+		7C6033CF21343900007B61F2 /* KeyboardToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				7C6033D021343916007B61F2 /* KeyboardToolbar.swift */,
+				7C6033D22134391D007B61F2 /* KeyboardToolbar.xib */,
+			);
+			path = KeyboardToolbar;
+			sourceTree = "<group>";
+		};
 		7C88006C212D5D73002F049A /* Sections */ = {
 			isa = PBXGroup;
 			children = (
@@ -1241,6 +1271,7 @@
 				7C174E582112DEC7008CD96D /* PhotosAlbumService.swift */,
 				7C174E5A2112FBAD008CD96D /* CameraService.swift */,
 				7C4D9744212ED8940001A93A /* WebsocketService.swift */,
+				7CDD6C4621341C1200B1B238 /* AnalyticsService.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1421,6 +1452,25 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		7CDD6C3A2134144400B1B238 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				7CDD6C3E2134145000B1B238 /* FeedbackViewModel.swift */,
+				7CDD6C3B2134145000B1B238 /* FeedbackViewModelTests.swift */,
+				7CDD6C3D2134145000B1B238 /* FeedbackViewController.swift */,
+				7CDD6C3C2134145000B1B238 /* FeedbackViewController.storyboard */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		7CDD6C432134175200B1B238 /* TransitionAnimators */ = {
+			isa = PBXGroup;
+			children = (
+				7CDD6C442134178400B1B238 /* AlertTransitionAnimator.swift */,
+			);
+			path = TransitionAnimators;
+			sourceTree = "<group>";
+		};
 		7CDE34B920DD24490055F304 /* PlayerPreview */ = {
 			isa = PBXGroup;
 			children = (
@@ -1453,6 +1503,7 @@
 				7CAE6D8F2101F0F100844B11 /* Event.swift */,
 				7C4D9740212ED1C80001A93A /* Skin.swift */,
 				7C4D9748212EF4C10001A93A /* HighlightText.swift */,
+				7CDD6C3021340DED00B1B238 /* ShareItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1587,6 +1638,7 @@
 		C02C45B8202C84D3008AE9B0 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				7CDD6C3A2134144400B1B238 /* Feedback */,
 				7C4D972E212ECC550001A93A /* Skins */,
 				7C0530E82113377C00924C1B /* FavoritePlayers */,
 				7C13B01C2112CF07007DFE98 /* ImageViewer */,
@@ -1760,6 +1812,7 @@
 				7C46053A2109E5D600DA0724 /* Numeric+extensions.swift */,
 				7C460540210A145300DA0724 /* UIDatePicker+extensions.swift */,
 				7C3722292110A8B200A5D525 /* UIViewController+extensions.swift */,
+				7CDD6C4E213434F000B1B238 /* UITextfield+extensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1851,6 +1904,7 @@
 		C0F867E0202C645500D15CDA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7CDD6C432134175200B1B238 /* TransitionAnimators */,
 				7CDF6D1920DBD6A60096D913 /* Models */,
 				7C1DEC8720DA98A7007BE96E /* CommonUI */,
 				C02C460E202C8885008AE9B0 /* Extensions */,
@@ -2174,6 +2228,7 @@
 				7CDAF97120D7FBE9009B9B87 /* filsonsoft-light.otf in Resources */,
 				7C9105CC20FC80F300970FA7 /* PlayerBannerItemCell.xib in Resources */,
 				7CDAF97B20D7FF8E009B9B87 /* AutoStrings.stencil in Resources */,
+				7CDD6C402134145000B1B238 /* FeedbackViewController.storyboard in Resources */,
 				7CA5527C2100925E0097E866 /* PlayerDescriptionViewController.storyboard in Resources */,
 				7CDE34BF20DD248A0055F304 /* PlayerPreviewCell.xib in Resources */,
 				7C4D973F212ED1000001A93A /* SkinItemCell.xib in Resources */,
@@ -2182,6 +2237,7 @@
 				7CFA24E020D932C80059378F /* NewsViewController.storyboard in Resources */,
 				7CEEE56F210B396600BE106E /* PlayerInfoView.xib in Resources */,
 				7CAE6D602101DC3900844B11 /* SegmentView.xib in Resources */,
+				7C6033D32134391D007B61F2 /* KeyboardToolbar.xib in Resources */,
 				7CDAF97920D7FDF0009B9B87 /* Localizable.strings in Resources */,
 				7CEEE583210B497800BE106E /* PlayerInfoPageViewController.storyboard in Resources */,
 				C02C463C202CACED008AE9B0 /* LaunchScreen.storyboard in Resources */,
@@ -2336,6 +2392,7 @@
 				"${BUILT_PRODUCTS_DIR}/DTModelStorage/DTModelStorage.framework",
 				"${BUILT_PRODUCTS_DIR}/DTTableViewManager/DTTableViewManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Dip/Dip.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LoadableViews/LoadableViews.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
@@ -2353,6 +2410,7 @@
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TRON/TRON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2369,6 +2427,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTModelStorage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTTableViewManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoadableViews.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
@@ -2386,6 +2445,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TRON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2453,6 +2513,7 @@
 				"${BUILT_PRODUCTS_DIR}/DTModelStorage/DTModelStorage.framework",
 				"${BUILT_PRODUCTS_DIR}/DTTableViewManager/DTTableViewManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Dip/Dip.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LoadableViews/LoadableViews.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
@@ -2471,6 +2532,7 @@
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TRON/TRON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2482,6 +2544,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTModelStorage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTTableViewManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoadableViews.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
@@ -2500,6 +2563,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TRON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2597,6 +2661,7 @@
 				7CDAF96820D7FB72009B9B87 /* UINavigationBar+extensions.swift in Sources */,
 				7C4D9741212ED1C80001A93A /* Skin.swift in Sources */,
 				7C37223E2110BBC800A5D525 /* API+News.swift in Sources */,
+				7CDD6C452134178400B1B238 /* AlertTransitionAnimator.swift in Sources */,
 				7CFA24D520D92F930059378F /* UICollectionView+extension.swift in Sources */,
 				7C29AC07210731FE00DF6DCB /* EventDescriptionViewModelTests.swift in Sources */,
 				C02C4623202C8C03008AE9B0 /* PublishRelay+extensions.swift in Sources */,
@@ -2628,6 +2693,7 @@
 				7CDAF95A20D7C0A3009B9B87 /* TutorialViewController.swift in Sources */,
 				C02C4645202D8E33008AE9B0 /* Paginator.swift in Sources */,
 				7C22BE162111A6C000E3F681 /* NewsDescriptionViewModel.swift in Sources */,
+				7CDD6C3F2134145000B1B238 /* FeedbackViewModelTests.swift in Sources */,
 				A8D09DDB2036DC780057F9D9 /* TwoWayBinding.swift in Sources */,
 				C02C4665202D9A70008AE9B0 /* Optional+extensions.swift in Sources */,
 				7C1DEC8920DA98B8007BE96E /* GradientButton.swift in Sources */,
@@ -2658,6 +2724,7 @@
 				7C5F307320E0E1F60050E9AE /* Router.swift in Sources */,
 				7C1D76E6210868C00021A4CF /* PickerViewModelTests.swift in Sources */,
 				7CDF6D1420DBC42A0096D913 /* MessageView.swift in Sources */,
+				7CDD6C4F213434F000B1B238 /* UITextfield+extensions.swift in Sources */,
 				C02C463F202CB409008AE9B0 /* Debugger.swift in Sources */,
 				C02C4631202CA6D9008AE9B0 /* Rx+extensions.swift in Sources */,
 				7C5ADBF92114ABFF0012C0C8 /* API+Banner.swift in Sources */,
@@ -2690,6 +2757,7 @@
 				7C9105D320FC8FCD00970FA7 /* TeamItemViewModel.swift in Sources */,
 				7C16F51021120A2700EB68BA /* NewsTextContentItemViewModel.swift in Sources */,
 				7C3722402110BD2E00A5D525 /* NewsStorage.swift in Sources */,
+				7CDD6C4721341C1200B1B238 /* AnalyticsService.swift in Sources */,
 				7CA5527D2100925E0097E866 /* PlayerDescriptionViewController.swift in Sources */,
 				7CA5526B21008CC90097E866 /* PlayerDescription.swift in Sources */,
 				7C226EF0212C6765002DCB94 /* ProfileEmailItemCell.swift in Sources */,
@@ -2715,6 +2783,7 @@
 				7CAE6D7A2101E07A00844B11 /* MapEventsViewModel.swift in Sources */,
 				7C37222A2110A8B200A5D525 /* UIViewController+extensions.swift in Sources */,
 				7C174E592112DEC7008CD96D /* PhotosAlbumService.swift in Sources */,
+				7CDD6C412134145000B1B238 /* FeedbackViewController.swift in Sources */,
 				7C2BF74220D91BD30026DAB4 /* TutoriaItemCell.swift in Sources */,
 				7C9105D720FC904E00970FA7 /* Team.swift in Sources */,
 				7C1D76FE2108B3B60021A4CF /* DatePickerViewModel.swift in Sources */,
@@ -2728,9 +2797,11 @@
 				7C5F307920E0E2770050E9AE /* ViewModelFactory.swift in Sources */,
 				7CFA24E920D932D30059378F /* ProfileViewController.swift in Sources */,
 				7C4D9743212ED4720001A93A /* SkinsService.swift in Sources */,
+				7C6033D121343916007B61F2 /* KeyboardToolbar.swift in Sources */,
 				7CAE6D592101DBEB00844B11 /* Array+extensions.swift in Sources */,
 				7C29AC112107581900DF6DCB /* EventsFilterViewModelTests.swift in Sources */,
 				7C174E572112DE49008CD96D /* ImageLoaderService.swift in Sources */,
+				7CDD6C3121340DED00B1B238 /* ShareItem.swift in Sources */,
 				7C9105C120FC805900970FA7 /* PlayersBannerViewModel.swift in Sources */,
 				7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */,
 				7C4D973B212ED0E80001A93A /* SkinItemViewModelTests.swift in Sources */,
@@ -2745,6 +2816,7 @@
 				C02C464F202D8F4B008AE9B0 /* ActivityTracker.swift in Sources */,
 				7C4D9735212ECC750001A93A /* SkinsViewController.swift in Sources */,
 				7C3722372110B5D900A5D525 /* GradientView.swift in Sources */,
+				7CDD6C422134145000B1B238 /* FeedbackViewModel.swift in Sources */,
 				7C88006A212D5073002F049A /* SectionViewModel.swift in Sources */,
 				7C46053B2109E5D600DA0724 /* Numeric+extensions.swift in Sources */,
 				7C4D974D212F00D10001A93A /* NSError+extensions.swift in Sources */,

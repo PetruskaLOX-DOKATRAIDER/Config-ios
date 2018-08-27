@@ -3,10 +3,11 @@ import AppRouter
 import SafariServices
 
 open class Router: ReactiveCompatible {
-    public let viewFactory: ViewFactory
-    public let viewModelFactory: ViewModelFactory
-    public let router: AppRouterType
-    public let deviceRouter: DeviceRouter
+    private let viewFactory: ViewFactory
+    private let viewModelFactory: ViewModelFactory
+    private let router: AppRouterType
+    private let deviceRouter: DeviceRouter
+    private let alertAnimator = AlertTransitionAnimator()
     
     public init(
         router: AppRouterType,
@@ -57,9 +58,18 @@ open class Router: ReactiveCompatible {
     }
     
     public func profile() -> Route<ProfileViewController> {
-        return route().configure({ [ favoritePlayers = favoritePlayers(), skins = skins() ] vc in
+        return route().configure({ [ favoritePlayers = favoritePlayers(), skins = skins(), feedback = feedback(), tutorial = tutorial() ] vc in
             vc.viewModel?.shouldRouteFavoritePlayers.map(to: favoritePlayers).push().disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteSkins.map(to: skins).push().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldOpenURL.drive(onNext: { [weak vc] url in
+                vc?.navigationController?.pushViewController(SFSafariViewController(url: url), animated: true)
+            }).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldShare.drive(onNext: { [weak vc] share in
+                let activityVC = UIActivityViewController(activityItems: share.items(), applicationActivities: [])
+                vc?.navigationController?.present(activityVC, animated: true, completion: nil)
+            }).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldSendFeedback.map(to: feedback).present().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRouteTutorial.map(to: tutorial).present().disposed(by: vc.rx.disposeBag)
         })
     }
     
@@ -158,6 +168,14 @@ open class Router: ReactiveCompatible {
     
     public func skins() -> Route<SkinsViewController> {
         return route().configure({ vc in
+            vc.viewModel?.shouldClose.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
+        })
+    }
+    
+    public func feedback() -> Route<FeedbackViewController> {
+        return route().configure({ [weak self] vc in
+            vc.transitioningDelegate = self?.alertAnimator
+            vc.modalPresentationStyle = .custom
             vc.viewModel?.shouldClose.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
         })
     }

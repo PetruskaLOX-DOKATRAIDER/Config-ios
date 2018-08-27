@@ -11,12 +11,12 @@ public protocol ProfileEmailItemViewModel: SectionItemViewModelType {
     var saveTrigger: PublishSubject<Void> { get }
 }
 
-public final class ProfileEmailItemViewModelImpl: ProfileEmailItemViewModel {
+public final class ProfileEmailItemViewModelImpl: ProfileEmailItemViewModel, ReactiveCompatible {
     public let emailVM: TextFieldViewModel
     public let saveTrigger = PublishSubject<Void>()
     
     init(userStorage: UserStorage) {
-        let email = BehaviorRelay(value: "")
-        emailVM = TextFieldViewModelImpl(text: email, placeholder: Strings.Profileemail.placeholder)
+        emailVM = TextFieldViewModelImpl(text: userStorage.email.value ?? "", placeholder: Strings.Profileemail.placeholder)
+        saveTrigger.asDriver(onErrorJustReturn: ()).withLatestFrom(emailVM.text.asDriver()).drive(userStorage.email).disposed(by: rx.disposeBag)
     }
 }

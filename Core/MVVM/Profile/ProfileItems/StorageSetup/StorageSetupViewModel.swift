@@ -8,12 +8,14 @@
 
 public protocol StorageSetupViewModel: SectionItemViewModelType {
     var clearTrigger: PublishSubject<Void> { get }
+    var cacheСleared: Driver<Void> { get }
 }
 
-public final class StorageSetupViewModelImpl: StorageSetupViewModel, ReactiveCompatible {
+public final class StorageSetupViewModelImpl: StorageSetupViewModel {
     public let clearTrigger = PublishSubject<Void>()
+    public let cacheСleared: Driver<Void>
     
     init(imageLoaderService: ImageLoaderService) {
-        clearTrigger.asDriver(onErrorJustReturn: ()).map{ imageLoaderService.clearCache() }.drive().disposed(by: rx.disposeBag)
+        cacheСleared = clearTrigger.asDriver(onErrorJustReturn: ()).map{ imageLoaderService.clearCache() }
     }
 }
