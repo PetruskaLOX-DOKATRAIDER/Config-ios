@@ -3314,7 +3314,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D7E9A2859613F95C9BA07CA4 /* Pods-Config.productiondebug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconStaging;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -3505,7 +3504,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24214DD71559C467D79AF86A /* Pods-Config.developdebug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDebug;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -3523,7 +3521,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2CD5D0A1B99A402221C6C0B5 /* Pods-Config.stagingrelease.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconStaging;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -3631,7 +3628,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 701D4AB4C4BEA61A7CCCE96B /* Pods-Config.stagingdebug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconStaging;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -3714,7 +3710,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EE5D0C354EBEF7FD994770D5 /* Pods-Config.productionrelease.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
