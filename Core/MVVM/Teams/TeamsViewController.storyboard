@@ -44,9 +44,6 @@
                                 <state key="normal" image="profile_selected">
                                     <color key="titleColor" red="0.57254901960000004" green="0.81568627449999997" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="themeLightFont" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                             </button>
                         </barButtonItem>
                     </navigationItem>

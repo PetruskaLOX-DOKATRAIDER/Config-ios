@@ -13,9 +13,9 @@ public enum Debugger {
     public static func `init`(_ obj: AnyObject, trackDeinit: Bool, logger: @escaping (String) -> Void = { print($0) }) {
         let instance = Debugger.instance(obj)
         let type = Debugger.type(obj)
-        logger("[😇init] \(type) instance: \(instance)")
+        logger("[😈init] \(type) instance: \(instance)")
         guard trackDeinit, objc_getAssociatedObject(self, AssociatedKeys.deinitDebug) == nil else { return }
-        objc_setAssociatedObject(obj, &AssociatedKeys.deinitDebug, DeinitPrint(logger: logger, message: "[😈deinit] \(type) instance: \(instance)"), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        objc_setAssociatedObject(obj, &AssociatedKeys.deinitDebug, DeinitPrint(logger: logger, message: "[😇deinit] \(type) instance: \(instance)"), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
     
     fileprivate static func instance(_ obj: AnyObject) -> String {

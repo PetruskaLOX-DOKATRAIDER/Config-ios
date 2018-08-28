@@ -41,7 +41,7 @@ public class BasePaginator<Model, Page: PaginatedResponseProtocol>: WorkerType w
         isWorking = action.executing.asDriver(onErrorJustReturn: false)
         isLoadedOnce = elements.asDriver().skip(1).map{ _ in true }.startWith(false)
         noContent = Driver.combineLatest(isLoadedOnce, elements.asDriver().map { $0.isEmpty }) { $0 && $1 }
-        refreshTrigger.asObservable().debug("REFRESG").map { _ in 1 }.bind(to: action.inputs).disposed(by: disposeBag)
+        refreshTrigger.asObservable().map { _ in 1 }.bind(to: action.inputs).disposed(by: disposeBag)
         action.elements.asDriver(onErrorDriveWith: .empty())
             .scan([], accumulator: accumulationStrategy).distinctUntilChanged(compareStrategy)
             .drive(elements).disposed(by: disposeBag)
