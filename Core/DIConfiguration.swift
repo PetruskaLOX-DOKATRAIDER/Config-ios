@@ -39,7 +39,7 @@ public extension DependencyContainer {
         register(.unique){ try BannerServiceImpl(bannerAPIService: self.resolve()) as BannerService }
         register(.unique){ WebsocketServiceImpl() as WebsocketService }
         register(.unique){ try SkinsServiceImpl(skinsAPIService: self.resolve()) as SkinsService }
-        register(.unique){ AnalyticsServiceImpl() as AnalyticsService }
+        register(.unique){ try AnalyticsServiceImpl(appEnvironment: self.resolve()) as AnalyticsService }
     }
     
     private func registerAPIServices() {

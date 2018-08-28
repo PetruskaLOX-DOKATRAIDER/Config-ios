@@ -125,7 +125,6 @@
 		7C5F308520E10E0D0050E9AE /* AppSectionsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F308420E10E0D0050E9AE /* AppSectionsTabBarController.swift */; };
 		7C6033D121343916007B61F2 /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6033D021343916007B61F2 /* KeyboardToolbar.swift */; };
 		7C6033D32134391D007B61F2 /* KeyboardToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6033D22134391D007B61F2 /* KeyboardToolbar.xib */; };
-		7C6DC0B120EF8A070059A01F /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
 		7C88006A212D5073002F049A /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C880069212D5073002F049A /* SectionViewModel.swift */; };
 		7C880071212D5DB4002F049A /* SectionTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C880070212D5DB4002F049A /* SectionTopicViewModel.swift */; };
 		7C880073212D5DC3002F049A /* SectionTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C880072212D5DC3002F049A /* SectionTopicView.swift */; };
@@ -240,7 +239,6 @@
 		7CDCFDF120EE24C10046C818 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F867DF202C645400D15CDA /* Core.framework */; };
 		7CDCFDF420EE27E60046C818 /* PlayersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF320EE27E60046C818 /* PlayersStorage.swift */; };
 		7CDCFDF620EE37230046C818 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF520EE37230046C818 /* CoreDataStack.swift */; };
-		7CDCFDF820EE3B8A0046C818 /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
 		7CDD6C3121340DED00B1B238 /* ShareItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3021340DED00B1B238 /* ShareItem.swift */; };
 		7CDD6C3F2134145000B1B238 /* FeedbackViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3B2134145000B1B238 /* FeedbackViewModelTests.swift */; };
 		7CDD6C402134145000B1B238 /* FeedbackViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3C2134145000B1B238 /* FeedbackViewController.storyboard */; };
@@ -258,6 +256,7 @@
 		7CDF6D1220DBC4210096D913 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1120DBC4210096D913 /* MessageViewModel.swift */; };
 		7CDF6D1420DBC42A0096D913 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1320DBC42A0096D913 /* MessageView.swift */; };
 		7CDF6D1620DBC4320096D913 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1520DBC4320096D913 /* MessageView.xib */; };
+		7CE149992135669700C02E99 /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
 		7CE76E4420EA5848009422EF /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C16FCD120DE7F3D000E7079 /* AppEnvironment.swift */; };
 		7CE76E4620EA5CED009422EF /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE76E4520EA5CED009422EF /* PinterestLayout.swift */; };
 		7CED80E4212AD44100555E7F /* ProfileEmailItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED80E3212AD44100555E7F /* ProfileEmailItemViewModel.swift */; };
@@ -2392,7 +2391,7 @@
 				"${BUILT_PRODUCTS_DIR}/DTModelStorage/DTModelStorage.framework",
 				"${BUILT_PRODUCTS_DIR}/DTTableViewManager/DTTableViewManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Dip/Dip.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Flurry-iOS-SDK/Flurry_iOS_SDK.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LoadableViews/LoadableViews.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
@@ -2410,7 +2409,6 @@
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TRON/TRON.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2427,7 +2425,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTModelStorage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTTableViewManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dip.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flurry_iOS_SDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoadableViews.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
@@ -2445,7 +2443,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TRON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2513,7 +2510,7 @@
 				"${BUILT_PRODUCTS_DIR}/DTModelStorage/DTModelStorage.framework",
 				"${BUILT_PRODUCTS_DIR}/DTTableViewManager/DTTableViewManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Dip/Dip.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Flurry-iOS-SDK/Flurry_iOS_SDK.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LoadableViews/LoadableViews.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
@@ -2532,7 +2529,6 @@
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TRON/TRON.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2544,7 +2540,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTModelStorage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTTableViewManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dip.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flurry_iOS_SDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoadableViews.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
@@ -2563,7 +2559,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TRON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2577,7 +2572,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CDCFDF820EE3B8A0046C818 /* CoreDataStorage.xcdatamodel in Sources */,
 				7CDCFDEE20EE233A0046C818 /* Core.framework in Sources */,
 				7C22BE002111954000E3F681 /* CCNewsPreview+CDObjectable.swift in Sources */,
 				7CAB612D20F64636003F4276 /* Storage+Players.swift in Sources */,
@@ -2592,6 +2586,7 @@
 				7C3722442110C46600A5D525 /* NewsStorageImpl.swift in Sources */,
 				7C11D39E20FCC33200FC8599 /* CDTeam+CDObjectable.swift in Sources */,
 				7CDCFDED20EE23260046C818 /* CoreDataStorage.framework in Sources */,
+				7CE149992135669700C02E99 /* CoreDataStorage.xcdatamodel in Sources */,
 				7CAB612320F63B97003F4276 /* CDObjectable.swift in Sources */,
 				7CAE6D9A210210A600844B11 /* Storage+Events.swift in Sources */,
 				7CAE6D9E210215B800844B11 /* CDCoordinates+CDObjectable.swift in Sources */,
@@ -2607,7 +2602,6 @@
 			files = (
 				C0F8679F202C4B3900D15CDA /* AppDelegate.swift in Sources */,
 				7C5F307B20E0E3440050E9AE /* DIConfiguration.swift in Sources */,
-				7C6DC0B120EF8A070059A01F /* CoreDataStorage.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

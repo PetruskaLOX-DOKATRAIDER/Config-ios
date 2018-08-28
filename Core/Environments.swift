@@ -14,4 +14,5 @@ public protocol AppEnvironment: AutoMockable {
     var donateURL: URL { get }
     var skinsApiURL: URL { get }
     var skinsCoverImageApiURL: URL { get }
+    var flurryID: String { get }
 }

@@ -62,4 +62,8 @@ public enum AppEnvironmentImpl: AppEnvironment {
     public var skinsCoverImageApiURL: URL {
         return URL(string: "https://cdn.csgo.com/") ?? URL(fileURLWithPath: "")
     }
+    
+    public var flurryID: String {
+        return "X4ZC7TDS9HQQ7Q5XQQ"
+    }
 }

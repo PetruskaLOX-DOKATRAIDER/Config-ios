@@ -6,22 +6,37 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import Firebase
+import Flurry_iOS_SDK
 
 public protocol AnalyticsService: AutoMockable {
     func trackFeedback(withMessage message: String)
 }
 
 public class AnalyticsServiceImpl: AnalyticsService {
-    private let analytics: Analytics.Type
+    private let appEnvironment: AppEnvironment
+    private let flurry: Flurry.Type
     
-    public init(analytics: Analytics.Type = Analytics.self) {
-        self.analytics = analytics
+    public init(
+        appEnvironment: AppEnvironment,
+        flurry: Flurry.Type = Flurry.self
+    ) {
+        self.appEnvironment = appEnvironment
+        self.flurry = flurry
+        configureFlurry()
+    }
+    
+    private func configureFlurry() {
+        let builder = FlurrySessionBuilder()
+            .withAppVersion(appEnvironment.appVersion)
+            .withLogLevel(FlurryLogLevelNone)
+            .withCrashReporting(true)
+            .withSessionContinueSeconds(10)
+        flurry.startSession(appEnvironment.flurryID, with: builder)
     }
     
     public func trackFeedback(withMessage message: String) {
-//        analytics.logEvent("feedback", parameters:
-//            ["message" : message]
-//        )
+        flurry.logEvent("feedback", withParameters:
+            ["message" : message]
+        )
     }
 }
