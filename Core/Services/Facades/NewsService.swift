@@ -35,13 +35,13 @@ public final class NewsServiceImpl: NewsService, ReactiveCompatible {
     public func getNewsPreview(forPage page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError> {
         guard reachabilityService.connection != .none else { return getStoredNewsPreview() }
         let request = getRemoteNewsPreview(forPage: page)
-        return .merge(request, updateNewsPreview(request.success()))
+        return .merge(request.filter{ $0.value == nil }, updateNewsPreview(request.success()))
     }
     
     public func getNewsDescription(byID id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
         guard reachabilityService.connection != .none else { return getStoredNewsDescription(byID: id) }
         let request = getRemoteNewsDescription(byID: id)
-        return .merge(request, updateNewsDescription(request.success()))
+        return .merge(request.filter{ $0.value == nil }, updateNewsDescription(request.success()))
     }
     
     private func getRemoteNewsPreview(forPage page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError> {

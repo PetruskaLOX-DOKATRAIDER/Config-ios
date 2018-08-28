@@ -38,9 +38,8 @@ public final class EventsFilterViewModelImpl: EventsFilterViewModel, ReactiveCom
             guard let date = date else { return notSelectedMessage }
             return DateFormatters.default.string(from: date)
         }
-        
         var initialMaxCountOfTeamsTitle: String {
-            guard let value = eventsFiltersStorage.minPrizePool.value else { return Strings.EventFilters.maxTeamsNotSelected }
+            guard let value = eventsFiltersStorage.maxCountOfTeams.value else { return Strings.EventFilters.maxTeamsNotSelected }
             return "\(String(value)) \(Strings.EventFilters.teams)"
         }
         var initialMinPrizePoolTitle: String {

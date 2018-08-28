@@ -30,7 +30,7 @@ public extension DependencyContainer {
         register(.unique){ try PlayersServiceImpl(reachabilityService: self.resolve(), playersAPIService: self.resolve(), playersStorage: self.resolve()) as PlayersService }
         register(.unique){ try TeamsServiceImpl(reachabilityService: self.resolve(), teamsAPIService: self.resolve(), teamsStorage: self.resolve()) as TeamsService }
         register(.unique){ ReachabilityServiceImpl() as ReachabilityService }
-        register(.unique){ try EventsServiceImpl(reachabilityService: self.resolve(), eventsAPIService: self.resolve(), eventsStorage: self.resolve()) as EventsService }
+        register(.unique){ try EventsServiceImpl(reachabilityService: self.resolve(), eventsAPIService: self.resolve(), eventsStorage: self.resolve(), eventsFiltersStorage: self.resolve()) as EventsService }
         register(.singleton) { AppEnvironmentImpl() }.implements(AppEnvironment.self, AppEnvironment.self)
         register(.unique){ try NewsServiceImpl(reachabilityService: self.resolve(), newsAPIService: self.resolve(), newsStorage: self.resolve()) as NewsService }
         register(.unique){ PhotosAlbumServiceImpl() as PhotosAlbumService }
@@ -56,7 +56,7 @@ public extension DependencyContainer {
         register(.unique){ try AppViewModelImpl(userStorage: self.resolve()) as AppViewModel }
         register(.unique){ try PlayersViewModelImpl(playersService: self.resolve()) as PlayersViewModel }
         register(.unique){ try TeamsViewModelImpl(teamsService: self.resolve(), playersBannerViewModel: self.resolve()) as TeamsViewModel }
-        register(.unique){ try EventsContainerViewModelImpl(eventsService: self.resolve()) as EventsContainerViewModel }
+        register(.unique){ try EventsContainerViewModelImpl(eventsService: self.resolve(), eventsFiltersStorage: self.resolve()) as EventsContainerViewModel }
         register(.unique){ try NewsViewModelImpl(newsService: self.resolve()) as NewsViewModel }
         register(.unique){ try ProfileViewModelImpl(appEnvironment: self.resolve(), playersStorage: self.resolve(), imageLoaderService: self.resolve(), userStorage: self.resolve()) as ProfileViewModel }
         register(.unique){ try PlayersBannerViewModelImpl(bannerService: self.resolve()) as PlayersBannerViewModel }

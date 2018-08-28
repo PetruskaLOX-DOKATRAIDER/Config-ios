@@ -21,10 +21,17 @@ public final class EventsContainerViewModelImpl: EventsContainerViewModel, React
     public let filtersTrigger = PublishRelay<Void>()
     public let shouldRouteFilters: Driver<Void>
     
-    public init(eventsService: EventsService) {
+    public init(eventsService: EventsService, eventsFiltersStorage: EventsFiltersStorage) {
+        let filtersRefresh = Driver.merge([
+            eventsFiltersStorage.startDate.asDriver().map(to: ()),
+            eventsFiltersStorage.finishDate.asDriver().map(to: ()),
+            eventsFiltersStorage.maxCountOfTeams.asDriver().map(to: ()),
+            eventsFiltersStorage.minPrizePool.asDriver().map(to: ())
+        ])
         eventsPaginator = Paginator(factory: { eventsService.getEvents(forPage: $0).success().asObservable() })
         listEventsViewModel = ListEventsViewModelImpl(events: eventsPaginator)
         mapEventsViewModel = MapEventsViewModelImpl(events: eventsPaginator)
         shouldRouteFilters = filtersTrigger.asDriver()
+        filtersRefresh.throttle(0.5).drive(eventsPaginator.refreshTrigger).disposed(by: rx.disposeBag)
     }
 }

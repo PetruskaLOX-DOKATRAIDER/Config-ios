@@ -34,7 +34,7 @@ public final class TeamsServiceImpl: TeamsService, ReactiveCompatible {
     public func getTeams(forPage page: Int) -> DriverResult<Page<Team>, TeamsServiceError> {
         guard reachabilityService.connection != .none else { return getStoredTeams() }
         let request = getRemoteEvents(forPage: page)
-        return .merge(request, updateTeams(request.success()))
+        return .merge(request.filter{ $0.value == nil }, updateTeams(request.success()))
     }
     
     private func getRemoteEvents(forPage page: Int) -> DriverResult<Page<Team>, TeamsServiceError> {
