@@ -24,7 +24,7 @@ public final class UserStorageImpl: UserStorage, ReactiveCompatible {
         isOnboardingPassed = BehaviorRelay(value: storage.bool(forKey: Keys.isOnboardingPassed.rawValue))
         email = BehaviorRelay(value: storage.string(forKey: Keys.email.rawValue))
         
-        isOnboardingPassed.asDriver().drive(onNext: { passed in
+        isOnboardingPassed.asDriver().skip(1).drive(onNext: { passed in
             storage.set(passed, forKey: Keys.isOnboardingPassed.rawValue)
         }).disposed(by: rx.disposeBag)
         email.asDriver().drive(onNext: { email in

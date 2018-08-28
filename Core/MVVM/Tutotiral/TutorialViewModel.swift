@@ -13,8 +13,9 @@ public protocol TutorialViewModel {
     var pageTrigger: PublishSubject<Int> { get }
     var nextTrigger: PublishSubject<Void> { get }
     var skipTrigger: PublishSubject<Void> { get }
+    var closeTrigger: PublishSubject<Void> { get }
     var shouldRouteApp: Driver<Void> { get }
-    var shouldRouteSettings: Driver<Void> { get }
+    var shouldClose: Driver<Void> { get }
     var isMoveBackAvailable: Driver<Bool> { get }
 }
 
@@ -25,8 +26,9 @@ public final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible 
     public let pageTrigger = PublishSubject<Int>()
     public let nextTrigger = PublishSubject<Void>()
     public let skipTrigger = PublishSubject<Void>()
+    public let closeTrigger = PublishSubject<Void>()
     public let shouldRouteApp: Driver<Void>
-    public let shouldRouteSettings: Driver<Void>
+    public let shouldClose: Driver<Void>
     public let isMoveBackAvailable: Driver<Bool>
     
     public init(userStorage: UserStorage) {
@@ -42,7 +44,7 @@ public final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible 
         currentPage = Observable.merge(page, nextPage).asDriver(onErrorJustReturn: 0)
         let nextStage = Observable.merge(nextTrigger.withLatestFrom(page).filter{ $0 == items.count - 1 }.toVoid(), skipTrigger).asDriver(onErrorJustReturn: ())
         shouldRouteApp = nextStage.filter{ !userStorage.isOnboardingPassed.value }
-        shouldRouteSettings = nextStage.filter{ userStorage.isOnboardingPassed.value }
+        shouldClose = .merge([closeTrigger.asDriver(onErrorJustReturn: ()), nextStage.filter{ userStorage.isOnboardingPassed.value }])
         isMoveBackAvailable = userStorage.isOnboardingPassed.asDriver().map{ !$0 }
         self.items = .just(items)
         shouldRouteApp.map(to: true).drive(userStorage.isOnboardingPassed).disposed(by: rx.disposeBag)

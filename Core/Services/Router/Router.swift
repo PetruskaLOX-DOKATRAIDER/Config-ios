@@ -29,7 +29,7 @@ open class Router: ReactiveCompatible {
 
     public func tutorial() -> Route<TutorialViewController> {
         return route().configure({ [ appSections = appSections() ] vc in
-            vc.viewModel?.shouldRouteSettings.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldClose.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteApp.map(to: appSections).setAsRoot().disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.default())
     }

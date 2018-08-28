@@ -1,121 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ek-ct-1Xt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7v2-m8-810">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Onboarding-->
-        <scene sceneID="tEr-Pp-f1g">
+        <!--Tutorial View Controller-->
+        <scene sceneID="Ukb-MD-G0t">
             <objects>
-                <viewController id="7ek-ct-1Xt" customClass="TutorialViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UUI-Gp-oci"/>
-                        <viewControllerLayoutGuide type="bottom" id="4af-qR-9ib"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cEO-6E-8qo">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="7v2-m8-810" customClass="TutorialViewController" customModule="Core" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LKX-EM-tAN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AKr-tk-VBy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bJ0-L5-YyC">
-                                    <size key="itemSize" width="375" height="667"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="adg-v5-E7x">
+                                <rect key="frame" x="0.0" y="20" width="375" height="577"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pcu-bm-npN">
+                                    <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bNm-hq-x2X">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                        <size key="customSize" width="375" height="667"/>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYe-jI-iv8" customClass="GradientButton" customModule="Core" customModuleProvider="target">
-                                <rect key="frame" x="243" y="602" width="116" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qH3-Vv-geU">
+                                <rect key="frame" x="178" y="597" width="181" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Hqo-9E-VbU"/>
-                                    <constraint firstAttribute="width" constant="116" id="v6L-bo-aY7"/>
+                                    <constraint firstAttribute="width" constant="181" id="Zdo-Yg-c9A"/>
+                                    <constraint firstAttribute="height" constant="50" id="vZR-z0-sCT"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" red="1" green="0.40027901785714287" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                        <color key="value" red="0.055106026785714288" green="0.40027901785714287" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Ivo-6W-zWm">
-                                <rect key="frame" x="12" y="610" width="86" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="86" id="Hf2-Ju-Yk6"/>
-                                    <constraint firstAttribute="height" constant="37" id="qDe-5J-TaQ"/>
-                                </constraints>
-                                <color key="pageIndicatorTintColor" red="0.59140625000000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" red="0.59140625000000002" green="0.1416294642857143" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="5Fm-yC-cGo">
+                                <rect key="frame" x="16" y="604" width="39" height="37"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ivo-6W-zWm" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" constant="12" id="1IC-by-6Re"/>
-                            <constraint firstItem="AKr-tk-VBy" firstAttribute="top" secondItem="cEO-6E-8qo" secondAttribute="top" id="9pF-wl-CGk"/>
-                            <constraint firstAttribute="trailing" secondItem="AKr-tk-VBy" secondAttribute="trailing" id="A2Q-ls-7E3"/>
-                            <constraint firstItem="AKr-tk-VBy" firstAttribute="leading" secondItem="cEO-6E-8qo" secondAttribute="leading" id="Dio-Nx-lhO"/>
-                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="oYe-jI-iv8" secondAttribute="bottom" constant="20" id="NfK-Yr-pwi"/>
-                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="Ivo-6W-zWm" secondAttribute="bottom" constant="20" id="SlI-bA-eXx"/>
-                            <constraint firstItem="4af-qR-9ib" firstAttribute="top" secondItem="AKr-tk-VBy" secondAttribute="bottom" id="jGB-Ui-knH"/>
-                            <constraint firstAttribute="trailing" secondItem="oYe-jI-iv8" secondAttribute="trailing" constant="16" id="rSM-oF-psB"/>
+                            <constraint firstItem="UI6-Es-lIq" firstAttribute="bottom" secondItem="5Fm-yC-cGo" secondAttribute="bottom" constant="26" id="FLy-nV-L8b"/>
+                            <constraint firstItem="UI6-Es-lIq" firstAttribute="trailing" secondItem="qH3-Vv-geU" secondAttribute="trailing" constant="16" id="Nvo-0T-Nif"/>
+                            <constraint firstItem="adg-v5-E7x" firstAttribute="top" secondItem="UI6-Es-lIq" secondAttribute="top" id="Pnc-bS-fy4"/>
+                            <constraint firstItem="UI6-Es-lIq" firstAttribute="bottom" secondItem="qH3-Vv-geU" secondAttribute="bottom" constant="20" id="Zak-sa-4Ln"/>
+                            <constraint firstItem="UI6-Es-lIq" firstAttribute="trailing" secondItem="adg-v5-E7x" secondAttribute="trailing" id="juS-G4-iho"/>
+                            <constraint firstItem="qH3-Vv-geU" firstAttribute="top" secondItem="adg-v5-E7x" secondAttribute="bottom" id="kSB-Ux-ofF"/>
+                            <constraint firstItem="adg-v5-E7x" firstAttribute="leading" secondItem="UI6-Es-lIq" secondAttribute="leading" id="mhD-wg-zl1"/>
+                            <constraint firstItem="5Fm-yC-cGo" firstAttribute="leading" secondItem="UI6-Es-lIq" secondAttribute="leading" constant="16" id="vSN-SJ-YWG"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="UI6-Es-lIq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Onboarding" id="WlI-9m-i0A">
-                        <barButtonItem key="leftBarButtonItem" width="50" id="YnL-W7-R5r">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qo3-Di-gpJ">
-                                <rect key="frame" x="309" y="11" width="30" height="40"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Vhe-5V-DGh">
+                        <barButtonItem key="leftBarButtonItem" id="wvb-wQ-Dzg">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5KP-qT-g27">
+                                <rect key="frame" x="16" y="5" width="12" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.57254901960000004" green="0.81568627449999997" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" image="theme_back"/>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" width="50" id="g0U-3Z-gkW">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LZ5-vN-Zhg">
-                                <rect key="frame" x="309" y="11" width="50" height="40"/>
+                        <barButtonItem key="rightBarButtonItem" width="50" id="RXo-OB-tqw">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eUz-pP-Ozs">
+                                <rect key="frame" x="329" y="5" width="30" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title=" Skip">
-                                    <color key="titleColor" red="0.57254901960000004" green="0.81568627449999997" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backButton" destination="qo3-Di-gpJ" id="ZFS-xm-na7"/>
-                        <outlet property="collectionView" destination="AKr-tk-VBy" id="f81-jE-uId"/>
-                        <outlet property="nextButton" destination="oYe-jI-iv8" id="Xgx-Rt-Gm3"/>
-                        <outlet property="pageControl" destination="Ivo-6W-zWm" id="RhD-Kg-Kha"/>
-                        <outlet property="skipButton" destination="LZ5-vN-Zhg" id="5ff-n2-YiU"/>
+                        <outlet property="closeButton" destination="5KP-qT-g27" id="JGI-yT-xla"/>
+                        <outlet property="collectionView" destination="adg-v5-E7x" id="Ik3-81-C77"/>
+                        <outlet property="nextButton" destination="qH3-Vv-geU" id="7rc-fQ-eNd"/>
+                        <outlet property="pageControl" destination="5Fm-yC-cGo" id="dyL-Fv-Ksy"/>
+                        <outlet property="skipButton" destination="eUz-pP-Ozs" id="avc-cO-KgC"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qvk-a6-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="akN-u8-LdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="142.57871064467767"/>
+            <point key="canvasLocation" x="-630" y="83"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="theme_back" width="12" height="20"/>
+    </resources>
 </document>
