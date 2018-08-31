@@ -192,6 +192,7 @@
 		7CAE6D9A210210A600844B11 /* Storage+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D99210210A600844B11 /* Storage+Events.swift */; };
 		7CAE6D9C2102133E00844B11 /* CDEvent+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D9B2102133E00844B11 /* CDEvent+CDObjectable.swift */; };
 		7CAE6D9E210215B800844B11 /* CDCoordinates+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D9D210215B800844B11 /* CDCoordinates+CDObjectable.swift */; };
+		7CB5C0CB21399609002A6D20 /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
 		7CB97D0E21061A39002CA594 /* EventItemAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D0D21061A39002CA594 /* EventItemAnnotationView.swift */; };
 		7CB97D1021061A40002CA594 /* EventItemAnnotationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D0F21061A40002CA594 /* EventItemAnnotationViewModel.swift */; };
 		7CB97D1221061A4A002CA594 /* EventItemAnnotationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D1121061A4A002CA594 /* EventItemAnnotationViewModelTests.swift */; };
@@ -256,7 +257,6 @@
 		7CDF6D1220DBC4210096D913 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1120DBC4210096D913 /* MessageViewModel.swift */; };
 		7CDF6D1420DBC42A0096D913 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1320DBC42A0096D913 /* MessageView.swift */; };
 		7CDF6D1620DBC4320096D913 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDF6D1520DBC4320096D913 /* MessageView.xib */; };
-		7CE149992135669700C02E99 /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
 		7CE76E4420EA5848009422EF /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C16FCD120DE7F3D000E7079 /* AppEnvironment.swift */; };
 		7CE76E4620EA5CED009422EF /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE76E4520EA5CED009422EF /* PinterestLayout.swift */; };
 		7CED80E4212AD44100555E7F /* ProfileEmailItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED80E3212AD44100555E7F /* ProfileEmailItemViewModel.swift */; };
@@ -1296,7 +1296,6 @@
 		7CAB612920F644C5003F4276 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */,
 				7CDCFDF520EE37230046C818 /* CoreDataStack.swift */,
 				7CAB612A20F644DF003F4276 /* CoreDataStorage.swift */,
 			);
@@ -1870,6 +1869,7 @@
 				C0F867A5202C4B3900D15CDA /* Assets.xcassets */,
 				C0F867A7202C4B3900D15CDA /* LaunchScreen.storyboard */,
 				C0F867AA202C4B3900D15CDA /* Info.plist */,
+				7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2586,7 +2586,7 @@
 				7C3722442110C46600A5D525 /* NewsStorageImpl.swift in Sources */,
 				7C11D39E20FCC33200FC8599 /* CDTeam+CDObjectable.swift in Sources */,
 				7CDCFDED20EE23260046C818 /* CoreDataStorage.framework in Sources */,
-				7CE149992135669700C02E99 /* CoreDataStorage.xcdatamodel in Sources */,
+				7CB5C0CB21399609002A6D20 /* CoreDataStorage.xcdatamodel in Sources */,
 				7CAB612320F63B97003F4276 /* CDObjectable.swift in Sources */,
 				7CAE6D9A210210A600844B11 /* Storage+Events.swift in Sources */,
 				7CAE6D9E210215B800844B11 /* CDCoordinates+CDObjectable.swift in Sources */,

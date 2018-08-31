@@ -15,10 +15,11 @@ public final class TeamsStorageImpl: TeamsStorage, ReactiveCompatible {
     
     public func update(withNewTeams newTeams: [Team]) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.coreDataStorage.update(withNewData: newTeams, completion: {
-                observer.onNext(())
-                //observer.onCompleted()
-            })
+             observer.onNext(())
+//            self?.coreDataStorage.update(withNewData: newTeams, completion: {
+//                observer.onNext(())
+//                //observer.onCompleted()
+//            })
             return Disposables.create()
         }.asDriver(onErrorJustReturn: ())
     }

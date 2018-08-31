@@ -28,10 +28,11 @@ public class TeamsViewController: UIViewController, NonReusableViewProtocol, DTT
     private func setupTableViewAndManager() {
         manager.startManaging(withDelegate: self)
         manager.register(TeamItemCell.self)
+        
         tableView.tableHeaderView = playersBannerView
         playersBannerView.snp.makeConstraints{
             $0.width.equalToSuperview()
-            $0.height.equalTo(view.bounds.size.height * 0.2)
+            $0.height.equalToSuperview().multipliedBy(0.3)
         }
     }
     

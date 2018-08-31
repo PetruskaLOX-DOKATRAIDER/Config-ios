@@ -22,6 +22,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b8I-Tp-Qz5">
                         <rect key="frame" x="16" y="10" width="27" height="27.5"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="27.5" id="AFL-Bd-lT6"/>
                             <constraint firstAttribute="width" constant="27" id="bDW-6L-nzG"/>
                         </constraints>
                     </imageView>
@@ -80,7 +81,6 @@
                     <constraint firstItem="b8I-Tp-Qz5" firstAttribute="top" secondItem="AzM-0x-Wg3" secondAttribute="topMargin" constant="-1" id="gxf-Ol-lbU"/>
                     <constraint firstItem="Xuo-ui-6Ge" firstAttribute="trailing" secondItem="AzM-0x-Wg3" secondAttribute="trailingMargin" id="hrz-VG-Nbg"/>
                     <constraint firstItem="Xuo-ui-6Ge" firstAttribute="trailing" secondItem="kIr-to-aH9" secondAttribute="trailing" id="kyL-UL-7sA"/>
-                    <constraint firstItem="kIr-to-aH9" firstAttribute="top" secondItem="Xuo-ui-6Ge" secondAttribute="bottom" constant="21" id="lEP-eF-ION"/>
                     <constraint firstItem="Xuo-ui-6Ge" firstAttribute="leading" secondItem="b8I-Tp-Qz5" secondAttribute="trailing" constant="8" symbolic="YES" id="saE-81-Ujd"/>
                     <constraint firstItem="b8I-Tp-Qz5" firstAttribute="leading" secondItem="kIr-to-aH9" secondAttribute="leading" id="syt-fs-v3F"/>
                 </constraints>

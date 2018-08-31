@@ -20,7 +20,7 @@ extension CDPlayerPreview: CDObjectable {
         return id == plainObject.id
     }
     
-    public func toPlainObject() -> PlayerPreview {
+    public func toPlainObject() -> Core.PlayerPreview {
         var profileImageSize = ImageSize.new(height: 0, weight: 0)
         if let cdProfileImageSize = self.profileImageSize {
             profileImageSize = ImageSize.new(height: cdProfileImageSize.height, weight: cdProfileImageSize.width)
