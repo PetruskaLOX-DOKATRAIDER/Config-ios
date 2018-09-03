@@ -27,7 +27,7 @@ extension CDEvent: CDObjectable {
     }
     
     public func toPlainObject() -> Event {
-        return Event(
+        return Event.new(
             name: name ?? "",
             city: city ?? "",
             flagURL: URL(string: flagURL ?? ""),

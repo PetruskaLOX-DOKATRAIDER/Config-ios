@@ -54,7 +54,7 @@ public final class EventsFilterViewModelImpl: EventsFilterViewModel, ReactiveCom
             }
         }
         var minPrizePoolItems: [PickerItem<MinPrizePoolPickerItem>] {
-            let data: [Double] = Array(100...1000).filter{ $0 % 100 == 0 }.map{ Double($0) }
+            let data = Array(100...1000).filter{ $0 % 100 == 0 }.map{ Double($0) }
             return data.map{ PickerItem(
                 title: String(format: "%.2f \(Strings.EventFilters.dollarChar)", $0),
                 object: MinPrizePoolPickerItem(value: $0))

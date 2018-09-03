@@ -34,19 +34,18 @@ public struct Event {
     public let countOfTeams: Int
     public let coordinates: Coordinates
     
-    // TODO: Fix Autoinit
-    public init(name: String, city: String, flagURL: URL?, detailsURL: URL?, startDate: Date, finishDate: Date, logoURL: URL?, prizePool: Double, countOfTeams: Int, coordinates: Coordinates) {
-        self.name = name
-        self.city = city
-        self.flagURL = flagURL
-        self.detailsURL = detailsURL
-        self.startDate = startDate
-        self.finishDate = finishDate
-        self.logoURL = logoURL
-        self.prizePool = prizePool
-        self.countOfTeams = countOfTeams
-        self.coordinates = coordinates
-    }
+//    public init(name: String, city: String, flagURL: URL?, detailsURL: URL?, startDate: Date, finishDate: Date, logoURL: URL?, prizePool: Double, countOfTeams: Int, coordinates: Coordinates) {
+//        self.name = name
+//        self.city = city
+//        self.flagURL = flagURL
+//        self.detailsURL = detailsURL
+//        self.startDate = startDate
+//        self.finishDate = finishDate
+//        self.logoURL = logoURL
+//        self.prizePool = prizePool
+//        self.countOfTeams = countOfTeams
+//        self.coordinates = coordinates
+//    }
 }
 
 extension Event: JSONDecodable {

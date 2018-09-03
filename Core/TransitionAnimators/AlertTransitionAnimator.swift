@@ -57,18 +57,16 @@ private final class AlertTransitionDismissAnimator: NSObject, UIViewControllerAn
         let firstAnimationDuration = 0.2
         UIView.animate(withDuration: firstAnimationDuration, animations: {
             snapshotView?.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-        }) { finished in
+        }, completion: { finished in
             UIView.animate(withDuration: self.animationDuration - firstAnimationDuration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.3, options: [], animations: {
-                snapshotView?.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
-                snapshotView?.alpha = 0
-                backgroundView.alpha = 0
-            }) { finished in
+                print(finished)
+            }, completion: { finished in
                 snapshotView?.removeFromSuperview()
                 backgroundView.removeFromSuperview()
                 transitionContext.completeTransition(finished)
                 fromVC.view.subviews.forEach { $0.isHidden = false }
-            }
-        }
+            })
+        })
     }
 }
 
@@ -100,10 +98,10 @@ private final class AlertTransitionPresentationAnimator: NSObject, UIViewControl
             snapshotView?.alpha = 1
             snapshotView?.transform = .identity
             toVC.view.backgroundColor = UIColor.black.withAlphaComponent(viewBlackAlphaComponent)
-        }) { finished in
+        }, completion: { finished in
             snapshotView?.removeFromSuperview()
             transitionContext.completeTransition(finished)
             toVC.view.subviews.forEach { $0.isHidden = false }
-        }
+        })
     }
 }

@@ -8,9 +8,7 @@
 
 extension UIDatePicker {
     func setTextColor(_ color: UIColor) {
-//        TODO: Find better solution
-//        let labels: [UILabel] = findSubviewsOf()
-//        labels.forEach{ $0.textColor = color }
+        // Recursive labels searching dosen't work
         setValue(color, forKey: "textColor")
     }
 }

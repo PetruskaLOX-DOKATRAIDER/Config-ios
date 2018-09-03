@@ -39,8 +39,8 @@ extension NewsDescription: JSONDecodable {
         var content = [NewsContent]()
         json["content"].arrayValue.forEach { contentJSON in
             switch NewsContentType(json: contentJSON) {
-                case .image: content.append(NewsImageContent(coverImageURL: contentJSON["image"].url))
-                case .text: content.append(NewsTextContent(text: contentJSON["text"].stringValue))
+            case .image: content.append(NewsImageContent(coverImageURL: contentJSON["image"].url))
+            case .text: content.append(NewsTextContent(text: contentJSON["text"].stringValue))
             }
         }
         self.content = content

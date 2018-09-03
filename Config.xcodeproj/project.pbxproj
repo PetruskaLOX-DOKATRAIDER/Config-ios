@@ -235,8 +235,6 @@
 		7CDCFDE220EE229B0046C818 /* CoreDataStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CDCFDE020EE229B0046C818 /* CoreDataStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CDCFDE520EE229B0046C818 /* CoreDataStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CDCFDDE20EE229B0046C818 /* CoreDataStorage.framework */; };
 		7CDCFDE620EE229B0046C818 /* CoreDataStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7CDCFDDE20EE229B0046C818 /* CoreDataStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7CDCFDED20EE23260046C818 /* CoreDataStorage.framework in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDDE20EE229B0046C818 /* CoreDataStorage.framework */; };
-		7CDCFDEE20EE233A0046C818 /* Core.framework in Sources */ = {isa = PBXBuildFile; fileRef = C0F867DF202C645400D15CDA /* Core.framework */; };
 		7CDCFDF120EE24C10046C818 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F867DF202C645400D15CDA /* Core.framework */; };
 		7CDCFDF420EE27E60046C818 /* PlayersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF320EE27E60046C818 /* PlayersStorage.swift */; };
 		7CDCFDF620EE37230046C818 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF520EE37230046C818 /* CoreDataStack.swift */; };
@@ -2572,7 +2570,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CDCFDEE20EE233A0046C818 /* Core.framework in Sources */,
 				7C22BE002111954000E3F681 /* CCNewsPreview+CDObjectable.swift in Sources */,
 				7CAB612D20F64636003F4276 /* Storage+Players.swift in Sources */,
 				7C53C42F20F74B8F001FC864 /* CDImageSize+CDObjectable.swift in Sources */,
@@ -2585,7 +2582,6 @@
 				7C22BE062111967900E3F681 /* CCNewsTextContent+CDObjectable.swift in Sources */,
 				7C3722442110C46600A5D525 /* NewsStorageImpl.swift in Sources */,
 				7C11D39E20FCC33200FC8599 /* CDTeam+CDObjectable.swift in Sources */,
-				7CDCFDED20EE23260046C818 /* CoreDataStorage.framework in Sources */,
 				7CB5C0CB21399609002A6D20 /* CoreDataStorage.xcdatamodel in Sources */,
 				7CAB612320F63B97003F4276 /* CDObjectable.swift in Sources */,
 				7CAE6D9A210210A600844B11 /* Storage+Events.swift in Sources */,
@@ -3296,7 +3292,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-Onone -Xfrontend -warn-long-expression-type-checking=200";
+				OTHER_SWIFT_FLAGS = "-Onone -Xfrontend -warn-long-expression-type-checking=1000";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -3440,7 +3436,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-expression-type-checking=200 -Onone";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-expression-type-checking=1000 -Onone";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -3614,7 +3610,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-Onone -Xfrontend -warn-long-expression-type-checking=200";
+				OTHER_SWIFT_FLAGS = "-Onone -Xfrontend -warn-long-expression-type-checking=1000";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
