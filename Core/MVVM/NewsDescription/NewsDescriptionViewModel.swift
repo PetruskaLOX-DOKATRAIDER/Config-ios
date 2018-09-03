@@ -76,7 +76,7 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
             "\(Strings.Newsdescription.posted) \(DateFormatters.default.string(from: $0.date)) \(Strings.Newsdescription.by) \($0.author)"
         }.startWith("")
         content = newsRequest.success().map{ remapToViewModel($0) }.startWith([])
-        isDataAvaliable = Driver.merge(newsRequest.success().map(to: true), newsRequest.failure().map(to: false)).startWith(false)
+        isDataAvaliable = Driver.merge(newsRequest.success().map(to: true), newsRequest.failure().map(to: false))
         isWorking = Driver.merge(
             newsRequest.map(to: true),
             newsRequest.success().map(to: false),

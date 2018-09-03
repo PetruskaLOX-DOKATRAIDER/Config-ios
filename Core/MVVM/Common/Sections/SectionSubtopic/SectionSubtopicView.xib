@@ -35,7 +35,7 @@
             <connections>
                 <outlet property="messageLabel" destination="Zra-Y9-gQU" id="mbl-JY-Qgo"/>
             </connections>
-            <point key="canvasLocation" x="-160.5" y="268"/>
+            <point key="canvasLocation" x="-226" y="24"/>
         </view>
     </objects>
 </document>

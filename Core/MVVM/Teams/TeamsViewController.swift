@@ -11,7 +11,7 @@ import DTTableViewManager
 public class TeamsViewController: UIViewController, NonReusableViewProtocol, DTTableViewManageable {
     @IBOutlet public weak var tableView: UITableView!
     @IBOutlet private weak var profileButton: UIButton!
-    private var playersBannerView = PlayersBannerView()
+    private let playersBannerView = PlayersBannerView()
    
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +30,10 @@ public class TeamsViewController: UIViewController, NonReusableViewProtocol, DTT
         manager.register(TeamItemCell.self)
         
         tableView.tableHeaderView = playersBannerView
-        playersBannerView.snp.makeConstraints{
+        playersBannerView.snp.makeConstraints {
             $0.width.equalToSuperview()
-            $0.height.equalToSuperview().multipliedBy(0.3)
+            $0.height.equalTo(Int(view.bounds.size.height * 0.25))
+            //$0.height.equalToSuperview().multipliedBy(0.3)
         }
     }
     

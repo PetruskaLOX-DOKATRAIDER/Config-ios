@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gM-6m-3KZ">
-                        <rect key="frame" x="8" y="8" width="394" height="174.5"/>
+                        <rect key="frame" x="8" y="8" width="394" height="105.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpZ-a8-ddD">
-                                <rect key="frame" x="8" y="73" width="378" height="89.5"/>
+                                <rect key="frame" x="8" y="73" width="378" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -58,11 +58,11 @@
                         <constraints>
                             <constraint firstItem="97F-eQ-4Q4" firstAttribute="leading" secondItem="2cR-FD-c5d" secondAttribute="trailing" constant="6" id="4r4-m7-kbj"/>
                             <constraint firstItem="Dz7-qm-qJd" firstAttribute="top" secondItem="7gM-6m-3KZ" secondAttribute="top" constant="12" id="5pg-uO-mFM"/>
+                            <constraint firstAttribute="bottom" secondItem="gpZ-a8-ddD" secondAttribute="bottom" constant="12" id="87C-av-ELG"/>
                             <constraint firstAttribute="trailing" secondItem="97F-eQ-4Q4" secondAttribute="trailing" constant="8" id="8rN-Bs-bfz"/>
                             <constraint firstItem="2cR-FD-c5d" firstAttribute="leading" secondItem="7gM-6m-3KZ" secondAttribute="leading" constant="8" id="CNg-R7-eAL"/>
                             <constraint firstAttribute="trailing" secondItem="ij4-dp-dFz" secondAttribute="trailing" constant="8" id="MEw-Vp-c6s"/>
                             <constraint firstItem="gpZ-a8-ddD" firstAttribute="top" secondItem="97F-eQ-4Q4" secondAttribute="bottom" constant="10" id="Uhb-Jr-qsY"/>
-                            <constraint firstAttribute="bottom" secondItem="gpZ-a8-ddD" secondAttribute="bottom" constant="12" id="XKi-5j-cQT"/>
                             <constraint firstItem="ij4-dp-dFz" firstAttribute="leading" secondItem="Dz7-qm-qJd" secondAttribute="trailing" constant="6" id="aXn-FZ-sWA"/>
                             <constraint firstItem="gpZ-a8-ddD" firstAttribute="top" secondItem="2cR-FD-c5d" secondAttribute="bottom" constant="12" id="iyD-lv-wna"/>
                             <constraint firstItem="2cR-FD-c5d" firstAttribute="top" secondItem="Dz7-qm-qJd" secondAttribute="bottom" constant="16" id="oiM-h5-tW6"/>
@@ -80,7 +80,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="7gM-6m-3KZ" secondAttribute="bottom" constant="8" id="Otu-wT-KOA"/>
+                    <constraint firstAttribute="bottom" secondItem="7gM-6m-3KZ" secondAttribute="bottom" priority="250" constant="8" id="2OR-fk-RCi"/>
                     <constraint firstAttribute="trailing" secondItem="7gM-6m-3KZ" secondAttribute="trailing" constant="8" id="hel-gd-5bF"/>
                     <constraint firstItem="7gM-6m-3KZ" firstAttribute="leading" secondItem="BdR-Y7-u5Z" secondAttribute="leading" constant="8" id="oaZ-3y-AWf"/>
                     <constraint firstItem="7gM-6m-3KZ" firstAttribute="top" secondItem="BdR-Y7-u5Z" secondAttribute="top" constant="8" id="yI4-wi-GSm"/>

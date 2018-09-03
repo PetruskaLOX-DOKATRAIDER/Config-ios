@@ -31,13 +31,14 @@ public class PlayersBannerView: LoadableView, ReusableViewProtocol, DTCollection
         errorLabel.textColor = .ichigos
         pageControl.currentPageIndicatorTintColor = .ichigos
         collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
-        setupManagerAndCollectionView()
+        setupManager()
     }
+
     
-    private func setupManagerAndCollectionView() {
+    private func setupManager() {
         manager.startManaging(withDelegate: self)
         manager.register(PlayerBannerItemCell.self)
-        manager.sizeForCell(withItem: PlayerBannerItemViewModel.self){ [collectionView] (_, _) in
+        manager.sizeForCell(withItem: PlayerBannerItemCell.ModelType.self){ [collectionView] (_, _) in
             return collectionView?.frame.size ?? .zero
         }
         manager.didSelect(PlayerBannerItemCell.self) { (_, viewModel, _) in

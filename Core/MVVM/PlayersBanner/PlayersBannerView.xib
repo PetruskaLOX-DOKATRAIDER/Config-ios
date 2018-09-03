@@ -12,9 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayersBannerView" customModule="Core" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="ZL7-rf-nPY" id="IcO-DQ-I9u"/>
-                <outlet property="errorLabel" destination="jN1-mt-OTg" id="bgb-2k-gw2"/>
-                <outlet property="pageControl" destination="TER-xa-yrW" id="7e2-QW-hSn"/>
+                <outlet property="collectionView" destination="ZL7-rf-nPY" id="8Xl-DM-pYa"/>
+                <outlet property="errorLabel" destination="jN1-mt-OTg" id="w1o-zb-Kkv"/>
+                <outlet property="pageControl" destination="TER-xa-yrW" id="3C7-pj-aIn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -57,7 +57,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="xsR-AP-PG3"/>
-            <point key="canvasLocation" x="-239.5" y="-115"/>
+            <point key="canvasLocation" x="-666" y="-77"/>
         </view>
     </objects>
 </document>

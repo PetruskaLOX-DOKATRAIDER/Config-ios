@@ -46,11 +46,12 @@ public class EventsFilterViewController: UIViewController, NonReusableViewProtoc
     }
     
     private func addEventFilterAndSeparatorView(withViewModel viewModel: EventFilterItemViewModel) {
-        let view = EventFilterItemView()
+        let height: CGFloat = 56
+        let view = EventFilterItemView(frame: CGRect(x: 0, y: 0, width: stackView.bounds.size.width, height: height))
         view.viewModel = viewModel
         stackView.addArrangedSubview(view)
-        view.snp.makeConstraints{
-            $0.height.equalTo(56)
+        view.snp.makeConstraints {
+            $0.height.equalTo(height)
         }
         addSeparatorView()
     }

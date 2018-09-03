@@ -15,8 +15,6 @@ class SectionTopicView: UITableViewHeaderFooterView, ModelTransfer, ReusableView
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = .amethyst
-        
         titleLabel.textColor = .snowWhite
         titleLabel.font = .filsonMediumWithSize(16)
     }

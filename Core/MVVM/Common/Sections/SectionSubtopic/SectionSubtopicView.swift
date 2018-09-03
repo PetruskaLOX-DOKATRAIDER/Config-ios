@@ -13,8 +13,6 @@ class SectionSubtopicView: UITableViewHeaderFooterView, ModelTransfer, ReusableV
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = .amethyst
-        
         messageLabel.textColor = .quaded
         messageLabel.font = .filsonMediumWithSize(15)
     }

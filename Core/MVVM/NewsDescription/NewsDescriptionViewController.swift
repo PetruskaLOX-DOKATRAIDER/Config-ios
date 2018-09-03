@@ -87,16 +87,17 @@ public class NewsDescriptionViewController: UIViewController, NonReusableViewPro
     }
     
     private func addImageContentView(withViewModel viewModel: NewsImageContentItemViewModel) {
-        let view = NewsImageContentItemView()
+        let height: CGFloat = CGFloat(self.view.bounds.size.height * 0.3)
+        let view = NewsImageContentItemView(frame: CGRect(x: 0, y: 0, width: contentStackView.bounds.size.width, height: height))
         view.viewModel = viewModel
         contentStackView.addArrangedSubview(view)
         view.snp.makeConstraints {
-            $0.height.equalTo(self.view.bounds.size.height * 0.3)
+            $0.height.equalTo(height)
         }
     }
     
     private func addTextContentView(withViewModel viewModel: NewsTextContentItemViewModel) {
-        let view = NewsTextContentItemView()
+        let view = NewsTextContentItemView(frame: CGRect(x: 0, y: 0, width: contentStackView.bounds.size.width, height: 75))
         view.viewModel = viewModel
         contentStackView.addArrangedSubview(view)
     }
