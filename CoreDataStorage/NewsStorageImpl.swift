@@ -22,7 +22,7 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
         return Observable.create{ [weak self] observer -> Disposable in
             self?.newsPreviewCoreDataStorage.update(withNewData: newNews, completion: {
                 observer.onNext(())
-                //observer.onCompleted()
+                observer.onCompleted()
             })
             return Disposables.create()
         }.asDriver(onErrorJustReturn: ())
@@ -32,7 +32,7 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
         return Observable.create{ [weak self] observer -> Disposable in
             self?.newsPreviewCoreDataStorage.fetch(completion: { news in
                 observer.onNext(news)
-                //observer.onCompleted()
+                observer.onCompleted()
             })
             return Disposables.create()
         }.asDriver(onErrorJustReturn: [])
@@ -42,7 +42,7 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
         return Observable.create{ [weak self] observer -> Disposable in
             self?.newsDescriptionCoreDataStorage.update(withNewData: [newNews], completion: {
                 observer.onNext(())
-                //observer.onCompleted()
+                observer.onCompleted()
             })
             return Disposables.create()
         }.asDriver(onErrorJustReturn: ())
@@ -53,7 +53,7 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
             let predicate = NSPredicate(format: "%K = %d", #keyPath(CCNewsDescription.id), id)
             self?.newsDescriptionCoreDataStorage.fetch(withPredicate: predicate, completion: { news in
                 observer.onNext(news.first)
-                //observer.onCompleted()
+                observer.onCompleted()
             })
             return Disposables.create()
         }.asDriver(onErrorJustReturn: nil)

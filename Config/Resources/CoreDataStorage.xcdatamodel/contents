@@ -6,7 +6,7 @@
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDEvent" inverseName="coordinates" inverseEntity="CDEvent" syncable="YES"/>
     </entity>
     <entity name="CCNewsContent" representedClassName="CCNewsContent" syncable="YES" codeGenerationType="class">
-        <relationship name="newsDescription" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="CCNewsDescription" syncable="YES"/>
+        <relationship name="newsDescription" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CCNewsDescription" inverseName="content" inverseEntity="CCNewsDescription" syncable="YES"/>
     </entity>
     <entity name="CCNewsDescription" representedClassName="CCNewsDescription" parentEntity="CDNews" syncable="YES" codeGenerationType="class">
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,7 +14,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="moreInfoURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="content" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="CCNewsContent" syncable="YES"/>
+        <relationship name="content" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CCNewsContent" inverseName="newsDescription" inverseEntity="CCNewsContent" syncable="YES"/>
     </entity>
     <entity name="CCNewsImageContent" representedClassName="CCNewsImageContent" parentEntity="CCNewsContent" syncable="YES" codeGenerationType="class">
         <attribute name="coverImageURL" optional="YES" attributeType="String" syncable="YES"/>

@@ -8,6 +8,7 @@
 
 extension CDEvent: CDObjectable {
     public static func new(conext: NSManagedObjectContext, plainObject: Event) -> CDEvent {
+        print("SAVED NEW EVENT")
         let cdObject = CDEvent(context: conext)
         cdObject.name = plainObject.name
         cdObject.city = plainObject.city
@@ -27,6 +28,7 @@ extension CDEvent: CDObjectable {
     }
     
     public func toPlainObject() -> Event {
+        print("GIVE SAVED EVENT")
         return Event.new(
             name: name ?? "",
             city: city ?? "",

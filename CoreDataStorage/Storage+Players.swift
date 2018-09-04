@@ -25,7 +25,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         return Observable.create{ [weak self] observer -> Disposable in
             self?.playerPreviewCoreDataStorage.update(withNewData: newPlayers, completion: {
                 observer.onNext(())
-                //observer.onCompleted()
+                observer.onCompleted()
             })
             return Disposables.create()
         }.asDriver(onErrorJustReturn: ())
@@ -35,7 +35,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         return Observable.create{ [weak self] observer -> Disposable in
             self?.playerPreviewCoreDataStorage.fetch(completion: { players in
                 observer.onNext(players)
-                //observer.onCompleted()
+                observer.onCompleted()
             })
             return Disposables.create()
         }.asDriver(onErrorJustReturn: [])
@@ -45,7 +45,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         return Observable.create{ [weak self] observer -> Disposable in
             self?.playerDescriptionCoreDataStorage.update(withNewData: [newPlayer], completion: {
                 observer.onNext(())
-                //observer.onCompleted()
+                observer.onCompleted()
             })
             return Disposables.create()
         }.asDriver(onErrorJustReturn: ())
@@ -56,7 +56,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
             let predicate = NSPredicate(format: "%K = %d", #keyPath(CDPlayerDescription.id), id)
             self?.playerDescriptionCoreDataStorage.fetch(withPredicate: predicate, completion: { players in
                 observer.onNext(players.first)
-                //observer.onCompleted()
+                observer.onCompleted()
             })
             return Disposables.create()
         }.asDriver(onErrorJustReturn: nil)
@@ -93,11 +93,12 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
             strongSelf.coreDataStack.privateContext.perform {
                 let playerID = CDFavoritePlayerID(context: strongSelf.coreDataStack.privateContext)
                 playerID.id = Int32(id)
+
                 
-                try? strongSelf.coreDataStack.privateContext.save()
-                try? strongSelf.coreDataStack.managedContext.save()
+                try? strongSelf.coreDataStack.saveContexts()
+                
                 observer.onNext(())
-                //observer.onCompleted()
+                observer.onCompleted()
             }
             return Disposables.create()
         }.asDriver(onErrorJustReturn: ())
@@ -115,11 +116,10 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 data.forEach{ object in
                     strongSelf.coreDataStack.privateContext.delete(object)
                 }
-                try? strongSelf.coreDataStack.privateContext.save()
-                try? strongSelf.coreDataStack.managedContext.save()
+                try? strongSelf.coreDataStack.saveContexts()
                 
                 observer.onNext(())
-                //observer.onCompleted()
+                observer.onCompleted()
             }
             return Disposables.create()
         }.asDriver(onErrorJustReturn: ())
@@ -134,7 +134,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 let optinalData = try? strongSelf.coreDataStack.privateContext.fetch(request)
                 let data = (optinalData ?? [])
                 observer.onNext(data.isNotEmpty)
-                //observer.onCompleted()
+                observer.onCompleted()
             }
             return Disposables.create()
         }.asDriver(onErrorJustReturn: false)

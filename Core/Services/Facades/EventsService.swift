@@ -59,7 +59,7 @@ public final class EventsServiceImpl: EventsService, ReactiveCompatible {
     }
     
     private func getStoredEvents() -> DriverResult<Page<Event>, EventsServiceError> {
-        let data = eventsStorage.fetchEvents()
+        let data = eventsStorage.fetchEvents().debug("fetchEvents")
         let page = data.map{ Page.new(content: $0, index: 1, totalPages: 1) }.map{ self.applyFilters($0) }
         return .merge(
             page.map{ Result(value: $0) },

@@ -9,7 +9,9 @@
 public final class EventsStorageImpl: EventsStorage, ReactiveCompatible {
     private let coreDataStorage: CoreDataStorage<CDEvent>
     
-    public init(coreDataStorage: CoreDataStorage<CDEvent> = CoreDataStorage()) {
+    public init(
+        coreDataStorage: CoreDataStorage<CDEvent> = CoreDataStorage()
+    ) {
         self.coreDataStorage = coreDataStorage
     }
     
