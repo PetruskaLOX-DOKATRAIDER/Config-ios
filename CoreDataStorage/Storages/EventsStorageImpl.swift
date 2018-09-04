@@ -1,37 +1,37 @@
 //
-//  Storage+Events.swift
+//  EventsStorageImpl.swift
 //  CoreDataStorage
 //
-//  Created by Oleg Petrychuk on 20.07.2018.
+//  Created by Oleg Petrychuk on 04.09.2018.
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
 public final class EventsStorageImpl: EventsStorage, ReactiveCompatible {
-    private let coreDataStorage: CoreDataStorage<CDEvent>
+    private let eventObjectStorage: CDObjectableStorage<CDEvent>
     
     public init(
-        coreDataStorage: CoreDataStorage<CDEvent> = CoreDataStorage()
+        eventObjectStorage: CDObjectableStorage<CDEvent> = CDObjectableStorage()
     ) {
-        self.coreDataStorage = coreDataStorage
+        self.eventObjectStorage = eventObjectStorage
     }
     
     public func update(withNewEvents newEvents: [Event]) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.coreDataStorage.update(withNewData: newEvents, completion: {
+            self?.eventObjectStorage.update(withNewData: newEvents, completion: {
                 observer.onNext(())
                 observer.onCompleted()
             })
             return Disposables.create()
-        }.asDriver(onErrorJustReturn: ())
+            }.asDriver(onErrorJustReturn: ())
     }
     
     public func fetchEvents() -> Driver<[Event]> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.coreDataStorage.fetch(completion: { events in
+            self?.eventObjectStorage.fetch(completion: { events in
                 observer.onNext(events)
                 observer.onCompleted()
             })
             return Disposables.create()
-        }.asDriver(onErrorJustReturn: [])
+            }.asDriver(onErrorJustReturn: [])
     }
 }

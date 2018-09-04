@@ -7,20 +7,20 @@
 //
 
 public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
-    private let newsPreviewCoreDataStorage: CoreDataStorage<CCNewsPreview>
-    private let newsDescriptionCoreDataStorage: CoreDataStorage<CCNewsDescription>
+    private let newsPreviewObjectStorage: CDObjectableStorage<CCNewsPreview>
+    private let newsDescriptionObjectStorage: CDObjectableStorage<CCNewsDescription>
     
     public init(
-        newsPreviewCoreDataStorage: CoreDataStorage<CCNewsPreview> = CoreDataStorage(),
-        newsDescriptionCoreDataStorage: CoreDataStorage<CCNewsDescription> = CoreDataStorage()
+        newsPreviewObjectStorage: CDObjectableStorage<CCNewsPreview> = CDObjectableStorage(),
+        newsDescriptionObjectStorage: CDObjectableStorage<CCNewsDescription> = CDObjectableStorage()
     ) {
-        self.newsPreviewCoreDataStorage = newsPreviewCoreDataStorage
-        self.newsDescriptionCoreDataStorage = newsDescriptionCoreDataStorage
+        self.newsPreviewObjectStorage = newsPreviewObjectStorage
+        self.newsDescriptionObjectStorage = newsDescriptionObjectStorage
     }
     
     public func updateNewsPreview(withNewNews newNews: [NewsPreview]) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.newsPreviewCoreDataStorage.update(withNewData: newNews, completion: {
+            self?.newsPreviewObjectStorage.update(withNewData: newNews, completion: {
                 observer.onNext(())
                 observer.onCompleted()
             })
@@ -30,7 +30,7 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
     
     public func fetchNewsPreview() -> Driver<[NewsPreview]> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.newsPreviewCoreDataStorage.fetch(completion: { news in
+            self?.newsPreviewObjectStorage.fetch(completion: { news in
                 observer.onNext(news)
                 observer.onCompleted()
             })
@@ -40,7 +40,7 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
     
     public func updateNewsDescription(withNewNews newNews: NewsDescription) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.newsDescriptionCoreDataStorage.update(withNewData: [newNews], completion: {
+            self?.newsDescriptionObjectStorage.update(withNewData: [newNews], completion: {
                 observer.onNext(())
                 observer.onCompleted()
             })
@@ -51,7 +51,7 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
     public func fetchNewsDescription(byID id: Int) -> Driver<NewsDescription?> {
         return Observable.create{ [weak self] observer -> Disposable in
             let predicate = NSPredicate(format: "%K = %d", #keyPath(CCNewsDescription.id), id)
-            self?.newsDescriptionCoreDataStorage.fetch(withPredicate: predicate, completion: { news in
+            self?.newsDescriptionObjectStorage.fetch(withPredicate: predicate, completion: { news in
                 observer.onNext(news.first)
                 observer.onCompleted()
             })

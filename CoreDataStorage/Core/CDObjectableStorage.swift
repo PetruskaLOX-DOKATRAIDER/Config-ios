@@ -1,20 +1,22 @@
 //
-//  CoreDataStorage.swift
+//  CDObjectableStorage.swift
 //  CoreDataStorage
 //
-//  Created by Oleg Petrychuk on 11.07.2018.
+//  Created by Oleg Petrychuk on 04.09.2018.
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
 import Core
 
-public final class CoreDataStorage<CDObject: CDObjectable> where CDObject: NSManagedObject {
-    let coreDataStack: CoreDataStack
+public final class CDObjectableStorage<CDObject: CDObjectable> where CDObject: NSManagedObject {
+    private let coreDataStack: CoreDataStack
     
-    public init(coreDataStack: CoreDataStack = CoreDataStack()) {
+    public init(
+        coreDataStack: CoreDataStack = CoreDataStackLocator.shared
+    ) {
         self.coreDataStack = coreDataStack
     }
-
+    
     func update(withNewData newData: [CDObject.PlainObject], completion: (() -> Void)? = nil) {
         coreDataStack.privateContext.perform { [weak self] in
             guard let strongSelf = self else { return }
@@ -30,7 +32,7 @@ public final class CoreDataStorage<CDObject: CDObjectable> where CDObject: NSMan
             completion?()
         }
     }
-
+    
     func fetch(withPredicate predicate: NSPredicate? = nil, completion: (([CDObject.PlainObject]) -> Void)? = nil) {
         coreDataStack.privateContext.perform { [weak self] in
             guard let strongSelf = self else { return }

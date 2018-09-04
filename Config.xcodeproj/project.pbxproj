@@ -19,7 +19,6 @@
 		7C0530EF211337E100924C1B /* FavoritePlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0530EB211337E100924C1B /* FavoritePlayersViewController.swift */; };
 		7C0530F0211337E100924C1B /* FavoritePlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0530EC211337E100924C1B /* FavoritePlayersViewModel.swift */; };
 		7C11D39620FCC1E800FC8599 /* API+Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39520FCC1E800FC8599 /* API+Teams.swift */; };
-		7C11D39820FCC26400FC8599 /* Storage+Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39720FCC26400FC8599 /* Storage+Teams.swift */; };
 		7C11D39C20FCC2DF00FC8599 /* TeamsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39B20FCC2DF00FC8599 /* TeamsStorage.swift */; };
 		7C11D39E20FCC33200FC8599 /* CDTeam+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39D20FCC33200FC8599 /* CDTeam+CDObjectable.swift */; };
 		7C13B0212112CF1E007DFE98 /* ImageViewerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C13B01D2112CF1E007DFE98 /* ImageViewerViewModelTests.swift */; };
@@ -53,6 +52,10 @@
 		7C1D77052108C6BE0021A4CF /* EventFilterItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1D77042108C6BE0021A4CF /* EventFilterItemViewModelTests.swift */; };
 		7C1DEC8520DA6FB8007BE96E /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1DEC8420DA6FB8007BE96E /* Random.swift */; };
 		7C1DEC8920DA98B8007BE96E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1DEC8820DA98B8007BE96E /* GradientButton.swift */; };
+		7C1E4B4F213E89F6002EBF7F /* EventsStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E4B4E213E89F6002EBF7F /* EventsStorageImpl.swift */; };
+		7C1E4B51213E8A04002EBF7F /* PlayersStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E4B50213E8A04002EBF7F /* PlayersStorageImpl.swift */; };
+		7C1E4B53213E8A12002EBF7F /* TeamsStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E4B52213E8A12002EBF7F /* TeamsStorageImpl.swift */; };
+		7C1E4B57213E8B45002EBF7F /* CDObjectableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E4B56213E8B45002EBF7F /* CDObjectableStorage.swift */; };
 		7C226EEC212C6733002DCB94 /* FavoritePlayersItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C226EEB212C6733002DCB94 /* FavoritePlayersItemCell.swift */; };
 		7C226EEE212C6751002DCB94 /* StorageSetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C226EED212C6751002DCB94 /* StorageSetupCell.swift */; };
 		7C226EF0212C6765002DCB94 /* ProfileEmailItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C226EEF212C6765002DCB94 /* ProfileEmailItemCell.swift */; };
@@ -162,8 +165,6 @@
 		7CAB0FE620ECE68400F796F1 /* UIImageView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB0FE520ECE68400F796F1 /* UIImageView+extensions.swift */; };
 		7CAB611420F5FB62003F4276 /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB611320F5FB62003F4276 /* ReachabilityService.swift */; };
 		7CAB612320F63B97003F4276 /* CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB612220F63B97003F4276 /* CDObjectable.swift */; };
-		7CAB612B20F644DF003F4276 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB612A20F644DF003F4276 /* CoreDataStorage.swift */; };
-		7CAB612D20F64636003F4276 /* Storage+Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB612C20F64636003F4276 /* Storage+Players.swift */; };
 		7CAE6D572101DB1A00844B11 /* SegmentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D562101DB1A00844B11 /* SegmentPageViewController.swift */; };
 		7CAE6D592101DBEB00844B11 /* Array+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D582101DBEB00844B11 /* Array+extensions.swift */; };
 		7CAE6D5E2101DC3900844B11 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D5B2101DC3900844B11 /* SegmentView.swift */; };
@@ -189,7 +190,6 @@
 		7CAE6D922101F16E00844B11 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAE6D912101F16E00844B11 /* MapKit.framework */; };
 		7CAE6D9621020FE500844B11 /* API+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D9521020FE500844B11 /* API+Events.swift */; };
 		7CAE6D982102107100844B11 /* EventsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D972102107100844B11 /* EventsStorage.swift */; };
-		7CAE6D9A210210A600844B11 /* Storage+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D99210210A600844B11 /* Storage+Events.swift */; };
 		7CAE6D9C2102133E00844B11 /* CDEvent+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D9B2102133E00844B11 /* CDEvent+CDObjectable.swift */; };
 		7CAE6D9E210215B800844B11 /* CDCoordinates+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D9D210215B800844B11 /* CDCoordinates+CDObjectable.swift */; };
 		7CB5C0CB21399609002A6D20 /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
@@ -425,7 +425,6 @@
 		7C0530EC211337E100924C1B /* FavoritePlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlayersViewModel.swift; sourceTree = "<group>"; };
 		7C11D39020FCBFEE00FC8599 /* TeamsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsService.swift; sourceTree = "<group>"; };
 		7C11D39520FCC1E800FC8599 /* API+Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Teams.swift"; sourceTree = "<group>"; };
-		7C11D39720FCC26400FC8599 /* Storage+Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Teams.swift"; sourceTree = "<group>"; };
 		7C11D39B20FCC2DF00FC8599 /* TeamsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsStorage.swift; sourceTree = "<group>"; };
 		7C11D39D20FCC33200FC8599 /* CDTeam+CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTeam+CDObjectable.swift"; sourceTree = "<group>"; };
 		7C13B01D2112CF1E007DFE98 /* ImageViewerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerViewModelTests.swift; sourceTree = "<group>"; };
@@ -460,6 +459,10 @@
 		7C1D77042108C6BE0021A4CF /* EventFilterItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterItemViewModelTests.swift; sourceTree = "<group>"; };
 		7C1DEC8420DA6FB8007BE96E /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		7C1DEC8820DA98B8007BE96E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		7C1E4B4E213E89F6002EBF7F /* EventsStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsStorageImpl.swift; sourceTree = "<group>"; };
+		7C1E4B50213E8A04002EBF7F /* PlayersStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersStorageImpl.swift; sourceTree = "<group>"; };
+		7C1E4B52213E8A12002EBF7F /* TeamsStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsStorageImpl.swift; sourceTree = "<group>"; };
+		7C1E4B56213E8B45002EBF7F /* CDObjectableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDObjectableStorage.swift; sourceTree = "<group>"; };
 		7C226EEB212C6733002DCB94 /* FavoritePlayersItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlayersItemCell.swift; sourceTree = "<group>"; };
 		7C226EED212C6751002DCB94 /* StorageSetupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageSetupCell.swift; sourceTree = "<group>"; };
 		7C226EEF212C6765002DCB94 /* ProfileEmailItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEmailItemCell.swift; sourceTree = "<group>"; };
@@ -571,8 +574,6 @@
 		7CAB611020F5F8AD003F4276 /* PlayersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersService.swift; sourceTree = "<group>"; };
 		7CAB611320F5FB62003F4276 /* ReachabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityService.swift; sourceTree = "<group>"; };
 		7CAB612220F63B97003F4276 /* CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDObjectable.swift; sourceTree = "<group>"; };
-		7CAB612A20F644DF003F4276 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
-		7CAB612C20F64636003F4276 /* Storage+Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Players.swift"; sourceTree = "<group>"; };
 		7CAE6D562101DB1A00844B11 /* SegmentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPageViewController.swift; sourceTree = "<group>"; };
 		7CAE6D582101DBEB00844B11 /* Array+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extensions.swift"; sourceTree = "<group>"; };
 		7CAE6D5B2101DC3900844B11 /* SegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
@@ -599,7 +600,6 @@
 		7CAE6D9321020FB300844B11 /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsService.swift; sourceTree = "<group>"; };
 		7CAE6D9521020FE500844B11 /* API+Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Events.swift"; sourceTree = "<group>"; };
 		7CAE6D972102107100844B11 /* EventsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsStorage.swift; sourceTree = "<group>"; };
-		7CAE6D99210210A600844B11 /* Storage+Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Events.swift"; sourceTree = "<group>"; };
 		7CAE6D9B2102133E00844B11 /* CDEvent+CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDEvent+CDObjectable.swift"; sourceTree = "<group>"; };
 		7CAE6D9D210215B800844B11 /* CDCoordinates+CDObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCoordinates+CDObjectable.swift"; sourceTree = "<group>"; };
 		7CB97D0D21061A39002CA594 /* EventItemAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemAnnotationView.swift; sourceTree = "<group>"; };
@@ -1036,6 +1036,17 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		7C1E4B58213E9D88002EBF7F /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				7C3722432110C46600A5D525 /* NewsStorageImpl.swift */,
+				7C1E4B52213E8A12002EBF7F /* TeamsStorageImpl.swift */,
+				7C1E4B4E213E89F6002EBF7F /* EventsStorageImpl.swift */,
+				7C1E4B50213E8A04002EBF7F /* PlayersStorageImpl.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
 		7C22BE0E2111A6AF00E3F681 /* NewsDescription */ = {
 			isa = PBXGroup;
 			children = (
@@ -1118,6 +1129,7 @@
 		7C59436220F75229009D8D7D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7CAB611520F614CA003F4276 /* CDObjectable */,
 				7C59436320F7523F009D8D7D /* Bundle+extensions.swift */,
 			);
 			path = Extensions;
@@ -1295,7 +1307,7 @@
 			isa = PBXGroup;
 			children = (
 				7CDCFDF520EE37230046C818 /* CoreDataStack.swift */,
-				7CAB612A20F644DF003F4276 /* CoreDataStorage.swift */,
+				7C1E4B56213E8B45002EBF7F /* CDObjectableStorage.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1427,12 +1439,8 @@
 		7CDCFDDF20EE229B0046C818 /* CoreDataStorage */ = {
 			isa = PBXGroup;
 			children = (
-				7C3722432110C46600A5D525 /* NewsStorageImpl.swift */,
-				7CAE6D99210210A600844B11 /* Storage+Events.swift */,
-				7CAB612C20F64636003F4276 /* Storage+Players.swift */,
-				7C11D39720FCC26400FC8599 /* Storage+Teams.swift */,
+				7C1E4B58213E9D88002EBF7F /* Storages */,
 				7CAB612920F644C5003F4276 /* Core */,
-				7CAB611520F614CA003F4276 /* CDObjectable */,
 				7C59436220F75229009D8D7D /* Extensions */,
 				7CDCFDF220EE27350046C818 /* Resources */,
 			);
@@ -2570,21 +2578,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C1E4B53213E8A12002EBF7F /* TeamsStorageImpl.swift in Sources */,
 				7C22BE002111954000E3F681 /* CCNewsPreview+CDObjectable.swift in Sources */,
-				7CAB612D20F64636003F4276 /* Storage+Players.swift in Sources */,
 				7C53C42F20F74B8F001FC864 /* CDImageSize+CDObjectable.swift in Sources */,
-				7CAB612B20F644DF003F4276 /* CoreDataStorage.swift in Sources */,
 				7CAE6D9C2102133E00844B11 /* CDEvent+CDObjectable.swift in Sources */,
 				7CEEE585210B6AE800BE106E /* CDPlayerDescription+CDObjectable.swift in Sources */,
-				7C11D39820FCC26400FC8599 /* Storage+Teams.swift in Sources */,
 				7C59436420F7523F009D8D7D /* Bundle+extensions.swift in Sources */,
+				7C1E4B51213E8A04002EBF7F /* PlayersStorageImpl.swift in Sources */,
 				7C22BE022111960600E3F681 /* CCNewsImageContent+CDObjectable.swift in Sources */,
 				7C22BE062111967900E3F681 /* CCNewsTextContent+CDObjectable.swift in Sources */,
+				7C1E4B4F213E89F6002EBF7F /* EventsStorageImpl.swift in Sources */,
 				7C3722442110C46600A5D525 /* NewsStorageImpl.swift in Sources */,
 				7C11D39E20FCC33200FC8599 /* CDTeam+CDObjectable.swift in Sources */,
 				7CB5C0CB21399609002A6D20 /* CoreDataStorage.xcdatamodel in Sources */,
 				7CAB612320F63B97003F4276 /* CDObjectable.swift in Sources */,
-				7CAE6D9A210210A600844B11 /* Storage+Events.swift in Sources */,
+				7C1E4B57213E8B45002EBF7F /* CDObjectableStorage.swift in Sources */,
 				7CAE6D9E210215B800844B11 /* CDCoordinates+CDObjectable.swift in Sources */,
 				7C53C42D20F74B56001FC864 /* CDPlayerPreview+CDObjectable.swift in Sources */,
 				7CDCFDF620EE37230046C818 /* CoreDataStack.swift in Sources */,

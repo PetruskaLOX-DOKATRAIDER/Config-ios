@@ -8,7 +8,6 @@
 
 extension CDEvent: CDObjectable {
     public static func new(conext: NSManagedObjectContext, plainObject: Event) -> CDEvent {
-        print("SAVED NEW EVENT")
         let cdObject = CDEvent(context: conext)
         cdObject.name = plainObject.name
         cdObject.city = plainObject.city
@@ -24,11 +23,10 @@ extension CDEvent: CDObjectable {
     }
     
     public func compare(withPlainObject plainObject: Event) -> Bool {
-        return self.detailsURL ?? "1" == plainObject.detailsURL?.absoluteString ?? "2"
+        return self.name ?? "" == plainObject.name
     }
     
     public func toPlainObject() -> Event {
-        print("GIVE SAVED EVENT")
         return Event.new(
             name: name ?? "",
             city: city ?? "",

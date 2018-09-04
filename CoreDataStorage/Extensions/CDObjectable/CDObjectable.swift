@@ -6,6 +6,10 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
+/*
+    Preifix CD means CoreData
+*/
+
 public protocol CDObjectable {
     associatedtype PlainObject
     associatedtype CDObject: NSManagedObject

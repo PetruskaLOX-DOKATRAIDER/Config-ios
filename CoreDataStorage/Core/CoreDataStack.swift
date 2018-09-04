@@ -27,11 +27,26 @@ public final class CoreDataStack {
         return container
     }()
     
-    func saveContexts() throws {
-        try? privateContext.save()
-        try? managedContext.save()
-    }
-    
     public init() {}
+    
+    func saveContexts(completion: (() -> Void)? = nil) throws {
+        privateContext.perform { [weak self] in
+            try? self?.privateContext.save()
+            try? self?.managedContext.save()
+            completion?()
+        }
+    }
 }
 
+public final class CoreDataStackLocator {
+    private static var instance: CoreDataStack?
+    
+    public static func populate(_ instance: CoreDataStack) {
+        self.instance = instance
+    }
+    
+    public static var shared: CoreDataStack {
+        if let instance = instance { return instance }
+        fatalError("CoreDataStack instance not populated in locator")
+    }
+}

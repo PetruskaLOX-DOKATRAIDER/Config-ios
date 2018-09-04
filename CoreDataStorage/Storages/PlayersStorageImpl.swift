@@ -1,65 +1,65 @@
 //
-//  Storage+Players.swift
+//  PlayersStorageImpl.swift
 //  CoreDataStorage
 //
-//  Created by Oleg Petrychuk on 11.07.2018.
+//  Created by Oleg Petrychuk on 04.09.2018.
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {    
-    private let playerPreviewCoreDataStorage: CoreDataStorage<CDPlayerPreview>
-    private let playerDescriptionCoreDataStorage: CoreDataStorage<CDPlayerDescription>
+public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
+    private let playerPreviewObjectStorage: CDObjectableStorage<CDPlayerPreview>
+    private let playerDescriptionObjectStorage: CDObjectableStorage<CDPlayerDescription>
     private let coreDataStack: CoreDataStack
     
     public init(
-        playerPreviewCoreDataStorage: CoreDataStorage<CDPlayerPreview> = CoreDataStorage(),
-        playerDescriptionCoreDataStorage: CoreDataStorage<CDPlayerDescription> = CoreDataStorage(),
-        coreDataStack: CoreDataStack = CoreDataStack()
+        playerPreviewObjectStorage: CDObjectableStorage<CDPlayerPreview> = CDObjectableStorage(),
+        playerDescriptionObjectStorage: CDObjectableStorage<CDPlayerDescription> = CDObjectableStorage(),
+        coreDataStack: CoreDataStack = CoreDataStackLocator.shared
     ) {
-        self.playerPreviewCoreDataStorage = playerPreviewCoreDataStorage
-        self.playerDescriptionCoreDataStorage = playerDescriptionCoreDataStorage
+        self.playerPreviewObjectStorage = playerPreviewObjectStorage
+        self.playerDescriptionObjectStorage = playerDescriptionObjectStorage
         self.coreDataStack = coreDataStack
     }
     
     public func updatePlayerPreview(withNewPlayers newPlayers: [PlayerPreview]) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.playerPreviewCoreDataStorage.update(withNewData: newPlayers, completion: {
+            self?.playerPreviewObjectStorage.update(withNewData: newPlayers, completion: {
                 observer.onNext(())
                 observer.onCompleted()
             })
             return Disposables.create()
-        }.asDriver(onErrorJustReturn: ())
+            }.asDriver(onErrorJustReturn: ())
     }
     
     public func fetchPlayersPreview() -> Driver<[PlayerPreview]> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.playerPreviewCoreDataStorage.fetch(completion: { players in
+            self?.playerPreviewObjectStorage.fetch(completion: { players in
                 observer.onNext(players)
                 observer.onCompleted()
             })
             return Disposables.create()
-        }.asDriver(onErrorJustReturn: [])
+            }.asDriver(onErrorJustReturn: [])
     }
     
     public func updatePlayerDescription(withNewPlayer newPlayer: PlayerDescription) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.playerDescriptionCoreDataStorage.update(withNewData: [newPlayer], completion: {
+            self?.playerDescriptionObjectStorage.update(withNewData: [newPlayer], completion: {
                 observer.onNext(())
                 observer.onCompleted()
             })
             return Disposables.create()
-        }.asDriver(onErrorJustReturn: ())
+            }.asDriver(onErrorJustReturn: ())
     }
     
     public func fetchPlayerDescription(withID id: Int) -> Driver<PlayerDescription?> {
         return Observable.create{ [weak self] observer -> Disposable in
             let predicate = NSPredicate(format: "%K = %d", #keyPath(CDPlayerDescription.id), id)
-            self?.playerDescriptionCoreDataStorage.fetch(withPredicate: predicate, completion: { players in
+            self?.playerDescriptionObjectStorage.fetch(withPredicate: predicate, completion: { players in
                 observer.onNext(players.first)
                 observer.onCompleted()
             })
             return Disposables.create()
-        }.asDriver(onErrorJustReturn: nil)
+            }.asDriver(onErrorJustReturn: nil)
     }
     
     public func fetchFavoritePlayersPreview() -> Driver<[PlayerPreview]> {
@@ -71,20 +71,20 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 let ids = (favoritePlayerID ?? []).map{ $0.id }
                 print("CORE DATA, fetchFavoritePlayersPreview ids: \(ids)")
                 
-//                let playersRequest: NSFetchRequest = CDPlayerPreview.fetchRequest()
-//                //playersRequest.predicate = NSPredicate(format: "%K IN %@", #keyPath(CDPlayerPreview.id), ids)
-//                let players = try? strongSelf.coreDataStack.privateContext.fetch(playersRequest)
-//                print("CORE DATA, fetchFavoritePlayersPreview players: \(players)")
+                //                let playersRequest: NSFetchRequest = CDPlayerPreview.fetchRequest()
+                //                //playersRequest.predicate = NSPredicate(format: "%K IN %@", #keyPath(CDPlayerPreview.id), ids)
+                //                let players = try? strongSelf.coreDataStack.privateContext.fetch(playersRequest)
+                //                print("CORE DATA, fetchFavoritePlayersPreview players: \(players)")
                 
                 let predicate = NSPredicate(format: "%K IN %@", #keyPath(CDPlayerPreview.id), ids)
-                strongSelf.playerPreviewCoreDataStorage.fetch(withPredicate: predicate, completion: { players in
+                strongSelf.playerPreviewObjectStorage.fetch(withPredicate: predicate, completion: { players in
                     print("CORE DATA, fetchFavoritePlayersPreview players: \(players)")
                     observer.onNext(players)
                     observer.onCompleted()
                 })
             }
             return Disposables.create()
-        }.asDriver(onErrorJustReturn: [])
+            }.asDriver(onErrorJustReturn: [])
     }
     
     public func addPlayerToFavorites(withID id: Int) -> Driver<Void> {
@@ -93,7 +93,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
             strongSelf.coreDataStack.privateContext.perform {
                 let playerID = CDFavoritePlayerID(context: strongSelf.coreDataStack.privateContext)
                 playerID.id = Int32(id)
-
+                
                 
                 try? strongSelf.coreDataStack.saveContexts()
                 
@@ -101,7 +101,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 observer.onCompleted()
             }
             return Disposables.create()
-        }.asDriver(onErrorJustReturn: ())
+            }.asDriver(onErrorJustReturn: ())
     }
     
     public func removePlayerFromFavorites(withID id: Int) -> Driver<Void> {
@@ -122,7 +122,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 observer.onCompleted()
             }
             return Disposables.create()
-        }.asDriver(onErrorJustReturn: ())
+            }.asDriver(onErrorJustReturn: ())
     }
     
     public func isPlayerInFavorites(withID id: Int) -> Driver<Bool> {
@@ -137,6 +137,6 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 observer.onCompleted()
             }
             return Disposables.create()
-        }.asDriver(onErrorJustReturn: false)
+            }.asDriver(onErrorJustReturn: false)
     }
 }

@@ -13,6 +13,8 @@ import CoreDataStorage
 extension DependencyContainer {
     func registerSeparateModules() -> DependencyContainer {
         register(.singleton){ AppEnvironmentImpl() }.implements(AppEnvironment.self, AppEnvironment.self)
+        
+        CoreDataStackLocator.populate(CoreDataStack())
         register(.singleton){ PlayersStorageImpl() as PlayersStorage }
         register(.singleton){ TeamsStorageImpl() as TeamsStorage }
         register(.singleton){ EventsStorageImpl() as EventsStorage }
