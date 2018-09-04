@@ -25,6 +25,14 @@ public class AnalyticsServiceImpl: AnalyticsService {
         configureFlurry()
     }
     
+    public func trackFeedback(withMessage message: String) {
+        let event = "feedback"
+        let parameters = ["message" : message]
+        logFlurry(event: event, withParameters: parameters)
+    }
+    
+    // MARK: Flurry
+    
     private func configureFlurry() {
         let builder = FlurrySessionBuilder()
             .withAppVersion(appEnvironment.appVersion)
@@ -34,9 +42,7 @@ public class AnalyticsServiceImpl: AnalyticsService {
         flurry.startSession(appEnvironment.flurryID, with: builder)
     }
     
-    public func trackFeedback(withMessage message: String) {
-        flurry.logEvent("feedback", withParameters:
-            ["message" : message]
-        )
+    private func logFlurry(event: String, withParameters parameters: [String : Any]) {
+        flurry.logEvent(event, withParameters: parameters)
     }
 }

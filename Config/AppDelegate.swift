@@ -10,7 +10,6 @@ import Core
 import Dip
 import Fabric
 import Crashlytics
-import CoreDataStorage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

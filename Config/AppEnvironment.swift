@@ -13,17 +13,25 @@ public enum AppEnvironmentImpl: AppEnvironment {
     case staging(info: [String : Any])
     case production(info: [String : Any])
     
-    public var info: [String : Any] {
+    public init(
+        info: [String : Any] = Bundle.main.infoDictionary ?? [:]
+    ) {
+        let plistValue = info["Configuration"] as? String ?? ""
+        if plistValue.lowercased().contains("staging") {
+            self = .staging(info: info)
+        } else if plistValue.lowercased().contains("production") {
+            self = .production(info: info)
+        } else {
+            self = .develop(info: info)
+        }
+    }
+    
+    private var info: [String : Any] {
         switch self {
         case .develop(let info): return info
         case .staging(let info): return info
         case .production(let info): return info
         }
-    }
-    
-    public init(info: [String : Any] = Bundle.main.infoDictionary ?? [:]) {
-        let plistValue = info["Configuration"] as? String ?? ""
-        if plistValue.lowercased().contains("staging") { self = .staging(info: info) } else if plistValue.lowercased().contains("production") { self = .production(info: info) } else { self = .develop(info: info) }
     }
     
     public var apiURL: URL {
@@ -44,11 +52,9 @@ public enum AppEnvironmentImpl: AppEnvironment {
     }
     
     public var appStoreURL: URL {
-        if self.appVersion == firstVersion {
-            return URL(string: "https://www.google.com") ?? URL(fileURLWithPath: "")
-        } else {
-            return URL(string: "") ?? URL(fileURLWithPath: "")
-        }
+        let google = URL(string: "https://www.google.com") ?? URL(fileURLWithPath: "")
+        let appStore = URL(string: "") ?? URL(fileURLWithPath: "")
+        return appVersion == firstVersion ? google : appStore
     }
     
     public var donateURL: URL {

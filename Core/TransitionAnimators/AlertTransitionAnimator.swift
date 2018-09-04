@@ -8,7 +8,7 @@
 
 let viewBlackAlphaComponent: CGFloat = 0.7
 
-public final class AlertTransitionAnimator: NSObject, UIViewControllerTransitioningDelegate {
+final class AlertTransitionAnimator: NSObject, UIViewControllerTransitioningDelegate {
     private let animationDuration: Double
     
     public init(animationDuration: Double = 0.8) {

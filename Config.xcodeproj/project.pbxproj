@@ -820,9 +820,9 @@
 		3ED4659A2034715E0015DAF6 /* configs */ = {
 			isa = PBXGroup;
 			children = (
-				3ED4659B203471810015DAF6 /* .swiftlint.yml */,
 				3ED4659C203471840015DAF6 /* Core */,
 				3ED4659D2034718A0015DAF6 /* TestsHelper */,
+				3ED4659B203471810015DAF6 /* .swiftlint.yml */,
 			);
 			path = configs;
 			sourceTree = "<group>";
@@ -904,6 +904,7 @@
 			isa = PBXGroup;
 			children = (
 				C02C4619202C8A65008AE9B0 /* API.swift */,
+				7C4D9744212ED8940001A93A /* WebsocketService.swift */,
 				C02C461B202C8AD7008AE9B0 /* DictionaryError.swift */,
 				C02C461D202C8AF8008AE9B0 /* DictionaryErrorTests.swift */,
 				C02C4626202C8E3D008AE9B0 /* AlamofireBridge.swift */,
@@ -965,21 +966,22 @@
 		7C1D76DB210867850021A4CF /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7CDF6D1020DBC40F0096D913 /* Message */,
 				7C88006C212D5D73002F049A /* Sections */,
 				7C1D76F62108B37C0021A4CF /* DatePicker */,
 				7C1D76E1210868B20021A4CF /* Picker */,
-				7C1D76DC2108679B0021A4CF /* TextFieldMVVM */,
+				7C1D76DC2108679B0021A4CF /* TextField */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		7C1D76DC2108679B0021A4CF /* TextFieldMVVM */ = {
+		7C1D76DC2108679B0021A4CF /* TextField */ = {
 			isa = PBXGroup;
 			children = (
 				7C1D76DD2108679B0021A4CF /* TextFieldViewModel.swift */,
 				7C1D76DE2108679B0021A4CF /* TextFieldView.swift */,
 			);
-			path = TextFieldMVVM;
+			path = TextField;
 			sourceTree = "<group>";
 		};
 		7C1D76E1210868B20021A4CF /* Picker */ = {
@@ -1045,6 +1047,17 @@
 				7C1E4B50213E8A04002EBF7F /* PlayersStorageImpl.swift */,
 			);
 			path = Storages;
+			sourceTree = "<group>";
+		};
+		7C1E4B5E213EBAB1002EBF7F /* Filsonsoft */ = {
+			isa = PBXGroup;
+			children = (
+				7CDAF96C20D7FBE9009B9B87 /* filsonsoft-medium.otf */,
+				7CDAF96D20D7FBE9009B9B87 /* filsonsoft-light.otf */,
+				7CDAF96E20D7FBE9009B9B87 /* filsonsoft-regular.otf */,
+				7CDAF96F20D7FBE9009B9B87 /* filsonsoft-bold.otf */,
+			);
+			path = Filsonsoft;
 			sourceTree = "<group>";
 		};
 		7C22BE0E2111A6AF00E3F681 /* NewsDescription */ = {
@@ -1139,8 +1152,8 @@
 			isa = PBXGroup;
 			children = (
 				7C5F307020E0E1F60050E9AE /* Router.swift */,
-				7C5F307120E0E1F60050E9AE /* Route.swift */,
 				7C5F306F20E0E1F60050E9AE /* RouterTests.swift */,
+				7C5F307120E0E1F60050E9AE /* Route.swift */,
 				7C174E6321131D5A008CD96D /* DeviceRouter.swift */,
 			);
 			path = Router;
@@ -1167,10 +1180,10 @@
 		7C88006C212D5D73002F049A /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				7C880077212D5DF2002F049A /* SectionItem */,
-				7C880076212D5DE8002F049A /* SectionSubtopic */,
-				7C88006D212D5D7D002F049A /* SectionTopic */,
 				7C880069212D5073002F049A /* SectionViewModel.swift */,
+				7C88006D212D5D7D002F049A /* SectionTopic */,
+				7C880076212D5DE8002F049A /* SectionSubtopic */,
+				7C880077212D5DF2002F049A /* SectionItem */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -1270,19 +1283,6 @@
 				7C4D9742212ED4720001A93A /* SkinsService.swift */,
 			);
 			path = Facades;
-			sourceTree = "<group>";
-		};
-		7CAB611220F5FB53003F4276 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				7CAB611320F5FB62003F4276 /* ReachabilityService.swift */,
-				7C174E562112DE49008CD96D /* ImageLoaderService.swift */,
-				7C174E582112DEC7008CD96D /* PhotosAlbumService.swift */,
-				7C174E5A2112FBAD008CD96D /* CameraService.swift */,
-				7C4D9744212ED8940001A93A /* WebsocketService.swift */,
-				7CDD6C4621341C1200B1B238 /* AnalyticsService.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		7CAB611520F614CA003F4276 /* CDObjectable */ = {
@@ -1429,10 +1429,7 @@
 		7CDAF96B20D7FBE9009B9B87 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				7CDAF96C20D7FBE9009B9B87 /* filsonsoft-medium.otf */,
-				7CDAF96D20D7FBE9009B9B87 /* filsonsoft-light.otf */,
-				7CDAF96E20D7FBE9009B9B87 /* filsonsoft-regular.otf */,
-				7CDAF96F20D7FBE9009B9B87 /* filsonsoft-bold.otf */,
+				7C1E4B5E213EBAB1002EBF7F /* Filsonsoft */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1643,23 +1640,22 @@
 		C02C45B8202C84D3008AE9B0 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				C02C4632202CA722008AE9B0 /* App */,
+				7C1D76DB210867850021A4CF /* Common */,
+				7CDAF95320D7C08D009B9B87 /* Tutotiral */,
+				7C5F308120E10DEB0050E9AE /* AppSections */,
+				7CFA24D620D932230059378F /* Players */,
+				7CFA24D720D9322C0059378F /* Teams */,
+				7CAE6D712101E05E00844B11 /* Events */,
+				7CFA24DA20D932B20059378F /* News */,
+				7CFA24D920D9324E0059378F /* Profile */,
 				7CDD6C3A2134144400B1B238 /* Feedback */,
 				7C4D972E212ECC550001A93A /* Skins */,
 				7C0530E82113377C00924C1B /* FavoritePlayers */,
 				7C13B01C2112CF07007DFE98 /* ImageViewer */,
 				7C22BE0E2111A6AF00E3F681 /* NewsDescription */,
-				7C1D76DB210867850021A4CF /* Common */,
-				7CAE6D712101E05E00844B11 /* Events */,
 				7CA552702100921B0097E866 /* PlayerDescription */,
 				7C9105BD20FC803200970FA7 /* PlayersBanner */,
-				7C5F308120E10DEB0050E9AE /* AppSections */,
-				7CDF6D1020DBC40F0096D913 /* Message */,
-				7CFA24DA20D932B20059378F /* News */,
-				7CFA24D920D9324E0059378F /* Profile */,
-				7CFA24D720D9322C0059378F /* Teams */,
-				7CFA24D620D932230059378F /* Players */,
-				7CDAF95320D7C08D009B9B87 /* Tutotiral */,
-				C02C4632202CA722008AE9B0 /* App */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -1672,8 +1668,12 @@
 				7CDAF95F20D7ED42009B9B87 /* Storages */,
 				C02C4618202C8A4F008AE9B0 /* API */,
 				C02C4611202C89FB008AE9B0 /* Components */,
-				7CAB611220F5FB53003F4276 /* Common */,
 				C02C45E4202C87DA008AE9B0 /* Factories */,
+				7C174E562112DE49008CD96D /* ImageLoaderService.swift */,
+				7CAB611320F5FB62003F4276 /* ReachabilityService.swift */,
+				7C174E582112DEC7008CD96D /* PhotosAlbumService.swift */,
+				7C174E5A2112FBAD008CD96D /* CameraService.swift */,
+				7CDD6C4621341C1200B1B238 /* AnalyticsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1909,14 +1909,14 @@
 		C0F867E0202C645500D15CDA /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				7CDD6C432134175200B1B238 /* TransitionAnimators */,
-				7CDF6D1920DBD6A60096D913 /* Models */,
-				7C1DEC8720DA98A7007BE96E /* CommonUI */,
-				C02C460E202C8885008AE9B0 /* Extensions */,
+				C02C45B8202C84D3008AE9B0 /* MVVM */,
 				C02C45B9202C84E6008AE9B0 /* Services */,
+				7CDF6D1920DBD6A60096D913 /* Models */,
+				C02C460E202C8885008AE9B0 /* Extensions */,
+				7C1DEC8720DA98A7007BE96E /* CommonUI */,
+				7CDD6C432134175200B1B238 /* TransitionAnimators */,
 				C0F8680D202C68D600D15CDA /* Autogeneration */,
 				C0F86809202C674400D15CDA /* Resources */,
-				C02C45B8202C84D3008AE9B0 /* MVVM */,
 				C02C45C5202C8630008AE9B0 /* Environments.swift */,
 				C02C45B0202C7737008AE9B0 /* StaticEnvironment.swift */,
 				7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */,
