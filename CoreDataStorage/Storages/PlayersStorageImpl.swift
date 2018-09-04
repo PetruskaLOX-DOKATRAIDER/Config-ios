@@ -28,7 +28,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 observer.onCompleted()
             })
             return Disposables.create()
-            }.asDriver(onErrorJustReturn: ())
+        }.asDriver(onErrorJustReturn: ())
     }
     
     public func fetchPlayersPreview() -> Driver<[PlayerPreview]> {
@@ -38,7 +38,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 observer.onCompleted()
             })
             return Disposables.create()
-            }.asDriver(onErrorJustReturn: [])
+        }.asDriver(onErrorJustReturn: [])
     }
     
     public func updatePlayerDescription(withNewPlayer newPlayer: PlayerDescription) -> Driver<Void> {
@@ -48,7 +48,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 observer.onCompleted()
             })
             return Disposables.create()
-            }.asDriver(onErrorJustReturn: ())
+        }.asDriver(onErrorJustReturn: ())
     }
     
     public func fetchPlayerDescription(withID id: Int) -> Driver<PlayerDescription?> {
@@ -59,49 +59,39 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 observer.onCompleted()
             })
             return Disposables.create()
-            }.asDriver(onErrorJustReturn: nil)
+        }.asDriver(onErrorJustReturn: nil)
     }
     
     public func fetchFavoritePlayersPreview() -> Driver<[PlayerPreview]> {
         return Observable.create{ [weak self] observer -> Disposable in
             guard let strongSelf = self else { return Disposables.create() }
             strongSelf.coreDataStack.privateContext.perform {
-                let idsRequest: NSFetchRequest = CDFavoritePlayerID.fetchRequest()
-                let favoritePlayerID = try? strongSelf.coreDataStack.privateContext.fetch(idsRequest)
-                let ids = (favoritePlayerID ?? []).map{ $0.id }
-                print("CORE DATA, fetchFavoritePlayersPreview ids: \(ids)")
-                
-                //                let playersRequest: NSFetchRequest = CDPlayerPreview.fetchRequest()
-                //                //playersRequest.predicate = NSPredicate(format: "%K IN %@", #keyPath(CDPlayerPreview.id), ids)
-                //                let players = try? strongSelf.coreDataStack.privateContext.fetch(playersRequest)
-                //                print("CORE DATA, fetchFavoritePlayersPreview players: \(players)")
-                
+                let request: NSFetchRequest = CDFavoritePlayerID.fetchRequest()
+                let players = try? strongSelf.coreDataStack.privateContext.fetch(request)
+                let ids = (players ?? []).map{ $0.id }
+
                 let predicate = NSPredicate(format: "%K IN %@", #keyPath(CDPlayerPreview.id), ids)
                 strongSelf.playerPreviewObjectStorage.fetch(withPredicate: predicate, completion: { players in
-                    print("CORE DATA, fetchFavoritePlayersPreview players: \(players)")
                     observer.onNext(players)
                     observer.onCompleted()
                 })
             }
             return Disposables.create()
-            }.asDriver(onErrorJustReturn: [])
+        }.asDriver(onErrorJustReturn: [])
     }
     
     public func addPlayerToFavorites(withID id: Int) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
             guard let strongSelf = self else { return Disposables.create() }
             strongSelf.coreDataStack.privateContext.perform {
-                let playerID = CDFavoritePlayerID(context: strongSelf.coreDataStack.privateContext)
-                playerID.id = Int32(id)
-                
-                
-                try? strongSelf.coreDataStack.saveContexts()
-                
+                let player = CDFavoritePlayerID(context: strongSelf.coreDataStack.privateContext)
+                player.id = Int32(id)
+                try? strongSelf.coreDataStack.save()
                 observer.onNext(())
                 observer.onCompleted()
             }
             return Disposables.create()
-            }.asDriver(onErrorJustReturn: ())
+        }.asDriver(onErrorJustReturn: ())
     }
     
     public func removePlayerFromFavorites(withID id: Int) -> Driver<Void> {
@@ -110,19 +100,14 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 guard let strongSelf = self else { return }
                 let request: NSFetchRequest = CDFavoritePlayerID.fetchRequest()
                 request.predicate = NSPredicate(format: "%K = %d", #keyPath(CDFavoritePlayerID.id), id)
-                let optinalData = try? strongSelf.coreDataStack.privateContext.fetch(request)
-                let data = (optinalData ?? [])
-                print("CORE DATA, removePlayerFromFavorites: \(data)")
-                data.forEach{ object in
-                    strongSelf.coreDataStack.privateContext.delete(object)
-                }
-                try? strongSelf.coreDataStack.saveContexts()
-                
+                let toDelete = (try? strongSelf.coreDataStack.privateContext.fetch(request)) ?? []
+                toDelete.forEach { strongSelf.coreDataStack.privateContext.delete($0) }
+                try? strongSelf.coreDataStack.save()
                 observer.onNext(())
                 observer.onCompleted()
             }
             return Disposables.create()
-            }.asDriver(onErrorJustReturn: ())
+        }.asDriver(onErrorJustReturn: ())
     }
     
     public func isPlayerInFavorites(withID id: Int) -> Driver<Bool> {
@@ -137,6 +122,6 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 observer.onCompleted()
             }
             return Disposables.create()
-            }.asDriver(onErrorJustReturn: false)
+        }.asDriver(onErrorJustReturn: false)
     }
 }

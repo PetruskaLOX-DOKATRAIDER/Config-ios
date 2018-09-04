@@ -9,7 +9,9 @@
 public final class TeamsStorageImpl: TeamsStorage, ReactiveCompatible {
     private let teamObjectStorage: CDObjectableStorage<CDTeam>
     
-    public init(teamObjectStorage: CDObjectableStorage<CDTeam> = CDObjectableStorage()) {
+    public init(
+        teamObjectStorage: CDObjectableStorage<CDTeam> = CDObjectableStorage()
+    ) {
         self.teamObjectStorage = teamObjectStorage
     }
     
@@ -21,7 +23,7 @@ public final class TeamsStorageImpl: TeamsStorage, ReactiveCompatible {
                 observer.onCompleted()
             })
             return Disposables.create()
-            }.asDriver(onErrorJustReturn: ())
+        }.asDriver(onErrorJustReturn: ())
     }
     
     public func fetchTeams() -> Driver<[Team]> {
@@ -31,6 +33,6 @@ public final class TeamsStorageImpl: TeamsStorage, ReactiveCompatible {
                 observer.onCompleted()
             })
             return Disposables.create()
-            }.asDriver(onErrorJustReturn: [])
+        }.asDriver(onErrorJustReturn: [])
     }
 }

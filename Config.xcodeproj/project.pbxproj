@@ -1308,6 +1308,7 @@
 			children = (
 				7CDCFDF520EE37230046C818 /* CoreDataStack.swift */,
 				7C1E4B56213E8B45002EBF7F /* CDObjectableStorage.swift */,
+				7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1875,7 +1876,6 @@
 				C0F867A5202C4B3900D15CDA /* Assets.xcassets */,
 				C0F867A7202C4B3900D15CDA /* LaunchScreen.storyboard */,
 				C0F867AA202C4B3900D15CDA /* Info.plist */,
-				7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

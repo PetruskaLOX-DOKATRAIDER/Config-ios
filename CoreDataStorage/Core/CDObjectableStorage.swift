@@ -28,7 +28,7 @@ public final class CDObjectableStorage<CDObject: CDObjectable> where CDObject: N
                 toDelete >>- strongSelf.coreDataStack.privateContext.delete
             }
             _ = newData.map{ CDObject.new(conext: strongSelf.coreDataStack.privateContext, plainObject: $0) }
-            try? strongSelf.coreDataStack.saveContexts()
+            try? strongSelf.coreDataStack.save()
             completion?()
         }
     }
@@ -47,7 +47,7 @@ public final class CDObjectableStorage<CDObject: CDObjectable> where CDObject: N
         coreDataStack.privateContext.perform { [weak self] in
             guard let strongSelf = self else { return }
             _ = newData.map{ CDObject.new(conext: strongSelf.coreDataStack.privateContext, plainObject: $0) }
-            try? strongSelf.coreDataStack.saveContexts()
+            try? strongSelf.coreDataStack.save()
             completion?()
         }
     }
@@ -62,7 +62,7 @@ public final class CDObjectableStorage<CDObject: CDObjectable> where CDObject: N
             data.forEach{ object in
                 strongSelf.coreDataStack.privateContext.delete(object)
             }
-            try? strongSelf.coreDataStack.saveContexts()
+            try? strongSelf.coreDataStack.save()
             completion?()
         }
     }

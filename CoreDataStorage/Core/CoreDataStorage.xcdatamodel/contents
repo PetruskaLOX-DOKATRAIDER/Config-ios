@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B1003" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CCCoordinates" representedClassName="CCCoordinates" syncable="YES" codeGenerationType="class">
-        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="lng" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lat" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lng" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDEvent" inverseName="coordinates" inverseEntity="CDEvent" syncable="YES"/>
     </entity>
     <entity name="CCNewsContent" representedClassName="CCNewsContent" syncable="YES" codeGenerationType="class">
         <relationship name="newsDescription" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CCNewsDescription" inverseName="content" inverseEntity="CCNewsDescription" syncable="YES"/>
     </entity>
     <entity name="CCNewsDescription" representedClassName="CCNewsDescription" parentEntity="CDNews" syncable="YES" codeGenerationType="class">
-        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="author" attributeType="String" syncable="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="moreInfoURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="content" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CCNewsContent" inverseName="newsDescription" inverseEntity="CCNewsContent" syncable="YES"/>
     </entity>
     <entity name="CCNewsImageContent" representedClassName="CCNewsImageContent" parentEntity="CCNewsContent" syncable="YES" codeGenerationType="class">
@@ -21,77 +21,77 @@
     </entity>
     <entity name="CCNewsPreview" representedClassName="CCNewsPreview" parentEntity="CDNews" syncable="YES" codeGenerationType="class">
         <attribute name="coverImageURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="CCNewsTextContent" representedClassName="CCNewsTextContent" parentEntity="CCNewsContent" syncable="YES" codeGenerationType="class">
-        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="CDEvent" representedClassName="CDEvent" syncable="YES" codeGenerationType="class">
-        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="countOfTeams" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="city" attributeType="String" syncable="YES"/>
+        <attribute name="countOfTeams" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="detailsURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="finishDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="finishDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="flagURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="logoURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="prizePool" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="prizePool" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="startDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="coordinates" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CCCoordinates" inverseName="event" inverseEntity="CCCoordinates" syncable="YES"/>
     </entity>
     <entity name="CDFavoritePlayerID" representedClassName="CDFavoritePlayerID" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="CDImageSize" representedClassName="CDImageSize" syncable="YES" codeGenerationType="class">
-        <attribute name="height" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="width" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="height" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="width" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="playerPreview" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDPlayerPreview" inverseName="profileImageSize" inverseEntity="CDPlayerPreview" syncable="YES"/>
     </entity>
     <entity name="CDNews" representedClassName="CDNews" isAbstract="YES" syncable="YES" codeGenerationType="class"/>
     <entity name="CDPlayer" representedClassName="CDPlayer" isAbstract="YES" syncable="YES" codeGenerationType="class"/>
     <entity name="CDPlayerDescription" representedClassName="CDPlayerDescription" parentEntity="CDPlayer" syncable="YES" codeGenerationType="class">
         <attribute name="configURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="effectiveDPI" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" attributeType="String" syncable="YES"/>
+        <attribute name="effectiveDPI" attributeType="String" syncable="YES"/>
         <attribute name="flagURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="gameResolution" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="headset" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="keyboard" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="monitor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gameResolution" attributeType="String" syncable="YES"/>
+        <attribute name="headset" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="keyboard" attributeType="String" syncable="YES"/>
+        <attribute name="monitor" attributeType="String" syncable="YES"/>
         <attribute name="moreInfoURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="mouse" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="mousepad" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pollingRate" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mouse" attributeType="String" syncable="YES"/>
+        <attribute name="mousepad" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="pollingRate" attributeType="String" syncable="YES"/>
+        <attribute name="surname" attributeType="String" syncable="YES"/>
         <attribute name="teamLogoURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="teamName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="windowsSensitivity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamName" attributeType="String" syncable="YES"/>
+        <attribute name="windowsSensitivity" attributeType="String" syncable="YES"/>
         <relationship name="playerPreview" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDPlayerPreview" inverseName="playerDescription" inverseEntity="CDPlayerPreview" syncable="YES"/>
     </entity>
     <entity name="CDPlayerPreview" representedClassName="CDPlayerPreview" parentEntity="CDPlayer" syncable="YES" codeGenerationType="class">
         <attribute name="avatarURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nickname" attributeType="String" syncable="YES"/>
         <relationship name="playerDescription" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDPlayerDescription" inverseName="playerPreview" inverseEntity="CDPlayerDescription" syncable="YES"/>
         <relationship name="profileImageSize" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDImageSize" inverseName="playerPreview" inverseEntity="CDImageSize" syncable="YES"/>
         <relationship name="teamRelationshep" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTeam" inverseName="playerPreview" inverseEntity="CDTeam" syncable="YES"/>
     </entity>
     <entity name="CDTeam" representedClassName="CDTeam" parentEntity="CDPlayer" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="logoURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="playerPreview" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDPlayerPreview" inverseName="teamRelationshep" inverseEntity="CDPlayerPreview" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CCCoordinates" positionX="450" positionY="416" width="128" height="88"/>
+        <element name="CCCoordinates" positionX="450" positionY="416" width="128" height="90"/>
         <element name="CCNewsContent" positionX="63" positionY="540" width="234" height="58"/>
         <element name="CCNewsDescription" positionX="63" positionY="333" width="225" height="133"/>
         <element name="CCNewsImageContent" positionX="117" positionY="707" width="128" height="58"/>
         <element name="CCNewsPreview" positionX="-218" positionY="333" width="200" height="88"/>
         <element name="CCNewsTextContent" positionX="117" positionY="630" width="128" height="58"/>
-        <element name="CDEvent" positionX="441" positionY="189" width="225" height="193"/>
+        <element name="CDEvent" positionX="441" positionY="189" width="225" height="195"/>
         <element name="CDFavoritePlayerID" positionX="-1089" positionY="536" width="234" height="58"/>
         <element name="CDImageSize" positionX="-810" positionY="504" width="128" height="88"/>
         <element name="CDNews" positionX="-117" positionY="189" width="308" height="43"/>

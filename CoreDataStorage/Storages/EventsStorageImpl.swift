@@ -22,7 +22,7 @@ public final class EventsStorageImpl: EventsStorage, ReactiveCompatible {
                 observer.onCompleted()
             })
             return Disposables.create()
-            }.asDriver(onErrorJustReturn: ())
+        }.asDriver(onErrorJustReturn: ())
     }
     
     public func fetchEvents() -> Driver<[Event]> {
@@ -32,6 +32,6 @@ public final class EventsStorageImpl: EventsStorage, ReactiveCompatible {
                 observer.onCompleted()
             })
             return Disposables.create()
-            }.asDriver(onErrorJustReturn: [])
+        }.asDriver(onErrorJustReturn: [])
     }
 }

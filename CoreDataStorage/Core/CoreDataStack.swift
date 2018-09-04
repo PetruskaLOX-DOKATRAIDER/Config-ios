@@ -21,7 +21,7 @@ public final class CoreDataStack {
         let container = NSPersistentContainer(name: Bundle.coredata.name)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                fatalError("CoreDataStack container init error \(error), \(error.userInfo)")
+                fatalError("NSPersistentContainer init error: \(error)")
             }
         })
         return container
@@ -29,7 +29,7 @@ public final class CoreDataStack {
     
     public init() {}
     
-    func saveContexts(completion: (() -> Void)? = nil) throws {
+    func save(completion: (() -> Void)? = nil) throws {
         privateContext.perform { [weak self] in
             try? self?.privateContext.save()
             try? self?.managedContext.save()
