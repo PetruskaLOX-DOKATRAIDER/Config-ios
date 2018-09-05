@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
 public class TeamItemCell: UITableViewCell, ModelTransfer, ReusableViewProtocol {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var logoImageView: UIImageView!

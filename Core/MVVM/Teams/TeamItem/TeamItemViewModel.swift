@@ -12,10 +12,10 @@ public protocol TeamItemViewModel {
     var players: [PlayerPreviewViewModel] { get }
 }
 
-public final class TeamItemViewModelImpl: TeamItemViewModel, ReactiveCompatible {
-    public let name: Driver<String>
-    public let logoURL: Driver<URL?>
-    public let players: [PlayerPreviewViewModel]
+final class TeamItemViewModelImpl: TeamItemViewModel, ReactiveCompatible {
+    let name: Driver<String>
+    let logoURL: Driver<URL?>
+    let players: [PlayerPreviewViewModel]
     
     public init(team: Team) {
         name = .just(team.name)

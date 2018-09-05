@@ -12,7 +12,7 @@ public enum SkinsAPIServiceError: Error {
     case unknown
 }
 
-public protocol SkinsAPIService: AutoMockable {
+public protocol SkinsAPIService {
     func subscribeForNewSkins() -> DriverResult<Skin, SkinsAPIServiceError>
 }
 
@@ -28,7 +28,7 @@ public class SkinsAPIServiceImpl: SkinsAPIService {
         self.websocketService = websocketService
     }
     
-    public func subscribeForNewSkins() -> DriverResult<Skin, SkinsAPIServiceError> {
+    public final func subscribeForNewSkins() -> DriverResult<Skin, SkinsAPIServiceError> {
         let connect = websocketService.connect(withURL: appEnvironment.skinsApiURL, connectMessage: "history_go")
         return connect.map { result in
             switch result {

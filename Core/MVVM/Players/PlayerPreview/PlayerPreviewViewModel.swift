@@ -13,20 +13,20 @@ public protocol PlayerPreviewViewModel {
     func imageHeight(withContainerWidth containerWidth: Double) -> Double
 }
 
-public final class PlayerPreviewViewModelImpl: PlayerPreviewViewModel, ReactiveCompatible {
-    public let nickname: Driver<String>
-    public let avatarURL: Driver<URL?>
-    public let selectionTrigger = PublishSubject<Void>()
+final class PlayerPreviewViewModelImpl: PlayerPreviewViewModel, ReactiveCompatible {
+    let nickname: Driver<String>
+    let avatarURL: Driver<URL?>
+    let selectionTrigger = PublishSubject<Void>()
     
-    public let player: PlayerPreview
+    private let player: PlayerPreview
     
-    public init(player: PlayerPreview) {
+    init(player: PlayerPreview) {
         self.player = player
         nickname = .just(player.nickname)
         avatarURL = .just(player.avatarURL)
     }
     
-    public func imageHeight(withContainerWidth containerWidth: Double) -> Double {
+    func imageHeight(withContainerWidth containerWidth: Double) -> Double {
         return (containerWidth * player.profileImageSize.height) / player.profileImageSize.weight
     }
 }

@@ -15,8 +15,7 @@ extension PublishRelay {
 extension PublishRelay: ObserverType {
     public func on(_ event: RxSwift.Event<Element>) {
         switch event {
-        case let .next(element):
-            accept(element)
+        case let .next(element): accept(element)
         default: ()
         }
     }

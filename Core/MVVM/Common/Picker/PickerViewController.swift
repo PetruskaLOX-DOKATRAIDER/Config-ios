@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public class PickerViewController: UIViewController, NonReusableViewProtocol {
+public final class PickerViewController: UIViewController, NonReusableViewProtocol {
     @IBOutlet private weak var cancelButton: UIButton!
     @IBOutlet private weak var submitButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
@@ -37,10 +37,9 @@ public class PickerViewController: UIViewController, NonReusableViewProtocol {
         viewModel.title.drive(titleLabel.rx.text).disposed(by: disposeBag)
         cancelButton.rx.tap.bind(to: viewModel.cancelTrigger).disposed(by: disposeBag)
         viewModel.itmeTitles.drive(pickerView.rx.itemTitles){ $1 }.disposed(by: disposeBag)
-//        viewModel.itmeTitles.drive(pickerView.rx.itemAttributedTitles){
-//            return NSAttributedString(string: "\($1)", attributes: [NSAttributedStringKey.foregroundColor: UIColor.ichigos])
-//        }.disposed(by: disposeBag)
-        let currentPickerIndex = submitButton.rx.tap.asDriver().map{ [weak self] in self?.pickerView.selectedRow(inComponent: 0) }
+        let currentPickerIndex = submitButton.rx.tap.asDriver().map {
+            [weak self] in self?.pickerView.selectedRow(inComponent: 0)
+        }
         currentPickerIndex.filterNil().drive(viewModel.itemAtIndexTrigger).disposed(by: disposeBag)
     }
     

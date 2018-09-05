@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import TRON
-
 public extension APIRequest where ErrorModel: Error & StatusCodeContainable {
     public func asResult(recover: @escaping Func<Error, Driver<Result<Model, ErrorModel>>> = defaultRecover) -> Driver<Result<Model, ErrorModel>> {
         return Observable.create({ observer in

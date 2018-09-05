@@ -30,7 +30,7 @@
                     <state key="normal" title="Button"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="8Ne-Bo-7Un" firstAttribute="leading" secondItem="dsz-Ic-Fih" secondAttribute="leading" constant="8" id="FaC-Tv-0cC"/>
                 <constraint firstItem="dsz-Ic-Fih" firstAttribute="trailing" secondItem="EMn-KD-d1C" secondAttribute="trailing" constant="8" id="JOa-gY-fdY"/>

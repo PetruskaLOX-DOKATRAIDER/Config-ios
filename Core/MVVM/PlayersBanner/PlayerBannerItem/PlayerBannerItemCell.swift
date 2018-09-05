@@ -6,9 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
-public class PlayerBannerItemCell: UICollectionViewCell, ReusableViewProtocol, ModelTransfer {
+final class PlayerBannerItemCell: UICollectionViewCell, ReusableViewProtocol, ModelTransfer {
     @IBOutlet private weak var coverImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     

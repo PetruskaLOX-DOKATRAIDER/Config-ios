@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
 final class StorageSetupCell: UITableViewCell, ModelTransfer, ReusableViewProtocol {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var clearButton: UIButton!
@@ -31,11 +29,7 @@ final class StorageSetupCell: UITableViewCell, ModelTransfer, ReusableViewProtoc
         clearButton.titleLabel?.font = .filsonMediumWithSize(16)
     }
     
-    public func onUpdate(with viewModel: StorageSetupViewModel, disposeBag: DisposeBag) {
+    func onUpdate(with viewModel: StorageSetupViewModel, disposeBag: DisposeBag) {
         clearButton.rx.tap.bind(to: viewModel.clearTrigger).disposed(by: disposeBag)
-    }
-    
-    public static func defaultHeight() -> CGFloat {
-        return 161
     }
 }

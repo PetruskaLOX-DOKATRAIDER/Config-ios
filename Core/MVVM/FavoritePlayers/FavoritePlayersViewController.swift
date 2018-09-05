@@ -6,10 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTCollectionViewManager
-import DTModelStorage
-
-public class FavoritePlayersViewController: UIViewController, NonReusableViewProtocol, DTCollectionViewManageable {
+public final class FavoritePlayersViewController: UIViewController, NonReusableViewProtocol, DTCollectionViewManageable {
     @IBOutlet public weak var collectionView: UICollectionView?
     @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var noContentContainerView: UIView!
@@ -39,7 +36,7 @@ public class FavoritePlayersViewController: UIViewController, NonReusableViewPro
         manager.register(PlayerPreviewCell.self)
         manager.sizeForCell(withItem: PlayerPreviewCell.ModelType.self, { [collectionView] vm, _ in
             let cellWidth = collectionView?.bounds.size.width ?? 0 / CGFloat(numberOfColumns)
-            let cellHeight = CGFloat(vm.imageHeight(withContainerWidth: Double(cellWidth))) + PlayerPreviewCell.nickNameContainerHeight
+            let cellHeight = CGFloat(vm.imageHeight(withContainerWidth: Double(cellWidth))) + PlayerPreviewCell.nicknameContainerHeight
             return CGSize(width: cellWidth, height: cellHeight)
         })
         manager.didSelect(PlayerPreviewCell.self) { (_, viewModel, _) in

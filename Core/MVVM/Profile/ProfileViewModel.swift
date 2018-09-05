@@ -43,9 +43,9 @@ public final class ProfileViewModelImpl: ProfileViewModel {
         let tutorialVM = SectionItemViewModelImpl(title: Strings.Profile.tutorial, icon: Images.Profile.rate, withDetail: true)
         let storageVM = StorageSetupViewModelImpl(imageLoaderService: imageLoaderService)
         sections = .just([
-            SectionViewModel(topic: SectionTopicViewModelImpl(title: Strings.Profile.personalSection), items: [favoritePlayersVM, skinsVM]),
-            SectionViewModel(topic: SectionTopicViewModelImpl(title: Strings.Profile.appSection), items: [sendFeedbackVM, donateVM, rateAppVM, shareVM, emailVM, tutorialVM]),
-            SectionViewModel(topic: SectionTopicViewModelImpl(title: Strings.Profile.storageSection), items: [storageVM])
+            SectionViewModel(items: [favoritePlayersVM, skinsVM]),
+            SectionViewModel(items: [sendFeedbackVM, donateVM, rateAppVM, shareVM, emailVM, tutorialVM]),
+            SectionViewModel(items: [storageVM])
         ])
 
         shouldShare = shareVM.selectionTrigger.asDriver(onErrorJustReturn: ()).map(to: ShareItem(url: appEnvironment.appStoreURL))
@@ -54,7 +54,7 @@ public final class ProfileViewModelImpl: ProfileViewModel {
         shouldRouteTutorial = tutorialVM.selectionTrigger.asDriver(onErrorJustReturn: ())
         shouldSendFeedback = sendFeedbackVM.selectionTrigger.asDriver(onErrorJustReturn: ())
         messageViewModel = storageVM.cacheСleared.asDriver(onErrorJustReturn: ()).map(to:
-            MessageViewModelFactory.new(title: Strings.Storage.title, description: Strings.Storage.cleared)
+            MessageViewModelImpl(title: Strings.Storage.title, description: Strings.Storage.cleared)
         )
         shouldOpenURL = .merge(
             donateVM.selectionTrigger.asDriver(onErrorJustReturn: ()).map(to: appEnvironment.donateURL),

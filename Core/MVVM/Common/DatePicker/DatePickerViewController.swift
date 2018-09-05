@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public class DatePickerViewController: UIViewController, NonReusableViewProtocol {
+public final class DatePickerViewController: UIViewController, NonReusableViewProtocol {
     @IBOutlet private weak var submitButton: UIButton!
     @IBOutlet private weak var cancelButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!

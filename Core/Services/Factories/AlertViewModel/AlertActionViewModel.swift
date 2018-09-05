@@ -29,12 +29,12 @@ public protocol AlertActionViewModel {
     var action: PublishSubject<Void>? { get }
 }
 
-public class AlertActionViewModelImpl: AlertActionViewModel {
+public final class AlertActionViewModelImpl: AlertActionViewModel {
     public let title: String
     public let style: AlertActionStyleViewModel
     public let action: PublishSubject<Void>?
     
-    init(
+    public init(
         title: String,
         style: AlertActionStyleViewModel = .defaultActionStyle,
         action: PublishSubject<Void>? = nil

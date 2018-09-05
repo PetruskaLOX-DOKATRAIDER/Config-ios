@@ -37,9 +37,9 @@ public final class NewsViewModelImpl: NewsViewModel, ReactiveCompatible {
         }
         
         let message = PublishSubject<MessageViewModel>()
-        messageViewModel = message.asDriver(onErrorJustReturn: MessageViewModelFactory.error())
+        messageViewModel = message.asDriver(onErrorJustReturn: MessageViewModelImpl.error())
         newsPaginator = Paginator(factory: { newsService.getNewsPreview(forPage: $0).success().map(remapToViewModels).asObservable() })
         shouldRouteProfile = profileTrigger.asDriver(onErrorJustReturn: ())
-        newsPaginator.error.map{ MessageViewModelFactory.error(description: $0.localizedDescription) }.drive(message).disposed(by: rx.disposeBag)
+        newsPaginator.error.map{ MessageViewModelImpl.error(description: $0.localizedDescription) }.drive(message).disposed(by: rx.disposeBag)
     }
 }

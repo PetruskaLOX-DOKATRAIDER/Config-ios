@@ -41,7 +41,7 @@ extension IDContainable {
     }
 }
 
-open class Context<T: IDContainable>: ReactiveCompatible {
+public class Context<T: IDContainable>: ReactiveCompatible {
     fileprivate let variable: Variable<T>
     open var value: T {
         get { return variable.value }

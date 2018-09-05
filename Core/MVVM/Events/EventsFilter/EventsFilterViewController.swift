@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public class EventsFilterViewController: UIViewController, NonReusableViewProtocol {
+public final class EventsFilterViewController: UIViewController, NonReusableViewProtocol {
     @IBOutlet private weak var resetButton: UIButton!
     @IBOutlet private weak var cancelButton: UIButton!
     @IBOutlet private weak var applyButton: UIButton!
@@ -60,7 +60,7 @@ public class EventsFilterViewController: UIViewController, NonReusableViewProtoc
         let view = UIView()
         view.backgroundColor = .clear
         stackView.addArrangedSubview(view)
-        view.snp.makeConstraints{
+        view.snp.makeConstraints {
             $0.height.equalTo(8)
         }
     }

@@ -11,11 +11,11 @@ public protocol ListEventsViewModel {
     var eventDetailsURLTrigger: Driver<URL> { get }
 }
 
-public final class ListEventsViewModelImpl: ListEventsViewModel {
-    public let events: Driver<[EventItemViewModel]>
-    public let eventDetailsURLTrigger: Driver<URL>
+final class ListEventsViewModelImpl: ListEventsViewModel {
+    let events: Driver<[EventItemViewModel]>
+    let eventDetailsURLTrigger: Driver<URL>
     
-    public init(events: Paginator<Event>) {
+    init(events: Paginator<Event>) {
         let detailURL = PublishSubject<URL?>()
         func remapToViewModels(evemt: Event) -> EventItemViewModel {
             let vm = EventItemViewModelImpl(event: evemt)

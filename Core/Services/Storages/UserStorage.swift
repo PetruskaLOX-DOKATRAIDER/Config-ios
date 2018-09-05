@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol UserStorage: AutoMockable {
+public protocol UserStorage {
     var isOnboardingPassed: BehaviorRelay<Bool> { get }
     var email: BehaviorRelay<String?> { get }
 }

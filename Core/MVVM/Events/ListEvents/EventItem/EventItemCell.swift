@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
 public class EventItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var cityLabel: UILabel!
@@ -34,7 +32,7 @@ public class EventItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer
     public func onUpdate(with viewModel: EventItemViewModel, disposeBag: DisposeBag) {
         func descriptionAttributedString(_ eventDescription: HighlightText) -> NSAttributedString {
             let attributedStr = NSMutableAttributedString(string: eventDescription.full)
-            eventDescription.highlights.forEach{
+            eventDescription.highlights.forEach {
                 attributedStr.setColorForText(textForAttribute: $0, withColor: .ichigos)
             }
             return attributedStr

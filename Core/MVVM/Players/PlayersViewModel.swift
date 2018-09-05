@@ -11,18 +11,18 @@ public protocol PlayersViewModel {
     var messageViewModel: Driver<MessageViewModel> { get }
     var profileTrigger: PublishSubject<Void> { get }
     var shouldRouteProfile: Driver<Void> { get }
-    var shouldRoutePlayerDescription: Driver<PlayerID> { get }
+    var shouldRoutePlayerDescription: Driver<Int> { get }
 }
 
-public final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
-    public let playersPaginator: Paginator<PlayerPreviewViewModel>
-    public let messageViewModel: Driver<MessageViewModel>
-    public let profileTrigger = PublishSubject<Void>()
-    public let shouldRouteProfile: Driver<Void>
-    public let shouldRoutePlayerDescription: Driver<PlayerID>
+final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
+    let playersPaginator: Paginator<PlayerPreviewViewModel>
+    let messageViewModel: Driver<MessageViewModel>
+    let profileTrigger = PublishSubject<Void>()
+    let shouldRouteProfile: Driver<Void>
+    let shouldRoutePlayerDescription: Driver<Int>
     
     public init(playersService: PlayersService) {
-        let route = PublishSubject<PlayerID>()
+        let route = PublishSubject<Int>()
         shouldRoutePlayerDescription = route.asDriver(onErrorJustReturn: 0)
         func remapToViewModels(page: Page<PlayerPreview>) -> Page<PlayerPreviewViewModel> {
             return Page.new(
@@ -36,10 +36,10 @@ public final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
             )
         }
         
-        let message = PublishSubject<MessageViewModel>()
-        messageViewModel = message.asDriver(onErrorJustReturn: MessageViewModelFactory.error())
+        let message = PublishSubject<MessageViewModel?>()
+        messageViewModel = message.asDriver(onErrorJustReturn: nil).filterNil()
         playersPaginator = Paginator(factory: { playersService.getPlayerPreview(forPage: $0).success().map(remapToViewModels).asObservable() })
         shouldRouteProfile = profileTrigger.asDriver(onErrorJustReturn: ())
-        playersPaginator.error.map{ MessageViewModelFactory.error(description: $0.localizedDescription) }.drive(message).disposed(by: rx.disposeBag)
+        playersPaginator.error.map{ MessageViewModelImpl.error(description: $0.localizedDescription) }.drive(message).disposed(by: rx.disposeBag)
     }
 }

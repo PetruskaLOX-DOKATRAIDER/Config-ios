@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public class ImageViewerViewController: UIViewController, NonReusableViewProtocol {
+public final class ImageViewerViewController: UIViewController, NonReusableViewProtocol {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var buttonsContainerView: UIView!
     @IBOutlet private weak var shareButton: UIButton!

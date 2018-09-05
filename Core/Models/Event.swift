@@ -6,10 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import SwiftyJSON
-import TRON
-import MapKit
-
 public struct Coordinates {
     public let lat: Double
     public let lng: Double
@@ -33,19 +29,6 @@ public struct Event {
     public let prizePool: Double
     public let countOfTeams: Int
     public let coordinates: Coordinates
-    
-//    public init(name: String, city: String, flagURL: URL?, detailsURL: URL?, startDate: Date, finishDate: Date, logoURL: URL?, prizePool: Double, countOfTeams: Int, coordinates: Coordinates) {
-//        self.name = name
-//        self.city = city
-//        self.flagURL = flagURL
-//        self.detailsURL = detailsURL
-//        self.startDate = startDate
-//        self.finishDate = finishDate
-//        self.logoURL = logoURL
-//        self.prizePool = prizePool
-//        self.countOfTeams = countOfTeams
-//        self.coordinates = coordinates
-//    }
 }
 
 extension Event: JSONDecodable {

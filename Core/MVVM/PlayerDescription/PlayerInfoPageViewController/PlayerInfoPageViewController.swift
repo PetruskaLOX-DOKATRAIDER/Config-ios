@@ -6,12 +6,8 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public class PlayerInfoPageViewController: UIViewController {
-   @IBOutlet var stackView: UIStackView!
-    
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-    }
+public final class PlayerInfoPageViewController: UIViewController {
+   @IBOutlet private var stackView: UIStackView!
     
     public func updateInfoTitles(_ titles: [HighlightText]) {
         stackView.removeAllSubviews()

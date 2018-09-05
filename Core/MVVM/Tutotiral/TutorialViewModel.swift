@@ -19,19 +19,19 @@ public protocol TutorialViewModel {
     var isMoveBackAvailable: Driver<Bool> { get }
 }
 
-public final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible {
-    public let items: Driver<[TutorialItemViewModel]>
-    public let navigationTitle: Driver<String>
-    public let currentPage: Driver<Int>
-    public let pageTrigger = PublishSubject<Int>()
-    public let nextTrigger = PublishSubject<Void>()
-    public let skipTrigger = PublishSubject<Void>()
-    public let closeTrigger = PublishSubject<Void>()
-    public let shouldRouteApp: Driver<Void>
-    public let shouldClose: Driver<Void>
-    public let isMoveBackAvailable: Driver<Bool>
+final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible {
+    let items: Driver<[TutorialItemViewModel]>
+    let navigationTitle: Driver<String>
+    let currentPage: Driver<Int>
+    let pageTrigger = PublishSubject<Int>()
+    let nextTrigger = PublishSubject<Void>()
+    let skipTrigger = PublishSubject<Void>()
+    let closeTrigger = PublishSubject<Void>()
+    let shouldRouteApp: Driver<Void>
+    let shouldClose: Driver<Void>
+    let isMoveBackAvailable: Driver<Bool>
     
-    public init(userStorage: UserStorage) {
+    init(userStorage: UserStorage) {
         let items = [
             TutorialItemViewModelImpl(title: Strings.Tutorial.Item1.title, description: Strings.Tutorial.Item1.description, coverImage: Images.Tutorial.tutorial1),
             TutorialItemViewModelImpl(title: Strings.Tutorial.Item2.title, description: Strings.Tutorial.Item2.description, coverImage: Images.Tutorial.tutorial2),
@@ -44,7 +44,7 @@ public final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible 
         currentPage = Observable.merge(page, nextPage).asDriver(onErrorJustReturn: 0)
         let nextStage = Observable.merge(nextTrigger.withLatestFrom(page).filter{ $0 == items.count - 1 }.toVoid(), skipTrigger).asDriver(onErrorJustReturn: ())
         shouldRouteApp = nextStage.filter{ !userStorage.isOnboardingPassed.value }
-        shouldClose = .merge([closeTrigger.asDriver(onErrorJustReturn: ()), nextStage.filter{ userStorage.isOnboardingPassed.value }])
+        shouldClose = .merge(closeTrigger.asDriver(onErrorJustReturn: ()), nextStage.filter{ userStorage.isOnboardingPassed.value })
         isMoveBackAvailable = userStorage.isOnboardingPassed.asDriver().map{ !$0 }
         self.items = .just(items)
         shouldRouteApp.map(to: true).drive(userStorage.isOnboardingPassed).disposed(by: rx.disposeBag)

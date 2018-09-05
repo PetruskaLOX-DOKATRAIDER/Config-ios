@@ -55,13 +55,13 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
         self.imageURL = .just(imageURL)
         messageViewModel = Driver.merge(
             failureLoadImage.asDriver(onErrorJustReturn: ImageLoaderServiceError.unknown).map(to:
-                MessageViewModelFactory.error(description: Strings.Imageviewer.failureLoadImage)
+                MessageViewModelImpl.error(description: Strings.Imageviewer.failureLoadImage)
             ),
             failureSaveImage.asDriver(onErrorJustReturn: PhotosAlbumServiceError.unknown).map(to:
-                MessageViewModelFactory.error(description: Strings.Imageviewer.failureSaveImage)
+                MessageViewModelImpl.error(description: Strings.Imageviewer.failureSaveImage)
             ),
             successSaveImage.asDriver(onErrorJustReturn: ()).map(to:
-                MessageViewModelFactory.new(title: Strings.Imageviewer.SuccessSaveImage.title, description: Strings.Imageviewer.SuccessSaveImage.description)
+                MessageViewModelImpl(title: Strings.Imageviewer.SuccessSaveImage.title, description: Strings.Imageviewer.SuccessSaveImage.description)
             )
         )
         isWorking = Observable.merge(

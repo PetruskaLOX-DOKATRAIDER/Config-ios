@@ -6,9 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTTableViewManager
-import DTModelStorage
-
 extension ModelTransfer where Self: ReusableViewProtocol {
     public func update(with model: ViewModelProtocol) {
         viewModel = model
@@ -24,6 +21,7 @@ public extension DTTableViewManageable {
         if needsBottomIndicator {
             paginator.isWorking.drive(tableView.rx.bottomLoadingVisible).disposed(by: bag)
         }
+        
         if needsPullToRefresh {
             Driver.merge(
                 paginator.error.map(to: false),

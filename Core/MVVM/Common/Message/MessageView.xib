@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageView" customModule="Core" customModuleProvider="target">
             <connections>
-                <outlet property="backgroundView" destination="P90-c2-YE5" id="xKY-v7-sFY"/>
                 <outlet property="descriptionLabel" destination="IRr-FK-WhA" id="iNI-Wj-E7X"/>
                 <outlet property="iconImageView" destination="Xsg-UD-qDp" id="pLD-qd-a4u"/>
                 <outlet property="titleLabel" destination="Ela-KX-9LJ" id="OA3-rh-Ljy"/>
@@ -29,17 +28,15 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ela-KX-9LJ">
                             <rect key="frame" x="40" y="10" width="316" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRr-FK-WhA">
                             <rect key="frame" x="40" y="39" width="316" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="IRr-FK-WhA" firstAttribute="top" secondItem="Ela-KX-9LJ" secondAttribute="bottom" constant="8" id="GCn-dt-AB1"/>
                         <constraint firstItem="IRr-FK-WhA" firstAttribute="leading" secondItem="P90-c2-YE5" secondAttribute="leading" constant="40" id="KC7-OW-mqE"/>
@@ -61,7 +58,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="P90-c2-YE5" secondAttribute="bottom" id="3KH-Zq-E2A"/>
                 <constraint firstItem="P90-c2-YE5" firstAttribute="bottom" secondItem="lZO-mc-mgy" secondAttribute="bottom" id="6DL-R1-vKK"/>

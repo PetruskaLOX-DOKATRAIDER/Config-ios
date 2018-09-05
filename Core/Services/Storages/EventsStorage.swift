@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol EventsStorage: AutoMockable {
+public protocol EventsStorage {
     func update(withNewEvents newEvents: [Event]) -> Driver<Void>
     func fetchEvents() -> Driver<[Event]>
 }

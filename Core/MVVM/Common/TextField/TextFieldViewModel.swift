@@ -9,7 +9,6 @@
 public protocol TextFieldViewModel {
     var text: BehaviorRelay<String> { get }
     var placeholder: Driver<String> { get }
-    
     var becomeResponder: PublishSubject<Void> { get }
     var shouldResign: Driver<Void> { get }
 }
@@ -19,11 +18,11 @@ extension TextFieldViewModel {
     public var shouldResign: Driver<Void> { return .empty() }
 }
 
-public struct TextFieldViewModelImpl: TextFieldViewModel {
-    public let text: BehaviorRelay<String>
-    public let placeholder: Driver<String>
+final class TextFieldViewModelImpl: TextFieldViewModel {
+    let text: BehaviorRelay<String>
+    let placeholder: Driver<String>
     
-    public init(
+    init(
         text: BehaviorRelay<String>,
         placeholder: String = ""
     ) {
@@ -31,7 +30,7 @@ public struct TextFieldViewModelImpl: TextFieldViewModel {
         self.placeholder = .just(placeholder)
     }
     
-    public init(
+    init(
         text: String = "",
         placeholder: String = ""
     ) {

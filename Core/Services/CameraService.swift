@@ -24,11 +24,11 @@ public enum CameraAuthorizationStatus: Int {
     }
 }
 
-public protocol CameraService: AutoMockable {
+public protocol CameraService {
     var cameraAuthorizationStatus: CameraAuthorizationStatus { get }
 }
 
-public class CameraServiceImpl: CameraService {
+public final class CameraServiceImpl: CameraService {
     private let authorizationStatus: AVAuthorizationStatus
     
     public init(

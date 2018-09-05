@@ -1,14 +1,12 @@
 //
-//  AppSectionsTabBarController.swift
+//  AnimatedTabBarController.swift
 //  Core
 //
-//  Created by Oleg Petrychuk on 25.06.2018.
+//  Created by Oleg Petrychuk on 04.09.2018.
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-// Need TabBar with empty VM for using it on Router
-
-public final class AppSectionsTabBarController: UITabBarController {
+public final class AnimatedTabBarController: UITabBarController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
@@ -16,11 +14,9 @@ public final class AppSectionsTabBarController: UITabBarController {
         tabBar.barTintColor = .tapped
         hidesBottomBarWhenPushed = true
     }
-    
-    //public func onUpdate(with viewModel: AppSectionsViewModel, disposeBag: DisposeBag) {}
 }
 
-extension AppSectionsTabBarController: UITabBarControllerDelegate  {
+extension AnimatedTabBarController: UITabBarControllerDelegate  {
     public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         guard let fromView = selectedViewController?.view, let toView = viewController.view else { return false }
         guard fromView != toView else { return true }

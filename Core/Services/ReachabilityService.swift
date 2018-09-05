@@ -26,7 +26,7 @@ public enum Connection: String {
     }
 }
 
-public protocol ReachabilityService: AutoMockable {
+public protocol ReachabilityService {
     var connection: Connection { get }
 }
 

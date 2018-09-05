@@ -16,10 +16,10 @@ public protocol DeviceRouter {
     func openURL(_ url: URL) throws
 }
 
-public class DeviceRouterImpl: DeviceRouter {
+public final class DeviceRouterImpl: DeviceRouter {
     private let application: UIApplication
     
-    public init(application: UIApplication = UIApplication.shared) {
+    public init(application: UIApplication = .shared) {
         self.application = application
     }
     

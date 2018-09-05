@@ -40,8 +40,8 @@ extension CDPlayerDescription: CDObjectable {
     }
     
     public func toPlainObject() -> PlayerDescription {
-        return PlayerDescription.init(
-            xyq: Int(self.id),
+        return PlayerDescription.new(
+            id: Int(self.id),
             nickname: self.playerPreview?.nickname ?? "",
             name: self.name ?? "",
             surname: self.surname ?? "",

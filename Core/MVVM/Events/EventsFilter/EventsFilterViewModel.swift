@@ -6,34 +6,26 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-struct MaxCountOfTeamsPickerItem {
-    let value: Int
-}
-
-struct MinPrizePoolPickerItem {
-    let value: Double
-}
-
 public protocol EventsFilterViewModel {
     var items: Driver<[EventFilterItemViewModel]> { get }
-    var cancelTrigger: PublishRelay<Void> { get }
-    var applyTrigger: PublishRelay<Void> { get }
-    var resetTrigger: PublishRelay<Void> { get }
+    var cancelTrigger: PublishSubject<Void> { get }
+    var applyTrigger: PublishSubject<Void> { get }
+    var resetTrigger: PublishSubject<Void> { get }
     var shouldRouteDatePicker: Driver<DatePickerViewModel> { get }
     var shouldRoutePicker: Driver<PickerViewModel> { get }
     var shouldClose: Driver<Void> { get }
 }
 
-public final class EventsFilterViewModelImpl: EventsFilterViewModel, ReactiveCompatible {
-    public let items: Driver<[EventFilterItemViewModel]>
-    public let cancelTrigger = PublishRelay<Void>()
-    public let applyTrigger = PublishRelay<Void>()
-    public let resetTrigger = PublishRelay<Void>()
-    public let shouldRouteDatePicker: Driver<DatePickerViewModel>
-    public let shouldRoutePicker: Driver<PickerViewModel>
-    public let shouldClose: Driver<Void>
+final class EventsFilterViewModelImpl: EventsFilterViewModel, ReactiveCompatible {
+    let items: Driver<[EventFilterItemViewModel]>
+    let cancelTrigger = PublishSubject<Void>()
+    let applyTrigger = PublishSubject<Void>()
+    let resetTrigger = PublishSubject<Void>()
+    let shouldRouteDatePicker: Driver<DatePickerViewModel>
+    let shouldRoutePicker: Driver<PickerViewModel>
+    let shouldClose: Driver<Void>
     
-    public init(eventsFiltersStorage: EventsFiltersStorage) {
+    init(eventsFiltersStorage: EventsFiltersStorage) {
         func convertDate(_ date: Date?, notSelectedMessage: String) -> String {
             guard let date = date else { return notSelectedMessage }
             return DateFormatters.default.string(from: date)
@@ -46,18 +38,17 @@ public final class EventsFilterViewModelImpl: EventsFilterViewModel, ReactiveCom
             guard let value = eventsFiltersStorage.minPrizePool.value else { return Strings.EventFilters.minPrizePoolNotSelected }
             return "\(String(value)) \(Strings.EventFilters.dollarChar)"
         }
-        
-        var maxCountOfTeamsItems: [PickerItem<MaxCountOfTeamsPickerItem>] {
+        var maxCountOfTeamsItems: [PickerItem<Int>] {
             return Array(2...60).map{ PickerItem(
                 title: "\(String($0)) \(Strings.EventFilters.teams)",
-                object: MaxCountOfTeamsPickerItem(value: $0))
+                object: $0)
             }
         }
-        var minPrizePoolItems: [PickerItem<MinPrizePoolPickerItem>] {
+        var minPrizePoolItems: [PickerItem<Double>] {
             let data = Array(100...1000).filter{ $0 % 100 == 0 }.map{ Double($0) }
             return data.map{ PickerItem(
                 title: String(format: "%.2f \(Strings.EventFilters.dollarChar)", $0),
-                object: MinPrizePoolPickerItem(value: $0))
+                object: $0)
             }
         }
         
@@ -84,7 +75,11 @@ public final class EventsFilterViewModelImpl: EventsFilterViewModel, ReactiveCom
             minPrizePoolVM
         ])
         
-        shouldClose = .merge(cancelTrigger.asDriver(), applyTrigger.asDriver(), applyTrigger.asDriver(), resetTrigger.asDriver())
+        shouldClose = .merge(
+            cancelTrigger.asDriver(onErrorJustReturn: ()),
+            applyTrigger.asDriver(onErrorJustReturn: ()),
+            resetTrigger.asDriver(onErrorJustReturn: ())
+        )
         let datePicker = PublishSubject<DatePickerViewModel?>()
         shouldRouteDatePicker = datePicker.asDriver(onErrorJustReturn: nil).filterNil()
         let picker = PublishSubject<PickerViewModel?>()
@@ -96,12 +91,13 @@ public final class EventsFilterViewModelImpl: EventsFilterViewModel, ReactiveCom
         
         applyTrigger.withLatestFrom(startDatePickerVM.datePicked).asDriver(onErrorJustReturn: Date()).drive(eventsFiltersStorage.startDate).disposed(by: rx.disposeBag)
         applyTrigger.withLatestFrom(finishDatePickerVM.datePicked).asDriver(onErrorJustReturn: Date()).drive(eventsFiltersStorage.finishDate).disposed(by: rx.disposeBag)
-        applyTrigger.withLatestFrom(maxCountOfTeamsPickerVM.itemPicked).map{ $0.object.value }.asDriver(onErrorJustReturn: 0).drive(eventsFiltersStorage.maxCountOfTeams).disposed(by: rx.disposeBag)
-        applyTrigger.withLatestFrom(minPrizePoolPickerVM.itemPicked).map{ $0.object.value }.asDriver(onErrorJustReturn: 0).drive(eventsFiltersStorage.minPrizePool).disposed(by: rx.disposeBag)
+        applyTrigger.withLatestFrom(maxCountOfTeamsPickerVM.itemPicked).map{ $0.object }.asDriver(onErrorJustReturn: 0).drive(eventsFiltersStorage.maxCountOfTeams).disposed(by: rx.disposeBag)
+        applyTrigger.withLatestFrom(minPrizePoolPickerVM.itemPicked).map{ $0.object }.asDriver(onErrorJustReturn: 0).drive(eventsFiltersStorage.minPrizePool).disposed(by: rx.disposeBag)
         
-        resetTrigger.asDriver().map(to: nil).drive(eventsFiltersStorage.startDate).disposed(by: rx.disposeBag)
-        resetTrigger.asDriver().map(to: nil).drive(eventsFiltersStorage.finishDate).disposed(by: rx.disposeBag)
-        resetTrigger.asDriver().map(to: nil).drive(eventsFiltersStorage.maxCountOfTeams).disposed(by: rx.disposeBag)
-        resetTrigger.asDriver().map(to: nil).drive(eventsFiltersStorage.minPrizePool).disposed(by: rx.disposeBag)
+        let reset = resetTrigger.asDriver(onErrorJustReturn: ())
+        reset.map(to: nil).drive(eventsFiltersStorage.startDate).disposed(by: rx.disposeBag)
+        reset.map(to: nil).drive(eventsFiltersStorage.finishDate).disposed(by: rx.disposeBag)
+        reset.map(to: nil).drive(eventsFiltersStorage.maxCountOfTeams).disposed(by: rx.disposeBag)
+        reset.map(to: nil).drive(eventsFiltersStorage.minPrizePool).disposed(by: rx.disposeBag)
     }
 }

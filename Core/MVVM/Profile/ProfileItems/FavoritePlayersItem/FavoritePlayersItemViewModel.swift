@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol FavoritePlayersItemViewModel: SectionItemViewModelType {
+protocol FavoritePlayersItemViewModel: SectionItemViewModelType {
     var countOfPlayers: Driver<String> { get }
     var selectionTrigger: PublishSubject<Void> { get }
 }

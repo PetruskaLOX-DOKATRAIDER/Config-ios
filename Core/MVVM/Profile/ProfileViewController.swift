@@ -6,9 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTTableViewManager
-import DTModelStorage
-
 public final class ProfileViewController: UIViewController, NonReusableViewProtocol, DTTableViewManageable {
     @IBOutlet public weak var tableView: UITableView!
     @IBOutlet private weak var tableViewBottomConstraint: NSLayoutConstraint!
@@ -28,12 +25,7 @@ public final class ProfileViewController: UIViewController, NonReusableViewProto
     
     private func setupManager() {
         manager.startManaging(withDelegate: self)
-        manager.configureEvents(for: SectionTopicView.self) { header, model in
-            manager.registerHeader(header)
-            manager.heightForHeader(withItem: model, { _, _ -> CGFloat in
-                return SectionTopicView.defaultHeight()
-            })
-        }
+        manager.registerHeader(SectionTopicView.self)
         manager.registerFooter(SectionSubtopicView.self)
         manager.register(FavoritePlayersItemCell.self)
         manager.register(StorageSetupCell.self)

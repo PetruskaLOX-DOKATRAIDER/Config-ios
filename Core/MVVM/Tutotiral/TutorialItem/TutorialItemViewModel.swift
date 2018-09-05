@@ -12,13 +12,12 @@ public protocol TutorialItemViewModel {
     var coverImage: Driver<UIImage> { get }
 }
 
-
-public final class TutorialItemViewModelImpl: TutorialItemViewModel {
-    public let title: Driver<String>
-    public let description: Driver<String>
-    public let coverImage: Driver<UIImage>
+final class TutorialItemViewModelImpl: TutorialItemViewModel {
+    let title: Driver<String>
+    let description: Driver<String>
+    let coverImage: Driver<UIImage>
     
-    public init(
+    init(
         title: String,
         description: String,
         coverImage: UIImage

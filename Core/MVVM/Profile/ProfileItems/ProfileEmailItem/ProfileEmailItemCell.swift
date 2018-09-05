@@ -6,13 +6,12 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
 final class ProfileEmailItemCell: UITableViewCell, ModelTransfer, ReusableViewProtocol {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var saveButton: UIButton!
+    private let keyboardToolbar = KeyboardToolbar(submitButtonTitle: Strings.Profileemail.save)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,14 +29,13 @@ final class ProfileEmailItemCell: UITableViewCell, ModelTransfer, ReusableViewPr
         saveButton.setTitleColor(.snowWhite, for: .normal)
         saveButton.backgroundColor = .ichigos
         saveButton.titleLabel?.font = .filsonMediumWithSize(14)
+        
+        emailTextField.inputAccessoryView = keyboardToolbar
     }
     
-    public func onUpdate(with viewModel: ProfileEmailItemViewModel, disposeBag: DisposeBag) {
+    func onUpdate(with viewModel: ProfileEmailItemViewModel, disposeBag: DisposeBag) {
         emailTextField.viewModel = viewModel.emailVM
+        keyboardToolbar.submitButton.rx.tap.bind(to: viewModel.saveTrigger).disposed(by: disposeBag)
         saveButton.rx.tap.bind(to: viewModel.saveTrigger).disposed(by: disposeBag)
-    }
-    
-    public static func defaultHeight() -> CGFloat {
-        return 165
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public class NewsDescriptionViewController: UIViewController, NonReusableViewProtocol {
+public final class NewsDescriptionViewController: UIViewController, NonReusableViewProtocol {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!

@@ -11,16 +11,14 @@ public enum BannerServiceError: Error {
     case noData
 }
 
-public protocol BannerService: AutoMockable {
+public protocol BannerService {
     func getBannerForPlayers(forPage page: Int) -> DriverResult<Page<PlayerBanner>, BannerServiceError>
 }
 
 public final class BannerServiceImpl: BannerService, ReactiveCompatible {
     private let bannerAPIService: BannerAPIService
     
-    public init(
-        bannerAPIService: BannerAPIService
-    ) {
+    public init(bannerAPIService: BannerAPIService) {
         self.bannerAPIService = bannerAPIService
     }
 

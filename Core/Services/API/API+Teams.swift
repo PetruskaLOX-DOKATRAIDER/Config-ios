@@ -6,14 +6,12 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import TRON
-
-public protocol TeamsAPIService: AutoMockable {
+public protocol TeamsAPIService {
     func getTeams(forPage page: Int) -> Response<Page<Team>, RequestError>
 }
 
 extension API {
-    open class TeamsAPIServiceImpl: API, TeamsAPIService {
+    public final class TeamsAPIServiceImpl: API, TeamsAPIService {
         public func getTeams(forPage page: Int) -> Response<Page<Team>, RequestError> {
             let request: Request<Page<Team>, RequestError> = tron.swiftyJSON.request("teamsData/teamsData\(page).json")
             request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL.absoluteString)

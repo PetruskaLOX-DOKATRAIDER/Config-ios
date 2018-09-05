@@ -18,13 +18,13 @@ public protocol AlertViewModel {
     var actions: [AlertActionViewModel] { get }
 }
 
-public class AlertViewModelImpl: AlertViewModel {
+public final class AlertViewModelImpl: AlertViewModel {
     public let title: String?
     public let message: String?
     public let style: AlertViewModelStyle
     public let actions: [AlertActionViewModel]
     
-    init(
+    public init(
         title: String? = nil,
         message: String? = nil,
         style: AlertViewModelStyle = .alert,

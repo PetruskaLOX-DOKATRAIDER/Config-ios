@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import Foundation
-
 public struct Skin {
     public let name: String
     public let gunName: String
@@ -15,7 +13,7 @@ public struct Skin {
     public let coverImageURL: URL?
     
     public init(
-        response: String,
+        response: String,  // ¯\_(ツ)_/¯
         coverImageApiURL: URL
     ) throws {
         func gunName(response: String) -> String? {

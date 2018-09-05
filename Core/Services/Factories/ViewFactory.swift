@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import Dip
-
 public protocol ViewFactory {
     func buildView<T>() throws -> T where T: UIViewController
     func buildView<T, ARG>(arg: ARG) throws -> T where T: UIViewController

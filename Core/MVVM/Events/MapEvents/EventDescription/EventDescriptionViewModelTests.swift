@@ -6,4 +6,21 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import Foundation
+import Core
+import TestsHelper
+import XCTest
+import Nimble
+import RxTest
+import RxBlocking
+
+class PickNotificationSongViewModelTests: BaseTestCase {
+
+    var sut: EventDescriptionViewModelImpl!
+    
+    override func setUp() {
+        super.setUp()
+
+    }
+    
+
+}

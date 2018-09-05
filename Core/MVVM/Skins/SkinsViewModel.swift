@@ -28,8 +28,8 @@ public final class SkinsViewModelImpl: SkinsViewModel {
         let response = refresh.flatMapLatest{ skinsService.subscribeForSkins() }
         let newSkinVM = response.success().map{ SkinItemViewModelImpl(skin: $0) }
         skins = newSkinVM.map{ [$0] }.scan([], accumulator: { $0 + $1 }).map{ $0.reversed() }.startWith([])
-        messageViewModel = response.failure().map(to: MessageViewModelFactory.error(description: Strings.Skins.disconect))
-        isWorking = Driver.merge([refresh.map(to: true), response.map(to: false)]).startWith(false)
+        messageViewModel = response.failure().map(to: MessageViewModelImpl.error(description: Strings.Skins.disconect))
+        isWorking = Driver.merge(refresh.map(to: true), response.map(to: false)).startWith(false)
         shouldClose = closeTrigger.asDriver(onErrorJustReturn: ())
     }
 }

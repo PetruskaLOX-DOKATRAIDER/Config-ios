@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import LoadableViews
-
 final class EventFilterItemView: LoadableView, NonReusableViewProtocol {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var selectionButton: UIButton!
@@ -27,6 +25,7 @@ final class EventFilterItemView: LoadableView, NonReusableViewProtocol {
     
     private func setup() {
         backgroundColor = .amethyst
+        
         titleLabel.textColor = .solled
         titleLabel.font = .filsonMediumWithSize(15)
     }

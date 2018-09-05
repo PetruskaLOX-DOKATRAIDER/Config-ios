@@ -1,3 +1,4 @@
+/*
 import Core
 
 {% for type in types.implementing.AutoInit|struct where type.accessLevel == "public" %}
@@ -8,3 +9,4 @@ public extension {{ type.name }} {
 }
 
 {% endfor %}
+*/

@@ -8,7 +8,7 @@
 
 import Flurry_iOS_SDK
 
-public protocol AnalyticsService: AutoMockable {
+public protocol AnalyticsService {
     func trackFeedback(withMessage message: String)
 }
 

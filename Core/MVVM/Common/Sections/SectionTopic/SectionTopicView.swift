@@ -6,9 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
-class SectionTopicView: UITableViewHeaderFooterView, ModelTransfer, ReusableViewProtocol {
+final class SectionTopicView: UITableViewHeaderFooterView, ModelTransfer, ReusableViewProtocol {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var iconWidthConstraint: NSLayoutConstraint!
@@ -19,7 +17,7 @@ class SectionTopicView: UITableViewHeaderFooterView, ModelTransfer, ReusableView
         titleLabel.font = .filsonMediumWithSize(16)
     }
     
-    public func onUpdate(with viewModel: SectionTopicViewModel, disposeBag: DisposeBag) {
+    func onUpdate(with viewModel: SectionTopicViewModel, disposeBag: DisposeBag) {
         viewModel.title.drive(titleLabel.rx.text).disposed(by: disposeBag)
         viewModel.icon.drive(iconImageView.rx.image).disposed(by: disposeBag)
         let newWidth: Driver<CGFloat> = viewModel.icon.map{ $0 == nil ? 0 : 44 }
@@ -27,9 +25,5 @@ class SectionTopicView: UITableViewHeaderFooterView, ModelTransfer, ReusableView
             self?.iconWidthConstraint.constant = newWidth
             self?.contentView.layoutIfNeeded()
         }).disposed(by: disposeBag)
-    }
-    
-    public static func defaultHeight() -> CGFloat {
-        return 34
     }
 }

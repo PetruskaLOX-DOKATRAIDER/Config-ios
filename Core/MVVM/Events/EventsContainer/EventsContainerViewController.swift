@@ -6,12 +6,12 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-enum ChildViewControllerType: Int {
+private enum ChildViewControllerType: Int {
     case map
     case list
 }
 
-public class EventsContainerViewController: UIViewController, NonReusableViewProtocol {
+public final class EventsContainerViewController: UIViewController, NonReusableViewProtocol {
     private let listEventsViewController = StoryboardScene.ListEvents.initialViewController()
     private let mapEventsViewController = StoryboardScene.MapEvents.initialViewController()
     private let segmentPageViewController = SegmentPageViewController()
@@ -37,7 +37,6 @@ public class EventsContainerViewController: UIViewController, NonReusableViewPro
     }
     
     private func setupSegmentPageViewController() {
-        segmentPageViewController.isPageScrollEnabled = false
         segmentPageViewController.setupViewControllers([listEventsViewController, mapEventsViewController])
         addChildViewController(segmentPageViewController)
         segmentPageViewControllerContainer.addSubview(segmentPageViewController.view)
@@ -51,7 +50,6 @@ public class EventsContainerViewController: UIViewController, NonReusableViewPro
         segmentView.addSegmentWithTitle(title: Strings.EventsContrainer.list)
         segmentView.addSegmentWithTitle(title: Strings.EventsContrainer.map)
         segmentView.setSegment(atIndex: 0)
-
         segmentView.didSelectAtIndex = { [weak self] index in
             guard let childType = ChildViewControllerType(rawValue: index) else { return }
             switch childType {

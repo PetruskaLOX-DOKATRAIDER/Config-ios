@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol Storage: AutoMockable {
+public protocol Storage {
     func bool(forKey defaultName: String) -> Bool
     func object(forKey defaultName: String) -> Any?
     func string(forKey defaultName: String) -> String?

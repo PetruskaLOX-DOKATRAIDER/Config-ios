@@ -13,18 +13,18 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iUC-5N-yFC" customClass="SectionTopicView" customModule="Core" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O80-A4-36z">
-                    <rect key="frame" x="16" y="4.5" width="25" height="25"/>
+                    <rect key="frame" x="16" y="19.5" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="gam-Ra-Npf"/>
                         <constraint firstAttribute="width" constant="25" id="yuk-Um-gLX"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmv-Zp-zyi">
-                    <rect key="frame" x="45" y="6.5" width="314" height="21"/>
+                    <rect key="frame" x="47" y="22" width="312" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.82352941176470584" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -32,12 +32,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="hCG-Lf-c7S" firstAttribute="trailing" secondItem="pmv-Zp-zyi" secondAttribute="trailing" constant="16" id="5Ws-sX-TlN"/>
-                <constraint firstItem="pmv-Zp-zyi" firstAttribute="centerY" secondItem="O80-A4-36z" secondAttribute="centerY" id="DGT-81-N9F"/>
+                <constraint firstItem="hCG-Lf-c7S" firstAttribute="trailing" secondItem="pmv-Zp-zyi" secondAttribute="trailing" constant="16" id="4ZD-RB-Wxe"/>
                 <constraint firstItem="O80-A4-36z" firstAttribute="leading" secondItem="hCG-Lf-c7S" secondAttribute="leading" constant="16" id="MME-Ak-9nI"/>
                 <constraint firstItem="O80-A4-36z" firstAttribute="centerY" secondItem="iUC-5N-yFC" secondAttribute="centerY" id="T7d-u2-lbe"/>
-                <constraint firstItem="pmv-Zp-zyi" firstAttribute="leading" secondItem="O80-A4-36z" secondAttribute="trailing" constant="4" id="WFB-WO-y7G"/>
-                <constraint firstItem="hCG-Lf-c7S" firstAttribute="bottom" secondItem="pmv-Zp-zyi" secondAttribute="bottom" constant="6.5" id="ows-GC-egL"/>
+                <constraint firstItem="pmv-Zp-zyi" firstAttribute="leading" secondItem="O80-A4-36z" secondAttribute="trailing" constant="6" id="kP1-Ni-X8r"/>
+                <constraint firstItem="pmv-Zp-zyi" firstAttribute="centerY" secondItem="iUC-5N-yFC" secondAttribute="centerY" id="ux4-KO-Cfj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="hCG-Lf-c7S"/>
@@ -46,7 +45,7 @@
                 <outlet property="iconWidthConstraint" destination="yuk-Um-gLX" id="vE5-ZP-uCd"/>
                 <outlet property="titleLabel" destination="pmv-Zp-zyi" id="b1N-vL-fhh"/>
             </connections>
-            <point key="canvasLocation" x="-9.5" y="-22"/>
+            <point key="canvasLocation" x="-9.5" y="-37"/>
         </view>
     </objects>
 </document>

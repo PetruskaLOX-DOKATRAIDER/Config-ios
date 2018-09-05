@@ -10,7 +10,7 @@ public struct HighlightText {
     public let full: String
     public let highlights: [String]
     
-    init(
+    public init(
         full: String,
         highlights: [String] = []
     ) {

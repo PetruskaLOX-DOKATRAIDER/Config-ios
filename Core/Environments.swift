@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol AppEnvironment: AutoMockable {
+public protocol AppEnvironment {
     var apiURL: URL { get }
     var appVersion: String { get }
     var isDebug: Bool { get }

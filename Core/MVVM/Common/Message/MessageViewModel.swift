@@ -6,25 +6,21 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-// MARK: Protocol
-
 public protocol MessageViewModel {
     var title: Driver<String> { get }
     var description: Driver<String> { get }
     var icon: Driver<UIImage> { get }
 }
 
-// MARK: Implementation
-
-private final class MessageViewModelImpl: MessageViewModel {
-    let title: Driver<String>
-    let description: Driver<String>
-    let icon: Driver<UIImage>
+public final class MessageViewModelImpl: MessageViewModel {
+    public let title: Driver<String>
+    public let description: Driver<String>
+    public let icon: Driver<UIImage>
     
-    init(
+    public init(
         title: String,
         description: String,
-        icon: UIImage
+        icon: UIImage = Images.General.message
     ) {
         self.title = .just(title)
         self.description = .just(description)
@@ -32,30 +28,12 @@ private final class MessageViewModelImpl: MessageViewModel {
     }
 }
 
-// MARK: Factory
-
-public class MessageViewModelFactory {
-    public static func new(
-        title: String,
-        description: String,
-        icon: UIImage = Images.General.message
-    ) -> MessageViewModel {
-        return MessageViewModelImpl(
-            title: title,
-            description: description,
-            icon: icon
-        )
-    }
-    
-    public static func error(
+extension MessageViewModelImpl {
+    static func error(
         title: String = Strings.Errors.error,
         description: String = Strings.Errors.generalMessage,
         icon: UIImage = Images.General.error
-    ) -> MessageViewModel {
-        return MessageViewModelImpl(
-            title: title,
-            description: description,
-            icon: icon
-        )
+    ) -> MessageViewModelImpl {
+        return MessageViewModelImpl(title: title, description: description, icon: icon)
     }
 }

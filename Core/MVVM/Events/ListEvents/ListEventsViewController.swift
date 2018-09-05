@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTTableViewManager
-
 public class ListEventsViewController: UIViewController, NonReusableViewProtocol, DTTableViewManageable {
     @IBOutlet public weak var tableView: UITableView!
     

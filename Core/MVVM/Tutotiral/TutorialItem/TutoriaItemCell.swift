@@ -6,9 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
-class TutoriaItemCell: UICollectionViewCell, ReusableViewProtocol, ModelTransfer {
+final class TutoriaItemCell: UICollectionViewCell, ModelTransfer, ReusableViewProtocol {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var coverImageView: UIImageView!
@@ -24,7 +22,7 @@ class TutoriaItemCell: UICollectionViewCell, ReusableViewProtocol, ModelTransfer
         descriptionLabel.textColor = .solled
     }
     
-    public func onUpdate(with viewModel: TutorialItemViewModel, disposeBag: DisposeBag) {
+    func onUpdate(with viewModel: TutorialItemViewModel, disposeBag: DisposeBag) {
         viewModel.title.drive(titleLabel.rx.text).disposed(by: disposeBag)
         viewModel.description.drive(descriptionLabel.rx.text).disposed(by: disposeBag)
         viewModel.coverImage.drive(coverImageView.rx.image).disposed(by: disposeBag)

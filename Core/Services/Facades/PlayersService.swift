@@ -27,9 +27,9 @@ extension PlayersServiceError: Equatable {
     }
 }
 
-public protocol PlayersService: AutoMockable {
+public protocol PlayersService {
     func getPlayerPreview(forPage page: Int) -> DriverResult<Page<PlayerPreview>, PlayersServiceError>
-    func getPlayerDescription(byPlayerID playerID: PlayerID) -> DriverResult<PlayerDescription, PlayersServiceError>
+    func getPlayerDescription(byPlayerID playerID: Int) -> DriverResult<PlayerDescription, PlayersServiceError>
     func getFavoritePlayersPreview() -> DriverResult<[PlayerPreview], PlayersServiceError>
     func addPlayerToFavorites(byID id: Int) -> DriverResult<Void, PlayersServiceError>
     func removePlayerFromFavorites(byID id: Int) -> DriverResult<Void, PlayersServiceError>
@@ -57,7 +57,7 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
         return .merge(request.filter{ $0.value == nil }, updatePlayerPreview(request.success()))
     }
     
-    public func getPlayerDescription(byPlayerID playerID: PlayerID) -> DriverResult<PlayerDescription, PlayersServiceError> {
+    public func getPlayerDescription(byPlayerID playerID: Int) -> DriverResult<PlayerDescription, PlayersServiceError> {
         guard reachabilityService.connection != .none else { return getStoredPlayerDescription(byID: playerID) }
         let request = getRemotePlayerDescription(byID: playerID)
         return .merge(request.filter{ $0.value == nil }, updatePlayerDescription(request.success()))

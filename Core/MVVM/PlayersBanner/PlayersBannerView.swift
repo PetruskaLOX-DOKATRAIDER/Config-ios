@@ -6,21 +6,17 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import LoadableViews
-import DTCollectionViewManager
-import DTModelStorage
-
-public class PlayersBannerView: LoadableView, ReusableViewProtocol, DTCollectionViewManageable {
-    @IBOutlet public weak var collectionView: UICollectionView?
+final class PlayersBannerView: LoadableView, ReusableViewProtocol, DTCollectionViewManageable {
+    @IBOutlet weak var collectionView: UICollectionView?
     @IBOutlet private weak var pageControl: UIPageControl!
     @IBOutlet private weak var errorLabel: UILabel!
     
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
     
-    public required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
@@ -34,7 +30,6 @@ public class PlayersBannerView: LoadableView, ReusableViewProtocol, DTCollection
         setupManager()
     }
 
-    
     private func setupManager() {
         manager.startManaging(withDelegate: self)
         manager.register(PlayerBannerItemCell.self)
@@ -46,7 +41,7 @@ public class PlayersBannerView: LoadableView, ReusableViewProtocol, DTCollection
         }
     }
     
-    public func onUpdate(with viewModel: PlayersBannerViewModel, disposeBag: DisposeBag) {
+    func onUpdate(with viewModel: PlayersBannerViewModel, disposeBag: DisposeBag) {
         connectVertical(viewModel.playersPaginator, needsPullToRefresh: false).disposed(by: disposeBag)
         viewModel.playersPaginator.isWorking.drive(rx.activityIndicator).disposed(by: disposeBag)
         viewModel.playersPaginator.elements.asDriver().map{ $0.isEmpty }.drive(pageControl.rx.isHidden).disposed(by: disposeBag)

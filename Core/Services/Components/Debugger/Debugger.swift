@@ -10,6 +10,7 @@ public enum Debugger {
     public static func `init`(_ obj: AnyObject, logger: @escaping (String) -> Void = { print($0) }) {
         Debugger.init(obj, trackDeinit: true, logger: logger)
     }
+    
     public static func `init`(_ obj: AnyObject, trackDeinit: Bool, logger: @escaping (String) -> Void = { print($0) }) {
         let instance = Debugger.instance(obj)
         let type = Debugger.type(obj)
@@ -21,6 +22,7 @@ public enum Debugger {
     fileprivate static func instance(_ obj: AnyObject) -> String {
         return "\(Unmanaged<AnyObject>.passUnretained(obj).toOpaque())"
     }
+    
     fileprivate static func type(_ obj: AnyObject) -> String {
         return String(describing: Swift.type(of: obj))
     }

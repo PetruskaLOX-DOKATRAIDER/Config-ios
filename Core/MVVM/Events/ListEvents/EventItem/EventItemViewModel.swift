@@ -15,15 +15,15 @@ public protocol EventItemViewModel {
     var selectionTrigger: PublishSubject<Void> { get }
 }
 
-public final class EventItemViewModelImpl: EventItemViewModel, ReactiveCompatible {
-    public let name: Driver<String>
-    public let city: Driver<String>
-    public let flagURL: Driver<URL?>
-    public let logoURL: Driver<URL?>
-    public let description: Driver<HighlightText>
-    public let selectionTrigger = PublishSubject<Void>()
+final class EventItemViewModelImpl: EventItemViewModel, ReactiveCompatible {
+    let name: Driver<String>
+    let city: Driver<String>
+    let flagURL: Driver<URL?>
+    let logoURL: Driver<URL?>
+    let description: Driver<HighlightText>
+    let selectionTrigger = PublishSubject<Void>()
     
-    public init(event: Event) {
+    init(event: Event) {
         name = .just(event.name)
         city = .just(event.city)
         flagURL = .just(event.flagURL)

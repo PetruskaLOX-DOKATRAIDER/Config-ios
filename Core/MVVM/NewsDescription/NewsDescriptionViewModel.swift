@@ -82,7 +82,7 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
             newsRequest.success().map(to: false),
             newsRequest.failure().map(to: false)
         ).startWith(false)
-        messageViewModel = newsRequest.failure().map(to: MessageViewModelFactory.error())
+        messageViewModel = newsRequest.failure().map(to: MessageViewModelImpl.error())
         shouldClose = closeTrigger.asDriver(onErrorJustReturn: ())
     }
 }

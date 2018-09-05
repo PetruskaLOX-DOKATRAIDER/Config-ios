@@ -6,9 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import SwiftyJSON
-import TRON
-
 public struct PlayerBanner {
     public let coverImageURL: URL?
     public let id: Int

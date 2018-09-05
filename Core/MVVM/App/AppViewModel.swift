@@ -1,6 +1,6 @@
 //
 //  AppViewModel.swift
-//  GoDrive
+//  Core
 //
 //  Created by Oleg Petrychuk on Jun 15, 2018.
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.

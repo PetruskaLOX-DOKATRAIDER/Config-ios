@@ -6,10 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import Foundation
-import SwiftyJSON
-import TRON
-
 public protocol StatusCodeContainable {
     var statusCode: Int? { get set }
 }

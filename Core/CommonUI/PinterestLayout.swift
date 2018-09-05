@@ -6,23 +6,26 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTCollectionViewManager
-import DTModelStorage
-
-class PinterestLayout: UICollectionViewLayout {
+final class PinterestLayout: UICollectionViewLayout {
     private let numberOfColumns: Int
     private let cellPadding: CGFloat
     private let collectionViewManager: DTCollectionViewManager
     private var contentHeight: CGFloat = 0
     private var cache = [UICollectionViewLayoutAttributes]()
-    override var collectionViewContentSize: CGSize { return CGSize(width: contentWidth, height: contentHeight) }
+    override var collectionViewContentSize: CGSize {
+        return CGSize(width: contentWidth, height: contentHeight)
+    }
     private var contentWidth: CGFloat {
         guard let collectionView = collectionView else { return 0 }
         let insets = collectionView.contentInset
         return collectionView.bounds.width - (insets.left + insets.right)
     }
     
-    public init(numberOfColumns: Int = 3, cellPadding: CGFloat = 4, collectionViewManager: DTCollectionViewManager) {
+    init(
+        numberOfColumns: Int = 3,
+        cellPadding: CGFloat = 4,
+        collectionViewManager: DTCollectionViewManager
+    ) {
         self.numberOfColumns = numberOfColumns
         self.cellPadding = cellPadding
         self.collectionViewManager = collectionViewManager
@@ -60,7 +63,7 @@ class PinterestLayout: UICollectionViewLayout {
   
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var visibleLayoutAttributes = [UICollectionViewLayoutAttributes]()
-        cache.forEach{
+        cache.forEach {
             if $0.frame.intersects(rect) {
                 visibleLayoutAttributes.append($0)
             }

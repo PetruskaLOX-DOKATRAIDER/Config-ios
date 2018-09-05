@@ -6,9 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTTableViewManager
-
-public class TeamsViewController: UIViewController, NonReusableViewProtocol, DTTableViewManageable {
+public final class TeamsViewController: UIViewController, DTTableViewManageable, NonReusableViewProtocol {
     @IBOutlet public weak var tableView: UITableView!
     @IBOutlet private weak var profileButton: UIButton!
     private let playersBannerView = PlayersBannerView()
@@ -33,7 +31,6 @@ public class TeamsViewController: UIViewController, NonReusableViewProtocol, DTT
         playersBannerView.snp.makeConstraints {
             $0.width.equalToSuperview()
             $0.height.equalTo(Int(view.bounds.size.height * 0.25))
-            //$0.height.equalToSuperview().multipliedBy(0.3)
         }
     }
     

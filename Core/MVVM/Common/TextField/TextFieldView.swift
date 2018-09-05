@@ -7,10 +7,9 @@
 //
 
 extension UITextField: ReusableViewProtocol {
-    open func onUpdate(with viewModel: TextFieldViewModel, disposeBag: DisposeBag) {
+    public func onUpdate(with viewModel: TextFieldViewModel, disposeBag: DisposeBag) {
         (rx.textInput <-> viewModel.text).disposed(by: disposeBag)
         viewModel.placeholder.drive(rx.placeholder).disposed(by: disposeBag)
-        
         rx.controlEvent(.editingDidBegin).bind(to: viewModel.becomeResponder).disposed(by: disposeBag)
         viewModel.shouldResign.drive(rx.resignFirstResponder).disposed(by: disposeBag)
     }
@@ -18,22 +17,22 @@ extension UITextField: ReusableViewProtocol {
 
 extension Reactive where Base: UITextField {
     var placeholder: Binder<String> {
-        return Binder(base) { base, value in
-            base.placeholder = value
+        return Binder(base) { textField, placeholder in
+            textField.placeholder = placeholder
         }
     }
     
     var attributedPlaceholder: Binder<NSAttributedString> {
-        return Binder(base) { base, value in
-            base.attributedPlaceholder = value
+        return Binder(base) { textField, attributedPlaceholder in
+            textField.attributedPlaceholder = attributedPlaceholder
         }
     }
 }
 
 extension Reactive where Base: UIControl {
     var resignFirstResponder: Binder<Void> {
-        return Binder(base) { base, _ in
-            base.resignFirstResponder()
+        return Binder(base) { textField, _ in
+            textField.resignFirstResponder()
         }
     }
 }

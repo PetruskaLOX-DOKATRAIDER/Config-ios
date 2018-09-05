@@ -6,10 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTCollectionViewManager
-import DTModelStorage
-
-public final class TutorialViewController: UIViewController, NonReusableViewProtocol, DTCollectionViewManageable {
+public final class TutorialViewController: UIViewController, DTCollectionViewManageable, NonReusableViewProtocol {
     @IBOutlet private weak var skipButton: UIButton!
     @IBOutlet private weak var nextButton: UIButton!
     @IBOutlet private weak var pageControl: UIPageControl!
@@ -38,7 +35,7 @@ public final class TutorialViewController: UIViewController, NonReusableViewProt
         collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
         manager.startManaging(withDelegate: self)
         manager.register(TutoriaItemCell.self)
-        manager.sizeForCell(withItem: TutorialItemViewModel.self){ [collectionView] (_, _) in
+        manager.sizeForCell(withItem: TutorialItemViewModel.self){ [collectionView] _, _ in
             return collectionView?.frame.size ?? .zero
         }
     }

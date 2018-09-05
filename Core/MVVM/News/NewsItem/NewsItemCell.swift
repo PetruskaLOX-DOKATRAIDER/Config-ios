@@ -6,9 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
-public class NewsItemCell: UICollectionViewCell, ModelTransfer, ReusableViewProtocol {
+final class NewsItemCell: UICollectionViewCell, ModelTransfer, ReusableViewProtocol {
     @IBOutlet private weak var gradeintView: GradientView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var coverImageView: UIImageView!

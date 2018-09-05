@@ -6,12 +6,10 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
-public class PlayerPreviewCell: UICollectionViewCell, ReusableViewProtocol, ModelTransfer {
-    public static let nickNameContainerHeight: CGFloat = 40
+final class PlayerPreviewCell: UICollectionViewCell, ModelTransfer, ReusableViewProtocol {
     @IBOutlet private weak var nicknameLabel: UILabel!
     @IBOutlet private weak var avatarImageView: UIImageView!
+    public static let nicknameContainerHeight: CGFloat = 40
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +18,7 @@ public class PlayerPreviewCell: UICollectionViewCell, ReusableViewProtocol, Mode
         contentView.backgroundColor = .ichigos
     }
     
-    public func onUpdate(with viewModel: PlayerPreviewViewModel, disposeBag: DisposeBag) {
+    func onUpdate(with viewModel: PlayerPreviewViewModel, disposeBag: DisposeBag) {
         viewModel.nickname.drive(nicknameLabel.rx.text).disposed(by: disposeBag)
         viewModel.avatarURL.drive(avatarImageView.rx.imageURL).disposed(by: disposeBag)
     }

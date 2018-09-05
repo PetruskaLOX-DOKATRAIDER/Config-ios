@@ -12,7 +12,7 @@ public enum EventsServiceError: Error {
     case unknown
 }
 
-public protocol EventsService: AutoMockable {
+public protocol EventsService {
     func getEvents(forPage page: Int) -> DriverResult<Page<Event>, EventsServiceError>
 }
 
@@ -37,7 +37,7 @@ public final class EventsServiceImpl: EventsService, ReactiveCompatible {
     public func getEvents(forPage page: Int) -> DriverResult<Page<Event>, EventsServiceError> {
         guard reachabilityService.connection != .none else { return getStoredEvents() }
         let request = getRemoteEvents(forPage: page)
-        return .merge([updateEvents(request.success()), request.filter{ $0.value == nil }])
+        return .merge(updateEvents(request.success()), request.filter{ $0.value == nil })
     }
     
     private func getRemoteEvents(forPage page: Int) -> DriverResult<Page<Event>, EventsServiceError> {

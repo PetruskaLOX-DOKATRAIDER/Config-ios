@@ -13,13 +13,13 @@ public protocol EventFilterItemViewModel {
     var selectionTrigger: PublishSubject<Void> { get }
 }
 
-public final class EventFilterItemViewModelImpl: EventFilterItemViewModel, ReactiveCompatible {
-    public let title: Driver<String>
-    public let icon: Driver<UIImage>
-    public let withDetail: Driver<Bool>
-    public let selectionTrigger = PublishSubject<Void>()
+final class EventFilterItemViewModelImpl: EventFilterItemViewModel, ReactiveCompatible {
+    let title: Driver<String>
+    let icon: Driver<UIImage>
+    let withDetail: Driver<Bool>
+    let selectionTrigger = PublishSubject<Void>()
     
-    public init(
+    init(
         title: Driver<String>,
         icon: UIImage,
         withDetail: Bool = false

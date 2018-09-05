@@ -6,9 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import TRON
-import SwiftyJSON
-
 public struct Page<T> {
     public let content: [T]
     public let index: Int
@@ -21,6 +18,8 @@ public struct Page<T> {
 
 extension Page: JSONDecodable {
     public init(json: JSON) {
+        index = json["current_page"].intValue
+        totalPages = json["total_pages"].intValue
         if let type = T.self as? JSONDecodable.Type {
             content = json["collection"].arrayValue.flatMap{ json -> Any? in
                 do {
@@ -33,9 +32,6 @@ extension Page: JSONDecodable {
         } else {
             content = []
         }
-        
-        index = json["current_page"].intValue
-        totalPages = json["total_pages"].intValue
     }
 }
 

@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import LoadableViews
-
 final class NewsImageContentItemView: LoadableView, NonReusableViewProtocol {
     @IBOutlet private weak var coverImageView: UIImageView!
     @IBOutlet private weak var selectionButton: UIButton!
@@ -27,7 +25,7 @@ final class NewsImageContentItemView: LoadableView, NonReusableViewProtocol {
         selectionButton.applyShadow()
     }
     
-    public func onUpdate(with viewModel: NewsImageContentItemViewModel, disposeBag: DisposeBag) {
+    func onUpdate(with viewModel: NewsImageContentItemViewModel, disposeBag: DisposeBag) {
         viewModel.coverImageURL.drive(coverImageView.rx.imageURL).disposed(by: disposeBag)
         selectionButton.rx.tap.bind(to: viewModel.selectionTrigger).disposed(by: disposeBag)
     }

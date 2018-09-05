@@ -12,7 +12,6 @@ extension MKMapView {
     }
     
     func setCurrentRegion(withCoordinate coordinate: CLLocationCoordinate2D, animated: Bool = true) {
-        let newRegion = MKCoordinateRegion(center: coordinate, span: region.span)
-        setRegion(newRegion, animated: true)
+        setRegion(MKCoordinateRegion(center: coordinate, span: region.span), animated: true)
     }
 }

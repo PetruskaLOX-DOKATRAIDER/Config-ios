@@ -10,21 +10,24 @@ public protocol TeamsViewModel {
     var playersBannerViewModel: PlayersBannerViewModel { get }
     var teamsPaginator: Paginator<TeamItemViewModel> { get }
     var messageViewModel: Driver<MessageViewModel> { get }
-    var profileTrigger: BehaviorRelay<Void> { get }
+    var profileTrigger: PublishSubject<Void> { get }
     var shouldRouteProfile: Driver<Void> { get }
-    var shouldRoutePlayerDescription: Driver<PlayerID> { get }
+    var shouldRoutePlayerDescription: Driver<Int> { get }
 }
 
-public final class TeamsViewModelImpl: TeamsViewModel, ReactiveCompatible {
-    public let playersBannerViewModel: PlayersBannerViewModel
-    public let teamsPaginator: Paginator<TeamItemViewModel>
-    public let messageViewModel: Driver<MessageViewModel>
-    public let profileTrigger = BehaviorRelay(value: ())
-    public let shouldRouteProfile: Driver<Void>
-    public let shouldRoutePlayerDescription: Driver<PlayerID>
+final class TeamsViewModelImpl: TeamsViewModel, ReactiveCompatible {
+    let playersBannerViewModel: PlayersBannerViewModel
+    let teamsPaginator: Paginator<TeamItemViewModel>
+    let messageViewModel: Driver<MessageViewModel>
+    let profileTrigger = PublishSubject<Void>()
+    let shouldRouteProfile: Driver<Void>
+    let shouldRoutePlayerDescription: Driver<Int>
     
-    public init(teamsService: TeamsService, playersBannerViewModel: PlayersBannerViewModel) {
-        let route = PublishSubject<PlayerID>()
+    init(
+        teamsService: TeamsService,
+        playersBannerViewModel: PlayersBannerViewModel
+    ) {
+        let route = PublishSubject<Int>()
         shouldRoutePlayerDescription = route.asDriver(onErrorJustReturn: 0)
         func remapToViewModels(page: Page<Team>) -> Page<TeamItemViewModel> {
             return Page.new(
@@ -42,8 +45,8 @@ public final class TeamsViewModelImpl: TeamsViewModel, ReactiveCompatible {
         }
         
         teamsPaginator = Paginator(factory: { teamsService.getTeams(forPage: $0).success().map(remapToViewModels).asObservable() })
-        shouldRouteProfile = profileTrigger.asDriver()
+        shouldRouteProfile = profileTrigger.asDriver(onErrorJustReturn: ())
+        messageViewModel = teamsPaginator.error.map{ MessageViewModelImpl.error(description: $0.localizedDescription) }
         self.playersBannerViewModel = playersBannerViewModel
-        messageViewModel = teamsPaginator.error.map{ MessageViewModelFactory.error(description: $0.localizedDescription) }
     }
 }

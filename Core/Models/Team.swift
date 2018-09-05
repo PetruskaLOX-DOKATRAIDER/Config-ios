@@ -6,9 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import SwiftyJSON
-import TRON
-
 public struct Team {
     public let name: String
     public let logoURL: URL?

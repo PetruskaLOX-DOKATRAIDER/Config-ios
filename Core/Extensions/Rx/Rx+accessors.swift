@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
 // MARK: ReusableViewProtocol
 
 public extension Reactive where Base: ReusableViewProtocol {
@@ -22,8 +20,8 @@ public extension Reactive where Base: ReusableViewProtocol {
 
 public extension Reactive where Base: UIViewController {
     public var close: Binder<Bool> {
-        return Binder(base) { view, _ in
-            view.close()
+        return Binder(base) { vc, _ in
+            vc.close()
         }
     }
     
@@ -37,16 +35,16 @@ public extension Reactive where Base: UIViewController {
 
 // MARK: UIView
 
-public extension Reactive where Base: UIView {
-    public var activityIndicator: Binder<Bool> {
-        return Binder(base) { vc, show in
-            show ? vc.showActivityIndicatorView() : vc.hideActivityIndicatorView()
+extension Reactive where Base: UIView {
+    var activityIndicator: Binder<Bool> {
+        return Binder(base) { view, show in
+            show ? view.showActivityIndicatorView() : view.hideActivityIndicatorView()
         }
     }
     
-    public var messageView: Binder<MessageViewModel> {
-        return Binder(base) { vc, vm in
-            vc.showMessageView(withViewModel: vm)
+    var messageView: Binder<MessageViewModel> {
+        return Binder(base) { view, vm in
+            view.showMessageView(withViewModel: vm)
         }
     }
 }
@@ -101,14 +99,20 @@ public extension Reactive where Base: PlayerInfoPageViewController {
 
 // MARK: MemoryStorage
 
-public extension Reactive where Base: MemoryStorage {
-    public var sectionViewModels: Binder<[SectionViewModelType]> {
+extension Reactive where Base: MemoryStorage {
+    var sectionViewModels: Binder<[SectionViewModelType]> {
         return Binder(base) { memoryStorage, sections in
             memoryStorage.removeAllItems()
             for (index, section) in sections.enumerated() {
-                section.items.drive(onNext: { self.base.setItems($0, forSection: index) }).disposed(by: self.base.rx.disposeBag)
-                section.topic.drive(onNext: { self.base.setSectionHeaderModel($0, forSection: index) }).disposed(by: self.base.rx.disposeBag)
-                section.topic.drive(onNext: { self.base.setSectionFooterModel($0, forSection: index) }).disposed(by: self.base.rx.disposeBag)
+                section.items.drive(onNext: { [weak memoryStorage] in
+                    memoryStorage?.setItems($0, forSection: index) }
+                ).disposed(by: self.base.rx.disposeBag)
+                section.topic.drive(onNext: { [weak memoryStorage] in
+                    memoryStorage?.setSectionHeaderModel($0, forSection: index) }
+                ).disposed(by: self.base.rx.disposeBag)
+                section.topic.drive(onNext: { [weak memoryStorage] in
+                    memoryStorage?.setSectionFooterModel($0, forSection: index) }
+                ).disposed(by: self.base.rx.disposeBag)
             }
         }
     }

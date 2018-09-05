@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import LoadableViews
-
 final class PlayerInfoView: LoadableView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var pointView: UIView!

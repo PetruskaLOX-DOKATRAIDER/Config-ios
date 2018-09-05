@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTCollectionViewManager
-
 public extension DTCollectionViewManageable {
     func connectVertical<T, U>(_ paginator: BasePaginator<T, U>, needsPullToRefresh: Bool = true, workingSection: Int = 0) -> Disposable {
         let bag = DisposeBag()

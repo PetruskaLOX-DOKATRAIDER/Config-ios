@@ -6,13 +6,13 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-enum PlayerInfoContainerType: Int {
+private enum PlayerInfoContainerType: Int {
     case personalInfo
     case hardware
     case settings
 }
 
-public class PlayerDescriptionViewController: UIViewController, NonReusableViewProtocol {
+public final class PlayerDescriptionViewController: UIViewController, NonReusableViewProtocol {
     @IBOutlet private weak var headerContainerView: UIView!
     @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var fullNameLabel: UILabel!

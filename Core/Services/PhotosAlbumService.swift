@@ -15,7 +15,7 @@ public protocol PhotosAlbumService {
     func save(_ image: UIImage) -> Observable<Result<Void, PhotosAlbumServiceError>>
 }
 
-public class PhotosAlbumServiceImpl: NSObject, PhotosAlbumService {
+public final class PhotosAlbumServiceImpl: NSObject, PhotosAlbumService {
     public func save(_ image: UIImage) -> Observable<Result<Void, PhotosAlbumServiceError>> {
         return Observable.create({ [weak self] observer -> Disposable in
             let container = ObserverContainer(withObserver: observer)
@@ -29,8 +29,10 @@ public class PhotosAlbumServiceImpl: NSObject, PhotosAlbumService {
         let observerContainer: ObserverContainer = Unmanaged.fromOpaque(contextInfo).takeRetainedValue()
         if let error = error {
             observerContainer.observer.onNext(Result(error: .savingError(error)))
+            observerContainer.observer.onCompleted()
         } else {
             observerContainer.observer.onNext(Result(value: ()))
+            observerContainer.observer.onCompleted()
         }
     }
     

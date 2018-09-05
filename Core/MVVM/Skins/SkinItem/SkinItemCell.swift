@@ -6,15 +6,13 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
-public class SkinItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer {
+class SkinItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var coverImageView: UIImageView!
     
-    override public func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
         containerView.backgroundColor = .amethyst
         containerView.applyShadow(color: UIColor.amethyst.cgColor)
@@ -26,7 +24,7 @@ public class SkinItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer 
         descriptionLabel.textColor = .solled
     }
     
-    public func onUpdate(with viewModel: SkinItemViewModel, disposeBag: DisposeBag) {
+    func onUpdate(with viewModel: SkinItemViewModel, disposeBag: DisposeBag) {
         func descriptionAttributedString(_ eventDescription: HighlightText) -> NSAttributedString {
             let attributedStr = NSMutableAttributedString(string: eventDescription.full)
             eventDescription.highlights.forEach{

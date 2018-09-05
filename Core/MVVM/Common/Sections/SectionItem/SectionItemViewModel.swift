@@ -13,13 +13,13 @@ public protocol SectionItemViewModel: SectionItemViewModelType {
     var selectionTrigger: PublishSubject<Void> { get }
 }
 
-public final class SectionItemViewModelImpl: SectionItemViewModel {
-    public let title: Driver<String>
-    public let icon: Driver<UIImage?>
-    public let withDetail: Driver<Bool>
-    public let selectionTrigger = PublishSubject<Void>()
+struct SectionItemViewModelImpl: SectionItemViewModel {
+    let title: Driver<String>
+    let icon: Driver<UIImage?>
+    let withDetail: Driver<Bool>
+    let selectionTrigger = PublishSubject<Void>()
     
-    public init(
+    init(
         title: String,
         icon: UIImage? = nil,
         withDetail: Bool = true

@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
 final class FavoritePlayersItemCell: UITableViewCell, ModelTransfer, ReusableViewProtocol {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var countOfPlayersLabel: UILabel!
@@ -24,11 +22,7 @@ final class FavoritePlayersItemCell: UITableViewCell, ModelTransfer, ReusableVie
         countOfPlayersLabel.font = .filsonMediumWithSize(15)
     }
     
-    public func onUpdate(with viewModel: FavoritePlayersItemViewModel, disposeBag: DisposeBag) {
+    func onUpdate(with viewModel: FavoritePlayersItemViewModel, disposeBag: DisposeBag) {
         viewModel.countOfPlayers.drive(countOfPlayersLabel.rx.text).disposed(by: disposeBag)
-    }
-    
-    public static func defaultHeight() -> CGFloat {
-        return 79
     }
 }

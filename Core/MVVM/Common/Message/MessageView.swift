@@ -6,13 +6,10 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import LoadableViews
-
-class MessageView: LoadableView, NonReusableViewProtocol {
-    @IBOutlet private weak var iconImageView: UIImageView!
+final class MessageView: LoadableView, NonReusableViewProtocol {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var backgroundView: UIView!
+    @IBOutlet private weak var iconImageView: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,12 +22,15 @@ class MessageView: LoadableView, NonReusableViewProtocol {
     }
     
     private func setup() {
-        iconImageView.tintColor = .ichigos
+        backgroundColor = .amethyst
+        
         titleLabel.textColor = .ichigos
-        descriptionLabel.textColor = .ichigos
-        backgroundView.backgroundColor = .black
         titleLabel.font = .filsonBoldWithSize(15)
+        
+        descriptionLabel.textColor = .ichigos
         descriptionLabel.font = .filsonRegularWithSize(15)
+        
+        iconImageView.tintColor = .ichigos
     }
     
     func onUpdate(with viewModel: MessageViewModel, disposeBag: DisposeBag) {

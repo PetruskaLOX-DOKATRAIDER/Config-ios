@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public class FeedbackViewController: UIViewController, NonReusableViewProtocol {
+public final class FeedbackViewController: UIViewController, NonReusableViewProtocol {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var separatorView: UIView!

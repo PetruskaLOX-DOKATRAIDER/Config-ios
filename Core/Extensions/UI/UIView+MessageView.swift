@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import SnapKit
-
 extension UIView {
     func showMessageView(withViewModel viewModel: MessageViewModel) {
         let messageView = MessageView()

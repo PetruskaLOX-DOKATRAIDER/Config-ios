@@ -6,9 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTModelStorage
-
-class SectionSubtopicView: UITableViewHeaderFooterView, ModelTransfer, ReusableViewProtocol {
+final class SectionSubtopicView: UITableViewHeaderFooterView, ModelTransfer, ReusableViewProtocol {
     @IBOutlet private weak var messageLabel: UILabel!
     
     override func awakeFromNib() {
@@ -17,7 +15,7 @@ class SectionSubtopicView: UITableViewHeaderFooterView, ModelTransfer, ReusableV
         messageLabel.font = .filsonMediumWithSize(15)
     }
     
-    public func onUpdate(with viewModel: SectionSubtopicViewModel, disposeBag: DisposeBag) {
+    func onUpdate(with viewModel: SectionSubtopicViewModel, disposeBag: DisposeBag) {
         viewModel.message.drive(messageLabel.rx.text).disposed(by: disposeBag)
     }
 }

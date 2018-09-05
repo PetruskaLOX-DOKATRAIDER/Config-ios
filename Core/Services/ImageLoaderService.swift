@@ -7,7 +7,6 @@
 //
 
 import Kingfisher
-import RxKingfisher
 
 public typealias Image = UIImage
 
@@ -16,7 +15,7 @@ public enum ImageLoaderServiceError: Error {
     case unknown
 }
 
-public protocol ImageLoaderService: AutoMockable {
+public protocol ImageLoaderService {
     func loadImage(withURL url: URL) -> Observable<Result<Image, ImageLoaderServiceError>>
     func clearCache()
 }
@@ -24,7 +23,7 @@ public protocol ImageLoaderService: AutoMockable {
 public final class ImageLoaderServiceImpl: ImageLoaderService {
     private let kingfisherManager: KingfisherManager
     
-    public init(kingfisherManager: KingfisherManager = KingfisherManager.shared) {
+    public init(kingfisherManager: KingfisherManager = .shared) {
         self.kingfisherManager = kingfisherManager
     }
     
@@ -35,8 +34,10 @@ public final class ImageLoaderServiceImpl: ImageLoaderService {
                     observer.onNext(Result(error: .loadError(error)))
                 } else if let image = image {
                     observer.onNext(Result(value: image))
+                    observer.onCompleted()
                 } else {
-                    observer.onNext(Result.init(error: .unknown))
+                    observer.onNext(Result(error: .unknown))
+                    observer.onCompleted()
                 }
             })
             return Disposables.create()

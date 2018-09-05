@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol EventsFiltersStorage: AutoMockable {
+public protocol EventsFiltersStorage {
     var startDate: BehaviorRelay<Date?> { get }
     var finishDate: BehaviorRelay<Date?> { get }
     var maxCountOfTeams: BehaviorRelay<Int?> { get }

@@ -1,8 +1,12 @@
-import RxCocoa
-import AppRouter
-import SafariServices
+//
+//  Router.swift
+//  Core
+//
+//  Created by Oleg Petrychuk on Jun 15, 2018.
+//  Copyright © 2018 Oleg Petrychuk. All rights reserved.
+//
 
-open class Router: ReactiveCompatible {
+public final class Router: ReactiveCompatible {
     private let viewFactory: ViewFactory
     private let viewModelFactory: ViewModelFactory
     private let router: AppRouterType
@@ -34,9 +38,9 @@ open class Router: ReactiveCompatible {
         }).embedInNavigation(NavigationControllerFactory.default())
     }
     
-    public func appSections() -> AppRouter.Presenter.Configuration<AppSectionsTabBarController> {
-        return AppSectionsTabBarController.presenter().from {
-            let tabbarVC = AppSectionsTabBarController()
+    public func appSections() -> AppRouter.Presenter.Configuration<AnimatedTabBarController> {
+        return AnimatedTabBarController.presenter().from {
+            let tabbarVC = AnimatedTabBarController()
             tabbarVC.setViewControllers([
                 NavigationControllerFactory.default(viewControllers: [try self.players().provideSourceController()]),
                 NavigationControllerFactory.default(viewControllers: [try self.teams().provideSourceController()]),
@@ -129,6 +133,10 @@ open class Router: ReactiveCompatible {
             vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomSlide(direction: .right)).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shoudShowAlert.map{ UIAlertControllerFactory.alertController(fromViewModelAlert: $0) }.drive(onNext: { [weak nvc] alert in
                 nvc?.present(alert, animated: true, completion: nil)
+            }).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldShare.drive(onNext: { [weak vc] share in
+                let activityVC = UIActivityViewController(activityItems: share.items(), applicationActivities: [])
+                vc?.navigationController?.present(activityVC, animated: true, completion: nil)
             }).disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.clear())
     }

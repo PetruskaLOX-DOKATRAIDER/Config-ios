@@ -36,13 +36,13 @@ force_try:
 cyclomatic_complexity:
   ignores_case_statements: true
 function_body_length:
-  - 300 #warning
+  - 500 #warning
 type_body_length:
-  - 300 # warning
+  - 500 # warning
   - 400 # error
 # or they can set both explicitly
 line_length:
-  - 300
+  - 500
 file_length:
   warning: 500
   error: 1200

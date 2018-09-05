@@ -6,9 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import SwiftyJSON
-import TRON
-
 public struct NewsPreview {
     public let title: String
     public let coverImageURL: URL?

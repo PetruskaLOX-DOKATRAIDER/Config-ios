@@ -6,9 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import LoadableViews
-
-public class KeyboardToolbar: LoadableView {
+final class KeyboardToolbar: LoadableView {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     
@@ -26,7 +24,7 @@ public class KeyboardToolbar: LoadableView {
         cancelTitle: String = Strings.Keybardtoolbar.cancel,
         submitButtonTitle: String? = nil
     ) {
-        super.init(frame: .zero)
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
         setup()
         cancelButton.setTitle(cancelTitle, for: .normal)
         submitButton.setTitle(submitButtonTitle, for: .normal)
@@ -34,7 +32,7 @@ public class KeyboardToolbar: LoadableView {
     }
     
     private func setup() {
-        cancelButton.rx.tap.asDriver().drive(onNext: { [weak self] in
+        Driver.merge(cancelButton.rx.tap.asDriver(), cancelButton.rx.tap.asDriver()).drive(onNext: { [weak self] in
             self?.endEditing(true)
         }).disposed(by: rx.disposeBag)
         

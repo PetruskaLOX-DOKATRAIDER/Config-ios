@@ -6,9 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTTableViewManager
-
-public class SkinsViewController: UIViewController, NonReusableViewProtocol, DTTableViewManageable {
+public final class SkinsViewController: UIViewController, NonReusableViewProtocol, DTTableViewManageable {
     @IBOutlet public weak var tableView: UITableView!
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var closeButton: UIButton!

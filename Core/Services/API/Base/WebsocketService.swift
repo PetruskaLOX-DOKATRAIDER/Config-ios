@@ -14,30 +14,31 @@ public enum WebsocketServiceError: Error {
 }
 
 public typealias ReceivedMessage = String
-public protocol WebsocketService: AutoMockable {
+public protocol WebsocketService {
     func connect(withURL url: URL, connectMessage: String?) -> DriverResult<ReceivedMessage, WebsocketServiceError>
 }
 
-public class WebsocketServiceImpl: WebsocketService {
+public final class WebsocketServiceImpl: WebsocketService {
+    private let socket: WebSocket
     
-    public init() {}
+    public init(socket: WebSocket = WebSocket(url: URL(fileURLWithPath: ""))) {
+        self.socket = socket
+    }
     
     public func connect(withURL url: URL, connectMessage: String?) -> DriverResult<ReceivedMessage, WebsocketServiceError> {
-        return Observable.create({ observer -> Disposable in
-            let socket = WebSocket(url: url)
+        return Observable.create({ [weak self] observer -> Disposable in
+            self?.socket.request.url = url
             if let message = connectMessage {
-                socket.onConnect = { socket.write(string: message) }
+                self?.socket.onConnect = { self?.socket.write(string: message) }
             }
-            socket.onDisconnect = {
+            self?.socket.onDisconnect = {
                 observer.onNext(Result(error: WebsocketServiceError.disconnect($0)))
-                //observer.onCompleted()
+                observer.onCompleted()
             }
-            socket.onText = {
+            self?.socket.onText = {
                 observer.onNext(Result(value: $0))
-                //observer.onCompleted()
             }
-
-            socket.connect()
+            self?.socket.connect()
             return Disposables.create()
         }).asDriver(onErrorJustReturn: Result(error: WebsocketServiceError.unknown))
     }

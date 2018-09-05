@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import Dip
-
 public protocol ViewModelFactory {
     func buildViewModel<T>() throws -> T
     func buildViewModel<T, ARG>(arg: ARG) throws -> T

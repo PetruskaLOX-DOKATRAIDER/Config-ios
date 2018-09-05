@@ -6,14 +6,12 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import TRON
-
-public protocol BannerAPIService: AutoMockable {
+public protocol BannerAPIService {
     func getBannerForPlayers(forPage page: Int) -> Response<Page<PlayerBanner>, RequestError>
 }
 
 extension API {
-    open class BannerAPIServiceImpl: API, BannerAPIService {
+    public final class BannerAPIServiceImpl: API, BannerAPIService {
         public func getBannerForPlayers(forPage page: Int) -> Response<Page<PlayerBanner>, RequestError> {
             let request: Request<Page<PlayerBanner>, RequestError> = tron.swiftyJSON.request("bannersData/bannersData\(page).json")
             request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL.absoluteString)

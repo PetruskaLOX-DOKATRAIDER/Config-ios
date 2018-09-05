@@ -7,7 +7,6 @@
 //
 
 import Core
-import Dip
 import Fabric
 import Crashlytics
 

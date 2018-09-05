@@ -8,8 +8,8 @@
 
 final class SegmentPageViewController: UIPageViewController {
     private var _viewControllers = [UIViewController]()
-    @IBInspectable var isPageScrollEnabled: Bool = true {
-        didSet { setScrollEnabled(false) }
+    @IBInspectable var isPageScrollEnabled: Bool = false {
+        didSet { setScrollEnabled(isPageScrollEnabled) }
     }
   
     public init(

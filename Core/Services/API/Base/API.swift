@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import TRON
-
 public typealias RequestError = String
 public typealias ResponseModel<T, U: BackendError> = Result<T, DictionaryError<U>>
 public typealias Response<T, U: BackendError> = Driver<ResponseModel<T, U>>
@@ -18,7 +16,10 @@ public typealias DriverResult<T, U: Error> = Driver<Result<T, U>>
 open class API {
     public let tron: TRON
     public let appEnvironment: AppEnvironment
-    public init(tron: TRON, appEnvironment: AppEnvironment) {
+    public init(
+        tron: TRON,
+        appEnvironment: AppEnvironment
+    ) {
         self.tron = tron
         self.appEnvironment = appEnvironment
     }

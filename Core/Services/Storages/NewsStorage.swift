@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol NewsStorage: AutoMockable {
+public protocol NewsStorage {
     func updateNewsPreview(withNewNews newNews: [NewsPreview]) -> Driver<Void>
     func fetchNewsPreview() -> Driver<[NewsPreview]>
     func updateNewsDescription(withNewNews newNews: NewsDescription) -> Driver<Void>

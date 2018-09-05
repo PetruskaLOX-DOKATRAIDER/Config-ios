@@ -6,14 +6,14 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol SectionTopicViewModel: SectionTopicViewModelType {
+protocol SectionTopicViewModel: SectionTopicViewModelType {
     var title: Driver<String> { get }
     var icon: Driver<UIImage?> { get }
 }
 
-public struct SectionTopicViewModelImpl: SectionTopicViewModel, ReactiveCompatible {
-    public let title: Driver<String>
-    public let icon: Driver<UIImage?>
+struct SectionTopicViewModelImpl: SectionTopicViewModel, ReactiveCompatible {
+    let title: Driver<String>
+    let icon: Driver<UIImage?>
     
     init(
         title: String = "",

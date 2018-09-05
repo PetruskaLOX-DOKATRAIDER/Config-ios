@@ -6,9 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import LoadableViews
-
-public class SegmentView: LoadableView {
+class SegmentView: LoadableView {
     public var didSelectAtIndex : ((Int) -> Void)?
     @IBOutlet private weak var lineView: UIView!
     @IBOutlet private weak var stackView: UIStackView!
@@ -21,7 +19,7 @@ public class SegmentView: LoadableView {
         setup()
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
@@ -32,7 +30,7 @@ public class SegmentView: LoadableView {
     }
     
     func addSegmentWithTitle(title: String) {
-        stackView.addArrangedSubview(getButton(withTitle: title))
+        stackView.addArrangedSubview(button(withTitle: title))
         stackView.layoutIfNeeded()
     }
 
@@ -42,7 +40,7 @@ public class SegmentView: LoadableView {
         }
     }
     
-    private func getButton(withTitle title: String) -> UIButton {
+    private func button(withTitle title: String) -> UIButton {
         let button = UIButton()
         button.setTitle(title, for: .normal)
         button.titleLabel?.font = .filsonMediumWithSize(17)
