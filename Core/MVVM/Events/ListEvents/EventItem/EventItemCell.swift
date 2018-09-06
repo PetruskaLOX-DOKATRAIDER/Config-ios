@@ -7,12 +7,12 @@
 //
 
 public class EventItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer {
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var cityLabel: UILabel!
     @IBOutlet private weak var flagImageView: UIImageView!
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var cityLabel: UILabel!
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +30,7 @@ public class EventItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer
     }
     
     public func onUpdate(with viewModel: EventItemViewModel, disposeBag: DisposeBag) {
-        func descriptionAttributedString(_ eventDescription: HighlightText) -> NSAttributedString {
+        func attributed(_ eventDescription: HighlightText) -> NSAttributedString {
             let attributedStr = NSMutableAttributedString(string: eventDescription.full)
             eventDescription.highlights.forEach {
                 attributedStr.setColorForText(textForAttribute: $0, withColor: .ichigos)
@@ -42,6 +42,6 @@ public class EventItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer
         viewModel.city.drive(cityLabel.rx.text).disposed(by: disposeBag)
         viewModel.flagURL.drive(flagImageView.rx.imageURL).disposed(by: disposeBag)
         viewModel.logoURL.drive(logoImageView.rx.imageURL).disposed(by: disposeBag)
-        viewModel.description.map{ descriptionAttributedString($0) }.drive(descriptionLabel.rx.attributedText).disposed(by: disposeBag)
+        viewModel.description.map{ attributed($0) }.drive(descriptionLabel.rx.attributedText).disposed(by: disposeBag)
     }
 }

@@ -7,8 +7,8 @@
 //
 
 final class PlayersBannerView: LoadableView, ReusableViewProtocol, DTCollectionViewManageable {
-    @IBOutlet weak var collectionView: UICollectionView?
     @IBOutlet private weak var pageControl: UIPageControl!
+    @IBOutlet weak var collectionView: UICollectionView?
     @IBOutlet private weak var errorLabel: UILabel!
     
     override init(frame: CGRect) {

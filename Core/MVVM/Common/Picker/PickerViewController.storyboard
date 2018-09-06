@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ek-ct-1Xt">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,33 +14,33 @@
                         <viewControllerLayoutGuide type="bottom" id="4af-qR-9ib"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cEO-6E-8qo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1F-pp-Kbj">
-                                <rect key="frame" x="0.0" y="407" width="375" height="260"/>
+                                <rect key="frame" x="0.0" y="340" width="600" height="260"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJl-zj-Hnh">
-                                        <rect key="frame" x="0.0" y="45" width="375" height="215"/>
+                                        <rect key="frame" x="0.0" y="45" width="600" height="215"/>
                                     </pickerView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YgT-z5-HKB">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjX-SD-22o">
-                                                <rect key="frame" x="295" y="0.0" width="80" height="44"/>
+                                                <rect key="frame" x="520" y="0.0" width="80" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="ngt-wf-3Q8"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="on4-i8-8Cd">
-                                                <rect key="frame" x="80" y="12.5" width="215" height="21"/>
+                                                <rect key="frame" x="80" y="12.5" width="440" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5a-qv-hWU">
-                                                <rect key="frame" x="0.0" y="44" width="375" height="1"/>
+                                                <rect key="frame" x="0.0" y="44" width="600" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="LHO-oe-uiQ"/>
@@ -100,7 +96,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cancelButton" destination="cZD-Qx-Fon" id="rjF-8H-UhG"/>
+                        <outlet property="closeButton" destination="cZD-Qx-Fon" id="rjF-8H-UhG"/>
                         <outlet property="containerView" destination="E1F-pp-Kbj" id="Tt7-ml-dzz"/>
                         <outlet property="pickerView" destination="eJl-zj-Hnh" id="jkS-7S-MDJ"/>
                         <outlet property="separatorView" destination="W5a-qv-hWU" id="iAA-Kb-bhP"/>

@@ -7,12 +7,12 @@
 //
 
 public final class EventsFilterViewController: UIViewController, NonReusableViewProtocol {
-    @IBOutlet private weak var resetButton: UIButton!
-    @IBOutlet private weak var cancelButton: UIButton!
-    @IBOutlet private weak var applyButton: UIButton!
-    @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var closeButton: UIButton!
+    @IBOutlet private weak var stackView: UIStackView!
+    @IBOutlet private weak var resetButton: UIButton!
+    @IBOutlet private weak var applyButton: UIButton!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +28,9 @@ public final class EventsFilterViewController: UIViewController, NonReusableView
         resetButton.setTitleColor(.ichigos, for: .normal)
         resetButton.titleLabel?.font = .filsonMediumWithSize(16)
         
-        cancelButton.setTitle(Strings.EventFilters.cancel, for: .normal)
-        cancelButton.setTitleColor(.ichigos, for: .normal)
-        cancelButton.titleLabel?.font = .filsonMediumWithSize(16)
+        closeButton.setTitle(Strings.EventFilters.cancel, for: .normal)
+        closeButton.setTitleColor(.ichigos, for: .normal)
+        closeButton.titleLabel?.font = .filsonMediumWithSize(16)
         
         applyButton.setTitle(Strings.EventFilters.apply, for: .normal)
         applyButton.setTitleColor(.ichigos, for: .normal)
@@ -38,17 +38,21 @@ public final class EventsFilterViewController: UIViewController, NonReusableView
     }
 
     public func onUpdate(with viewModel: EventsFilterViewModel, disposeBag: DisposeBag) {
-        viewModel.items.drive(onNext: { [weak self] items in
-            guard let strongSelf = self else { return }
-            strongSelf.stackView.removeAllSubviews()
-            items.forEach{ self?.addEventFilterAndSeparatorView(withViewModel: $0) }
-        }).disposed(by: rx.disposeBag)
+        viewModel.items.drive(onNext: { [weak self] in self?.mapItems($0) }).disposed(by: rx.disposeBag)
         resetButton.rx.tap.bind(to: viewModel.resetTrigger).disposed(by: disposeBag)
-        cancelButton.rx.tap.bind(to: viewModel.cancelTrigger).disposed(by: disposeBag)
+        closeButton.rx.tap.bind(to: viewModel.closeTrigger).disposed(by: disposeBag)
         applyButton.rx.tap.bind(to: viewModel.applyTrigger).disposed(by: disposeBag)
     }
     
-    private func addEventFilterAndSeparatorView(withViewModel viewModel: EventFilterItemViewModel) {
+    private func mapItems(_ items: [EventFilterItemViewModel]) {
+        stackView.removeAllSubviews()
+        items.forEach { vm in
+            addEventFilterView(withViewModel: vm)
+            addSeparatorView()
+        }
+    }
+    
+    private func addEventFilterView(withViewModel viewModel: EventFilterItemViewModel) {
         let height: CGFloat = 56
         let view = EventFilterItemView(frame: CGRect(x: 0, y: 0, width: stackView.bounds.size.width, height: height))
         view.viewModel = viewModel
@@ -56,7 +60,6 @@ public final class EventsFilterViewController: UIViewController, NonReusableView
         view.snp.makeConstraints {
             $0.height.equalTo(height)
         }
-        addSeparatorView()
     }
     
     private func addSeparatorView() {

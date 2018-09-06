@@ -7,12 +7,12 @@
 //
 
 public final class ImageViewerViewController: UIViewController, NonReusableViewProtocol {
-    @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var buttonsContainerView: UIView!
+    @IBOutlet private weak var browserButton: UIButton!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var shareButton: UIButton!
     @IBOutlet private weak var saveButton: UIButton!
-    @IBOutlet private weak var browserButton: UIButton!
-    @IBOutlet private weak var closeButton: UIButton!
     
     public override func viewDidLoad() {
         super.viewDidLoad()

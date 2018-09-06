@@ -7,9 +7,9 @@
 //
 
 final class MessageView: LoadableView, NonReusableViewProtocol {
+    @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var iconImageView: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

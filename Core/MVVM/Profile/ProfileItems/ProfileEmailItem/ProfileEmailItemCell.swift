@@ -7,11 +7,11 @@
 //
 
 final class ProfileEmailItemCell: UITableViewCell, ModelTransfer, ReusableViewProtocol {
-    @IBOutlet private weak var titleLabel: UILabel!
+    private let keyboardToolbar = KeyboardToolbar(submitButtonTitle: Strings.Profileemail.save)
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var saveButton: UIButton!
-    private let keyboardToolbar = KeyboardToolbar(submitButtonTitle: Strings.Profileemail.save)
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

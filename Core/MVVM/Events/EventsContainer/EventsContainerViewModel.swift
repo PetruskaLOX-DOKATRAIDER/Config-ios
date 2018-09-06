@@ -23,7 +23,8 @@ final class EventsContainerViewModelImpl: EventsContainerViewModel, ReactiveComp
     
     init(
         eventsService: EventsService,
-        eventsFiltersStorage: EventsFiltersStorage
+        eventsFiltersStorage: EventsFiltersStorage,
+        imageLoaderService: ImageLoaderService
     ) {
         eventsPaginator = Paginator(factory: {
             eventsService.getEvents(forPage: $0)
@@ -31,7 +32,7 @@ final class EventsContainerViewModelImpl: EventsContainerViewModel, ReactiveComp
             .asObservable()
         })
         listEventsViewModel = ListEventsViewModelImpl(events: eventsPaginator)
-        mapEventsViewModel = MapEventsViewModelImpl(events: eventsPaginator)
+        mapEventsViewModel = MapEventsViewModelImpl(events: eventsPaginator, imageLoaderService: imageLoaderService)
         shouldRouteFilters = filtersTrigger.asDriver(onErrorJustReturn: ())
         Driver.merge(
             eventsFiltersStorage.startDate.asDriver().map(to: ()),

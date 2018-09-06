@@ -7,11 +7,11 @@
 //
 
 public final class TutorialViewController: UIViewController, DTCollectionViewManageable, NonReusableViewProtocol {
+    @IBOutlet public weak var collectionView: UICollectionView?
+    @IBOutlet private weak var pageControl: UIPageControl!
+    @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var skipButton: UIButton!
     @IBOutlet private weak var nextButton: UIButton!
-    @IBOutlet private weak var pageControl: UIPageControl!
-    @IBOutlet public weak var collectionView: UICollectionView?
-    @IBOutlet private weak var closeButton: UIButton!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +47,6 @@ public final class TutorialViewController: UIViewController, DTCollectionViewMan
         viewModel.currentPage.drive(pageControl.rx.currentPage).disposed(by: disposeBag)
         viewModel.isMoveBackAvailable.drive(closeButton.rx.isHidden).disposed(by: disposeBag)
         viewModel.isMoveBackAvailable.map{ !$0 }.drive(skipButton.rx.isHidden).disposed(by: disposeBag)
-        nextButton.rx.tap.bind(to: viewModel.nextTrigger).disposed(by: disposeBag)
-        closeButton.rx.tap.bind(to: viewModel.closeTrigger).disposed(by: disposeBag)
-        skipButton.rx.tap.bind(to: viewModel.skipTrigger).disposed(by: disposeBag)
         Driver.merge(
             collectionView?.rx.didEndDecelerating.asDriver() ?? .empty(),
             collectionView?.rx.didEndScrollingAnimation.asDriver() ?? .empty()
@@ -59,5 +56,8 @@ public final class TutorialViewController: UIViewController, DTCollectionViewMan
         viewModel.currentPage.distinctUntilChanged().drive(onNext: { [weak self] page in
             self?.collectionView?.scrollToItem(at: IndexPath(row: page, section: 0), at: .left, animated: true)
         }).disposed(by: disposeBag)
+        nextButton.rx.tap.bind(to: viewModel.nextTrigger).disposed(by: disposeBag)
+        closeButton.rx.tap.bind(to: viewModel.closeTrigger).disposed(by: disposeBag)
+        skipButton.rx.tap.bind(to: viewModel.skipTrigger).disposed(by: disposeBag)
     }
 }

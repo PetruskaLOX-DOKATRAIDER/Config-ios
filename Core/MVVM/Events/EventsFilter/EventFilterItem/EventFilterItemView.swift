@@ -7,11 +7,11 @@
 //
 
 final class EventFilterItemView: LoadableView, NonReusableViewProtocol {
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var selectionButton: UIButton!
-    @IBOutlet private weak var iconImageView: UIImageView!
-    @IBOutlet private weak var detailImageView: UIImageView!
     @IBOutlet private weak var detailImageViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var detailImageView: UIImageView!
+    @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet private weak var selectionButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

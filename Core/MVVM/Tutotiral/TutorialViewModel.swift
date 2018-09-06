@@ -45,13 +45,11 @@ final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible {
         navigationTitle = pageTrigger
             .map{ $0 == items.count - 1 ? Strings.Tutorial.start : Strings.Tutorial.next }
             .startWith(Strings.Tutorial.next).asDriver(onErrorJustReturn: "")
-        let nextPage = nextTrigger.withLatestFrom(page).map{ currentPage in
-            return (currentPage == items.count - 1) ? currentPage : currentPage + 1
-        }
+        let nextPage = nextTrigger.withLatestFrom( page ).map{ $0 == items.count - 1 ? $0 : $0 + 1 }
         currentPage = Observable.merge(page, nextPage).asDriver(onErrorJustReturn: 0)
         
         let nextStage = Observable.merge(
-            nextTrigger.withLatestFrom(page).filter{ $0 == items.count - 1 }.toVoid(),
+            nextTrigger.withLatestFrom( page ).filter{ $0 == items.count - 1 }.toVoid(),
             skipTrigger
         ).asDriver(onErrorJustReturn: ())
 

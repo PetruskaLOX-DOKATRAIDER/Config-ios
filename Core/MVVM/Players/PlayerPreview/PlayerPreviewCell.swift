@@ -7,8 +7,8 @@
 //
 
 final class PlayerPreviewCell: UICollectionViewCell, ModelTransfer, ReusableViewProtocol {
-    @IBOutlet private weak var nicknameLabel: UILabel!
     @IBOutlet private weak var avatarImageView: UIImageView!
+    @IBOutlet private weak var nicknameLabel: UILabel!
     public static let nicknameContainerHeight: CGFloat = 40
     
     override public func awakeFromNib() {

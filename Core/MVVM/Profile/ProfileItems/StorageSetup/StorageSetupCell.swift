@@ -7,9 +7,9 @@
 //
 
 final class StorageSetupCell: UITableViewCell, ModelTransfer, ReusableViewProtocol {
-    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var clearButton: UIButton!
     @IBOutlet private weak var warningLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

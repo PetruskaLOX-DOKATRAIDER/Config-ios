@@ -7,18 +7,18 @@
 //
 
 public final class NewsDescriptionViewController: UIViewController, NonReusableViewProtocol {
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var subtitleLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var closeButton: UIButton!
-    @IBOutlet private weak var detailsButton: UIButton!
-    @IBOutlet private weak var shareButton: UIButton!
     @IBOutlet private weak var scrollViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var coverImageGradientView: GradientView!
+    @IBOutlet private weak var coverImageContainerView: UIView!
     @IBOutlet private weak var contentStackView: UIStackView!
     @IBOutlet private weak var buttonsContainerView: UIView!
-    @IBOutlet private weak var coverImageGradientView: GradientView!
     @IBOutlet private weak var coverImageView: UIImageView!
-    @IBOutlet private weak var coverImageContainerView: UIView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var detailsButton: UIButton!
+    @IBOutlet private weak var subtitleLabel: UILabel!
+    @IBOutlet private weak var shareButton: UIButton!
+    @IBOutlet private weak var closeButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -57,8 +57,8 @@ public final class NewsDescriptionViewController: UIViewController, NonReusableV
         viewModel.coverImageURL.drive(coverImageView.rx.imageURL).disposed(by: disposeBag)
         viewModel.isWorking.drive(view.rx.activityIndicator).disposed(by: disposeBag)
         viewModel.messageViewModel.drive(view.rx.messageView).disposed(by: disposeBag)
-        viewModel.content.filterEmpty().drive(onNext: { [weak self] in self?.mapContent($0) }).disposed(by: rx.disposeBag)
-        viewModel.isDataAvaliable.drive(onNext: { [weak self] in self?.showContent($0) }).disposed(by: disposeBag)
+        viewModel.content.filterEmpty().drive(onNext:{ [weak self] in self?.mapContent($0) }).disposed(by: rx.disposeBag)
+        viewModel.isDataAvaliable.drive(onNext:{ [weak self] in self?.showContent($0) }).disposed(by: disposeBag)
         closeButton.rx.tap.bind(to: viewModel.closeTrigger).disposed(by: disposeBag)
         detailsButton.rx.tap.bind(to: viewModel.detailsTrigger).disposed(by: disposeBag)
         shareButton.rx.tap.bind(to: viewModel.shareTrigger).disposed(by: disposeBag)

@@ -49,7 +49,6 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
     ) {
         let openImage = PublishSubject<URL?>()
         shouldRouteImageViewer = openImage.asDriver(onErrorJustReturn: nil).filterNil()
-        
         func remapToViewModel(_ news: NewsDescription) -> [NewsContentItemViewModel] {
             var contentVMs = [NewsContentItemViewModel]()
             news.content.forEach { content in
@@ -73,10 +72,7 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
         description = newsRequest.success().map{
             "\(Strings.Newsdescription.posted) \(DateFormatters.default.string(from: $0.date)) \(Strings.Newsdescription.by) \($0.author)"
         }.startWith("")
-        content = newsRequest
-            .success()
-            .map{ remapToViewModel($0) }
-            .startWith([])
+        content = newsRequest.success().map{ remapToViewModel($0) }.startWith([])
         isDataAvaliable = Driver.merge(
             newsRequest.success().map(to: true),
             newsRequest.failure().map(to: false)

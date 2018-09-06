@@ -7,9 +7,9 @@
 //
 
 final class PlayerInTeamView: LoadableView, ReusableViewProtocol {
-    @IBOutlet private weak var nicknameLabel: UILabel!
     @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var selectionButton: UIButton!
+    @IBOutlet private weak var nicknameLabel: UILabel!
     static let defaultWidth: CGFloat = 126
     
     public override init(frame: CGRect) {

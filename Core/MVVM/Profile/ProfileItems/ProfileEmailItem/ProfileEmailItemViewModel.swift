@@ -17,7 +17,7 @@ public final class ProfileEmailItemViewModelImpl: ProfileEmailItemViewModel, Rea
     
     init(userStorage: UserStorage) {
         emailVM = TextFieldViewModelImpl(text: userStorage.email.value ?? "", placeholder: Strings.Profileemail.placeholder)
-        let saveEmail = saveTrigger.asDriver(onErrorJustReturn: ()).withLatestFrom(emailVM.text.asDriver())
+        let saveEmail = saveTrigger.asDriver(onErrorJustReturn: ()).withLatestFrom( emailVM.text.asDriver() )
         saveEmail.drive(userStorage.email).disposed(by: rx.disposeBag)
     }
 }

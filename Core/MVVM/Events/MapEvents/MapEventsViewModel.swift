@@ -19,10 +19,13 @@ public final class MapEventsViewModelImpl: MapEventsViewModel, ReactiveCompatibl
     public let isDescriptionAvailable: Driver<Bool>
     public let unFocusTrigger = PublishSubject<Void>()
     
-    public init(events: Paginator<Event>) {
+    public init(
+        events: Paginator<Event>,
+        imageLoaderService: ImageLoaderService
+    ) {
         let itemTrigger = PublishSubject<Event?>()
         func remapToViewModels(evet: Event) -> EventItemAnnotationViewModel {
-            let vm = EventItemAnnotationViewModelImpl(event: evet)
+            let vm = EventItemAnnotationViewModelImpl(event: evet, imageLoaderService: imageLoaderService)
             vm.selectionTrigger.asDriver(onErrorJustReturn: ()).map{ evet }.drive(itemTrigger).disposed(by: vm.disposeBag)
             return vm
         }

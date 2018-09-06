@@ -7,10 +7,10 @@
 //
 
 public final class SkinsViewController: UIViewController, NonReusableViewProtocol, DTTableViewManageable {
-    @IBOutlet public weak var tableView: UITableView!
-    @IBOutlet private weak var searchBar: UISearchBar!
-    @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var workingStatusLabel: UILabel!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet public weak var tableView: UITableView!
+    @IBOutlet private weak var closeButton: UIButton!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +26,11 @@ public final class SkinsViewController: UIViewController, NonReusableViewProtoco
     }
     
     public func onUpdate(with viewModel: SkinsViewModel, disposeBag: DisposeBag) {
-        closeButton.rx.tap.bind(to: viewModel.closeTrigger).disposed(by: disposeBag)
         viewModel.skins.drive(manager.memoryStorage.rx.items()).disposed(by: disposeBag)
         viewModel.isWorking.drive(view.rx.activityIndicator).disposed(by: disposeBag)
         viewModel.messageViewModel.drive(view.rx.messageView).disposed(by: disposeBag)
         viewModel.isWorking.map{ !$0 }.drive(workingStatusLabel.rx.isHidden).disposed(by: disposeBag)
+        closeButton.rx.tap.bind(to: viewModel.closeTrigger).disposed(by: disposeBag)
         viewModel.refreshTrigger.onNext(())
     }
 }

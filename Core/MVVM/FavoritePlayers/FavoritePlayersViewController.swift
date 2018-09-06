@@ -8,10 +8,10 @@
 
 public final class FavoritePlayersViewController: UIViewController, NonReusableViewProtocol, DTCollectionViewManageable {
     @IBOutlet public weak var collectionView: UICollectionView?
-    @IBOutlet private weak var closeButton: UIButton!
+    @IBOutlet private weak var noContentSubtitleLabel: UILabel!
     @IBOutlet private weak var noContentContainerView: UIView!
     @IBOutlet private weak var noContentTitleLabel: UILabel!
-    @IBOutlet private weak var noContentSubtitleLabel: UILabel!
+    @IBOutlet private weak var closeButton: UIButton!
     
     override public func viewDidLoad() {
         super.viewDidLoad()

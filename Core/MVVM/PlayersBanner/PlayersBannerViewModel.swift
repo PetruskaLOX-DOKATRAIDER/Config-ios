@@ -24,7 +24,6 @@ public final class PlayersBannerViewModelImpl: PlayersBannerViewModel, ReactiveC
     public init(bannerService: BannerService) {
         let route = PublishSubject<Int>()
         shouldRoutePlayerDescription = route.asDriver(onErrorJustReturn: 0)
-        
         func remapToViewModels(page: Page<PlayerBanner>) -> Page<PlayerBannerItemViewModel> {
             return Page.new(
                 content: page.content.map{ player in
@@ -37,7 +36,7 @@ public final class PlayersBannerViewModelImpl: PlayersBannerViewModel, ReactiveC
             )
         }
         
-        playersPaginator = Paginator(factory: { bannerService.getBannerForPlayers(forPage: $0).success().map(remapToViewModels).asObservable() })
+        playersPaginator = Paginator(factory:{ bannerService.getBannerForPlayers(forPage: $0).success().map( remapToViewModels ).asObservable() })
         currentPage = pageTrigger.startWith(0).asDriver(onErrorJustReturn: 0)
         errorMessage = playersPaginator.error.toVoid().map{ Strings.Errors.generalMessage }.startWith("")
     }

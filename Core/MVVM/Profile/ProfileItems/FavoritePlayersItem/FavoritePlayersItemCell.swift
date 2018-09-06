@@ -7,8 +7,8 @@
 //
 
 final class FavoritePlayersItemCell: UITableViewCell, ModelTransfer, ReusableViewProtocol {
-    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var countOfPlayersLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

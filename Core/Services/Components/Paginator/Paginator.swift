@@ -49,7 +49,7 @@ public class BasePaginator<Model, Page: PaginatedResponseType>: WorkerType where
             .drive(elements)
             .disposed(by: disposeBag)
         loadNextPageTrigger.asObservable()
-            .withLatestFrom(action.elements.map{ page -> (page: Int, total: Int) in (page: page.index, total: page.totalPages) })
+            .withLatestFrom( action.elements.map{ page -> (page: Int, total: Int) in (page: page.index, total: page.totalPages ) })
             .flatMap { (page, total) -> Observable<Int> in total > page ?  .of(page + 1) : .empty() }
             .bind(to: action.inputs)
             .disposed(by: disposeBag)

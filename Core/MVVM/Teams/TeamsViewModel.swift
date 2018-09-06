@@ -44,7 +44,7 @@ final class TeamsViewModelImpl: TeamsViewModel, ReactiveCompatible {
             )
         }
         
-        teamsPaginator = Paginator(factory: { teamsService.getTeams(forPage: $0).success().map(remapToViewModels).asObservable() })
+        teamsPaginator = Paginator(factory:{ teamsService.getTeams(forPage: $0).success().map(remapToViewModels).asObservable() })
         shouldRouteProfile = profileTrigger.asDriver(onErrorJustReturn: ())
         messageViewModel = teamsPaginator.error.map{ MessageViewModelImpl.error(description: $0.localizedDescription) }
         self.playersBannerViewModel = playersBannerViewModel

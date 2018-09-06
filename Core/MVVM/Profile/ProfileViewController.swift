@@ -7,8 +7,8 @@
 //
 
 public final class ProfileViewController: UIViewController, NonReusableViewProtocol, DTTableViewManageable {
-    @IBOutlet public weak var tableView: UITableView!
     @IBOutlet private weak var tableViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet public weak var tableView: UITableView!
     
     public override func viewDidLoad() {
         super.viewDidLoad()

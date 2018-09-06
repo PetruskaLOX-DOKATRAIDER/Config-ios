@@ -7,12 +7,12 @@
 //
 
 final class EventDescriptionView: LoadableView, NonReusableViewProtocol {
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var cityLabel: UILabel!
     @IBOutlet private weak var flagImageView: UIImageView!
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var detailsButton: UIButton!
     @IBOutlet private weak var shareButton: UIButton!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var cityLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

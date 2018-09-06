@@ -7,11 +7,11 @@
 //
 
 final class NewsItemCell: UICollectionViewCell, ModelTransfer, ReusableViewProtocol {
-    @IBOutlet private weak var gradeintView: GradientView!
-    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var coverImageView: UIImageView!
-    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var gradeintView: GradientView!
     @IBOutlet private weak var shareButton: UIButton!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     public override func awakeFromNib() {
         super.awakeFromNib()

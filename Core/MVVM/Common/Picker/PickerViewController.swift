@@ -7,13 +7,13 @@
 //
 
 public final class PickerViewController: UIViewController, NonReusableViewProtocol {
-    @IBOutlet private weak var cancelButton: UIButton!
-    @IBOutlet private weak var submitButton: UIButton!
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleContainerView: UIView!
     @IBOutlet private weak var pickerView: UIPickerView!
+    @IBOutlet private weak var submitButton: UIButton!
+    @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var separatorView: UIView!
-    @IBOutlet private weak var titleContainerView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +21,9 @@ public final class PickerViewController: UIViewController, NonReusableViewProtoc
         separatorView.backgroundColor = .ichigos
         titleContainerView.backgroundColor = .amethyst
         
-        cancelButton.setTitle(Strings.Picker.cancel, for: .normal)
-        cancelButton.setTitleColor(.ichigos, for: .normal)
-        cancelButton.titleLabel?.font = .filsonRegularWithSize(16)
+        closeButton.setTitle(Strings.Picker.cancel, for: .normal)
+        closeButton.setTitleColor(.ichigos, for: .normal)
+        closeButton.titleLabel?.font = .filsonRegularWithSize(16)
         
         submitButton.setTitle(Strings.Picker.done, for: .normal)
         submitButton.setTitleColor(.ichigos, for: .normal)
@@ -35,8 +35,8 @@ public final class PickerViewController: UIViewController, NonReusableViewProtoc
     
     public func onUpdate(with viewModel: PickerViewModel, disposeBag: DisposeBag) {
         viewModel.title.drive(titleLabel.rx.text).disposed(by: disposeBag)
-        cancelButton.rx.tap.bind(to: viewModel.cancelTrigger).disposed(by: disposeBag)
         viewModel.itemTitles.drive(pickerView.rx.itemTitles){ $1 }.disposed(by: disposeBag)
+        closeButton.rx.tap.bind(to: viewModel.closeTrigger).disposed(by: disposeBag)
         let currentPickerIndex = submitButton.rx.tap.asDriver().map { [weak self] in
             self?.pickerView.selectedRow(inComponent: 0)
         }

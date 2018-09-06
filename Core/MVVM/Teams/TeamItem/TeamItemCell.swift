@@ -7,10 +7,10 @@
 //
 
 public class TeamItemCell: UITableViewCell, ModelTransfer, ReusableViewProtocol {
-    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var stackViewContainerWidth: NSLayoutConstraint!
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var stackView: UIStackView!
-    @IBOutlet private weak var stackViewContainerWidth: NSLayoutConstraint!
+    @IBOutlet private weak var nameLabel: UILabel!
     static let defaultWidth: CGFloat = 227
     
     override public func awakeFromNib() {
@@ -30,7 +30,6 @@ public class TeamItemCell: UITableViewCell, ModelTransfer, ReusableViewProtocol 
         stackViewContainerWidth.constant = (PlayerInTeamView.defaultWidth + stackView.spacing) * CGFloat(players.count)
         stackView.removeAllSubviews()
         players.forEach { vm in
-            // pass frame - LoadableView issue
             let view = PlayerInTeamView(frame: CGRect(x: 0, y: 0, width: PlayerInTeamView.defaultWidth, height: stackView.bounds.size.height))
             view.viewModel = vm
             stackView.addArrangedSubview(view)

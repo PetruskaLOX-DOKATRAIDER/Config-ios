@@ -7,9 +7,9 @@
 //
 
 final class SectionTopicView: UITableViewHeaderFooterView, ModelTransfer, ReusableViewProtocol {
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var iconWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

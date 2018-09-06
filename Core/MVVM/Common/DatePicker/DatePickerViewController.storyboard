@@ -100,7 +100,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cancelButton" destination="mRj-Ta-ORS" id="RWd-cb-wkC"/>
+                        <outlet property="closeButton" destination="mRj-Ta-ORS" id="RWd-cb-wkC"/>
                         <outlet property="containerView" destination="nS6-9W-I5e" id="kYs-pt-yct"/>
                         <outlet property="datePicker" destination="SFz-Fc-K9u" id="Sn7-Bj-wVw"/>
                         <outlet property="separatorView" destination="ZbG-xU-bie" id="pu8-e7-D8L"/>

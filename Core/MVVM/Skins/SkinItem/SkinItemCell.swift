@@ -7,10 +7,10 @@
 //
 
 class SkinItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer {
+    @IBOutlet private weak var coverImageView: UIImageView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var coverImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +25,7 @@ class SkinItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer {
     }
     
     func onUpdate(with viewModel: SkinItemViewModel, disposeBag: DisposeBag) {
-        func descriptionAttributedString(_ eventDescription: HighlightText) -> NSAttributedString {
+        func attributed(_ eventDescription: HighlightText) -> NSAttributedString {
             let attributedStr = NSMutableAttributedString(string: eventDescription.full)
             eventDescription.highlights.forEach {
                 attributedStr.setColorForText(textForAttribute: $0, withColor: .ichigos)
@@ -35,6 +35,6 @@ class SkinItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer {
         
         viewModel.title.drive(titleLabel.rx.text).disposed(by: disposeBag)
         viewModel.coverImageURL.drive(coverImageView.rx.imageURL).disposed(by: disposeBag)
-        viewModel.description.map{ descriptionAttributedString($0) }.drive(descriptionLabel.rx.attributedText).disposed(by: disposeBag)
+        viewModel.description.map{ attributed($0) }.drive(descriptionLabel.rx.attributedText).disposed(by: disposeBag)
     }
 }

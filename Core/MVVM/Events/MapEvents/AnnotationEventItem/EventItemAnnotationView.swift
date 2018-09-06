@@ -7,17 +7,12 @@
 //
 
 class EventItemAnnotationView: MKAnnotationView {
-    init(
-        imageDownloader: ImageDownloader = ImageDownloaderImpl(),
-        viewModel: EventItemAnnotationViewModel
-    ) {
+    init(viewModel: EventItemAnnotationViewModel) {
         super.init(annotation: viewModel, reuseIdentifier: viewModel.reusableIdentifier)
-        viewModel.logoURL.drive(onNext: { [weak self] url in
-            imageDownloader.download(url: url, completionHandler: { image, _ in
-                let imageContainerView = self?.imageContainerView(withIcon: image)
-                self?.image = imageContainerView?.asImage()
-            })
-        }).disposed(by: viewModel.disposeBag)        
+        viewModel.logoImage.drive(onNext: { [weak self] image in
+            let imageContainerView = self?.imageContainerView(withIcon: image)
+            self?.image = imageContainerView?.asImage()
+        }).disposed(by: viewModel.disposeBag)
         canShowCallout = true
     }
     

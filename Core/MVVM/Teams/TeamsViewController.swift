@@ -7,9 +7,9 @@
 //
 
 public final class TeamsViewController: UIViewController, DTTableViewManageable, NonReusableViewProtocol {
-    @IBOutlet public weak var tableView: UITableView!
-    @IBOutlet private weak var profileButton: UIButton!
     private let playersBannerView = PlayersBannerView()
+    @IBOutlet private weak var profileButton: UIButton!
+    @IBOutlet public weak var tableView: UITableView!
    
     override public func viewDidLoad() {
         super.viewDidLoad()

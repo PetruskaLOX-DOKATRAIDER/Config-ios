@@ -10,7 +10,7 @@ public protocol DatePickerViewModel {
     var title: Driver<String> { get }
     var minimumDate: Driver<Date?> { get }
     var maximumDate: Driver<Date?> { get }
-    var cancelTrigger: PublishSubject<Void> { get }
+    var closeTrigger: PublishSubject<Void> { get }
     var dateTrigger: PublishSubject<Date> { get }
     var datePicked: Driver<Date> { get }
     var shouldClose: Driver<Void> { get }
@@ -20,7 +20,7 @@ final class DatePickerViewModelImpl: DatePickerViewModel {
     let title: Driver<String>
     let minimumDate: Driver<Date?>
     let maximumDate: Driver<Date?>
-    let cancelTrigger = PublishSubject<Void>()
+    let closeTrigger = PublishSubject<Void>()
     let dateTrigger = PublishSubject<Date>()
     let datePicked: Driver<Date>
     let shouldClose: Driver<Void>
@@ -36,7 +36,7 @@ final class DatePickerViewModelImpl: DatePickerViewModel {
         datePicked = dateTrigger.asDriver(onErrorJustReturn: Date())
         shouldClose = .merge(
             datePicked.toVoid(),
-            cancelTrigger.asDriver(onErrorJustReturn: ())
+            closeTrigger.asDriver(onErrorJustReturn: ())
         )
     }
 }

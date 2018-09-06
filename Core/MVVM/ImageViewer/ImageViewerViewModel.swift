@@ -42,6 +42,9 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
         photosAlbumService: PhotosAlbumService,
         cameraService: CameraService
     ) {
+        self.title = .just(title)
+        self.imageURL = .just(imageURL)
+        
         let cameraAuthorizated = saveTrigger.filter{ cameraService.cameraAuthorizationStatus != .denied }
         let cameraDenied = saveTrigger.filter{ cameraService.cameraAuthorizationStatus == .denied }
         let loadImage = cameraAuthorizated.flatMapLatest { imageLoaderService.loadImage(withURL: imageURL) }
@@ -50,19 +53,14 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
         let saveImage = successLoadImage.flatMapLatest{ photosAlbumService.save($0) }
         let failureSaveImage = saveImage.map{ $0.error }.filterNil()
         let successSaveImage = saveImage.map{ $0.value }.filterNil()
-       
-        self.title = .just(title)
-        self.imageURL = .just(imageURL)
+        
+        let failureLoadImageMessage = MessageViewModelImpl.error(description: Strings.Imageviewer.failureLoadImage)
+        let failureSaveImageMessage = MessageViewModelImpl.error(description: Strings.Imageviewer.failureSaveImage)
+        let successSaveImageMessage = MessageViewModelImpl(title: Strings.Imageviewer.SuccessSaveImage.title, description: Strings.Imageviewer.SuccessSaveImage.description)
         messageViewModel = .merge(
-            failureLoadImage.asDriver(onErrorJustReturn: ImageLoaderServiceError.unknown).map(to:
-                MessageViewModelImpl.error(description: Strings.Imageviewer.failureLoadImage)
-            ),
-            failureSaveImage.asDriver(onErrorJustReturn: PhotosAlbumServiceError.unknown).map(to:
-                MessageViewModelImpl.error(description: Strings.Imageviewer.failureSaveImage)
-            ),
-            successSaveImage.asDriver(onErrorJustReturn: ()).map(to:
-                MessageViewModelImpl(title: Strings.Imageviewer.SuccessSaveImage.title, description: Strings.Imageviewer.SuccessSaveImage.description)
-            )
+            failureLoadImage.asDriver(onErrorJustReturn: ImageLoaderServiceError.unknown).map(to: failureLoadImageMessage),
+            failureSaveImage.asDriver(onErrorJustReturn: PhotosAlbumServiceError.unknown).map(to: failureSaveImageMessage),
+            successSaveImage.asDriver(onErrorJustReturn: ()).map(to: successSaveImageMessage)
         )
         isWorking = Observable.merge(
             cameraAuthorizated.map(to: true),
@@ -75,7 +73,11 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
         let appSettings = PublishSubject<Void>()
         let givePermissions = AlertActionViewModelImpl(title: Strings.Imageviewer.CameraDenied.permissions, action: appSettings)
         let cancel = AlertActionViewModelImpl(title: Strings.Imageviewer.CameraDenied.cancel, style: .destructiveActionStyle)
-        let alertVM = AlertViewModelImpl(title: Strings.Imageviewer.CameraDenied.title, message: Strings.Imageviewer.CameraDenied.message, actions: [givePermissions, cancel])
+        let alertVM = AlertViewModelImpl(
+            title: Strings.Imageviewer.CameraDenied.title,
+            message: Strings.Imageviewer.CameraDenied.message,
+            actions: [givePermissions, cancel]
+        )
         shoudShowAlert = cameraDenied.asDriver(onErrorJustReturn: ()).map(to: alertVM)
         shouldRouteAppSettings = appSettings.asDriver(onErrorJustReturn: ())
     }

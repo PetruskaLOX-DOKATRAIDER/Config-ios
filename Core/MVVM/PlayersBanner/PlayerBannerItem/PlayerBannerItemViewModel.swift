@@ -19,6 +19,7 @@ public final class PlayerBannerItemViewModelImpl: PlayerBannerItemViewModel, Rea
     private let playerBanner: PlayerBanner
     
     public init(playerBanner: PlayerBanner) {
+        self.playerBanner = playerBanner
         func getTitle(withDate date: Date) -> String {
             switch date.daysBetweenDate(Date()) ?? 0 {
             case 0, 1: return Strings.PlayerBanner.updatedToday
@@ -27,8 +28,7 @@ public final class PlayerBannerItemViewModelImpl: PlayerBannerItemViewModel, Rea
             default: return Strings.PlayerBanner.updatedLongTime
             }
         }
-        
-        self.playerBanner = playerBanner
+    
         coverImageURL = .just(playerBanner.coverImageURL)
         title = .just(getTitle(withDate: playerBanner.updatedDate))
     }

@@ -7,14 +7,14 @@
 //
 
 public protocol EventItemAnnotationViewModel: MKAnnotation {
-    var logoURL: Driver<URL?> { get }
+    var logoImage: Driver<UIImage?> { get }
     var reusableIdentifier: String { get }
     var selectionTrigger: PublishSubject<Void> { get }
     var disposeBag: DisposeBag { get }
 }
 
 public class EventItemAnnotationViewModelImpl: NSObject, EventItemAnnotationViewModel {
-    public let logoURL: Driver<URL?>
+    public let logoImage: Driver<UIImage?>
     public let reusableIdentifier: String = EventItemAnnotationViewModelImpl.className
     public let selectionTrigger = PublishSubject<Void>()
     public let disposeBag = DisposeBag()
@@ -23,9 +23,13 @@ public class EventItemAnnotationViewModelImpl: NSObject, EventItemAnnotationView
     public let subtitle: String?
     public var coordinate: CLLocationCoordinate2D
     
-    public init(event: Event) {
-        logoURL = .just(event.logoURL)
-        title = "title" // should not be empty/nil
+    public init(
+        event: Event,
+        imageLoaderService: ImageLoaderService
+    ) {
+        let url = event.logoURL ?? URL(fileURLWithPath: "")
+        logoImage = imageLoaderService.loadImage(withURL: url).map{ $0.value }.asDriver(onErrorJustReturn: nil)
+        title = "title" // should't be empty/nil
         subtitle = nil
         coordinate = CLLocationCoordinate2D(coordinates: event.coordinates)
     }

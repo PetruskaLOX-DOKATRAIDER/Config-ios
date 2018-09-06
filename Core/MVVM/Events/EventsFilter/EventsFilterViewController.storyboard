@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ap-Iz-bRB">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -103,7 +99,7 @@
                     <size key="freeformSize" width="375" height="865"/>
                     <connections>
                         <outlet property="applyButton" destination="reX-Qn-xGM" id="e96-sb-in7"/>
-                        <outlet property="cancelButton" destination="sYN-Zb-jsU" id="ugk-fy-Iqo"/>
+                        <outlet property="closeButton" destination="sYN-Zb-jsU" id="ugk-fy-Iqo"/>
                         <outlet property="descriptionLabel" destination="HfX-th-K3i" id="lIe-9K-nEh"/>
                         <outlet property="resetButton" destination="kgm-aF-Mv8" id="mWr-mr-wQa"/>
                         <outlet property="scrollViewBottomConstraint" destination="9fZ-zH-9A4" id="aGm-4A-Iqe"/>
