@@ -6,9 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import DTCollectionViewManager
-import DTModelStorage
-
 public final class NewsViewController: UIViewController, NonReusableViewProtocol, DTCollectionViewManageable {
     @IBOutlet public var collectionView: UICollectionView?
     @IBOutlet private weak var profileButton: UIButton!
@@ -27,6 +24,7 @@ public final class NewsViewController: UIViewController, NonReusableViewProtocol
     }
     
     private func setupManagerAndCollectionView() {
+        collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         manager.startManaging(withDelegate: self)
         manager.register(NewsItemCell.self)
         manager.sizeForCell(withItem: NewsItemCell.ModelType.self, { [collectionView] _, _ in
@@ -36,7 +34,6 @@ public final class NewsViewController: UIViewController, NonReusableViewProtocol
         manager.didSelect(NewsItemCell.self) { (_, viewModel, _) in
             viewModel.selectionTrigger.onNext(())
         }
-        collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     }
     
     public func onUpdate(with viewModel: NewsViewModel, disposeBag: DisposeBag) {

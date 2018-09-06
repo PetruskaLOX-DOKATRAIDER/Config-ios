@@ -27,7 +27,7 @@ class SkinItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer {
     func onUpdate(with viewModel: SkinItemViewModel, disposeBag: DisposeBag) {
         func descriptionAttributedString(_ eventDescription: HighlightText) -> NSAttributedString {
             let attributedStr = NSMutableAttributedString(string: eventDescription.full)
-            eventDescription.highlights.forEach{
+            eventDescription.highlights.forEach {
                 attributedStr.setColorForText(textForAttribute: $0, withColor: .ichigos)
             }
             return attributedStr

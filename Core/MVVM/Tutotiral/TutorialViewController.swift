@@ -25,8 +25,8 @@ public final class TutorialViewController: UIViewController, DTCollectionViewMan
         
         nextButton.backgroundColor = .ichigos
         nextButton.titleLabel?.font = .filsonMediumWithSize(18)
-        nextButton.applyShadow()
         nextButton.setTitleColor(.snowWhite, for: .normal)
+        nextButton.applyShadow()
         
         pageControl.currentPageIndicatorTintColor = .ichigos
     }

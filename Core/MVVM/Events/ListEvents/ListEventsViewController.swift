@@ -11,11 +11,8 @@ public class ListEventsViewController: UIViewController, NonReusableViewProtocol
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        setupManager()
         view.backgroundColor = .bagdet
-    }
-    
-    private func setupManager() {
+        
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         manager.startManaging(withDelegate: self)
         manager.register(EventItemCell.self)

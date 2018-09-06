@@ -20,7 +20,7 @@ public final class ProfileViewController: UIViewController, NonReusableViewProto
             selectedImage: Images.Sections.profileSelected
         )
         setupManager()
-        KeyboardAvoiding.avoid(with: tableViewBottomConstraint, inside: view).disposed(by: rx.disposeBag)
+        KeyboardAvoiding.avoid(with: tableViewBottomConstraint, inside: tableView).disposed(by: rx.disposeBag)
     }
     
     private func setupManager() {

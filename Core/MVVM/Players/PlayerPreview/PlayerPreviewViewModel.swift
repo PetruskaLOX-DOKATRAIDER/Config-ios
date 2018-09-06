@@ -17,7 +17,6 @@ final class PlayerPreviewViewModelImpl: PlayerPreviewViewModel, ReactiveCompatib
     let nickname: Driver<String>
     let avatarURL: Driver<URL?>
     let selectionTrigger = PublishSubject<Void>()
-    
     private let player: PlayerPreview
     
     init(player: PlayerPreview) {

@@ -12,12 +12,12 @@ public class EventItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer
     @IBOutlet private weak var flagImageView: UIImageView!
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var colorContainerView: UIView!
+    @IBOutlet private weak var containerView: UIView!
     
     override public func awakeFromNib() {
         super.awakeFromNib()
-        colorContainerView.backgroundColor = .amethyst
-        colorContainerView.applyShadow(color: UIColor.amethyst.cgColor)
+        containerView.backgroundColor = .amethyst
+        containerView.applyShadow(color: UIColor.amethyst.cgColor)
         
         nameLabel.font = .filsonMediumWithSize(17)
         nameLabel.textColor = .snowWhite

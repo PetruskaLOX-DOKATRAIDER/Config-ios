@@ -13,9 +13,7 @@ protocol SectionSubtopicViewModel: SectionSubtopicViewModelType {
 struct SectionSubtopicViewModelImpl: SectionSubtopicViewModel, ReactiveCompatible {
     let message: Driver<String>
     
-    init(
-        message: String = ""
-    ) {
+    init(message: String = "") {
         self.message = .just(message)
     }
 }

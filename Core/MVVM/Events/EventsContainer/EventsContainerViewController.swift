@@ -32,25 +32,14 @@ public final class EventsContainerViewController: UIViewController, NonReusableV
             image: Images.Sections.eventsDeselected,
             selectedImage: Images.Sections.eventsSelected
         )
+        segmentPageViewController.setupViewControllers([ listEventsViewController, mapEventsViewController ])
+        addChild(viewController: segmentPageViewController, onContainer: segmentPageViewControllerContainer)
         setupSegmentView()
-        setupSegmentPageViewController()
-    }
-    
-    private func setupSegmentPageViewController() {
-        segmentPageViewController.setupViewControllers([listEventsViewController, mapEventsViewController])
-        addChildViewController(segmentPageViewController)
-        segmentPageViewControllerContainer.addSubview(segmentPageViewController.view)
-        segmentPageViewController.view.snp.makeConstraints {
-            $0.left.right.top.bottom.equalToSuperview()
-        }
-        segmentPageViewController.didMove(toParentViewController: self)
     }
     
     private func setupSegmentView() {
-        segmentView.addSegmentWithTitle(title: Strings.EventsContrainer.list)
-        segmentView.addSegmentWithTitle(title: Strings.EventsContrainer.map)
-        segmentView.setSegment(atIndex: 0)
-        segmentView.didSelectAtIndex = { [weak self] index in
+        segmentView.titles = [ Strings.EventsContrainer.list, Strings.EventsContrainer.map ]
+        segmentView.didSelectSegment = { [weak self] index in
             guard let childType = ChildViewControllerType(rawValue: index) else { return }
             switch childType {
             case .list: self?.segmentPageViewController.showViewController(atIndex: childType.rawValue, withDirection: .forward)

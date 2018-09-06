@@ -53,7 +53,7 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
        
         self.title = .just(title)
         self.imageURL = .just(imageURL)
-        messageViewModel = Driver.merge(
+        messageViewModel = .merge(
             failureLoadImage.asDriver(onErrorJustReturn: ImageLoaderServiceError.unknown).map(to:
                 MessageViewModelImpl.error(description: Strings.Imageviewer.failureLoadImage)
             ),

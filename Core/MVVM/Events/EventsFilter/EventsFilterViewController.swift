@@ -25,24 +25,27 @@ public final class EventsFilterViewController: UIViewController, NonReusableView
         descriptionLabel.text = Strings.EventFilters.description
     
         resetButton.setTitle(Strings.EventFilters.reset, for: .normal)
+        resetButton.setTitleColor(.ichigos, for: .normal)
+        resetButton.titleLabel?.font = .filsonMediumWithSize(16)
+        
         cancelButton.setTitle(Strings.EventFilters.cancel, for: .normal)
+        cancelButton.setTitleColor(.ichigos, for: .normal)
+        cancelButton.titleLabel?.font = .filsonMediumWithSize(16)
+        
         applyButton.setTitle(Strings.EventFilters.apply, for: .normal)
-        [resetButton, cancelButton, applyButton].forEach {
-            $0?.setTitleColor(.ichigos, for: .normal)
-            $0?.titleLabel?.font = .filsonMediumWithSize(16)
-        }
+        applyButton.setTitleColor(.ichigos, for: .normal)
+        applyButton.titleLabel?.font = .filsonMediumWithSize(16)
     }
 
     public func onUpdate(with viewModel: EventsFilterViewModel, disposeBag: DisposeBag) {
-        resetButton.rx.tap.bind(to: viewModel.resetTrigger).disposed(by: disposeBag)
-        cancelButton.rx.tap.bind(to: viewModel.cancelTrigger).disposed(by: disposeBag)
-        applyButton.rx.tap.bind(to: viewModel.applyTrigger).disposed(by: disposeBag)
-        
         viewModel.items.drive(onNext: { [weak self] items in
             guard let strongSelf = self else { return }
             strongSelf.stackView.removeAllSubviews()
             items.forEach{ self?.addEventFilterAndSeparatorView(withViewModel: $0) }
         }).disposed(by: rx.disposeBag)
+        resetButton.rx.tap.bind(to: viewModel.resetTrigger).disposed(by: disposeBag)
+        cancelButton.rx.tap.bind(to: viewModel.cancelTrigger).disposed(by: disposeBag)
+        applyButton.rx.tap.bind(to: viewModel.applyTrigger).disposed(by: disposeBag)
     }
     
     private func addEventFilterAndSeparatorView(withViewModel viewModel: EventFilterItemViewModel) {

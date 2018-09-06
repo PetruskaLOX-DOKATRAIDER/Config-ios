@@ -12,7 +12,7 @@ public struct PickerItem<T> {
 }
 
 public protocol PickerViewModel {
-    var itmeTitles: Driver<[String]> { get }
+    var itemTitles: Driver<[String]> { get }
     var title: Driver<String> { get }
     var itemAtIndexTrigger: PublishSubject<Int> { get }
     var cancelTrigger: PublishSubject<Void> { get }
@@ -20,7 +20,7 @@ public protocol PickerViewModel {
 }
 
 final class PickerViewModelImpl<T>: PickerViewModel {
-    let itmeTitles: Driver<[String]>
+    let itemTitles: Driver<[String]>
     let title: Driver<String>
     let itemAtIndexTrigger = PublishSubject<Int>()
     let cancelTrigger = PublishSubject<Void>()
@@ -33,8 +33,11 @@ final class PickerViewModelImpl<T>: PickerViewModel {
         items: [PickerItem<T>]
     ) {
         self.title = .just(title)
-        itmeTitles = .just(items.map{ $0.title })
+        itemTitles = .just(items.map{ $0.title })
         itemPicked = itemAtIndexTrigger.map{ items[safe: $0] }.asDriver(onErrorJustReturn: nil).filterNil()
-        shouldClose = .merge(cancelTrigger.asDriver(onErrorJustReturn: ()), itemPicked.toVoid())
+        shouldClose = .merge(
+            cancelTrigger.asDriver(onErrorJustReturn: ()),
+            itemPicked.toVoid()
+        )
     }
 }

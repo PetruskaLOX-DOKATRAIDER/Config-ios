@@ -25,17 +25,19 @@ final class EventsContainerViewModelImpl: EventsContainerViewModel, ReactiveComp
         eventsService: EventsService,
         eventsFiltersStorage: EventsFiltersStorage
     ) {
-        let filtersRefresh = Driver.merge(
+        eventsPaginator = Paginator(factory: {
+            eventsService.getEvents(forPage: $0)
+            .success()
+            .asObservable()
+        })
+        listEventsViewModel = ListEventsViewModelImpl(events: eventsPaginator)
+        mapEventsViewModel = MapEventsViewModelImpl(events: eventsPaginator)
+        shouldRouteFilters = filtersTrigger.asDriver(onErrorJustReturn: ())
+        Driver.merge(
             eventsFiltersStorage.startDate.asDriver().map(to: ()),
             eventsFiltersStorage.finishDate.asDriver().map(to: ()),
             eventsFiltersStorage.maxCountOfTeams.asDriver().map(to: ()),
             eventsFiltersStorage.minPrizePool.asDriver().map(to: ())
-        )
-        
-        eventsPaginator = Paginator(factory: { eventsService.getEvents(forPage: $0).success().asObservable() })
-        listEventsViewModel = ListEventsViewModelImpl(events: eventsPaginator)
-        mapEventsViewModel = MapEventsViewModelImpl(events: eventsPaginator)
-        shouldRouteFilters = filtersTrigger.asDriver(onErrorJustReturn: ())
-        filtersRefresh.throttle(0.5).drive(eventsPaginator.refreshTrigger).disposed(by: rx.disposeBag)
+        ).throttle(0.5).drive(eventsPaginator.refreshTrigger).disposed(by: rx.disposeBag)
     }
 }

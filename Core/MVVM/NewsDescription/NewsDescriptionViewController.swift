@@ -38,13 +38,16 @@ public final class NewsDescriptionViewController: UIViewController, NonReusableV
         coverImageGradientView.endColor = .bagdet
         
         shareButton.setTitle(Strings.Newsdescription.share, for: .normal)
+        shareButton.backgroundColor = .ichigos
+        shareButton.setTitleColor(.snowWhite, for: .normal)
+        shareButton.titleLabel?.font = .filsonMediumWithSize(17)
+        shareButton.applyShadow(color: UIColor.ichigos.cgColor)
+        
         detailsButton.setTitle(Strings.Newsdescription.details, for: .normal)
-        [shareButton, detailsButton].forEach{
-            $0?.backgroundColor = .ichigos
-            $0?.setTitleColor(.snowWhite, for: .normal)
-            $0?.titleLabel?.font = .filsonMediumWithSize(18)
-            $0?.applyShadow(color: UIColor.ichigos.cgColor)
-        }
+        detailsButton.backgroundColor = .ichigos
+        detailsButton.setTitleColor(.snowWhite, for: .normal)
+        detailsButton.titleLabel?.font = .filsonBoldWithSize(18)
+        detailsButton.applyShadow(color: UIColor.ichigos.cgColor)
     }
     
     public func onUpdate(with viewModel: NewsDescriptionViewModel, disposeBag: DisposeBag) {
@@ -54,36 +57,37 @@ public final class NewsDescriptionViewController: UIViewController, NonReusableV
         viewModel.coverImageURL.drive(coverImageView.rx.imageURL).disposed(by: disposeBag)
         viewModel.isWorking.drive(view.rx.activityIndicator).disposed(by: disposeBag)
         viewModel.messageViewModel.drive(view.rx.messageView).disposed(by: disposeBag)
+        viewModel.content.filterEmpty().drive(onNext: { [weak self] in self?.mapContent($0) }).disposed(by: rx.disposeBag)
+        viewModel.isDataAvaliable.drive(onNext: { [weak self] in self?.showContent($0) }).disposed(by: disposeBag)
         closeButton.rx.tap.bind(to: viewModel.closeTrigger).disposed(by: disposeBag)
         detailsButton.rx.tap.bind(to: viewModel.detailsTrigger).disposed(by: disposeBag)
         shareButton.rx.tap.bind(to: viewModel.shareTrigger).disposed(by: disposeBag)
-        
-        viewModel.content.filterEmpty().drive(onNext: { [weak self] content in
-            content.forEach{ item in
-                if let viewModel = item as? NewsImageContentItemViewModel {
-                    self?.addImageContentView(withViewModel: viewModel)
-                } else if let viewModel = item as? NewsTextContentItemViewModel {
-                    self?.addTextContentView(withViewModel: viewModel)
-                }
-            }
-            self?.addSeparatorView(height: 55)
-            self?.view.layoutIfNeeded()
-        }).disposed(by: rx.disposeBag)
-        
-        let animationsDuration = 1.3
-        viewModel.isDataAvaliable.map{ $0 ? 1 : 0 }.drive(onNext: { [weak self] alpha in
-            UIView.animate(withDuration: animationsDuration, animations: {
-                self?.coverImageContainerView.alpha = CGFloat(alpha)
-                self?.buttonsContainerView.alpha = CGFloat(alpha)
-            })
-        }).disposed(by: disposeBag)
-        viewModel.isDataAvaliable.drive(onNext: { [weak self] isDataAvaliable in
-            let newConstant: CGFloat = isDataAvaliable ? 60 : self?.view.bounds.size.height ?? 0
-            self?.scrollViewTopConstraint.constant = newConstant
-            UIView.animate(withDuration: animationsDuration, animations: { self?.view.layoutIfNeeded() })
-        }).disposed(by: disposeBag)
-        
         viewModel.refreshTrigger.onNext(())
+    }
+    
+    private func showContent(_ show: Bool) {
+        let alpha: CGFloat = show ? 1 : 0
+        UIView.animate(withDuration: 1.3, animations: {
+            self.coverImageContainerView.alpha = alpha
+            self.buttonsContainerView.alpha = alpha
+        })
+        
+        let contentBottomOffset: CGFloat = 60
+        let newConstant: CGFloat = show ? contentBottomOffset : view.bounds.size.height
+        self.scrollViewTopConstraint.constant = newConstant
+        UIView.animate(withDuration: 1.3, animations: { self.view.layoutIfNeeded() })
+    }
+    
+    private func mapContent(_ content: [NewsContentItemViewModel]) {
+        content.forEach { item in
+            if let viewModel = item as? NewsImageContentItemViewModel {
+                addImageContentView(withViewModel: viewModel)
+            } else if let viewModel = item as? NewsTextContentItemViewModel {
+                addTextContentView(withViewModel: viewModel)
+            }
+        }
+        addSeparatorView(height: 55)
+        view.layoutIfNeeded()
     }
     
     private func addImageContentView(withViewModel viewModel: NewsImageContentItemViewModel) {

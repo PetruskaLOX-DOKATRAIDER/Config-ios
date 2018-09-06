@@ -20,11 +20,9 @@ public protocol NewsDescriptionViewModel {
     var isDataAvaliable: Driver<Bool>  { get }
     var isWorking: Driver<Bool> { get }
     var messageViewModel: Driver<MessageViewModel> { get }
-    
     var detailsTrigger: PublishSubject<Void> { get }
     var shareTrigger: PublishSubject<Void> { get }
     var closeTrigger: PublishSubject<Void> { get }
-    
     var shouldRouteImageViewer: Driver<URL> { get }
     var shouldClose: Driver<Void> { get }
 }
@@ -39,11 +37,9 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
     public let isWorking: Driver<Bool>
     public let refreshTrigger = PublishSubject<Void>()
     public let messageViewModel: Driver<MessageViewModel>
-    
     public let detailsTrigger = PublishSubject<Void>()
     public let shareTrigger = PublishSubject<Void>()
     public let closeTrigger = PublishSubject<Void>()
-    
     public let shouldRouteImageViewer: Driver<URL>
     public let shouldClose: Driver<Void>
     
@@ -59,7 +55,9 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
             news.content.forEach { content in
                 if let imageContent = content as? NewsImageContent {
                     let imageContentVM = NewsImageContentItemViewModelImpl(newsImageContent: imageContent)
-                    imageContentVM.selectionTrigger.asDriver(onErrorJustReturn: ()).map(to: imageContent.coverImageURL).drive(openImage).disposed(by: imageContentVM.rx.disposeBag)
+                    imageContentVM.selectionTrigger.asDriver(onErrorJustReturn: ())
+                        .map(to: imageContent.coverImageURL)
+                        .drive(openImage).disposed(by: imageContentVM.rx.disposeBag)
                     contentVMs.append(imageContentVM)
                 } else if let imageContent = content as? NewsTextContent {
                     contentVMs.append(NewsTextContentItemViewModelImpl(newsTextContent: imageContent))
@@ -75,14 +73,22 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
         description = newsRequest.success().map{
             "\(Strings.Newsdescription.posted) \(DateFormatters.default.string(from: $0.date)) \(Strings.Newsdescription.by) \($0.author)"
         }.startWith("")
-        content = newsRequest.success().map{ remapToViewModel($0) }.startWith([])
-        isDataAvaliable = Driver.merge(newsRequest.success().map(to: true), newsRequest.failure().map(to: false))
+        content = newsRequest
+            .success()
+            .map{ remapToViewModel($0) }
+            .startWith([])
+        isDataAvaliable = Driver.merge(
+            newsRequest.success().map(to: true),
+            newsRequest.failure().map(to: false)
+        )
         isWorking = Driver.merge(
             newsRequest.map(to: true),
             newsRequest.success().map(to: false),
             newsRequest.failure().map(to: false)
         ).startWith(false)
-        messageViewModel = newsRequest.failure().map(to: MessageViewModelImpl.error())
+        messageViewModel = newsRequest
+            .failure()
+            .map(to: MessageViewModelImpl.error())
         shouldClose = closeTrigger.asDriver(onErrorJustReturn: ())
     }
 }

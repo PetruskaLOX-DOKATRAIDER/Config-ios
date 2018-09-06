@@ -38,8 +38,9 @@ final class EventItemViewModelImpl: EventItemViewModel, ReactiveCompatible {
             finishDateStr
         ]
         description = .just(HighlightText(
-            full: Strings.ListEvents.description(startDateStr, finishDateStr, event.countOfTeams, prizePool),
-            highlights: descriptionhigHlights)
+                full: Strings.ListEvents.description(startDateStr, finishDateStr, event.countOfTeams, prizePool),
+                highlights: descriptionhigHlights
+            )
         )
     }
 }

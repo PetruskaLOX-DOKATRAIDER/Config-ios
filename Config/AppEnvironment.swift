@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-private let firstVersion = "0.0.0"
-
 public enum AppEnvironmentImpl: AppEnvironment {
     case develop(info: [String : Any])
     case staging(info: [String : Any])
@@ -43,7 +41,7 @@ public enum AppEnvironmentImpl: AppEnvironment {
     }
     
     public var appVersion: String {
-        return info["CFBundleShortVersionString"] as? String ?? firstVersion
+        return info["CFBundleShortVersionString"] as? String ?? "0.0.0"
     }
     
     public var isDebug: Bool {
@@ -54,7 +52,7 @@ public enum AppEnvironmentImpl: AppEnvironment {
     public var appStoreURL: URL {
         let google = URL(string: "https://www.google.com") ?? URL(fileURLWithPath: "")
         let appStore = URL(string: "") ?? URL(fileURLWithPath: "")
-        return appVersion == firstVersion ? google : appStore
+        return appVersion == "0.0.0" ? google : appStore
     }
     
     public var donateURL: URL {

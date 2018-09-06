@@ -11,4 +11,13 @@ extension UIViewController {
         isMotionEnabled = true
         motionTransitionType = transition
     }
+    
+    func addChild(viewController: UIViewController, onContainer container: UIView) {
+        self.addChildViewController(viewController)
+        container.addSubview(viewController.view)
+        viewController.view.snp.makeConstraints {
+            $0.left.right.top.bottom.equalToSuperview()
+        }
+        viewController.didMove(toParentViewController: viewController)
+    }
 }

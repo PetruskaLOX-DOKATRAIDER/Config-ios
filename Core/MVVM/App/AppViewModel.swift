@@ -18,7 +18,9 @@ public final class AppViewModelImpl: AppViewModel {
     public let shouldRouteApp: Driver<Void>
     
     public init(userStorage: UserStorage) {
-        let isOnboardingPassed = didBecomeActiveTrigger.map{ userStorage.isOnboardingPassed.value }.asDriver(onErrorJustReturn: true)
+        let isOnboardingPassed = didBecomeActiveTrigger
+            .map{ userStorage.isOnboardingPassed.value }
+            .asDriver(onErrorJustReturn: true)
         shouldRouteTutorial = isOnboardingPassed.filter{ !$0 }.toVoid()
         shouldRouteApp = isOnboardingPassed.filter{ $0 }.toVoid()
     }

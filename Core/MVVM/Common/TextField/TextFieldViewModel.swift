@@ -13,11 +13,6 @@ public protocol TextFieldViewModel {
     var shouldResign: Driver<Void> { get }
 }
 
-extension TextFieldViewModel {
-    public var becomeResponder: PublishSubject<Void> { return .init() }
-    public var shouldResign: Driver<Void> { return .empty() }
-}
-
 final class TextFieldViewModelImpl: TextFieldViewModel {
     let text: BehaviorRelay<String>
     let placeholder: Driver<String>
@@ -36,5 +31,15 @@ final class TextFieldViewModelImpl: TextFieldViewModel {
     ) {
         self.text = BehaviorRelay(value: text)
         self.placeholder = .just(placeholder)
+    }
+}
+
+extension TextFieldViewModel {
+    public var becomeResponder: PublishSubject<Void> {
+        return .init()
+    }
+    
+    public var shouldResign: Driver<Void> {
+        return .empty()
     }
 }

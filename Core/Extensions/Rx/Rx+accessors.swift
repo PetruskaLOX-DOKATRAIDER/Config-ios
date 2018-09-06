@@ -47,6 +47,22 @@ extension Reactive where Base: UIView {
             view.showMessageView(withViewModel: vm)
         }
     }
+    
+    var visibleAlphaWithDuration: Binder<TimeInterval> {
+        return Binder(base) { view, duration in
+            UIView.animate(withDuration: duration, animations: {
+                view.alpha = 1
+            })
+        }
+    }
+    
+    var invisibleAlphaWithDuration: Binder<TimeInterval> {
+        return Binder(base) { view, duration in
+            UIView.animate(withDuration: duration, animations: {
+                view.alpha = 0
+            })
+        }
+    }
 }
 
 // MARK: UIImageView
@@ -83,6 +99,12 @@ public extension Reactive where Base: MKMapView {
         return Binder(base) { mapView, annotations in
             mapView.removeAnnotations(annotations)
             mapView.addAnnotations(annotations)
+        }
+    }
+    
+    public var currentRegion: Binder<CLLocationCoordinate2D> {
+        return Binder(base) { mapView, coordinate in
+            mapView.setCurrentRegion(withCoordinate: coordinate)
         }
     }
 }

@@ -13,9 +13,10 @@ final class PlayerPreviewCell: UICollectionViewCell, ModelTransfer, ReusableView
     
     override public func awakeFromNib() {
         super.awakeFromNib()
+        contentView.backgroundColor = .ichigos
+        
         nicknameLabel.font = .filsonMediumWithSize(17)
         nicknameLabel.textColor = .snowWhite
-        contentView.backgroundColor = .ichigos
     }
     
     func onUpdate(with viewModel: PlayerPreviewViewModel, disposeBag: DisposeBag) {

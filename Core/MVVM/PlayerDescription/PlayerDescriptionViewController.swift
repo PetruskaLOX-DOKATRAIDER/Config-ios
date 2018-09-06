@@ -31,7 +31,6 @@ public final class PlayerDescriptionViewController: UIViewController, NonReusabl
     
     override public func viewDidLoad() {
         super.viewDidLoad()        
-        setupSegmentPageViewController()
         setupSegmentView()
         title = Strings.PlayerDescription.title
         view.backgroundColor = .amethyst
@@ -55,27 +54,18 @@ public final class PlayerDescriptionViewController: UIViewController, NonReusabl
         detailsButton.backgroundColor = .ichigos
         detailsButton.setTitleColor(.snowWhite, for: .normal)
         detailsButton.titleLabel?.font = .filsonMediumWithSize(18)
-    }
-    
-    private func setupSegmentPageViewController() {
-        segmentPageViewController.isPageScrollEnabled = false
-        let vcs = [personalInfoVC, hardwareVC, settingsVC]
-        vcs.forEach { $0.loadView() }
-        segmentPageViewController.setupViewControllers(vcs)
-        addChildViewController(segmentPageViewController)
-        segmentPageViewControllerContainer.addSubview(segmentPageViewController.view)
-        segmentPageViewController.view.snp.makeConstraints {
-            $0.left.right.top.bottom.equalToSuperview()
-        }
-        segmentPageViewController.didMove(toParentViewController: self)
+        
+        segmentPageViewController.setupViewControllers([personalInfoVC, hardwareVC, settingsVC])
+        addChild(viewController: segmentPageViewController, onContainer: segmentPageViewControllerContainer)
     }
     
     private func setupSegmentView() {
-        segmentView.addSegmentWithTitle(title: Strings.PlayerDescription.personalInfo)
-        segmentView.addSegmentWithTitle(title: Strings.PlayerDescription.hardvare)
-        segmentView.addSegmentWithTitle(title: Strings.PlayerDescription.settings)
-        segmentView.setSegment(atIndex: 0)
-        segmentView.didSelectAtIndex = { [weak self] index in
+        segmentView.titles = [
+            Strings.PlayerDescription.personalInfo,
+            Strings.PlayerDescription.hardvare,
+            Strings.PlayerDescription.settings
+        ]
+        segmentView.didSelectSegment = { [weak self] index in
             guard let childType = PlayerInfoContainerType(rawValue: index) else { return }
             switch childType {
             case .personalInfo: self?.segmentPageViewController.showViewController(atIndex: childType.rawValue, withDirection: .forward)
@@ -91,22 +81,20 @@ public final class PlayerDescriptionViewController: UIViewController, NonReusabl
         detailsButton.rx.tap.bind(to: viewModel.detailsTrigger).disposed(by: disposeBag)
         optionsButton.rx.tap.bind(to: viewModel.optionsTrigger).disposed(by: disposeBag)
         viewModel.messageViewModel.drive(view.rx.messageView).disposed(by: disposeBag)
-        viewModel.avatarURL.drive(avatarImageView.rx.imageURL).disposed(by: disposeBag)
-        viewModel.fullName.drive(fullNameLabel.rx.text).disposed(by: disposeBag)
-        viewModel.personalInfo.drive(personalInfoVC.rx.infoTitles).disposed(by: disposeBag)
-        viewModel.hardware.drive(hardwareVC.rx.infoTitles).disposed(by: disposeBag)
-        viewModel.settings.drive(settingsVC.rx.infoTitles).disposed(by: disposeBag)
-        let displayDelay = 0.5
-        viewModel.isWorking.filter{ $0 }.drive(view.rx.activityIndicator).disposed(by: disposeBag)
-        viewModel.isWorking.filter{ !$0 }.delay(displayDelay).drive(view.rx.activityIndicator).disposed(by: disposeBag)
-        viewModel.isWorking.filter{ $0 }.map(to: 0).drive(headerContainerView.rx.alpha).disposed(by: disposeBag)
-        viewModel.isWorking.filter{ $0 }.map(to: 0).drive(segmentPageViewControllerContainer.rx.alpha).disposed(by: disposeBag)
-        viewModel.isWorking.filter{ !$0 }.toVoid().delay(displayDelay).drive(onNext: { [weak self] in
-            UIView.animate(withDuration: displayDelay, animations: {
-                self?.headerContainerView.alpha = 1
-                self?.segmentPageViewControllerContainer.alpha = 1
-            })
-        }).disposed(by: disposeBag)
+        let playerInfoVM = viewModel.playerInfoViewModel
+        playerInfoVM.avatarURL.drive(avatarImageView.rx.imageURL).disposed(by: disposeBag)
+        playerInfoVM.fullName.drive(fullNameLabel.rx.text).disposed(by: disposeBag)
+        playerInfoVM.personalInfo.drive(personalInfoVC.rx.infoTitles).disposed(by: disposeBag)
+        playerInfoVM.hardware.drive(hardwareVC.rx.infoTitles).disposed(by: disposeBag)
+        playerInfoVM.settings.drive(settingsVC.rx.infoTitles).disposed(by: disposeBag)
+        let showContent = viewModel.isWorking.filter{ !$0 }.delay(0.5)
+        let hideContent = viewModel.isWorking.filter{ $0 }
+        hideContent.drive(view.rx.activityIndicator).disposed(by: disposeBag)
+        hideContent.map(to: 0).drive(headerContainerView.rx.alpha).disposed(by: disposeBag)
+        hideContent.map(to: 0).drive(segmentPageViewControllerContainer.rx.alpha).disposed(by: disposeBag)
+        showContent.drive(view.rx.activityIndicator).disposed(by: disposeBag)
+        showContent.map(to: 0.9).drive(headerContainerView.rx.visibleAlphaWithDuration).disposed(by: disposeBag)
+        showContent.map(to: 0.6).drive(segmentPageViewControllerContainer.rx.visibleAlphaWithDuration).disposed(by: disposeBag)
         viewModel.refreshTrigger.onNext(())
     }
 }

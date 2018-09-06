@@ -94,7 +94,7 @@
             <color key="backgroundColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="cityLabel" destination="97F-eQ-4Q4" id="2lf-pV-Nhy"/>
-                <outlet property="colorContainerView" destination="7gM-6m-3KZ" id="9Y2-ZO-Sa7"/>
+                <outlet property="containerView" destination="7gM-6m-3KZ" id="cEv-3n-sef"/>
                 <outlet property="descriptionLabel" destination="gpZ-a8-ddD" id="Dzd-Hk-x3L"/>
                 <outlet property="flagImageView" destination="2cR-FD-c5d" id="sjb-GY-bRL"/>
                 <outlet property="logoImageView" destination="Dz7-qm-qJd" id="m8X-eO-92K"/>

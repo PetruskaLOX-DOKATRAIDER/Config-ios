@@ -21,9 +21,7 @@ public final class SkinItemViewModelImpl: SkinItemViewModel, ReactiveCompatible 
         title = .just(skin.name)
         let price = (skin.prise == 0) ? Strings.Skinitem.free : "\(String(skin.prise))$"
         let full = "\(skin.gunName) \(Strings.Skinitem.priceSubstr) \(price)"
-        description = .just(
-            HighlightText(full: full, highlights: [price])
-        )
+        description = .just(HighlightText(full: full, highlights: [price]))
         coverImageURL = .just(skin.coverImageURL)
     }
 }

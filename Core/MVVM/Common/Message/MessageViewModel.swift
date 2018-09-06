@@ -34,6 +34,10 @@ extension MessageViewModelImpl {
         description: String = Strings.Errors.generalMessage,
         icon: UIImage = Images.General.error
     ) -> MessageViewModelImpl {
-        return MessageViewModelImpl(title: title, description: description, icon: icon)
+        return MessageViewModelImpl(
+            title: title,
+            description: description,
+            icon: icon
+        )
     }
 }

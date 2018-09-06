@@ -53,9 +53,8 @@ public final class ProfileViewModelImpl: ProfileViewModel {
         shouldRouteSkins = skinsVM.selectionTrigger.asDriver(onErrorJustReturn: ())
         shouldRouteTutorial = tutorialVM.selectionTrigger.asDriver(onErrorJustReturn: ())
         shouldSendFeedback = sendFeedbackVM.selectionTrigger.asDriver(onErrorJustReturn: ())
-        messageViewModel = storageVM.cacheСleared.asDriver(onErrorJustReturn: ()).map(to:
-            MessageViewModelImpl(title: Strings.Storage.title, description: Strings.Storage.cleared)
-        )
+        messageViewModel = storageVM.cacheСleared.asDriver(onErrorJustReturn: ())
+            .map(to: MessageViewModelImpl(title: Strings.Storage.title, description: Strings.Storage.cleared))
         shouldOpenURL = .merge(
             donateVM.selectionTrigger.asDriver(onErrorJustReturn: ()).map(to: appEnvironment.donateURL),
             rateAppVM.selectionTrigger.asDriver(onErrorJustReturn: ()).map(to: appEnvironment.appStoreURL)

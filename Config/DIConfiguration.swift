@@ -6,7 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import Core
 import CoreDataStorage
 
 extension DependencyContainer {

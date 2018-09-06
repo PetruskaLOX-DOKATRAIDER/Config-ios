@@ -36,10 +36,13 @@ final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
             )
         }
         
-        let message = PublishSubject<MessageViewModel?>()
-        messageViewModel = message.asDriver(onErrorJustReturn: nil).filterNil()
-        playersPaginator = Paginator(factory: { playersService.getPlayerPreview(forPage: $0).success().map(remapToViewModels).asObservable() })
+        playersPaginator = Paginator(factory: {
+            playersService.getPlayerPreview(forPage: $0)
+            .success()
+            .map(remapToViewModels)
+            .asObservable()
+        })
+        messageViewModel = playersPaginator.error.map{ MessageViewModelImpl.error(description: $0.localizedDescription) }
         shouldRouteProfile = profileTrigger.asDriver(onErrorJustReturn: ())
-        playersPaginator.error.map{ MessageViewModelImpl.error(description: $0.localizedDescription) }.drive(message).disposed(by: rx.disposeBag)
     }
 }

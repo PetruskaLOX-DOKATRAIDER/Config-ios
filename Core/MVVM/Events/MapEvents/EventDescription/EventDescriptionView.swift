@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-import LoadableViews
-
 final class EventDescriptionView: LoadableView, NonReusableViewProtocol {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var cityLabel: UILabel!

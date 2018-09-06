@@ -131,6 +131,7 @@
 		7C5F307D20E0E44B0050E9AE /* DIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F307C20E0E44B0050E9AE /* DIConfiguration.swift */; };
 		7C6033D121343916007B61F2 /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6033D021343916007B61F2 /* KeyboardToolbar.swift */; };
 		7C6033D32134391D007B61F2 /* KeyboardToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6033D22134391D007B61F2 /* KeyboardToolbar.xib */; };
+		7C6A927D2141519B001A0A7D /* PlayerInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A927C2141519B001A0A7D /* PlayerInfoViewModel.swift */; };
 		7C88006A212D5073002F049A /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C880069212D5073002F049A /* SectionViewModel.swift */; };
 		7C880071212D5DB4002F049A /* SectionTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C880070212D5DB4002F049A /* SectionTopicViewModel.swift */; };
 		7C880073212D5DC3002F049A /* SectionTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C880072212D5DC3002F049A /* SectionTopicView.swift */; };
@@ -539,6 +540,7 @@
 		7C5F307C20E0E44B0050E9AE /* DIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIConfiguration.swift; sourceTree = "<group>"; };
 		7C6033D021343916007B61F2 /* KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
 		7C6033D22134391D007B61F2 /* KeyboardToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyboardToolbar.xib; sourceTree = "<group>"; };
+		7C6A927C2141519B001A0A7D /* PlayerInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewModel.swift; sourceTree = "<group>"; };
 		7C880069212D5073002F049A /* SectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewModel.swift; sourceTree = "<group>"; };
 		7C880070212D5DB4002F049A /* SectionTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTopicViewModel.swift; sourceTree = "<group>"; };
 		7C880072212D5DC3002F049A /* SectionTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTopicView.swift; sourceTree = "<group>"; };
@@ -1256,6 +1258,7 @@
 			isa = PBXGroup;
 			children = (
 				7CEEE568210B38C800BE106E /* PlayerInfoPageViewController */,
+				7C6A927C2141519B001A0A7D /* PlayerInfoViewModel.swift */,
 				7CA5527A2100925E0097E866 /* PlayerDescriptionViewModel.swift */,
 				7CA552772100925E0097E866 /* PlayerDescriptionViewModelTests.swift */,
 				7CA552792100925E0097E866 /* PlayerDescriptionViewController.swift */,
@@ -2658,6 +2661,7 @@
 				7CFA24D520D92F930059378F /* UICollectionView+extension.swift in Sources */,
 				7C168FC121402AA8004D2208 /* PasteboardService.swift in Sources */,
 				C02C4623202C8C03008AE9B0 /* PublishRelay+extensions.swift in Sources */,
+				7C6A927D2141519B001A0A7D /* PlayerInfoViewModel.swift in Sources */,
 				7CB97D1021061A40002CA594 /* EventItemAnnotationViewModel.swift in Sources */,
 				7CEEE571210B397000BE106E /* PlayerInfoView.swift in Sources */,
 				7CED80E6212AD44D00555E7F /* ProfileEmailItemViewModelTests.swift in Sources */,
@@ -3294,7 +3298,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-Onone -Xfrontend -warn-long-expression-type-checking=2000";
+				OTHER_SWIFT_FLAGS = "-Onone -Xfrontend -warn-long-expression-type-checking=3000";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -3438,7 +3442,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-expression-type-checking=2000 -Onone";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-expression-type-checking=3000 -Onone";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -3612,7 +3616,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-Onone -Xfrontend -warn-long-expression-type-checking=2000";
+				OTHER_SWIFT_FLAGS = "-Onone -Xfrontend -warn-long-expression-type-checking=3000";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -3696,6 +3700,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;

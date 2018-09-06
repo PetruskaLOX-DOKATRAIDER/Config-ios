@@ -22,7 +22,10 @@ public final class FeedbackViewModelImpl: FeedbackViewModel, ReactiveCompatible 
     public init(analyticsService: AnalyticsService) {
         messageTextFieldViewModel = TextFieldViewModelImpl(placeholder: Strings.Feedback.messagePlaceholder)
         let message = sendTrigger.asDriver(onErrorJustReturn: ()).withLatestFrom(messageTextFieldViewModel.text.asDriver()).filterEmpty()
-        shouldClose = .merge(message.map(to: ()), closeTrigger.asDriver(onErrorJustReturn: ()))
+        shouldClose = .merge(
+            message.map(to: ()),
+            closeTrigger.asDriver(onErrorJustReturn: ())
+        )
         message.map{ analyticsService.trackFeedback(withMessage: $0) }.drive().disposed(by: rx.disposeBag)
     }
 }

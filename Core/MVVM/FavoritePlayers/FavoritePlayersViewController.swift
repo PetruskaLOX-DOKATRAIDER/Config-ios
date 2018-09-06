@@ -22,6 +22,7 @@ public final class FavoritePlayersViewController: UIViewController, NonReusableV
         noContentTitleLabel.textColor = .solled
         noContentTitleLabel.font = .filsonMediumWithSize(18)
         noContentTitleLabel.text = Strings.Favoriteplayers.NoContent.title
+        
         noContentSubtitleLabel.textColor = .quaded
         noContentSubtitleLabel.font = .filsonRegularWithSize(15)
         noContentSubtitleLabel.text = Strings.Favoriteplayers.NoContent.subtitle
@@ -46,8 +47,8 @@ public final class FavoritePlayersViewController: UIViewController, NonReusableV
     
     public func onUpdate(with viewModel: FavoritePlayersViewModel, disposeBag: DisposeBag) {
         viewModel.players.drive(manager.memoryStorage.rx.items()).disposed(by: disposeBag)
-        closeButton.rx.tap.bind(to: viewModel.closeTrigger).disposed(by: disposeBag)
         viewModel.isContentExist.drive(noContentContainerView.rx.isHidden).disposed(by: disposeBag)
+        closeButton.rx.tap.bind(to: viewModel.closeTrigger).disposed(by: disposeBag)
         rx.viewWillAppear.toVoid().bind(to: viewModel.refreshTrigger).disposed(by: disposeBag)
     }
 }

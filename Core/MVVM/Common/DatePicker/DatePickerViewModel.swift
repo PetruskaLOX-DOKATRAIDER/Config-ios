@@ -34,6 +34,9 @@ final class DatePickerViewModelImpl: DatePickerViewModel {
         self.minimumDate = .just(minimumDate)
         self.maximumDate = .just(maximumDate)
         datePicked = dateTrigger.asDriver(onErrorJustReturn: Date())
-        shouldClose = .merge(datePicked.toVoid(), cancelTrigger.asDriver(onErrorJustReturn: ()))
+        shouldClose = .merge(
+            datePicked.toVoid(),
+            cancelTrigger.asDriver(onErrorJustReturn: ())
+        )
     }
 }

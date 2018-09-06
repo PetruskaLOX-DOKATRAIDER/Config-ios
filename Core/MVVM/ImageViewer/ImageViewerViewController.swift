@@ -17,6 +17,7 @@ public final class ImageViewerViewController: UIViewController, NonReusableViewP
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .bagdet
+        
         buttonsContainerView.backgroundColor = .amethyst
         buttonsContainerView.applyShadow()
     }

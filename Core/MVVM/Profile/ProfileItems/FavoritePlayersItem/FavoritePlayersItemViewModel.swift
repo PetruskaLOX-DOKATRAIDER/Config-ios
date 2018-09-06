@@ -16,8 +16,8 @@ public final class FavoritePlayersItemViewModelImpl: FavoritePlayersItemViewMode
     public let selectionTrigger = PublishSubject<Void>()
     
     init(playersStorage: PlayersStorage) {
-        countOfPlayers = playersStorage.fetchFavoritePlayersPreview().map { players in
-            players.isEmpty ? Strings.Favoriteplayers.NoContent.title : Strings.Favoriteplayers.playersCount(players.count)
+        countOfPlayers = playersStorage.fetchFavoritePlayersPreview()
+            .map { $0.isEmpty ? Strings.Favoriteplayers.NoContent.title : Strings.Favoriteplayers.playersCount($0.count)
         }
     }
 }

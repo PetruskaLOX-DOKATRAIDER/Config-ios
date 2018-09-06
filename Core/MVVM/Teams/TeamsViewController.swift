@@ -35,11 +35,11 @@ public final class TeamsViewController: UIViewController, DTTableViewManageable,
     }
     
     public func onUpdate(with viewModel: TeamsViewModel, disposeBag: DisposeBag) {
+        playersBannerView.viewModel = viewModel.playersBannerViewModel
         connect(viewModel.teamsPaginator).disposed(by: disposeBag)
         viewModel.teamsPaginator.isWorking.drive(view.rx.activityIndicator).disposed(by: rx.disposeBag)
         viewModel.messageViewModel.drive(view.rx.messageView).disposed(by: rx.disposeBag)
         profileButton.rx.tap.bind(to: viewModel.profileTrigger).disposed(by: disposeBag)
-        playersBannerView.viewModel = viewModel.playersBannerViewModel
         viewModel.teamsPaginator.refreshTrigger.onNext(())
     }
 }

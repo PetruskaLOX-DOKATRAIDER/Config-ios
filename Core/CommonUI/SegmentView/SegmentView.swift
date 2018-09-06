@@ -7,12 +7,29 @@
 //
 
 class SegmentView: LoadableView {
-    public var didSelectAtIndex : ((Int) -> Void)?
     @IBOutlet private weak var lineView: UIView!
     @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private weak var stepView: UIView!
     @IBOutlet private weak var stepViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet private weak var stepViewLeftSpacingConstraint: NSLayoutConstraint!
+    
+    public var didSelectSegment: ((Int) -> Void)?
+    public var titles: [String] = [String]() {
+        didSet {
+            stackView.removeAllSubviews()
+            titles
+                .map{ button(withTitle: $0) }
+                .forEach { stackView.addArrangedSubview($0) }
+            stackView.layoutIfNeeded()
+            selectedSegment = 0
+        }
+    }
+    public var selectedSegment: Int = 0 {
+        didSet {
+            guard let view = stackView.subviews[safe: selectedSegment] else { return }
+            animateSegmentView(view)
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,16 +46,16 @@ class SegmentView: LoadableView {
         stepView.backgroundColor = .ichigos
     }
     
-    func addSegmentWithTitle(title: String) {
-        stackView.addArrangedSubview(button(withTitle: title))
-        stackView.layoutIfNeeded()
-    }
+//    func addSegmentWithTitle(title: String) {
+//        stackView.addArrangedSubview(button(withTitle: title))
+//        stackView.layoutIfNeeded()
+//    }
 
-    func setSegment(atIndex index: Int) {
-        if let view = stackView.subviews[safe: index] {
-            animateSegmentView(view)
-        }
-    }
+//    func setSegment(atIndex index: Int) {
+//        if let view = stackView.subviews[safe: index] {
+//            animateSegmentView(view)
+//        }
+//    }
     
     private func button(withTitle title: String) -> UIButton {
         let button = UIButton()
@@ -62,7 +79,7 @@ class SegmentView: LoadableView {
     
     @objc private func onButtonDidTap(_ sender: UIButton) {
         guard let index = stackView.subviews.index(of: sender) else { return }
-        setSegment(atIndex: index)
-        self.didSelectAtIndex?(index)
+        selectedSegment = index
+        self.didSelectSegment?(index)
     }
 }

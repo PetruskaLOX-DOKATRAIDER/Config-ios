@@ -36,9 +36,9 @@ public final class PickerViewController: UIViewController, NonReusableViewProtoc
     public func onUpdate(with viewModel: PickerViewModel, disposeBag: DisposeBag) {
         viewModel.title.drive(titleLabel.rx.text).disposed(by: disposeBag)
         cancelButton.rx.tap.bind(to: viewModel.cancelTrigger).disposed(by: disposeBag)
-        viewModel.itmeTitles.drive(pickerView.rx.itemTitles){ $1 }.disposed(by: disposeBag)
-        let currentPickerIndex = submitButton.rx.tap.asDriver().map {
-            [weak self] in self?.pickerView.selectedRow(inComponent: 0)
+        viewModel.itemTitles.drive(pickerView.rx.itemTitles){ $1 }.disposed(by: disposeBag)
+        let currentPickerIndex = submitButton.rx.tap.asDriver().map { [weak self] in
+            self?.pickerView.selectedRow(inComponent: 0)
         }
         currentPickerIndex.filterNil().drive(viewModel.itemAtIndexTrigger).disposed(by: disposeBag)
     }
