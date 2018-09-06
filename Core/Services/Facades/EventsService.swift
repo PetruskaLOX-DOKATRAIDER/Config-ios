@@ -8,7 +8,6 @@
 
 public enum EventsServiceError: Error {
     case serverError(Error)
-    case noData
     case unknown
 }
 
@@ -42,11 +41,9 @@ public final class EventsServiceImpl: EventsService, ReactiveCompatible {
     
     private func getRemoteEvents(forPage page: Int) -> DriverResult<Page<Event>, EventsServiceError> {
         let request = eventsAPIService.getEvents(forPage: page)
-        let noData = request.success().filter{ $0.content.isEmpty }.toVoid()
         let successData = request.success().filter{ $0.content.isNotEmpty }.map{ self.applyFilters($0) }
         return .merge(
             successData.map{ Result(value: $0) },
-            noData.map(to: Result(error: .noData)),
             request.failure().map{ Result(error: .serverError($0.localizedDescription)) }
         )
     }
@@ -59,12 +56,9 @@ public final class EventsServiceImpl: EventsService, ReactiveCompatible {
     }
     
     private func getStoredEvents() -> DriverResult<Page<Event>, EventsServiceError> {
-        let data = eventsStorage.fetchEvents().debug("fetchEvents")
-        let page = data.map{ Page.new(content: $0, index: 1, totalPages: 1) }.map{ self.applyFilters($0) }
-        return .merge(
-            page.map{ Result(value: $0) },
-            data.filterEmpty().map(to: Result(error: .noData))
-        )
+        let data = eventsStorage.fetchEvents()
+        let page = data.map{ Page.new(content: $0, index: 1, totalPages: 1) }
+        return page.map{ self.applyFilters($0) }.map{ Result(value: $0) }
     }
     
     private func applyFilters(_ events: Page<Event>) -> Page<Event> {

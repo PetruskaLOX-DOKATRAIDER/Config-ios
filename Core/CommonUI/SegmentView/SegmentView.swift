@@ -46,17 +46,6 @@ class SegmentView: LoadableView {
         stepView.backgroundColor = .ichigos
     }
     
-//    func addSegmentWithTitle(title: String) {
-//        stackView.addArrangedSubview(button(withTitle: title))
-//        stackView.layoutIfNeeded()
-//    }
-
-//    func setSegment(atIndex index: Int) {
-//        if let view = stackView.subviews[safe: index] {
-//            animateSegmentView(view)
-//        }
-//    }
-    
     private func button(withTitle title: String) -> UIButton {
         let button = UIButton()
         button.setTitle(title, for: .normal)
@@ -72,9 +61,7 @@ class SegmentView: LoadableView {
         let duration = abs(stepViewLeftSpacingConstraint.constant - newSegmentLeftOffset) * 0.002
         stepViewLeftSpacingConstraint.constant = newSegmentLeftOffset
         
-        UIView.animate(withDuration: Double(duration)) {
-            self.layoutIfNeeded()
-        }
+        UIView.animate(withDuration: TimeInterval(duration)) { self.layoutIfNeeded() }
     }
     
     @objc private func onButtonDidTap(_ sender: UIButton) {

@@ -8,7 +8,6 @@
 
 public enum TeamsServiceError: Error {
     case serverError(Error)
-    case noData
     case unknown
 }
 
@@ -39,11 +38,9 @@ public final class TeamsServiceImpl: TeamsService, ReactiveCompatible {
     
     private func getRemoteEvents(forPage page: Int) -> DriverResult<Page<Team>, TeamsServiceError> {
         let request = teamsAPIService.getTeams(forPage: page)
-        let noData = request.success().filter{ $0.content.isEmpty }.toVoid()
         let successData = request.success().filter{ $0.content.isNotEmpty }
         return .merge(
             successData.map{ Result(value: $0) },
-            noData.map(to: Result(error: .noData)),
             request.failure().map{ Result(error: .serverError($0.localizedDescription)) }
         )
     }
@@ -56,10 +53,6 @@ public final class TeamsServiceImpl: TeamsService, ReactiveCompatible {
     }
     
     private func getStoredTeams() -> DriverResult<Page<Team>, TeamsServiceError> {
-        let data = teamsStorage.fetchTeams()
-        return .merge(
-            data.map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) },
-            data.filterEmpty().map(to: Result(error: .noData))
-        )
+         return teamsStorage.fetchTeams().map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) }
     }
 }

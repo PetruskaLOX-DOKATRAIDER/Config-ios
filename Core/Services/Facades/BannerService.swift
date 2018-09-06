@@ -8,7 +8,6 @@
 
 public enum BannerServiceError: Error {
     case serverError(Error)
-    case noData
 }
 
 public protocol BannerService {
@@ -25,11 +24,9 @@ public final class BannerServiceImpl: BannerService, ReactiveCompatible {
     public func getBannerForPlayers(forPage page: Int) -> DriverResult<Page<PlayerBanner>, BannerServiceError> {
         let request = bannerAPIService.getBannerForPlayers(forPage: page)
         let success = request.success().filter{ $0.content.isNotEmpty }
-        let noData = request.success().filter{ $0.content.isEmpty }.map(to: BannerServiceError.noData)
         let serverError = request.failure().map{ BannerServiceError.serverError($0) }
         return Driver.merge(
             success.map{ Result(value: $0) },
-            noData.map{ Result(error: $0) },
             serverError.map{ Result(error: $0) }
         )
     }

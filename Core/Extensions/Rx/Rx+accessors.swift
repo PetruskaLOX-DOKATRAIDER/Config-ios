@@ -91,6 +91,37 @@ public extension Reactive where Base: UIDatePicker {
     }
 }
 
+// MARK: Router
+
+public extension Reactive where Base: Router {
+    public var pushSafariVC: Binder<URL> {
+        return Binder(base) { router, url in
+            let safariVC = SFSafariViewController(url: url)
+            router.appRouter.topViewController?.navigationController?.pushViewController(safariVC, animated: true)
+        }
+    }
+    
+    public var presentSafariVC: Binder<URL> {
+        return Binder(base) { router, url in
+            let safariVC = SFSafariViewController(url: url)
+            router.appRouter.topViewController?.navigationController?.present(safariVC, animated: true, completion: nil)
+        }
+    }
+    
+    public var presentActivityVC: Binder<ShareItem> {
+        return Binder(base) { router, share in
+            let activityVC = UIActivityViewController(activityItems: share.items(), applicationActivities: [])
+            router.appRouter.topViewController?.navigationController?.present(activityVC, animated: true, completion: nil)
+        }
+    }
+    
+    public var presentAlertVM: Binder<AlertViewModel> {
+        return Binder(base) { router, alert in
+            let alertVC = UIAlertControllerFactory.alertController(fromViewModelAlert: alert)
+            router.appRouter.topViewController?.navigationController?.present(alertVC, animated: true, completion: nil)
+        }
+    }
+}
 
 // MARK: MKMapView
 

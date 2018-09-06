@@ -10,7 +10,6 @@ public enum PlayersServiceError: Error {
     case playerIsNotInFavorites
     case playerAlreadyInFavorites
     case serverError(Error)
-    case noData
     case unknown
 }
 
@@ -20,7 +19,6 @@ extension PlayersServiceError: Equatable {
         case (.playerIsNotInFavorites, .playerIsNotInFavorites): return true
         case (.playerAlreadyInFavorites, .playerAlreadyInFavorites): return true
         case (.serverError, .serverError): return true
-        case (.noData, .noData): return true
         case (.unknown, .unknown): return true
         default: return false
         }
@@ -65,14 +63,11 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
 
     public func getFavoritePlayersPreview() -> DriverResult<[PlayerPreview], PlayersServiceError> {
         let players = playersStorage.fetchFavoritePlayersPreview()
-        return .merge(
-            players.filter{ $0.isEmpty }.map(to: Result(error: .noData)),
-            players.filterEmpty().map{ Result(value: $0) }
-        )
+        return players.filterEmpty().map{ Result(value: $0) }
     }
     
     public func addPlayerToFavorites(byID id: Int) -> DriverResult<Void, PlayersServiceError> {
-        let alreadyInFavorites = playersStorage.isPlayerInFavorites(withID: id).debug("PlayersService addPlayerToFavorites").filter{ $0 }
+        let alreadyInFavorites = playersStorage.isPlayerInFavorites(withID: id).filter{ $0 }
         let success = playersStorage.addPlayerToFavorites(withID: id)
         return .merge(
             alreadyInFavorites.map(to: Result(error: .playerAlreadyInFavorites) ),
@@ -90,16 +85,14 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
     }
     
     public func isPlayerInFavorites(playerID id: Int) -> DriverResult<Bool, PlayersServiceError> {
-        return playersStorage.isPlayerInFavorites(withID: id).debug("PlayersService isPlayerInFavorites:").map{ Result(value: $0) }
+        return playersStorage.isPlayerInFavorites(withID: id).map{ Result(value: $0) }
     }
     
     private func getRemotePlayerPreview(forPage page: Int) -> DriverResult<Page<PlayerPreview>, PlayersServiceError> {
         let request = playersAPIService.getPlayersPreview(forPage: page)
-        let noData = request.success().filter{ $0.content.isEmpty }.toVoid()
         let successData = request.success().filter{ $0.content.isNotEmpty }
         return .merge(
             successData.map{ Result(value: $0) },
-            noData.map(to: Result(error: .noData)),
             request.failure().map{ Result(error: .serverError($0.localizedDescription)) }
         )
     }
@@ -113,10 +106,7 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
     
     private func getStoredPlayerPreview() -> DriverResult<Page<PlayerPreview>, PlayersServiceError> {
         let data = playersStorage.fetchPlayersPreview()
-        return .merge(
-            data.map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) },
-            data.filterEmpty().map(to: Result(error: .noData))
-        )
+        return data.map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) }
     }
     
     private func getRemotePlayerDescription(byID id: Int) -> DriverResult<PlayerDescription, PlayersServiceError> {
@@ -136,9 +126,6 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
     
     private func getStoredPlayerDescription(byID id: Int) -> DriverResult<PlayerDescription, PlayersServiceError> {
         let data = playersStorage.fetchPlayerDescription(withID: id)
-        return .merge(
-            data.filter{ $0 == nil }.map(to: Result(error: .noData)),
-            data.filterNil().map{ Result(value: $0) }
-        )
+        return data.filterNil().map{ Result(value: $0) }
     }
 }

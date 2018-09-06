@@ -47,6 +47,6 @@ public final class AlertActionViewModelImpl: AlertActionViewModel {
 
 extension AlertActionViewModelImpl: Equatable {
     public static func == (lhs: AlertActionViewModelImpl, rhs: AlertActionViewModelImpl) -> Bool {
-            return lhs.title == rhs.title && lhs.style == rhs.style
+        return lhs.title == rhs.title && lhs.style == rhs.style
     }
 }

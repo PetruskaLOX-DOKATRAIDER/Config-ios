@@ -81,5 +81,12 @@
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-43.5" y="-26.5"/>
         </view>
+        <view contentMode="scaleToFill" id="LsK-Xk-ppP">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" red="0.63529411764705879" green="0.64313725490196072" blue="0.64313725490196072" alpha="0.70155699823943662" colorSpace="calibratedRGB"/>
+            <viewLayoutGuide key="safeArea" id="1aN-az-gzU"/>
+            <point key="canvasLocation" x="-398" y="170"/>
+        </view>
     </objects>
 </document>

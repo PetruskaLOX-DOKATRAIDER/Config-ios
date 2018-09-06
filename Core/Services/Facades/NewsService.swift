@@ -8,7 +8,6 @@
 
 public enum NewsServiceError: Error {
     case serverError(Error)
-    case noData
     case unknown
 }
 
@@ -46,11 +45,9 @@ public final class NewsServiceImpl: NewsService, ReactiveCompatible {
     
     private func getRemoteNewsPreview(forPage page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError> {
         let request = newsAPIService.getNewsPreview(forPage: page)
-        let noData = request.success().filter{ $0.content.isEmpty }.toVoid()
         let successData = request.success().filter{ $0.content.isNotEmpty }
         return .merge(
             successData.map{ Result(value: $0) },
-            noData.map(to: Result(error: .noData)),
             request.failure().map{ Result(error: .serverError($0.localizedDescription)) }
         )
     }
@@ -63,11 +60,7 @@ public final class NewsServiceImpl: NewsService, ReactiveCompatible {
     }
     
     private func getStoredNewsPreview() -> DriverResult<Page<NewsPreview>, NewsServiceError> {
-        let data = newsStorage.fetchNewsPreview()
-        return .merge(
-            data.map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) },
-            data.filterEmpty().map(to: Result(error: .noData))
-        )
+        return newsStorage.fetchNewsPreview().map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) }
     }
     
     private func getRemoteNewsDescription(byID id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
@@ -86,10 +79,6 @@ public final class NewsServiceImpl: NewsService, ReactiveCompatible {
     }
     
     private func getStoredNewsDescription(byID id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
-        let data = newsStorage.fetchNewsDescription(byID: id)
-        return Driver.merge(
-            data.filter{ $0 == nil }.map(to: Result(error: .noData)),
-            data.filterNil().map{ Result(value: $0) }
-        )
+        return newsStorage.fetchNewsDescription(byID: id).filterNil().map{ Result(value: $0) }
     }
 }

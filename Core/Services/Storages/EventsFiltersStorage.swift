@@ -31,9 +31,18 @@ public final class EventsFiltersStorageImpl: EventsFiltersStorage, ReactiveCompa
         finishDate = BehaviorRelay(value: (storage.object(forKey: Keys.finishDate.rawValue) as? Date?) ?? nil)
         maxCountOfTeams = BehaviorRelay(value: storage.integer(forKey: Keys.maxCountOfTeams.rawValue).zeroIsNil())
         minPrizePool = BehaviorRelay(value: storage.double(forKey: Keys.minPrizePool.rawValue).zeroIsNil())
-        startDate.asDriver().drive(onNext: { storage.set($0, forKey: Keys.startDate.rawValue) }).disposed(by: rx.disposeBag)
-        finishDate.asDriver().drive(onNext: { storage.set($0, forKey: Keys.finishDate.rawValue) }).disposed(by: rx.disposeBag)
-        maxCountOfTeams.asDriver().map{ $0.value == 0 ? nil : $0 }.drive(onNext: { storage.set($0, forKey: Keys.maxCountOfTeams.rawValue) }).disposed(by: rx.disposeBag)
-        minPrizePool.asDriver().map{ $0.value == 0 ? nil : $0 }.drive(onNext: { storage.set($0, forKey: Keys.minPrizePool.rawValue) }).disposed(by: rx.disposeBag)
+        
+        startDate.asDriver().drive(onNext:{
+            storage.set($0, forKey: Keys.startDate.rawValue)
+        }).disposed(by: rx.disposeBag)
+        finishDate.asDriver().drive(onNext:{
+            storage.set($0, forKey: Keys.finishDate.rawValue)
+        }).disposed(by: rx.disposeBag)
+        maxCountOfTeams.asDriver().map{ $0.value == 0 ? nil : $0 }.drive(onNext:{
+            storage.set($0, forKey: Keys.maxCountOfTeams.rawValue)
+        }).disposed(by: rx.disposeBag)
+        minPrizePool.asDriver().map{ $0.value == 0 ? nil : $0 }.drive(onNext:{
+            storage.set($0, forKey: Keys.minPrizePool.rawValue)
+        }).disposed(by: rx.disposeBag)
     }
 }
