@@ -101,6 +101,7 @@
 		7C42185F21429D6D00F81601 /* AutoRouterTests.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 7C42185E21429D6700F81601 /* AutoRouterTests.stencil */; };
 		7C42186121429DE400F81601 /* AutoRouterTests.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C42185C21429D5000F81601 /* AutoRouterTests.generated.swift */; };
 		7C42186221429E4700F81601 /* ImagesTests.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED465A5203492090015DAF6 /* ImagesTests.generated.swift */; };
+		7C4218642142A9B500F81601 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4218632142A9B500F81601 /* String+extensions.swift */; };
 		7C46053B2109E5D600DA0724 /* Numeric+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C46053A2109E5D600DA0724 /* Numeric+extensions.swift */; };
 		7C46053D2109F72300DA0724 /* EventFilterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C46053C2109F72300DA0724 /* EventFilterItemView.swift */; };
 		7C46053F2109F72E00DA0724 /* EventFilterItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C46053E2109F72E00DA0724 /* EventFilterItemView.xib */; };
@@ -511,6 +512,7 @@
 		7C42185A21429BDB00F81601 /* AutoStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoStoryboard.swift; sourceTree = "<group>"; };
 		7C42185C21429D5000F81601 /* AutoRouterTests.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoRouterTests.generated.swift; sourceTree = "<group>"; };
 		7C42185E21429D6700F81601 /* AutoRouterTests.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AutoRouterTests.stencil; sourceTree = "<group>"; };
+		7C4218632142A9B500F81601 /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
 		7C46053A2109E5D600DA0724 /* Numeric+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+extensions.swift"; sourceTree = "<group>"; };
 		7C46053C2109F72300DA0724 /* EventFilterItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterItemView.swift; sourceTree = "<group>"; };
 		7C46053E2109F72E00DA0724 /* EventFilterItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventFilterItemView.xib; sourceTree = "<group>"; };
@@ -1720,6 +1722,7 @@
 				7CB97D1321061AB5002CA594 /* NSObject+extensions.swift */,
 				7CB97D1521061BC6002CA594 /* CLLocationCoordinate2D+extensions.swift */,
 				7C4D974C212F00D10001A93A /* NSError+extensions.swift */,
+				7C4218632142A9B500F81601 /* String+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2749,6 +2752,7 @@
 				7C174E6421131D5A008CD96D /* DeviceRouter.swift in Sources */,
 				7C174E5B2112FBAD008CD96D /* CameraService.swift in Sources */,
 				7CDAF96620D7FB4C009B9B87 /* NavigationControllerFactory.swift in Sources */,
+				7C4218642142A9B500F81601 /* String+extensions.swift in Sources */,
 				7CE76E4620EA5CED009422EF /* PinterestLayout.swift in Sources */,
 				7CA552862100B8760097E866 /* Date+extensions.swift in Sources */,
 				7C174E6121131546008CD96D /* AlertActionViewModel.swift in Sources */,

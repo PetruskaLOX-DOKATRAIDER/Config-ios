@@ -7,6 +7,7 @@
 //
 
 public final class SkinsViewController: UIViewController, NonReusableViewProtocol, DTTableViewManageable {
+    @IBOutlet private weak var tableViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var workingStatusLabel: UILabel!
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet public weak var tableView: UITableView!
@@ -16,6 +17,7 @@ public final class SkinsViewController: UIViewController, NonReusableViewProtoco
         super.viewDidLoad()
         title = Strings.Skins.title
         view.backgroundColor = .bagdet
+        KeyboardAvoiding.avoid(with: tableViewBottomConstraint, inside: view).disposed(by: rx.disposeBag)
         
         workingStatusLabel.font = .filsonRegularWithSize(15)
         workingStatusLabel.textColor = .ichigos
@@ -23,6 +25,9 @@ public final class SkinsViewController: UIViewController, NonReusableViewProtoco
         
         manager.startManaging(withDelegate: self)
         manager.register(SkinItemCell.self)
+        
+        searchBar.barTintColor = .bagdet
+        searchBar.placeholder = Strings.Skins.search
     }
     
     public func onUpdate(with viewModel: SkinsViewModel, disposeBag: DisposeBag) {
@@ -31,6 +36,8 @@ public final class SkinsViewController: UIViewController, NonReusableViewProtoco
         viewModel.messageViewModel.drive(view.rx.messageView).disposed(by: disposeBag)
         viewModel.isWorking.map{ !$0 }.drive(workingStatusLabel.rx.isHidden).disposed(by: disposeBag)
         closeButton.rx.tap.bind(to: viewModel.closeTrigger).disposed(by: disposeBag)
+        searchBar.rx.text.bind(to: viewModel.searchTrigger).disposed(by: disposeBag)
+        searchBar.rx.searchButtonClicked.map(to: searchBar.text).bind(to: viewModel.searchTrigger).disposed(by: disposeBag)
         viewModel.refreshTrigger.onNext(())
     }
 }
