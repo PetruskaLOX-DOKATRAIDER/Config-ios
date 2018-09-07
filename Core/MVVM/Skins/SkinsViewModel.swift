@@ -39,7 +39,7 @@ public final class SkinsViewModelImpl: SkinsViewModel {
         skins = Driver.combineLatest(newSkins, search) { skins, searchText -> [Skin] in
             guard let search = searchText, search.isNotEmpty else { return skins }
             return skins.filter{ $0.name.containsIgnoringCase(find: search) }
-        }.map{ $0.map{ SkinItemViewModelImpl(skin: $0) }}
+        }.map{ $0.map{ SkinItemViewModelImpl(skin: $0) } }
         
         messageViewModel = response.failure().map(to: MessageViewModelImpl.error(description: Strings.Skins.disconect))
         isWorking = Driver.merge(refresh.map(to: true), response.map(to: false)).startWith(false)

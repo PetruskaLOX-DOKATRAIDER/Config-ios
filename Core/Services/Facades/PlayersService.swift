@@ -50,8 +50,8 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
     }
 
     public func getFavoritePreview() -> DriverResult<[PlayerPreview], PlayersServiceError> {
-        let players = playersStorage.getPreview()
-        return players.filterEmpty().map{ Result(value: $0) }
+        let players = playersStorage.getFavoritePreview()
+        return players.map{ Result(value: $0) }
     }
     
     public func add(favourite id: Int) -> DriverResult<Void, PlayersServiceError> {

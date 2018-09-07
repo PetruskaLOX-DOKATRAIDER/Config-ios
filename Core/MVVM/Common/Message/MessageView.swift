@@ -8,8 +8,9 @@
 
 final class MessageView: LoadableView, NonReusableViewProtocol {
     @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,15 +23,14 @@ final class MessageView: LoadableView, NonReusableViewProtocol {
     }
     
     private func setup() {
-        backgroundColor = .amethyst
+        iconImageView.tintColor = .ichigos
+        containerView.backgroundColor = .amethyst
         
         titleLabel.textColor = .ichigos
         titleLabel.font = .filsonBoldWithSize(15)
         
-        descriptionLabel.textColor = .ichigos
+        descriptionLabel.textColor = .solled
         descriptionLabel.font = .filsonRegularWithSize(15)
-        
-        iconImageView.tintColor = .ichigos
     }
     
     func onUpdate(with viewModel: MessageViewModel, disposeBag: DisposeBag) {

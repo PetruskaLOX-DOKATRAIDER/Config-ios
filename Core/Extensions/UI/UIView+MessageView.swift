@@ -8,17 +8,15 @@
 
 extension UIView {
     func showMessageView(withViewModel viewModel: MessageViewModel) {
-        let messageView = MessageView()
+        let messageView = MessageView(frame: bounds)
         messageView.viewModel = viewModel
+        messageView.applyShadow()
         messageView.alpha = 0
         messageView.layer.zPosition = 101
         
         addSubview(messageView)
         messageView.snp.makeConstraints {
-            $0.bottom.equalTo(self).offset(-100)
-            $0.left.equalTo(self).offset(12)
-            $0.right.equalTo(self).offset(-12)
-            $0.bottom.equalTo(messageView.descriptionLabel.snp.bottom).offset(8)
+            $0.edges.equalToSuperview()
         }
         
         UIView.animate(withDuration: 0.4, animations: {
