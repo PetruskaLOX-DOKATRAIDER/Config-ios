@@ -53,9 +53,11 @@ public final class Router: ReactiveCompatible {
     }
     
     public func news() -> Route<NewsViewController> {
-        return route().configure({ [newsDescription = newsDescription()] vc in
+        return route().configure({ [weak self, newsDescription = newsDescription()] vc in
+            guard let strongSelf = self else { return }
             vc.viewModel?.shouldRouteProfile.drive(onNext: { [weak vc] in vc?.tabBarController?.setSelectedViewController(ProfileViewController.self) }).disposed(by: vc.rx.disposeBag)
-            vc.viewModel?.shouldRouteNewsDescription.map(newsDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRouteDescription.map(newsDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldShare.drive(strongSelf.rx.presentActivityVC).disposed(by: vc.rx.disposeBag)
         })
     }
     
@@ -72,25 +74,27 @@ public final class Router: ReactiveCompatible {
     }
     
     public func events() -> Route<EventsContainerViewController> {
-        return route().configure({ [eventFilters = eventFilters()] vc in
+        return route().configure({ [weak self, eventFilters = eventFilters()] vc in
+            guard let strongSelf = self else { return }
             vc.viewModel?.shouldRouteFilters.map(to: eventFilters).present().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.listEventsViewModel.shouldOpenURL.drive(strongSelf.rx.pushSafariVC).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.mapEventsViewModel.eventDescriptionViewModel.shouldOpenURL.drive(strongSelf.rx.pushSafariVC).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.mapEventsViewModel.eventDescriptionViewModel.shouldShare.drive(strongSelf.rx.presentActivityVC).disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.default())
     }
     
     public func teams() -> Route<TeamsViewController> {
         return route().configure({ [playerDescription = playerDescription()] vc in
             vc.viewModel?.shouldRouteProfile.drive(onNext: { [weak vc] in vc?.tabBarController?.setSelectedViewController(ProfileViewController.self) }).disposed(by: vc.rx.disposeBag)
-            Driver.merge([
-                vc.viewModel?.shouldRoutePlayerDescription,
-                vc.viewModel?.playersBannerViewModel.shouldRoutePlayerDescription
-            ].flatMap{ $0 }).map(playerDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRouteDescription.map(playerDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.playersBannerViewModel.shouldRouteDescription.map(playerDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
         })
     }
     
     public func players() -> Route<PlayersViewController> {
         return route().configure({ [playerDescription = playerDescription()] vc in
             vc.viewModel?.shouldRouteProfile.drive(onNext: { [weak vc] in vc?.tabBarController?.setSelectedViewController(ProfileViewController.self) }).disposed(by: vc.rx.disposeBag)
-            vc.viewModel?.shouldRoutePlayerDescription.map(playerDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRouteDescription.map(playerDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
         })
     }
     
@@ -148,7 +152,7 @@ public final class Router: ReactiveCompatible {
     
     public func favoritePlayers() -> Route<FavoritePlayersViewController> {
         return route().configure({ [playerDescription = playerDescription()] vc in
-            vc.viewModel?.shouldRoutePlayerDescription.map(playerDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldRouteDescription.map(playerDescription.buildViewModel).present().disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldClose.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
         })
     }

@@ -8,21 +8,21 @@
 
 public protocol ListEventsViewModel {
     var events: Driver<[EventItemViewModel]> { get }
-    var eventDetailsURLTrigger: Driver<URL> { get }
+    var shouldOpenURL: Driver<URL> { get }
 }
 
 final class ListEventsViewModelImpl: ListEventsViewModel {
     let events: Driver<[EventItemViewModel]>
-    let eventDetailsURLTrigger: Driver<URL>
+    let shouldOpenURL: Driver<URL>
     
     init(events: Paginator<Event>) {
         let detailURL = PublishSubject<URL?>()
-        func remapToViewModels(evemt: Event) -> EventItemViewModel {
-            let vm = EventItemViewModelImpl(event: evemt)
-            vm.selectionTrigger.asDriver(onErrorJustReturn: ()).map{ evemt.detailsURL }.drive(detailURL).disposed(by: vm.rx.disposeBag)
+        func remapToViewModels(event: Event) -> EventItemViewModel {
+            let vm = EventItemViewModelImpl(event: event)
+            vm.selectionTrigger.asDriver(onErrorJustReturn: ()).map{ event.detailsURL }.drive(detailURL).disposed(by: vm.rx.disposeBag)
             return vm
         }
-        eventDetailsURLTrigger = detailURL.asDriver(onErrorJustReturn: nil).filterNil()
-        self.events = events.elements.asDriver().map{ $0.map{ remapToViewModels(evemt: $0) } }
+        shouldOpenURL = detailURL.asDriver(onErrorJustReturn: nil).filterNil()
+        self.events = events.elements.asDriver().map{ $0.map{ remapToViewModels(event: $0) } }
     }
 }

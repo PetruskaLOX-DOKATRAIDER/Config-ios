@@ -12,7 +12,7 @@ public protocol FavoritePlayersViewModel {
     var refreshTrigger: PublishSubject<Void> { get }
     var closeTrigger: PublishSubject<Void> { get }
     var shouldClose: Driver<Void> { get }
-    var shouldRoutePlayerDescription: Driver<Int> { get }
+    var shouldRouteDescription: Driver<Int> { get }
 }
 
 public final class FavoritePlayersViewModelImpl: FavoritePlayersViewModel {
@@ -21,11 +21,11 @@ public final class FavoritePlayersViewModelImpl: FavoritePlayersViewModel {
     public let refreshTrigger = PublishSubject<Void>()
     public let closeTrigger = PublishSubject<Void>()
     public let shouldClose: Driver<Void>
-    public let shouldRoutePlayerDescription: Driver<Int>
+    public let shouldRouteDescription: Driver<Int>
     
     public init(playersService: PlayersService) {
         let route = PublishSubject<Int>()
-        shouldRoutePlayerDescription = route.asDriver(onErrorJustReturn: 0)
+        shouldRouteDescription = route.asDriver(onErrorJustReturn: 0)
         func remapToViewModels(player: PlayerPreview) -> PlayerPreviewViewModel {
             let vm = PlayerPreviewViewModelImpl(player: player)
             vm.selectionTrigger.asDriver(onErrorJustReturn: ()).map{ player.id }.drive(route).disposed(by: vm.rx.disposeBag)

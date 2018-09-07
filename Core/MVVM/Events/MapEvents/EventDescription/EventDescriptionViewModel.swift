@@ -13,6 +13,8 @@ public protocol EventDescriptionViewModel {
     var logoURL: Driver<URL?> { get }
     var shareTrigger: PublishSubject<Void> { get }
     var detailsTrigger: PublishSubject<Void> { get }
+    var shouldOpenURL: Driver<URL> { get }
+    var shouldShare: Driver<ShareItem> { get }
 }
 
 public class EventDescriptionViewModelImpl: EventDescriptionViewModel {
@@ -22,6 +24,8 @@ public class EventDescriptionViewModelImpl: EventDescriptionViewModel {
     public let logoURL: Driver<URL?>
     public let shareTrigger = PublishSubject<Void>()
     public let detailsTrigger = PublishSubject<Void>()
+    public let shouldOpenURL: Driver<URL>
+    public let shouldShare: Driver<ShareItem>
     
     public let eventTrigger = PublishRelay<Event>()
     
@@ -30,5 +34,8 @@ public class EventDescriptionViewModelImpl: EventDescriptionViewModel {
         city = eventTrigger.asDriver().map{ $0.city }.startWith("")
         flagURL = eventTrigger.asDriver().map{ $0.flagURL }.startWith(nil)
         logoURL = eventTrigger.asDriver().map{ $0.logoURL }.startWith(nil)
+        let url = eventTrigger.asDriver().map{ $0.detailsURL }.filterNil()
+        shouldOpenURL = detailsTrigger.asDriver(onErrorJustReturn: ()).withLatestFrom(url)
+        shouldShare = shareTrigger.asDriver(onErrorJustReturn: ()).withLatestFrom(url).map{ ShareItem(url: $0) }
     }
 }

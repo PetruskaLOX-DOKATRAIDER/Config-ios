@@ -9,6 +9,7 @@
 public struct NewsPreview {
     public let title: String
     public let coverImageURL: URL?
+    public let detailsURL: URL?
     public let id: Int
 }
 
@@ -17,5 +18,6 @@ extension NewsPreview: JSONDecodable {
         title = json["title"].stringValue
         id = json["id"].intValue
         coverImageURL = json["image"].url
+        detailsURL = json["image"].url
     }
 }

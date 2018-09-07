@@ -12,7 +12,7 @@ public protocol TeamsViewModel {
     var messageViewModel: Driver<MessageViewModel> { get }
     var profileTrigger: PublishSubject<Void> { get }
     var shouldRouteProfile: Driver<Void> { get }
-    var shouldRoutePlayerDescription: Driver<Int> { get }
+    var shouldRouteDescription: Driver<Int> { get }
 }
 
 final class TeamsViewModelImpl: TeamsViewModel, ReactiveCompatible {
@@ -21,14 +21,14 @@ final class TeamsViewModelImpl: TeamsViewModel, ReactiveCompatible {
     let messageViewModel: Driver<MessageViewModel>
     let profileTrigger = PublishSubject<Void>()
     let shouldRouteProfile: Driver<Void>
-    let shouldRoutePlayerDescription: Driver<Int>
+    let shouldRouteDescription: Driver<Int>
     
     init(
         teamsService: TeamsService,
         playersBannerViewModel: PlayersBannerViewModel
     ) {
         let route = PublishSubject<Int>()
-        shouldRoutePlayerDescription = route.asDriver(onErrorJustReturn: 0)
+        shouldRouteDescription = route.asDriver(onErrorJustReturn: 0)
         func remapToViewModels(page: Page<Team>) -> Page<TeamItemViewModel> {
             return Page.new(
                 content: page.content.map{ team in

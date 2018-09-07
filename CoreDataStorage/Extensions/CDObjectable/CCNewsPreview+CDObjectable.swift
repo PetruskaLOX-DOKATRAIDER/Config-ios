@@ -23,6 +23,7 @@ extension CCNewsPreview: CDObjectable {
         return NewsPreview.new(
             title: title ?? "",
             coverImageURL: URL(string: coverImageURL ?? ""),
+            detailsURL: URL(string: coverImageURL ?? ""),
             id: Int(id)
         )
     }

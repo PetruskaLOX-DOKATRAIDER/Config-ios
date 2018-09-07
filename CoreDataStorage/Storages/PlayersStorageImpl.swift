@@ -69,7 +69,6 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
                 let request: NSFetchRequest = CDFavoritePlayerID.fetchRequest()
                 let players = try? strongSelf.coreDataStack.privateContext.fetch(request)
                 let ids = (players ?? []).map{ $0.id }
-
                 let predicate = NSPredicate(format: "%K IN %@", #keyPath(CDPlayerPreview.id), ids)
                 strongSelf.playerPreviewObjectStorage.fetch(withPredicate: predicate, completion: { players in
                     observer.onNext(players)

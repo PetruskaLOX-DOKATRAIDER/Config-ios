@@ -11,12 +11,12 @@ public protocol PlayerDescriptionViewModel {
     var messageViewModel: Driver<MessageViewModel> { get }
     var isWorking: Driver<Bool> { get }
     var shoudShowAlert: Driver<AlertViewModel> { get }
+    var shouldShare: Driver<ShareItem> { get }
     var optionsTrigger: PublishSubject<Void> { get }
     var detailsTrigger: PublishSubject<Void> { get }
     var sendCFGTrigger: PublishSubject<Void> { get }
     var refreshTrigger: PublishSubject<Void> { get }
     var closeTrigger: PublishSubject<Void> { get }
-    var shouldShare: Driver<ShareItem> { get }
     var shouldClose: Driver<Void> { get }
 }
 
@@ -25,12 +25,12 @@ public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel {
     public let messageViewModel: Driver<MessageViewModel>
     public let isWorking: Driver<Bool>
     public let shoudShowAlert: Driver<AlertViewModel>
+    public let shouldShare: Driver<ShareItem>
     public let optionsTrigger = PublishSubject<Void>()
     public let detailsTrigger = PublishSubject<Void>()
     public let sendCFGTrigger = PublishSubject<Void>()
     public let refreshTrigger = PublishSubject<Void>()
     public let closeTrigger = PublishSubject<Void>()
-    public let shouldShare: Driver<ShareItem>
     public let shouldClose: Driver<Void>
 
     public init(
@@ -42,22 +42,20 @@ public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel {
         let error = refreshTrigger.asDriver(onErrorJustReturn: ()).flatMapLatest{ request }.failure()
         let player = refreshTrigger.asDriver(onErrorJustReturn: ()).flatMapLatest{ request }.success()
         playerInfoViewModel = PlayerInfoViewModelImpl(player: player)
-        
+        shouldClose = closeTrigger.asDriver(onErrorJustReturn: ())
         isWorking = Driver.merge(
             refreshTrigger.asDriver(onErrorJustReturn: ()).map(to: true),
             player.map(to: false)
         ).startWith(false)
         
-        shouldClose = closeTrigger.asDriver(onErrorJustReturn: ())
-        
         let copyCFG = PublishSubject<Void>()
         let shareCFG = PublishSubject<Void>()
+        let cfg = player.map{ $0.configURL }.filterNil()
+        let copiedCFG = copyCFG.withLatestFrom(cfg).map{ pasteboardService.save($0.absoluteString) }.asDriver(onErrorJustReturn: ())
+        shouldShare = shareCFG.asDriver(onErrorJustReturn: ()).withLatestFrom(cfg).map{ ShareItem(url: $0) }
+    
         let addToFavorites = PublishSubject<Void>()
         let removeFromFavorites = PublishSubject<Void>()
-      
-        let cfg = copyCFG.withLatestFrom( player.map{ $0.configURL }).asDriver(onErrorJustReturn: nil).filterNil()
-        let copiedCFG = cfg.map{ pasteboardService.save($0.absoluteString) }
-        shouldShare = shareCFG.asDriver(onErrorJustReturn: ()).withLatestFrom(cfg).map{ ShareItem(url: $0) }
         let addedSuccess = addToFavorites.asDriver(onErrorJustReturn: ())
             .flatMapLatest{ playersService.add(favourite: id).success() }
         let removedSuccess = removeFromFavorites.asDriver(onErrorJustReturn: ())

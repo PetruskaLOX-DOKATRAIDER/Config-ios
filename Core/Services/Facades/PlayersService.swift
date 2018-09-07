@@ -10,6 +10,7 @@ public enum PlayersServiceError: Error {
     case playerIsNotFavorite
     case playerIsFavorite
     case serverError(Error)
+    case notFound
     case unknown
 }
 
@@ -50,8 +51,7 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
     }
 
     public func getFavoritePreview() -> DriverResult<[PlayerPreview], PlayersServiceError> {
-        let players = playersStorage.getFavoritePreview()
-        return players.map{ Result(value: $0) }
+        return playersStorage.getFavoritePreview().map{ Result(value: $0) }
     }
     
     public func add(favourite id: Int) -> DriverResult<Void, PlayersServiceError> {
@@ -114,7 +114,12 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
     
     private func getStoredDescription(player id: Int) -> DriverResult<PlayerDescription, PlayersServiceError> {
         let data = playersStorage.getDescription(player: id)
-        return data.filterNil().map{ Result(value: $0) }
+        let success = data.filterNil()
+        let failure = data.filter{ $0 == nil }
+        return .merge(
+            success.map{ Result(value: $0) },
+            failure.map(to: Result(error: .notFound))
+        )
     }
 }
 
