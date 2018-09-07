@@ -1,5 +1,8 @@
 //swiftlint:disable force_unwrapping
 
+// swiftlint:disable file_length
+// swiftlint:disable line_length
+
 public enum Images {
 
 }

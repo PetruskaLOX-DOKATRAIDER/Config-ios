@@ -3,9 +3,8 @@ import Core
 import AppRouter
 import TestsHelper
 import TRON
-import Nimble
 
-class ImagesTests: XCTestCase {
+class ImagesTests {
 
 {% macro recurse type %}
 {% for innerType in type.containedTypes %}
