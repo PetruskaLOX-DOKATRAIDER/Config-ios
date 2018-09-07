@@ -27,7 +27,6 @@
 		7C13B0242112CF1E007DFE98 /* ImageViewerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C13B0202112CF1E007DFE98 /* ImageViewerViewModel.swift */; };
 		7C168FBA213FEF53004D2208 /* EventDescriptionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C29AC06210731FE00DF6DCB /* EventDescriptionViewModelTests.swift */; };
 		7C168FBC213FFDE6004D2208 /* PaginationViewModelStrategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C168FBB213FFDE6004D2208 /* PaginationViewModelStrategies.swift */; };
-		7C168FBD21401319004D2208 /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
 		7C168FBF21401803004D2208 /* UITextfield+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C168FBE21401803004D2208 /* UITextfield+extensions.swift */; };
 		7C168FC121402AA8004D2208 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C168FC021402AA8004D2208 /* PasteboardService.swift */; };
 		7C16F509211209F300EB68BA /* NewsImageContentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C16F508211209F300EB68BA /* NewsImageContentItemView.swift */; };
@@ -1306,9 +1305,9 @@
 		7CAB612920F644C5003F4276 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */,
 				7CDCFDF520EE37230046C818 /* CoreDataStack.swift */,
 				7C1E4B56213E8B45002EBF7F /* CDObjectableStorage.swift */,
-				7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1642,8 +1641,8 @@
 		C02C45B8202C84D3008AE9B0 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				C02C4632202CA722008AE9B0 /* App */,
 				7C1D76DB210867850021A4CF /* Common */,
+				C02C4632202CA722008AE9B0 /* App */,
 				7CDAF95320D7C08D009B9B87 /* Tutotiral */,
 				7CFA24D620D932230059378F /* Players */,
 				7CFA24D720D9322C0059378F /* Teams */,
@@ -1829,12 +1828,12 @@
 				3ED4659A2034715E0015DAF6 /* configs */,
 				C0F867E0202C645500D15CDA /* Core */,
 				7CDCFDDF20EE229B0046C818 /* CoreDataStorage */,
+				C0F867F4202C655C00D15CDA /* TestsHelper */,
+				C0F867B2202C4B3A00D15CDA /* Tests */,
+				C0F867C5202C528300D15CDA /* SupportingFiles */,
 				547B7748DD6720F039F2E374 /* Frameworks */,
 				78766033A0D4611E5B5228B2 /* Pods */,
 				C0F8679C202C4B3900D15CDA /* Products */,
-				C0F867C5202C528300D15CDA /* SupportingFiles */,
-				C0F867B2202C4B3A00D15CDA /* Tests */,
-				C0F867F4202C655C00D15CDA /* TestsHelper */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2624,7 +2623,6 @@
 			files = (
 				C0F8679F202C4B3900D15CDA /* AppDelegate.swift in Sources */,
 				7C5F307B20E0E3440050E9AE /* DIConfiguration.swift in Sources */,
-				7C168FBD21401319004D2208 /* CoreDataStorage.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
