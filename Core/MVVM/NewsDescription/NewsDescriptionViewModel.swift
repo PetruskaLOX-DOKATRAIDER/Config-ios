@@ -65,7 +65,7 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
             return contentVMs
         }
         
-        let newsRequest = refreshTrigger.asDriver(onErrorJustReturn: ()).flatMapLatest{ newsService.getNewsDescription(byID: news.id) }
+        let newsRequest = refreshTrigger.asDriver(onErrorJustReturn: ()).flatMapLatest{ newsService.getDescription(news: news.id) }
         title = newsRequest.success().map(to: news.title).startWith("")
         coverImageURL = newsRequest.success().map(to: news.coverImageURL).startWith(nil)
         subtitle = newsRequest.success().map{ $0.title }.startWith("")

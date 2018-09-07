@@ -12,7 +12,7 @@ public enum TeamsServiceError: Error {
 }
 
 public protocol TeamsService {
-    func getTeams(forPage page: Int) -> DriverResult<Page<Team>, TeamsServiceError>
+    func get(page: Int) -> DriverResult<Page<Team>, TeamsServiceError>
 }
 
 public final class TeamsServiceImpl: TeamsService, ReactiveCompatible {
@@ -30,14 +30,14 @@ public final class TeamsServiceImpl: TeamsService, ReactiveCompatible {
         self.teamsStorage = teamsStorage
     }
 
-    public func getTeams(forPage page: Int) -> DriverResult<Page<Team>, TeamsServiceError> {
-        guard reachabilityService.connection != .none else { return getStoredTeams() }
-        let request = getRemoteEvents(forPage: page)
-        return .merge(request.filter{ $0.value == nil }, updateTeams(request.success()))
+    public func get(page: Int) -> DriverResult<Page<Team>, TeamsServiceError> {
+        guard reachabilityService.connection != .none else { return getStored() }
+        let request = getRemote(page: page)
+        return .merge(request.filter{ $0.value == nil }, update(request.success()))
     }
     
-    private func getRemoteEvents(forPage page: Int) -> DriverResult<Page<Team>, TeamsServiceError> {
-        let request = teamsAPIService.getTeams(forPage: page)
+    private func getRemote(page: Int) -> DriverResult<Page<Team>, TeamsServiceError> {
+        let request = teamsAPIService.get(page: page)
         let successData = request.success().filter{ $0.content.isNotEmpty }
         return .merge(
             successData.map{ Result(value: $0) },
@@ -45,14 +45,14 @@ public final class TeamsServiceImpl: TeamsService, ReactiveCompatible {
         )
     }
     
-    private func updateTeams(_ remoteTeams: Driver<Page<Team>>) -> DriverResult<Page<Team>, TeamsServiceError> {
-        return remoteTeams.flatMapLatest{ [weak self] page -> Driver<Page<Team>> in
+    private func update(_ remote: Driver<Page<Team>>) -> DriverResult<Page<Team>, TeamsServiceError> {
+        return remote.flatMapLatest{ [weak self] page -> Driver<Page<Team>> in
             guard let strongSelf = self else { return .empty() }
-            return strongSelf.teamsStorage.update(withNewTeams: page.content).map(to: page)}.map{ Result(value: $0)
+            return strongSelf.teamsStorage.update(withNew: page.content).map(to: page)}.map{ Result(value: $0)
         }
     }
     
-    private func getStoredTeams() -> DriverResult<Page<Team>, TeamsServiceError> {
-         return teamsStorage.fetchTeams().map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) }
+    private func getStored() -> DriverResult<Page<Team>, TeamsServiceError> {
+         return teamsStorage.get().map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) }
     }
 }

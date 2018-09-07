@@ -7,21 +7,21 @@
 //
 
 public protocol PlayersAPIService {
-    func getPlayersPreview(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError>
-    func getPlayerDescription(byPlayerID playerID: Int) -> Response<PlayerDescription, RequestError>
+    func getPreview(page: Int) -> Response<Page<PlayerPreview>, RequestError>
+    func getDescription(player id: Int) -> Response<PlayerDescription, RequestError>
 }
 
 extension API {
     public final class PlayersAPIServiceImpl: API, PlayersAPIService {
-        public func getPlayersPreview(forPage page: Int) -> Response<Page<PlayerPreview>, RequestError> {
+        public func getPreview(page: Int) -> Response<Page<PlayerPreview>, RequestError> {
             let request: Request<Page<PlayerPreview>, RequestError> = tron.swiftyJSON.request("playersData/playersData\(page).json")
             request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL.absoluteString)
             request.method = .get
             return request.asResult()
         }
         
-        public func getPlayerDescription(byPlayerID playerID: Int) -> Response<PlayerDescription, RequestError> {
-            let request: Request<PlayerDescription, RequestError> = tron.swiftyJSON.request("playerDescriptionData/playerID\(playerID).json")
+        public func getDescription(player id: Int) -> Response<PlayerDescription, RequestError> {
+            let request: Request<PlayerDescription, RequestError> = tron.swiftyJSON.request("playerDescriptionData/playerID\(id).json")
             request.urlBuilder = URLBuilder(baseURL: appEnvironment.apiURL.absoluteString)
             request.method = .get
             return request.asResult()

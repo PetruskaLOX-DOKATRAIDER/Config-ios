@@ -7,8 +7,8 @@
 //
 
 public protocol NewsStorage {
-    func updateNewsPreview(withNewNews newNews: [NewsPreview]) -> Driver<Void>
-    func fetchNewsPreview() -> Driver<[NewsPreview]>
-    func updateNewsDescription(withNewNews newNews: NewsDescription) -> Driver<Void>
-    func fetchNewsDescription(byID id: Int) -> Driver<NewsDescription?>
+    func updatePreview(withNew news: [NewsPreview]) -> Driver<Void>
+    func getPreview() -> Driver<[NewsPreview]>
+    func updateDescription(withNew news: NewsDescription) -> Driver<Void>
+    func getDescription(news id: Int) -> Driver<NewsDescription?>
 }

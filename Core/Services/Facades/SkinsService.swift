@@ -12,7 +12,7 @@ public enum SkinsServiceError: Error {
 }
 
 public protocol SkinsService {
-    func subscribeForSkins() -> DriverResult<Skin, SkinsServiceError>
+    func subscribeForNewSkins() -> DriverResult<Skin, SkinsServiceError>
 }
 
 public final class SkinsServiceImpl: SkinsService, ReactiveCompatible {
@@ -22,7 +22,7 @@ public final class SkinsServiceImpl: SkinsService, ReactiveCompatible {
         self.skinsAPIService = skinsAPIService
     }
     
-    public func subscribeForSkins() -> DriverResult<Skin, SkinsServiceError> {
+    public func subscribeForNewSkins() -> DriverResult<Skin, SkinsServiceError> {
         return skinsAPIService.subscribeForNewSkins().map({ result in
             switch result {
             case let .success(skin):

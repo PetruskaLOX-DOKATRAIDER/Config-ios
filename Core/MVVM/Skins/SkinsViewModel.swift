@@ -25,7 +25,7 @@ public final class SkinsViewModelImpl: SkinsViewModel {
 
     public init(skinsService: SkinsService) {
         let refresh = refreshTrigger.asDriver(onErrorJustReturn: ())
-        let response = refresh.flatMapLatest{ skinsService.subscribeForSkins() }
+        let response = refresh.flatMapLatest{ skinsService.subscribeForNewSkins() }
         let newSkinVM = response.success().map{ SkinItemViewModelImpl(skin: $0) }
         skins = newSkinVM
             .map{ [$0] }

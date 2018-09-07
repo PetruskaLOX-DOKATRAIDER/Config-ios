@@ -6,4 +6,5 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol AutoMockable {} // For sourcery autogeneration
+// For Sourcery autogeneration
+public protocol AutoMockable {}

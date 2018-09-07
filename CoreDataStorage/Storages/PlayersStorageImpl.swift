@@ -21,9 +21,9 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         self.coreDataStack = coreDataStack
     }
     
-    public func updatePlayerPreview(withNewPlayers newPlayers: [PlayerPreview]) -> Driver<Void> {
+    public func updatePreview(withNew players: [PlayerPreview]) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.playerPreviewObjectStorage.update(withNewData: newPlayers, completion: {
+            self?.playerPreviewObjectStorage.update(withNewData: players, completion: {
                 observer.onNext(())
                 observer.onCompleted()
             })
@@ -31,7 +31,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         }.asDriver(onErrorJustReturn: ())
     }
     
-    public func fetchPlayersPreview() -> Driver<[PlayerPreview]> {
+    public func getPreview() -> Driver<[PlayerPreview]> {
         return Observable.create{ [weak self] observer -> Disposable in
             self?.playerPreviewObjectStorage.fetch(completion: { players in
                 observer.onNext(players)
@@ -41,9 +41,9 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         }.asDriver(onErrorJustReturn: [])
     }
     
-    public func updatePlayerDescription(withNewPlayer newPlayer: PlayerDescription) -> Driver<Void> {
+    public func updateDescription(withNew player: PlayerDescription) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.playerDescriptionObjectStorage.update(withNewData: [newPlayer], completion: {
+            self?.playerDescriptionObjectStorage.update(withNewData: [player], completion: {
                 observer.onNext(())
                 observer.onCompleted()
             })
@@ -51,7 +51,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         }.asDriver(onErrorJustReturn: ())
     }
     
-    public func fetchPlayerDescription(withID id: Int) -> Driver<PlayerDescription?> {
+    public func getDescription(player id: Int) -> Driver<PlayerDescription?> {
         return Observable.create{ [weak self] observer -> Disposable in
             let predicate = NSPredicate(format: "%K = %d", #keyPath(CDPlayerDescription.id), id)
             self?.playerDescriptionObjectStorage.fetch(withPredicate: predicate, completion: { players in
@@ -62,7 +62,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         }.asDriver(onErrorJustReturn: nil)
     }
     
-    public func fetchFavoritePlayersPreview() -> Driver<[PlayerPreview]> {
+    public func getFavoritePreview() -> Driver<[PlayerPreview]> {
         return Observable.create{ [weak self] observer -> Disposable in
             guard let strongSelf = self else { return Disposables.create() }
             strongSelf.coreDataStack.privateContext.perform {
@@ -80,7 +80,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         }.asDriver(onErrorJustReturn: [])
     }
     
-    public func addPlayerToFavorites(withID id: Int) -> Driver<Void> {
+    public func add(favourite id: Int) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
             guard let strongSelf = self else { return Disposables.create() }
             strongSelf.coreDataStack.privateContext.perform {
@@ -94,7 +94,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         }.asDriver(onErrorJustReturn: ())
     }
     
-    public func removePlayerFromFavorites(withID id: Int) -> Driver<Void> {
+    public func remove(favourite id: Int) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
             self?.coreDataStack.privateContext.perform { [weak self] in
                 guard let strongSelf = self else { return }
@@ -110,7 +110,7 @@ public final class PlayersStorageImpl: PlayersStorage, ReactiveCompatible {
         }.asDriver(onErrorJustReturn: ())
     }
     
-    public func isPlayerInFavorites(withID id: Int) -> Driver<Bool> {
+    public func isFavourite(player id: Int) -> Driver<Bool> {
         return Observable.create{ [weak self] observer -> Disposable in
             guard let strongSelf = self else { return Disposables.create() }
             strongSelf.coreDataStack.privateContext.perform {

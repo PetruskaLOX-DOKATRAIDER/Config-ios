@@ -59,7 +59,7 @@ public extension DependencyContainer {
         register(.unique){ try ProfileViewModelImpl(appEnvironment: self.resolve(), playersStorage: self.resolve(), imageLoaderService: self.resolve(), userStorage: self.resolve()) as ProfileViewModel }
         register(.unique){ try PlayersBannerViewModelImpl(bannerService: self.resolve()) as PlayersBannerViewModel }
         register(.unique){ try EventsFilterViewModelImpl(eventsFiltersStorage: self.resolve()) as EventsFilterViewModel }
-        register(.unique){ try PlayerDescriptionViewModelImpl(playerID: $0, playersService: self.resolve(), pasteboardService: self.resolve()) as PlayerDescriptionViewModel }
+        register(.unique){ try PlayerDescriptionViewModelImpl(player: $0, playersService: self.resolve(), pasteboardService: self.resolve()) as PlayerDescriptionViewModel }
         register(.unique){ try NewsDescriptionViewModelImpl(news: $0, newsService: self.resolve()) as NewsDescriptionViewModel }
         register(.unique){ try ImageViewerViewModelImpl(imageURL: $0, imageLoaderService: self.resolve(), photosAlbumService: self.resolve(), cameraService: self.resolve()) as ImageViewerViewModel }
         register(.unique){ try FavoritePlayersViewModelImpl(playersService: self.resolve()) as FavoritePlayersViewModel }

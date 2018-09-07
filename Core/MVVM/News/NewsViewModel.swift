@@ -36,7 +36,7 @@ public final class NewsViewModelImpl: NewsViewModel, ReactiveCompatible {
             )
         }
         
-        newsPaginator = Paginator(factory:{ newsService.getNewsPreview(forPage: $0).success().map( remapToViewModels ).asObservable() })
+        newsPaginator = Paginator(factory:{ newsService.getPreview(page: $0).success().map( remapToViewModels ).asObservable() })
         shouldRouteProfile = profileTrigger.asDriver(onErrorJustReturn: ())
         messageViewModel = newsPaginator.error.map{ MessageViewModelImpl.error(description: $0.localizedDescription) }
     }

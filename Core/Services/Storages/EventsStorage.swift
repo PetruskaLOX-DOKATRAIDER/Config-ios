@@ -7,6 +7,6 @@
 //
 
 public protocol EventsStorage {
-    func update(withNewEvents newEvents: [Event]) -> Driver<Void>
-    func fetchEvents() -> Driver<[Event]>
+    func update(withNew events: [Event]) -> Driver<Void>
+    func get() -> Driver<[Event]>
 }

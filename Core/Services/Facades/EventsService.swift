@@ -12,7 +12,7 @@ public enum EventsServiceError: Error {
 }
 
 public protocol EventsService {
-    func getEvents(forPage page: Int) -> DriverResult<Page<Event>, EventsServiceError>
+    func get(page: Int) -> DriverResult<Page<Event>, EventsServiceError>
 }
 
 public final class EventsServiceImpl: EventsService, ReactiveCompatible {
@@ -33,14 +33,14 @@ public final class EventsServiceImpl: EventsService, ReactiveCompatible {
         self.eventsFiltersStorage = eventsFiltersStorage
     }
 
-    public func getEvents(forPage page: Int) -> DriverResult<Page<Event>, EventsServiceError> {
-        guard reachabilityService.connection != .none else { return getStoredEvents() }
-        let request = getRemoteEvents(forPage: page)
-        return .merge(updateEvents(request.success()), request.filter{ $0.value == nil })
+    public func get(page: Int) -> DriverResult<Page<Event>, EventsServiceError> {
+        guard reachabilityService.connection != .none else { return getStored() }
+        let request = getRemote(page: page)
+        return .merge(update(request.success()), request.filter{ $0.value == nil })
     }
     
-    private func getRemoteEvents(forPage page: Int) -> DriverResult<Page<Event>, EventsServiceError> {
-        let request = eventsAPIService.getEvents(forPage: page)
+    private func getRemote(page: Int) -> DriverResult<Page<Event>, EventsServiceError> {
+        let request = eventsAPIService.get(page: page)
         let successData = request.success().filter{ $0.content.isNotEmpty }.map{ self.applyFilters($0) }
         return .merge(
             successData.map{ Result(value: $0) },
@@ -48,15 +48,15 @@ public final class EventsServiceImpl: EventsService, ReactiveCompatible {
         )
     }
     
-    private func updateEvents(_ remoteEvents: Driver<Page<Event>>) -> DriverResult<Page<Event>, EventsServiceError> {
-        return remoteEvents.flatMapLatest{ [weak self] page -> Driver<Page<Event>> in
+    private func update(_ remote: Driver<Page<Event>>) -> DriverResult<Page<Event>, EventsServiceError> {
+        return remote.flatMapLatest{ [weak self] page -> Driver<Page<Event>> in
             guard let strongSelf = self else { return .empty() }
-            return strongSelf.eventsStorage.update(withNewEvents: page.content).map(to: page)
+            return strongSelf.eventsStorage.update(withNew: page.content).map(to: page)
         }.map{ Result(value: $0) }
     }
     
-    private func getStoredEvents() -> DriverResult<Page<Event>, EventsServiceError> {
-        let data = eventsStorage.fetchEvents()
+    private func getStored() -> DriverResult<Page<Event>, EventsServiceError> {
+        let data = eventsStorage.get()
         let page = data.map{ Page.new(content: $0, index: 1, totalPages: 1) }
         return page.map{ self.applyFilters($0) }.map{ Result(value: $0) }
     }

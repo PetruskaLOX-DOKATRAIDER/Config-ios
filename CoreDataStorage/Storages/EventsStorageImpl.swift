@@ -15,9 +15,9 @@ public final class EventsStorageImpl: EventsStorage, ReactiveCompatible {
         self.eventObjectStorage = eventObjectStorage
     }
     
-    public func update(withNewEvents newEvents: [Event]) -> Driver<Void> {
+    public func update(withNew events: [Event]) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.eventObjectStorage.update(withNewData: newEvents, completion: {
+            self?.eventObjectStorage.update(withNewData: events, completion: {
                 observer.onNext(())
                 observer.onCompleted()
             })
@@ -25,7 +25,7 @@ public final class EventsStorageImpl: EventsStorage, ReactiveCompatible {
         }.asDriver(onErrorJustReturn: ())
     }
     
-    public func fetchEvents() -> Driver<[Event]> {
+    public func get() -> Driver<[Event]> {
         return Observable.create{ [weak self] observer -> Disposable in
             self?.eventObjectStorage.fetch(completion: { events in
                 observer.onNext(events)

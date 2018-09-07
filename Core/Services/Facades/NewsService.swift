@@ -12,8 +12,8 @@ public enum NewsServiceError: Error {
 }
 
 public protocol NewsService {
-    func getNewsPreview(forPage page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError>
-    func getNewsDescription(byID id: Int) -> DriverResult<NewsDescription, NewsServiceError>
+    func getPreview(page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError>
+    func getDescription(news id: Int) -> DriverResult<NewsDescription, NewsServiceError>
 }
 
 public final class NewsServiceImpl: NewsService, ReactiveCompatible {
@@ -31,20 +31,20 @@ public final class NewsServiceImpl: NewsService, ReactiveCompatible {
         self.newsStorage = newsStorage
     }
 
-    public func getNewsPreview(forPage page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError> {
-        guard reachabilityService.connection != .none else { return getStoredNewsPreview() }
+    public func getPreview(page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError> {
+        guard reachabilityService.connection != .none else { return getStoredPreview() }
         let request = getRemoteNewsPreview(forPage: page)
-        return .merge(request.filter{ $0.value == nil }, updateNewsPreview(request.success()))
+        return .merge(request.filter{ $0.value == nil }, updatePreview(request.success()))
     }
     
-    public func getNewsDescription(byID id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
-        guard reachabilityService.connection != .none else { return getStoredNewsDescription(byID: id) }
-        let request = getRemoteNewsDescription(byID: id)
-        return .merge(request.filter{ $0.value == nil }, updateNewsDescription(request.success()))
+    public func getDescription(news id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
+        guard reachabilityService.connection != .none else { return getStoredDescription(news: id) }
+        let request = getRemoteDescription(news: id)
+        return .merge(request.filter{ $0.value == nil }, updateDescription(request.success()))
     }
     
     private func getRemoteNewsPreview(forPage page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError> {
-        let request = newsAPIService.getNewsPreview(forPage: page)
+        let request = newsAPIService.get(page: page)
         let successData = request.success().filter{ $0.content.isNotEmpty }
         return .merge(
             successData.map{ Result(value: $0) },
@@ -52,33 +52,33 @@ public final class NewsServiceImpl: NewsService, ReactiveCompatible {
         )
     }
     
-    private func updateNewsPreview(_ remoteNewsPreview: Driver<Page<NewsPreview>>) -> DriverResult<Page<NewsPreview>, NewsServiceError> {
-        return remoteNewsPreview.flatMapLatest{ [weak self] page -> Driver<Page<NewsPreview>> in
+    private func updatePreview(_ remote: Driver<Page<NewsPreview>>) -> DriverResult<Page<NewsPreview>, NewsServiceError> {
+        return remote.flatMapLatest{ [weak self] page -> Driver<Page<NewsPreview>> in
             guard let strongSelf = self else { return .empty() }
-            return strongSelf.newsStorage.updateNewsPreview(withNewNews: page.content).map(to: page)
+            return strongSelf.newsStorage.updatePreview(withNew: page.content).map(to: page)
         }.map{ Result(value: $0) }
     }
     
-    private func getStoredNewsPreview() -> DriverResult<Page<NewsPreview>, NewsServiceError> {
-        return newsStorage.fetchNewsPreview().map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) }
+    private func getStoredPreview() -> DriverResult<Page<NewsPreview>, NewsServiceError> {
+        return newsStorage.getPreview().map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) }
     }
     
-    private func getRemoteNewsDescription(byID id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
-        let request = newsAPIService.getNewsDescription(byID: id)
+    private func getRemoteDescription(news id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
+        let request = newsAPIService.get(news: id)
         return .merge(
             request.success().map{ Result(value: $0) },
             request.failure().map{ Result(error: .serverError($0.localizedDescription)) }
         )
     }
     
-    private func updateNewsDescription(_ remoteNewsDescription: Driver<NewsDescription>) -> DriverResult<NewsDescription, NewsServiceError> {
-        return remoteNewsDescription.flatMapLatest { [weak self] news -> Driver<NewsDescription> in
+    private func updateDescription(_ remote: Driver<NewsDescription>) -> DriverResult<NewsDescription, NewsServiceError> {
+        return remote.flatMapLatest { [weak self] news -> Driver<NewsDescription> in
             guard let strongSelf = self else { return .empty() }
-            return strongSelf.newsStorage.updateNewsDescription(withNewNews: news).map(to: news)
+            return strongSelf.newsStorage.updateDescription(withNew: news).map(to: news)
         }.map{ Result(value: $0) }
     }
     
-    private func getStoredNewsDescription(byID id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
-        return newsStorage.fetchNewsDescription(byID: id).filterNil().map{ Result(value: $0) }
+    private func getStoredDescription(news id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
+        return newsStorage.getDescription(news: id).filterNil().map{ Result(value: $0) }
     }
 }

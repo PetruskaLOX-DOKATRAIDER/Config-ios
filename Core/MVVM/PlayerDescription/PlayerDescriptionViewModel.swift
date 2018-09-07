@@ -34,11 +34,11 @@ public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel {
     public let shouldClose: Driver<Void>
 
     public init(
-        playerID: Int,
+        player id: Int,
         playersService: PlayersService,
         pasteboardService: PasteboardService
     ) {
-        let request = playersService.getPlayerDescription(byPlayerID: playerID)
+        let request = playersService.getDescription(player: id)
         let error = refreshTrigger.asDriver(onErrorJustReturn: ()).flatMapLatest{ request }.failure()
         let player = refreshTrigger.asDriver(onErrorJustReturn: ()).flatMapLatest{ request }.success()
         playerInfoViewModel = PlayerInfoViewModelImpl(player: player)
@@ -59,9 +59,9 @@ public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel {
         let copiedCFG = cfg.map{ pasteboardService.save($0.absoluteString) }
         shouldShare = shareCFG.asDriver(onErrorJustReturn: ()).withLatestFrom(cfg).map{ ShareItem(url: $0) }
         let addedSuccess = addToFavorites.asDriver(onErrorJustReturn: ())
-            .flatMapLatest{ playersService.addPlayerToFavorites(byID: playerID).success() }
+            .flatMapLatest{ playersService.add(favourite: id).success() }
         let removedSuccess = removeFromFavorites.asDriver(onErrorJustReturn: ())
-            .flatMapLatest{ playersService.removePlayerFromFavorites(byID: playerID).success() }
+            .flatMapLatest{ playersService.remove(favourite: id).success() }
         
         messageViewModel = Driver.merge(
             error.map(to: MessageViewModelImpl.error()),
@@ -70,7 +70,7 @@ public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel {
             copiedCFG.map(to: MessageViewModelImpl(title: Strings.PlayerDescription.options, description: Strings.PlayerDescription.copiedMessage))
         ).map{ $0 as MessageViewModel }
 
-        let playerStatus = playersService.isPlayerInFavorites(playerID: playerID).success()
+        let playerStatus = playersService.isFavourite(player: id).success()
         let isPlayerFavorite = optionsTrigger.asDriver(onErrorJustReturn: ()).flatMapLatest{ playerStatus }
         shoudShowAlert = isPlayerFavorite.map{ isPlayerFavorite in
             let addRemove = isPlayerFavorite

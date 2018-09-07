@@ -18,9 +18,9 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
         self.newsDescriptionObjectStorage = newsDescriptionObjectStorage
     }
     
-    public func updateNewsPreview(withNewNews newNews: [NewsPreview]) -> Driver<Void> {
+    public func updatePreview(withNew news: [NewsPreview]) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.newsPreviewObjectStorage.update(withNewData: newNews, completion: {
+            self?.newsPreviewObjectStorage.update(withNewData: news, completion: {
                 observer.onNext(())
                 observer.onCompleted()
             })
@@ -28,7 +28,7 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
         }.asDriver(onErrorJustReturn: ())
     }
     
-    public func fetchNewsPreview() -> Driver<[NewsPreview]> {
+    public func getPreview() -> Driver<[NewsPreview]> {
         return Observable.create{ [weak self] observer -> Disposable in
             self?.newsPreviewObjectStorage.fetch(completion: { news in
                 observer.onNext(news)
@@ -38,9 +38,9 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
         }.asDriver(onErrorJustReturn: [])
     }
     
-    public func updateNewsDescription(withNewNews newNews: NewsDescription) -> Driver<Void> {
+    public func updateDescription(withNew news: NewsDescription) -> Driver<Void> {
         return Observable.create{ [weak self] observer -> Disposable in
-            self?.newsDescriptionObjectStorage.update(withNewData: [newNews], completion: {
+            self?.newsDescriptionObjectStorage.update(withNewData: [news], completion: {
                 observer.onNext(())
                 observer.onCompleted()
             })
@@ -48,7 +48,7 @@ public final class NewsStorageImpl: NewsStorage, ReactiveCompatible {
         }.asDriver(onErrorJustReturn: ())
     }
     
-    public func fetchNewsDescription(byID id: Int) -> Driver<NewsDescription?> {
+    public func getDescription(news id: Int) -> Driver<NewsDescription?> {
         return Observable.create{ [weak self] observer -> Disposable in
             let predicate = NSPredicate(format: "%K = %d", #keyPath(CCNewsDescription.id), id)
             self?.newsDescriptionObjectStorage.fetch(withPredicate: predicate, completion: { news in

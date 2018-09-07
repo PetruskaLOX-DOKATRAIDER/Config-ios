@@ -7,12 +7,12 @@
 //
 
 public protocol PlayersStorage {
-    func updatePlayerPreview(withNewPlayers newPlayers: [PlayerPreview]) -> Driver<Void>
-    func fetchPlayersPreview() -> Driver<[PlayerPreview]>
-    func updatePlayerDescription(withNewPlayer newPlayer: PlayerDescription) -> Driver<Void>
-    func fetchPlayerDescription(withID id: Int) -> Driver<PlayerDescription?>
-    func fetchFavoritePlayersPreview() -> Driver<[PlayerPreview]>
-    func addPlayerToFavorites(withID id: Int) -> Driver<Void>
-    func removePlayerFromFavorites(withID id: Int) -> Driver<Void>
-    func isPlayerInFavorites(withID id: Int) -> Driver<Bool>
+    func updatePreview(withNew players: [PlayerPreview]) -> Driver<Void>
+    func getPreview() -> Driver<[PlayerPreview]>
+    func updateDescription(withNew player: PlayerDescription) -> Driver<Void>
+    func getDescription(player id: Int) -> Driver<PlayerDescription?>
+    func getFavoritePreview() -> Driver<[PlayerPreview]>
+    func add(favourite id: Int) -> Driver<Void>
+    func remove(favourite id: Int) -> Driver<Void>
+    func isFavourite(player id: Int) -> Driver<Bool>
 }

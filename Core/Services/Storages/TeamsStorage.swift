@@ -7,6 +7,6 @@
 //
 
 public protocol TeamsStorage {
-    func update(withNewTeams newTeams: [Team]) -> Driver<Void>
-    func fetchTeams() -> Driver<[Team]>
+    func update(withNew teams: [Team]) -> Driver<Void>
+    func get() -> Driver<[Team]>
 }

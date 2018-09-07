@@ -26,11 +26,7 @@ final class EventsContainerViewModelImpl: EventsContainerViewModel, ReactiveComp
         eventsFiltersStorage: EventsFiltersStorage,
         imageLoaderService: ImageLoaderService
     ) {
-        eventsPaginator = Paginator(factory: {
-            eventsService.getEvents(forPage: $0)
-            .success()
-            .asObservable()
-        })
+        eventsPaginator = Paginator(factory:{ eventsService.get(page: $0).success().asObservable() })
         listEventsViewModel = ListEventsViewModelImpl(events: eventsPaginator)
         mapEventsViewModel = MapEventsViewModelImpl(events: eventsPaginator, imageLoaderService: imageLoaderService)
         shouldRouteFilters = filtersTrigger.asDriver(onErrorJustReturn: ())

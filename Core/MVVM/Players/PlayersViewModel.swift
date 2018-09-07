@@ -36,7 +36,7 @@ final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
             )
         }
         
-        playersPaginator = Paginator(factory:{ playersService.getPlayerPreview(forPage: $0).success().map(remapToViewModels).asObservable() })
+        playersPaginator = Paginator(factory:{ playersService.getPreview(page: $0).success().map(remapToViewModels).asObservable() })
         messageViewModel = playersPaginator.error.map{ MessageViewModelImpl.error(description: $0.localizedDescription) }
         shouldRouteProfile = profileTrigger.asDriver(onErrorJustReturn: ())
     }

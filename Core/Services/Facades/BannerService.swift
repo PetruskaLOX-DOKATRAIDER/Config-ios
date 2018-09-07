@@ -11,7 +11,7 @@ public enum BannerServiceError: Error {
 }
 
 public protocol BannerService {
-    func getBannerForPlayers(forPage page: Int) -> DriverResult<Page<PlayerBanner>, BannerServiceError>
+    func getForPlayers(page: Int) -> DriverResult<Page<PlayerBanner>, BannerServiceError>
 }
 
 public final class BannerServiceImpl: BannerService, ReactiveCompatible {
@@ -21,8 +21,8 @@ public final class BannerServiceImpl: BannerService, ReactiveCompatible {
         self.bannerAPIService = bannerAPIService
     }
 
-    public func getBannerForPlayers(forPage page: Int) -> DriverResult<Page<PlayerBanner>, BannerServiceError> {
-        let request = bannerAPIService.getBannerForPlayers(forPage: page)
+    public func getForPlayers(page: Int) -> DriverResult<Page<PlayerBanner>, BannerServiceError> {
+        let request = bannerAPIService.getPlayers(page: page)
         let success = request.success().filter{ $0.content.isNotEmpty }
         let serverError = request.failure().map{ BannerServiceError.serverError($0) }
         return Driver.merge(
