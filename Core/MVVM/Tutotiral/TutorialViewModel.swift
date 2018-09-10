@@ -19,19 +19,19 @@ public protocol TutorialViewModel {
     var shouldClose: Driver<Void> { get }
 }
 
-final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible {
-    let items: Driver<[TutorialItemViewModel]>
-    let navigationTitle: Driver<String>
-    let currentPage: Driver<Int>
-    let isMoveBackAvailable: Driver<Bool>
-    let pageTrigger = PublishSubject<Int>()
-    let nextTrigger = PublishSubject<Void>()
-    let skipTrigger = PublishSubject<Void>()
-    let closeTrigger = PublishSubject<Void>()
-    let shouldRouteApp: Driver<Void>
-    let shouldClose: Driver<Void>
+public final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible {
+    public let items: Driver<[TutorialItemViewModel]>
+    public let navigationTitle: Driver<String>
+    public let currentPage: Driver<Int>
+    public let isMoveBackAvailable: Driver<Bool>
+    public let pageTrigger = PublishSubject<Int>()
+    public let nextTrigger = PublishSubject<Void>()
+    public let skipTrigger = PublishSubject<Void>()
+    public let closeTrigger = PublishSubject<Void>()
+    public let shouldRouteApp: Driver<Void>
+    public let shouldClose: Driver<Void>
     
-    init(userStorage: UserStorage) {
+    public init(userStorage: UserStorage) {
         let items = [
             TutorialItemViewModelImpl(title: Strings.Tutorial.Item1.title, description: Strings.Tutorial.Item1.description, coverImage: Images.Tutorial.tutorial1),
             TutorialItemViewModelImpl(title: Strings.Tutorial.Item2.title, description: Strings.Tutorial.Item2.description, coverImage: Images.Tutorial.tutorial2),

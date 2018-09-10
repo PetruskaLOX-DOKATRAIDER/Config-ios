@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol AppViewModel {
+public protocol AppViewModel: AutoMockable {
     var didBecomeActiveTrigger: PublishSubject<Void> { get }
     var shouldRouteTutorial: Driver<Void> { get }
     var shouldRouteApp: Driver<Void> { get }

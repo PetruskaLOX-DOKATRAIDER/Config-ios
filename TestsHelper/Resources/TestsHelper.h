@@ -10,6 +10,9 @@
 @import TRON;
 @import Result;
 @import RxSwift;
+@import Core;
+@import Nimble;
+@import Quick;
 
 //! Project version number for TestsHelper.
 FOUNDATION_EXPORT double TestsHelperVersionNumber;

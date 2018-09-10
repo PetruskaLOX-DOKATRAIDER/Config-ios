@@ -50,13 +50,14 @@ abstract_target 'AT' do
         target 'TestsHelper' do
             inherit! :search_paths
 
+            pod 'Nimble'
+            pod 'Quick'
+            
             target 'Tests' do
                 inherit! :search_paths
 
                 pod 'RxTest'
-                pod 'Nimble'
                 pod 'RxBlocking'
-                pod 'Quick'
             end
         end
 
