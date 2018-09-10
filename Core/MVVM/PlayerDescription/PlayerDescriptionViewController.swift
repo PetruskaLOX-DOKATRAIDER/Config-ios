@@ -52,7 +52,7 @@ public final class PlayerDescriptionViewController: UIViewController, NonReusabl
         
         segmentView.titles = [Strings.PlayerDescription.personalInfo, Strings.PlayerDescription.hardvare, Strings.PlayerDescription.settings]
         segmentView.didSelectSegment = { [weak self] index in
-            self?.segmentPageViewController.showViewController(atIndex: index, withDirection: .forward)
+            self?.segmentPageViewController.showViewController(atIndex: index)
         }
     }
     

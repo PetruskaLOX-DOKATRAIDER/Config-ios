@@ -33,7 +33,7 @@ public final class EventsContainerViewController: UIViewController, NonReusableV
        
         segmentView.titles = [Strings.EventsContrainer.list, Strings.EventsContrainer.map]
         segmentView.didSelectSegment = { [weak self] index in
-            self?.segmentPageViewController.showViewController(atIndex: index, withDirection: .forward)
+            self?.segmentPageViewController.showViewController(atIndex: index)
         }
     }
     

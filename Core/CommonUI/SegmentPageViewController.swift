@@ -32,18 +32,18 @@ final class SegmentPageViewController: UIPageViewController {
         }
     }
     
-    func showViewController(_ viewController: UIViewController, withDirection direction: UIPageViewControllerNavigationDirection) {
-        _viewControllers.forEach { vc in
-            if vc == viewController {
-                self.setViewControllers([vc], direction: direction, animated: true, completion: nil)
-            }
-        }
+    func showViewController(_ viewController: UIViewController) {
+        guard let newVCIndex = _viewControllers.index(of: viewController) else { return }
+        showViewController(atIndex: newVCIndex)
     }
     
-    func showViewController(atIndex index: Int, withDirection direction: UIPageViewControllerNavigationDirection) {
-        if let viewController = _viewControllers[safe: index] {
-            self.setViewControllers([viewController], direction: direction, animated: true, completion: nil)
-        }
+    func showViewController(atIndex index: Int) {
+        guard let curentVC = viewControllers?.first else { return }
+        guard let curentVCIndex = _viewControllers.index(of: curentVC) else { return }
+        guard let newVC = _viewControllers[safe: index] else { return }
+        guard let newVCIndex = _viewControllers.index(of: newVC) else { return }
+        let direction: UIPageViewControllerNavigationDirection = curentVCIndex < newVCIndex ? .forward : .reverse
+        setViewControllers([newVC], direction: direction, animated: true, completion: nil)
     }
 }
 
