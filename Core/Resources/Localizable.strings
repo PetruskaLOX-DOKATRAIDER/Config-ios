@@ -119,6 +119,7 @@
 "Player_Description.remove_from_favorites" = "Remove from favorites";
 "Player_Description.copied_message" = "CFG URL has been copied";
 "Player_Description.cancel" = "Cancel";
+"Player_Description.no_email_acc" = "Can't send email\nMake sure that you have email account in your device";
 
 // NewsDescription
 "NewsDescription.share" = "Share";

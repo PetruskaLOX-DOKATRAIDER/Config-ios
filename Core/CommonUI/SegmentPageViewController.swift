@@ -12,7 +12,7 @@ final class SegmentPageViewController: UIPageViewController {
         didSet { setScrollEnabled(isPageScrollEnabled) }
     }
   
-    public init(
+    init(
         transitionStyle style: UIPageViewControllerTransitionStyle = .scroll,
         navigationOrientation: UIPageViewControllerNavigationOrientation = .horizontal,
         options: [String : AnyObject]? = nil
@@ -24,7 +24,7 @@ final class SegmentPageViewController: UIPageViewController {
         super.init(coder: aDecoder)
     }
     
-    public func setupViewControllers(_ viewControllers: [UIViewController]) {
+    func setupViewControllers(_ viewControllers: [UIViewController]) {
         viewControllers.forEach{ $0.loadViewIfNeeded() }
         _viewControllers = viewControllers
         if let firstViewController = viewControllers.first {

@@ -38,6 +38,7 @@ public extension DependencyContainer {
         register(.unique){ try SkinsServiceImpl(skinsAPIService: self.resolve()) as SkinsService }
         register(.unique){ try AnalyticsServiceImpl(appEnvironment: self.resolve()) as AnalyticsService }
         register(.unique){ PasteboardServiceImpl() as PasteboardService }
+        register(.unique){ try EmailServiceImpl(router: self.resolve()) as EmailService }
     }
     
     private func registerAPIServices() {
@@ -46,7 +47,7 @@ public extension DependencyContainer {
         register(.unique){ try API.EventsAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as EventsAPIService }
         register(.unique){ try API.NewsAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as NewsAPIService }
         register(.unique){ try API.BannerAPIServiceImpl(tron: self.resolve(), appEnvironment: self.resolve()) as BannerAPIService }
-        register(.unique){ try SkinsAPIServiceImpl.init(appEnvironment: self.resolve(), websocketService: self.resolve()) as SkinsAPIService }
+        register(.unique){ try SkinsAPIServiceImpl(appEnvironment: self.resolve(), websocketService: self.resolve()) as SkinsAPIService }
     }
     
     private func registerViewModels() {
@@ -59,7 +60,7 @@ public extension DependencyContainer {
         register(.unique){ try ProfileViewModelImpl(appEnvironment: self.resolve(), playersStorage: self.resolve(), imageLoaderService: self.resolve(), userStorage: self.resolve()) as ProfileViewModel }
         register(.unique){ try PlayersBannerViewModelImpl(bannerService: self.resolve()) as PlayersBannerViewModel }
         register(.unique){ try EventsFilterViewModelImpl(eventsFiltersStorage: self.resolve()) as EventsFilterViewModel }
-        register(.unique){ try PlayerDescriptionViewModelImpl(player: $0, playersService: self.resolve(), pasteboardService: self.resolve()) as PlayerDescriptionViewModel }
+        register(.unique){ try PlayerDescriptionViewModelImpl(player: $0, playersService: self.resolve(), pasteboardService: self.resolve(), userStorage: self.resolve(), emailService: self.resolve()) as PlayerDescriptionViewModel }
         register(.unique){ try NewsDescriptionViewModelImpl(news: $0, newsService: self.resolve()) as NewsDescriptionViewModel }
         register(.unique){ try ImageViewerViewModelImpl(imageURL: $0, imageLoaderService: self.resolve(), photosAlbumService: self.resolve(), cameraService: self.resolve()) as ImageViewerViewModel }
         register(.unique){ try FavoritePlayersViewModelImpl(playersService: self.resolve()) as FavoritePlayersViewModel }

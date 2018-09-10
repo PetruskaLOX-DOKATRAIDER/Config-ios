@@ -20,7 +20,7 @@ public protocol PlayerDescriptionViewModel {
     var shouldClose: Driver<Void> { get }
 }
 
-public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel {
+public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel, ReactiveCompatible {
     public let playerInfoViewModel: PlayerInfoViewModel
     public let messageViewModel: Driver<MessageViewModel>
     public let isWorking: Driver<Bool>
@@ -36,7 +36,9 @@ public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel {
     public init(
         player id: Int,
         playersService: PlayersService,
-        pasteboardService: PasteboardService
+        pasteboardService: PasteboardService,
+        userStorage: UserStorage,
+        emailService: EmailService
     ) {
         let request = playersService.getDescription(player: id)
         let error = refreshTrigger.asDriver(onErrorJustReturn: ()).flatMapLatest{ request }.failure()
@@ -61,11 +63,21 @@ public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel {
         let removedSuccess = removeFromFavorites.asDriver(onErrorJustReturn: ())
             .flatMapLatest{ playersService.remove(favourite: id).success() }
         
+        let sendCFG = sendCFGTrigger
+            .asDriver(onErrorJustReturn: ())
+            .withLatestFrom(cfg)
+            .flatMapLatest{ emailService.send(withInfo:
+                EmailInfo(recipient: userStorage.email.value ?? "", subject: Strings.PlayerDescription.sendCfg, message: $0.absoluteString)
+            )}
+        let noAccount = sendCFG.failure().filter{ $0 == .noAccount }
+        
+        
         messageViewModel = Driver.merge(
             error.map(to: MessageViewModelImpl.error()),
             addedSuccess.map(to: MessageViewModelImpl(title: Strings.PlayerDescription.options, description: Strings.PlayerDescription.addedFavoriteMessage)),
             removedSuccess.map(to: MessageViewModelImpl(title: Strings.PlayerDescription.options, description: Strings.PlayerDescription.removedFavoriteMessage)),
-            copiedCFG.map(to: MessageViewModelImpl(title: Strings.PlayerDescription.options, description: Strings.PlayerDescription.copiedMessage))
+            copiedCFG.map(to: MessageViewModelImpl(title: Strings.PlayerDescription.options, description: Strings.PlayerDescription.copiedMessage)),
+            noAccount.map(to: MessageViewModelImpl.error(description: Strings.PlayerDescription.noEmailAcc))
         ).map{ $0 as MessageViewModel }
 
         let playerStatus = playersService.isFavourite(player: id).success()

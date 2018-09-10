@@ -18,6 +18,7 @@
 		7C0530EE211337E100924C1B /* FavoritePlayersViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0530EA211337E100924C1B /* FavoritePlayersViewController.storyboard */; };
 		7C0530EF211337E100924C1B /* FavoritePlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0530EB211337E100924C1B /* FavoritePlayersViewController.swift */; };
 		7C0530F0211337E100924C1B /* FavoritePlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0530EC211337E100924C1B /* FavoritePlayersViewModel.swift */; };
+		7C0C1DFF214686EF00E03212 /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0C1DFE214686EF00E03212 /* EmailService.swift */; };
 		7C11D39620FCC1E800FC8599 /* API+Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39520FCC1E800FC8599 /* API+Teams.swift */; };
 		7C11D39C20FCC2DF00FC8599 /* TeamsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39B20FCC2DF00FC8599 /* TeamsStorage.swift */; };
 		7C11D39E20FCC33200FC8599 /* CDTeam+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39D20FCC33200FC8599 /* CDTeam+CDObjectable.swift */; };
@@ -426,6 +427,7 @@
 		7C0530EA211337E100924C1B /* FavoritePlayersViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritePlayersViewController.storyboard; sourceTree = "<group>"; };
 		7C0530EB211337E100924C1B /* FavoritePlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlayersViewController.swift; sourceTree = "<group>"; };
 		7C0530EC211337E100924C1B /* FavoritePlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlayersViewModel.swift; sourceTree = "<group>"; };
+		7C0C1DFE214686EF00E03212 /* EmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
 		7C11D39020FCBFEE00FC8599 /* TeamsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsService.swift; sourceTree = "<group>"; };
 		7C11D39520FCC1E800FC8599 /* API+Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Teams.swift"; sourceTree = "<group>"; };
 		7C11D39B20FCC2DF00FC8599 /* TeamsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsStorage.swift; sourceTree = "<group>"; };
@@ -1264,8 +1266,8 @@
 			isa = PBXGroup;
 			children = (
 				7CEEE568210B38C800BE106E /* PlayerInfoPageViewController */,
-				7C6A927C2141519B001A0A7D /* PlayerInfoViewModel.swift */,
 				7CA5527A2100925E0097E866 /* PlayerDescriptionViewModel.swift */,
+				7C6A927C2141519B001A0A7D /* PlayerInfoViewModel.swift */,
 				7CA552772100925E0097E866 /* PlayerDescriptionViewModelTests.swift */,
 				7CA552792100925E0097E866 /* PlayerDescriptionViewController.swift */,
 				7CA552782100925E0097E866 /* PlayerDescriptionViewController.storyboard */,
@@ -1677,6 +1679,7 @@
 				7C174E5A2112FBAD008CD96D /* CameraService.swift */,
 				7CDD6C4621341C1200B1B238 /* AnalyticsService.swift */,
 				7C168FC021402AA8004D2208 /* PasteboardService.swift */,
+				7C0C1DFE214686EF00E03212 /* EmailService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -2831,6 +2834,7 @@
 				C02C4663202D9A09008AE9B0 /* Attributer.swift in Sources */,
 				7C29AC16210758B800DF6DCB /* EventsFiltersStorage.swift in Sources */,
 				7CB97D1E210622E4002CA594 /* ImageDownloader.swift in Sources */,
+				7C0C1DFF214686EF00E03212 /* EmailService.swift in Sources */,
 				7CDAF95B20D7C0A3009B9B87 /* TutorialViewModel.swift in Sources */,
 				7CDAF96320D7EEB9009B9B87 /* Storage.swift in Sources */,
 				C02C465C202D9423008AE9B0 /* UIControl+extension.swift in Sources */,
