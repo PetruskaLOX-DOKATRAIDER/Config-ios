@@ -5,6 +5,7 @@ import TestsHelper
 import Dip
 import Nimble
 
+/*
 {% for type in types.classes %}{% if type.name == 'Router' %}
 class RouterTestsGenerated: XCTestCase {
     var container: DependencyContainer!
@@ -23,3 +24,4 @@ class RouterTestsGenerated: XCTestCase {
 {% endfor %}
 }
 {% endif %}{% endfor %}
+*/

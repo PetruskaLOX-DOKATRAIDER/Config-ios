@@ -18,7 +18,7 @@ class RXTwoWayBindingsTests: XCTestCase {
         AppRouter.rootViewController = vc
         vc.loadViewIfNeeded()
         let textfield = UITextField()
-        let variable = Variable("test")
+        let variable = BehaviorRelay(value: "test")
         vc.view.addSubview(textfield)
         textfield.becomeFirstResponder()
         expect(variable.value).to(equal("test"))
@@ -26,7 +26,7 @@ class RXTwoWayBindingsTests: XCTestCase {
         textfield.rx.textInput <-> variable
         expect(variable.value).to(equal("test"))
         expect(textfield.text).to(equal("test"))
-        variable.value = "test2"
+        variable.accept("test2")
         expect(variable.value).to(equal("test2"))
         expect(textfield.text).to(equal("test2"))
         textfield.text = "test3"

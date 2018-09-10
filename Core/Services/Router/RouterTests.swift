@@ -11,6 +11,6 @@ class RouterTests: XCTestCase {
     override func setUp() {
         super.setUp()
         container = DependencyContainer().registerAll().stubStorages()
-        router = Router(router: AppRouter.shared, viewFactory: container, viewModelFactory: container)
+        router = Router(router: AppRouter.shared, viewFactory: container, viewModelFactory: container, deviceRouter: DeviceRouterImpl.init())
     }
 }

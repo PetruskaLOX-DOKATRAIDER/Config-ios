@@ -2,6 +2,5 @@ sources:
   - ../../Core
 templates:
   - ../../TestsHelper/Autogeneration/AutoMockable.stencil
-  - ../../TestsHelper/Autogeneration/AutoPublicInit.stencil
 output:
   ../../TestsHelper/Autogeneration

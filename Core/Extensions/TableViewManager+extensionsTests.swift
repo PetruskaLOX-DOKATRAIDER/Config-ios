@@ -23,14 +23,14 @@ class DTManageableExtensionTests: XCTestCase {
     func testRefreshControlPaginationWithItems() {
         vc.viewModel = FakeItemsViewModel(paginator: Paginator(factory: { _ in .just(Page<String>.empty) }))
         vc.tableView.rx.refreshControl.rx.isRefreshing.onNext(true)
-        vc.viewModel?.items.refreshTrigger.accept(())
+        vc.viewModel?.items.refreshTrigger.onNext(())
         expect(self.vc.tableView.rx.refreshControl.isRefreshing).to(beFalse())
     }
     
     func testRefreshControlPaginationWithError() {
         vc.viewModel = FakeItemsViewModel(paginator: Paginator(factory: { _ in .error("error") }))
         vc.tableView.rx.refreshControl.rx.isRefreshing.onNext(true)
-        vc.viewModel?.items.refreshTrigger.accept(())
+        vc.viewModel?.items.refreshTrigger.onNext(())
         expect(self.vc.tableView?.rx.refreshControl.isRefreshing).to(beFalse())
     }
 }

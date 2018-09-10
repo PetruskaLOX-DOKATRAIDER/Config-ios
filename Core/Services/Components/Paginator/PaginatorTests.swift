@@ -25,7 +25,7 @@ class PaginatorTests: BaseTestCase {
         expect(observer.events[0].time).to(equal(0))
         expect(observer.events[0].value.element).to(equal([]))
         
-        paginator.refreshTrigger.accept(())
+        paginator.refreshTrigger.onNext(())
         expect(observer.events.count).to(equal(2))
         expect(observer.events[1].value.element).to(equal(["1a", "1b"]))
         
@@ -44,7 +44,7 @@ class PaginatorTests: BaseTestCase {
         })
         let observer = scheduler.createObserver(Bool.self)
         paginator.isWorking.drive(observer).disposed(by: disposeBag)
-        paginator.refreshTrigger.accept(())
+        paginator.refreshTrigger.onNext(())
         XCTAssertEqual(observer.events, [
             next(0, false),
             next(0, true),
@@ -72,7 +72,7 @@ class PaginatorTests: BaseTestCase {
         })
         let observer = scheduler.createObserver(Bool.self)
         paginator.isLoadedOnce.drive(observer).disposed(by: disposeBag)
-        paginator.refreshTrigger.accept(())
+        paginator.refreshTrigger.onNext(())
         XCTAssertEqual(observer.events, [
             next(0, false),
             next(0, true)
@@ -85,7 +85,7 @@ class PaginatorTests: BaseTestCase {
         })
         let observer = scheduler.createObserver(Error.self)
         paginator.error.drive(observer).disposed(by: disposeBag)
-        paginator.refreshTrigger.accept(())
+        paginator.refreshTrigger.onNext(())
         XCTAssert(observer.events.first?.value.element is Errors)
         XCTAssert(observer.events.count == 1)
     }
@@ -95,7 +95,7 @@ class PaginatorTests: BaseTestCase {
             .just(.new(content: ["a", "b", "c\($0)"], index: $0, totalPages: 2))
         }, accomulationStrategy: PaginationViewModelStrategies.Accomulations.excludeDuplicates)
         
-        paginator.refreshTrigger.accept(())
+        paginator.refreshTrigger.onNext(())
         paginator.loadNextPageTrigger.accept(())
         try expect(paginator.elements.asDriver().toBlocking().first()).to(equal(["a", "b", "c1", "c2"]))
     }

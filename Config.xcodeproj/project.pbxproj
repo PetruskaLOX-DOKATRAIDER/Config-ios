@@ -19,6 +19,7 @@
 		7C0530EF211337E100924C1B /* FavoritePlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0530EB211337E100924C1B /* FavoritePlayersViewController.swift */; };
 		7C0530F0211337E100924C1B /* FavoritePlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0530EC211337E100924C1B /* FavoritePlayersViewModel.swift */; };
 		7C0C1DFF214686EF00E03212 /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0C1DFE214686EF00E03212 /* EmailService.swift */; };
+		7C0C1E012146BBF900E03212 /* DIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0C1E002146BBF900E03212 /* DIConfiguration.swift */; };
 		7C11D39620FCC1E800FC8599 /* API+Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39520FCC1E800FC8599 /* API+Teams.swift */; };
 		7C11D39C20FCC2DF00FC8599 /* TeamsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39B20FCC2DF00FC8599 /* TeamsStorage.swift */; };
 		7C11D39E20FCC33200FC8599 /* CDTeam+CDObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C11D39D20FCC33200FC8599 /* CDTeam+CDObjectable.swift */; };
@@ -428,6 +429,7 @@
 		7C0530EB211337E100924C1B /* FavoritePlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlayersViewController.swift; sourceTree = "<group>"; };
 		7C0530EC211337E100924C1B /* FavoritePlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlayersViewModel.swift; sourceTree = "<group>"; };
 		7C0C1DFE214686EF00E03212 /* EmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
+		7C0C1E002146BBF900E03212 /* DIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIConfiguration.swift; sourceTree = "<group>"; };
 		7C11D39020FCBFEE00FC8599 /* TeamsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsService.swift; sourceTree = "<group>"; };
 		7C11D39520FCC1E800FC8599 /* API+Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Teams.swift"; sourceTree = "<group>"; };
 		7C11D39B20FCC2DF00FC8599 /* TeamsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsStorage.swift; sourceTree = "<group>"; };
@@ -1937,6 +1939,7 @@
 				C0F8680C202C687500D15CDA /* Resources */,
 				C02C463A202CAC99008AE9B0 /* EasyConstruction.swift */,
 				7C1DEC8420DA6FB8007BE96E /* Random.swift */,
+				7C0C1E002146BBF900E03212 /* DIConfiguration.swift */,
 			);
 			path = TestsHelper;
 			sourceTree = "<group>";
@@ -2885,6 +2888,7 @@
 			files = (
 				7C1DEC8520DA6FB8007BE96E /* Random.swift in Sources */,
 				3ED465B22034971A0015DAF6 /* AutoPublicInit.generated.swift in Sources */,
+				7C0C1E012146BBF900E03212 /* DIConfiguration.swift in Sources */,
 				3ED465B12034971A0015DAF6 /* AutoMockable.generated.swift in Sources */,
 				C02C463B202CAC99008AE9B0 /* EasyConstruction.swift in Sources */,
 			);

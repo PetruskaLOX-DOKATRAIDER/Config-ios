@@ -24,8 +24,8 @@ class DebuggerTests: XCTestCase {
         do {
             let vc = UIViewController()
             Debugger(vc) { self.logMessage = $0 }
-            expect(self.logMessage).to(equal("[😇init] \(String(describing: Swift.type(of: vc))) instance: \(Unmanaged<AnyObject>.passUnretained(vc).toOpaque())"))
-            deinitMessage = "[😈deinit] \(String(describing: Swift.type(of: vc))) instance: \(Unmanaged<AnyObject>.passUnretained(vc).toOpaque())"
+            expect(self.logMessage).to(equal("[😈init] \(String(describing: Swift.type(of: vc))) instance: \(Unmanaged<AnyObject>.passUnretained(vc).toOpaque())"))
+            deinitMessage = "[😇deinit] \(String(describing: Swift.type(of: vc))) instance: \(Unmanaged<AnyObject>.passUnretained(vc).toOpaque())"
         }
         
         expect(self.logMessage).to(equal(deinitMessage))
