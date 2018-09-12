@@ -72,7 +72,6 @@ class TeamsViewModelTests: BaseTestCase {
                             let playerItemVM = try? sut.teamsPaginator.elements.toBlocking().first()?.first?.players.first
                             playerItemVM??.selectionTrigger.onNext(())
                             try? expect(sut.shouldRouteDescription.toBlocking().first()).to(equal(player1.id))
-                            
                         })
                     }
                 }

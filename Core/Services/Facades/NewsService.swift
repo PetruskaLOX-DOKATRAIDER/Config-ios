@@ -11,7 +11,7 @@ public enum NewsServiceError: Error {
     case unknown
 }
 
-public protocol NewsService {
+public protocol NewsService: AutoMockable {
     func getPreview(page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError>
     func getDescription(news id: Int) -> DriverResult<NewsDescription, NewsServiceError>
 }

@@ -27,7 +27,7 @@ public final class NewsViewModelImpl: NewsViewModel, ReactiveCompatible {
         let route = PublishSubject<NewsPreview?>()
         let share = PublishSubject<URL?>()
         shouldRouteDescription = route.asDriver(onErrorJustReturn: nil).filterNil()
-        shouldShare = share.asDriver(onErrorJustReturn: nil).map{ ShareItem(url: $0) }
+        shouldShare = share.asDriver(onErrorJustReturn: nil).filterNil().map{ ShareItem(url: $0) }
         func remapToViewModels(page: Page<NewsPreview>) -> Page<NewsItemViewModel> {
             return Page.new(
                 content: page.content.map{ news in
@@ -41,7 +41,8 @@ public final class NewsViewModelImpl: NewsViewModel, ReactiveCompatible {
             )
         }
         
-        newsPaginator = Paginator(factory:{ newsService.getPreview(page: $0).success().map( remapToViewModels ).asObservable() })
+        
+        newsPaginator = Paginator(factory:{ newsService.getPreview(page: $0).asObservable().map{ try $0.dematerialize() }.map(remapToViewModels) })
         shouldRouteProfile = profileTrigger.asDriver(onErrorJustReturn: ())
         messageViewModel = newsPaginator.error.map{ MessageViewModelImpl.error(description: $0.localizedDescription) }
     }
