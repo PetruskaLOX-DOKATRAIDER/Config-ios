@@ -16,16 +16,16 @@ public protocol EventsFilterViewModel {
     var shouldClose: Driver<Void> { get }
 }
 
-final class EventsFilterViewModelImpl: EventsFilterViewModel, ReactiveCompatible {
-    let items: Driver<[EventFilterItemViewModel]>
-    let closeTrigger = PublishSubject<Void>()
-    let applyTrigger = PublishSubject<Void>()
-    let resetTrigger = PublishSubject<Void>()
-    let shouldRouteDatePicker: Driver<DatePickerViewModel>
-    let shouldRoutePicker: Driver<PickerViewModel>
-    let shouldClose: Driver<Void>
+public final class EventsFilterViewModelImpl: EventsFilterViewModel, ReactiveCompatible {
+    public let items: Driver<[EventFilterItemViewModel]>
+    public let closeTrigger = PublishSubject<Void>()
+    public let applyTrigger = PublishSubject<Void>()
+    public let resetTrigger = PublishSubject<Void>()
+    public let shouldRouteDatePicker: Driver<DatePickerViewModel>
+    public let shouldRoutePicker: Driver<PickerViewModel>
+    public let shouldClose: Driver<Void>
     
-    init(eventsFiltersStorage: EventsFiltersStorage) {
+    public init(eventsFiltersStorage: EventsFiltersStorage) {
         func startAndFinishDate(_ date: Date?, notSelectedMessage: String) -> String {
             guard let date = date else { return notSelectedMessage }
             return DateFormatters.default.string(from: date)
