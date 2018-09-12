@@ -10,7 +10,7 @@ public enum BannerServiceError: Error {
     case serverError(Error)
 }
 
-public protocol BannerService {
+public protocol BannerService: AutoMockable {
     func getForPlayers(page: Int) -> DriverResult<Page<PlayerBanner>, BannerServiceError>
 }
 

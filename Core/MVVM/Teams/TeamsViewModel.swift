@@ -15,15 +15,15 @@ public protocol TeamsViewModel {
     var shouldRouteDescription: Driver<Int> { get }
 }
 
-final class TeamsViewModelImpl: TeamsViewModel, ReactiveCompatible {
-    let playersBannerViewModel: PlayersBannerViewModel
-    let teamsPaginator: Paginator<TeamItemViewModel>
-    let messageViewModel: Driver<MessageViewModel>
-    let profileTrigger = PublishSubject<Void>()
-    let shouldRouteProfile: Driver<Void>
-    let shouldRouteDescription: Driver<Int>
+public final class TeamsViewModelImpl: TeamsViewModel, ReactiveCompatible {
+    public let playersBannerViewModel: PlayersBannerViewModel
+    public let teamsPaginator: Paginator<TeamItemViewModel>
+    public let messageViewModel: Driver<MessageViewModel>
+    public let profileTrigger = PublishSubject<Void>()
+    public let shouldRouteProfile: Driver<Void>
+    public let shouldRouteDescription: Driver<Int>
     
-    init(
+    public init(
         teamsService: TeamsService,
         playersBannerViewModel: PlayersBannerViewModel
     ) {
@@ -44,7 +44,7 @@ final class TeamsViewModelImpl: TeamsViewModel, ReactiveCompatible {
             )
         }
         
-        teamsPaginator = Paginator(factory:{ teamsService.get(page: $0).success().map( remapToViewModels ).asObservable() })
+        teamsPaginator = Paginator(factory:{ teamsService.get(page: $0).asObservable().map{ try $0.dematerialize() }.map(remapToViewModels) })
         shouldRouteProfile = profileTrigger.asDriver(onErrorJustReturn: ())
         messageViewModel = teamsPaginator.error.map{ MessageViewModelImpl.error(description: $0.localizedDescription) }
         self.playersBannerViewModel = playersBannerViewModel

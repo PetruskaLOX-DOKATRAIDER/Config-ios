@@ -142,6 +142,7 @@
 		7C87DF522148FC2000144690 /* TutorialItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C87DF502148FC1C00144690 /* TutorialItemViewModelTests.swift */; };
 		7C87DF55214902D700144690 /* PlayerPreviewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C87DF53214902D400144690 /* PlayerPreviewViewModelTests.swift */; };
 		7C87DF5621492B4F00144690 /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
+		7C87DF5921493BEB00144690 /* TeamItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C87DF5721493B6A00144690 /* TeamItemViewModelTests.swift */; };
 		7C88006A212D5073002F049A /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C880069212D5073002F049A /* SectionViewModel.swift */; };
 		7C880071212D5DB4002F049A /* SectionTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C880070212D5DB4002F049A /* SectionTopicViewModel.swift */; };
 		7C880073212D5DC3002F049A /* SectionTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C880072212D5DC3002F049A /* SectionTopicView.swift */; };
@@ -558,6 +559,7 @@
 		7C6A927C2141519B001A0A7D /* PlayerInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewModel.swift; sourceTree = "<group>"; };
 		7C87DF502148FC1C00144690 /* TutorialItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialItemViewModelTests.swift; sourceTree = "<group>"; };
 		7C87DF53214902D400144690 /* PlayerPreviewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPreviewViewModelTests.swift; sourceTree = "<group>"; };
+		7C87DF5721493B6A00144690 /* TeamItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamItemViewModelTests.swift; sourceTree = "<group>"; };
 		7C880069212D5073002F049A /* SectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewModel.swift; sourceTree = "<group>"; };
 		7C880070212D5DB4002F049A /* SectionTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTopicViewModel.swift; sourceTree = "<group>"; };
 		7C880072212D5DC3002F049A /* SectionTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTopicView.swift; sourceTree = "<group>"; };
@@ -1258,6 +1260,7 @@
 			children = (
 				7C9105D820FC938300970FA7 /* PlayerInTeamItem */,
 				7C9105D220FC8FCD00970FA7 /* TeamItemViewModel.swift */,
+				7C87DF5721493B6A00144690 /* TeamItemViewModelTests.swift */,
 				7C9105D020FC8FC100970FA7 /* TeamItemCell.swift */,
 				7C9105D420FC8FDA00970FA7 /* TeamItemCell.xib */,
 			);
@@ -2663,6 +2666,7 @@
 				A874368720330E530000FE56 /* DebuggerTests.swift in Sources */,
 				7CAE6D852101E68E00844B11 /* EventsContainerViewModelTests.swift in Sources */,
 				7CAE6D842101E68400844B11 /* ListEventsViewModelTests.swift in Sources */,
+				7C87DF5921493BEB00144690 /* TeamItemViewModelTests.swift in Sources */,
 				7CDAF95E20D7C693009B9B87 /* TutorialViewModelTests.swift in Sources */,
 				7C168FBA213FEF53004D2208 /* EventDescriptionViewModelTests.swift in Sources */,
 				7CFA250620D935910059378F /* TeamsViewModelTests.swift in Sources */,

@@ -11,7 +11,7 @@ public enum TeamsServiceError: Error {
     case unknown
 }
 
-public protocol TeamsService {
+public protocol TeamsService: AutoMockable {
     func get(page: Int) -> DriverResult<Page<Team>, TeamsServiceError>
 }
 

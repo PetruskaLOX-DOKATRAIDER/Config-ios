@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol PlayersBannerViewModel {
+public protocol PlayersBannerViewModel: AutoMockable {
     var playersPaginator: Paginator<PlayerBannerItemViewModel> { get }
     var currentPage: Driver<Int> { get }
     var pageTrigger: PublishSubject<Int> { get }
