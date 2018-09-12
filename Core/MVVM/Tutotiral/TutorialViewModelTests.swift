@@ -15,7 +15,7 @@ class TutorialViewModelTests: BaseTestCase {
             let userStorage = UserStorageMock(isOnboardingPassed: BehaviorRelay(value: false), email: BehaviorRelay(value: nil))
             
             beforeEach {
-                sut = TutorialViewModelImpl.init(userStorage: userStorage)
+                sut = TutorialViewModelImpl(userStorage: userStorage)
             }
             
             describe("when ask tutorial items", {
@@ -31,41 +31,24 @@ class TutorialViewModelTests: BaseTestCase {
                 }
 
                 context("on start") {
-                    it("should return valid text", closure: {
+                    it("should return next", closure: {
                         try? expect(sut.navigationTitle.toBlocking().first()).to(equal(Strings.Tutorial.next))
                     })
                 }
                 
-                context("after first page triggered") {
-                    it("should return valid text", closure: {
+                context("after not last page triggered") {
+                    it("should return next", closure: {
                         sut.pageTrigger.onNext(0)
                         try? expect(sut.navigationTitle.toBlocking().first()).to(equal(Strings.Tutorial.next))
-                    })
-                }
-                
-                context("after second page triggered") {
-                    it("should return valid text", closure: {
-                        sut.pageTrigger.onNext(1)
-                        try? expect(sut.navigationTitle.toBlocking().first()).to(equal(Strings.Tutorial.next))
-                    })
-                }
-                
-                context("after third page triggered") {
-                    it("should return valid text", closure: {
                         sut.pageTrigger.onNext(2)
                         try? expect(sut.navigationTitle.toBlocking().first()).to(equal(Strings.Tutorial.next))
-                    })
-                }
-                
-                context("after second page triggered again") {
-                    it("should return valid text", closure: {
                         sut.pageTrigger.onNext(1)
                         try? expect(sut.navigationTitle.toBlocking().first()).to(equal(Strings.Tutorial.next))
                     })
                 }
-                
+
                 context("after last page triggered") {
-                    it("should return valid text", closure: {
+                    it("should return start", closure: {
                         sut.pageTrigger.onNext(3)
                         try? expect(sut.navigationTitle.toBlocking(timeout: 1).first()).to(equal(Strings.Tutorial.start))
                     })
@@ -79,62 +62,38 @@ class TutorialViewModelTests: BaseTestCase {
                 }
                 
                 context("on start") {
-                    it("should return valid number", closure: {
+                    it("should return 0", closure: {
                         try? expect(sut.currentPage.toBlocking().first()).to(equal(0))
                     })
                 }
                 
-                context("after first page triggered") {
+                context("after some page triggered") {
                     it("should return valid number", closure: {
                         sut.pageTrigger.onNext(0)
                         try? expect(sut.currentPage.toBlocking().first()).to(equal(0))
-                    })
-                }
-                
-                context("after second page triggered") {
-                    it("should return valid number", closure: {
                         sut.pageTrigger.onNext(1)
                         try? expect(sut.currentPage.toBlocking().first()).to(equal(1))
-                    })
-                }
-                
-                context("after third page triggered") {
-                    it("should return valid number", closure: {
                         sut.pageTrigger.onNext(1)
                         sut.pageTrigger.onNext(2)
                         try? expect(sut.currentPage.toBlocking().first()).to(equal(2))
                     })
                 }
-                
-                context("after second page triggered again") {
-                    it("should return valid number", closure: {
-                        sut.pageTrigger.onNext(1)
-                        try? expect(sut.currentPage.toBlocking().first()).to(equal(1))
-                    })
-                }
-                
-                context("after last page triggered") {
-                    it("should return valid number", closure: {
-                        sut.pageTrigger.onNext(3)
-                        try? expect(sut.currentPage.toBlocking().first()).to(equal(3))
-                    })
-                }
             })
             
             describe("when skip trigger", {
-                let routeSettingsObserver = self.scheduler.createObserver(Void.self)
-                let routeAppObserver = self.scheduler.createObserver(Void.self)
+                let closeObserver = self.scheduler.createObserver(Void.self)
+                let appObserver = self.scheduler.createObserver(Void.self)
                 beforeEach {
-                    //sut.shouldRouteSettings.drive(routeSettingsObserver).disposed(by: self.disposeBag)
-                    sut.shouldRouteApp.drive(routeAppObserver).disposed(by: self.disposeBag)
+                    sut.shouldClose.drive(closeObserver).disposed(by: self.disposeBag)
+                    sut.shouldRouteApp.drive(appObserver).disposed(by: self.disposeBag)
                 }
                 
                 context("and onbording is passed") {
-                    it("should route to settings", closure: {
+                    it("should close", closure: {
                         userStorage.isOnboardingPassed.accept(true)
                         sut.skipTrigger.onNext(())
-                        //expect(routeSettingsObserver.events.count).to(equal(1))
-                        expect(routeAppObserver.events.count).to(equal(0))
+                        expect(closeObserver.events.count).to(equal(1))
+                        expect(appObserver.events.count).to(equal(0))
                     })
                 }
                 
@@ -145,8 +104,8 @@ class TutorialViewModelTests: BaseTestCase {
                     }
                     
                     it("should route to app", closure: {
-                        //expect(routeSettingsObserver.events.count).to(equal(2))
-                        expect(routeAppObserver.events.count).to(equal(1))
+                        expect(closeObserver.events.count).to(equal(2))
+                        expect(appObserver.events.count).to(equal(1))
                     })
                     
                     it("should save isOnboardingPassed as true", closure: {
@@ -161,19 +120,13 @@ class TutorialViewModelTests: BaseTestCase {
                     sut.currentPage.drive(currentPageObserver).disposed(by: self.disposeBag)
                 }
                 
-                context("and current page is 0") {
-                    it("should move to second page", closure: {
-                        sut.nextTrigger.onNext(())
-                        try? expect(sut.currentPage.toBlocking().first()).to(equal(1))
-                    })
-                }
-                context("and current page is 2") {
-                    it("should move to third page", closure: {
-                        sut.pageTrigger.onNext(2)
-                        sut.nextTrigger.onNext(())
-                        try? expect(sut.currentPage.toBlocking().first()).to(equal(3))
-                    })
-                }
+                it("should move to current page", closure: {
+                    sut.nextTrigger.onNext(())
+                    try? expect(sut.currentPage.toBlocking().first()).to(equal(1))
+                    sut.pageTrigger.onNext(2)
+                    sut.nextTrigger.onNext(())
+                    try? expect(sut.currentPage.toBlocking().first()).to(equal(3))
+                })
             })
             
             describe("when ask is move back avaliable", {
