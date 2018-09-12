@@ -11,8 +11,8 @@ import TestsHelper
 class AppViewModelTests: BaseTestCase {
     override func spec() {
         describe("AppViewModel") {
-            var sut: AppViewModel!
             let userStorage = UserStorageMock(isOnboardingPassed: BehaviorRelay(value: false), email: BehaviorRelay(value: nil))
+            var sut: AppViewModel!
             
             beforeEach {
                 sut = AppViewModelImpl(userStorage: userStorage)
@@ -28,6 +28,11 @@ class AppViewModelTests: BaseTestCase {
                 
                 context("and onboarding is passed") {
                     it("should route to app", closure: {
+                        let tutorialObserver = self.scheduler.createObserver(Void.self)
+                        let appObserver = self.scheduler.createObserver(Void.self)
+                        sut.shouldRouteTutorial.drive(tutorialObserver).disposed(by: self.disposeBag)
+                        sut.shouldRouteApp.drive(appObserver).disposed(by: self.disposeBag)
+                        
                         userStorage.isOnboardingPassed.accept(true)
                         sut.didBecomeActiveTrigger.onNext(())
                         expect(tutorialObserver.events.count).to(equal(0))

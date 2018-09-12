@@ -11,8 +11,8 @@ import TestsHelper
 class TutorialViewModelTests: BaseTestCase {
     override func spec() {
         describe("TutorialViewModel") {
-            var sut: TutorialViewModel!
             let userStorage = UserStorageMock(isOnboardingPassed: BehaviorRelay(value: false), email: BehaviorRelay(value: nil))
+            var sut: TutorialViewModel!
             
             beforeEach {
                 sut = TutorialViewModelImpl(userStorage: userStorage)

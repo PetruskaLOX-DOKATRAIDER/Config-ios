@@ -14,12 +14,12 @@ public protocol PlayersViewModel {
     var shouldRouteDescription: Driver<Int> { get }
 }
 
-final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
-    let playersPaginator: Paginator<PlayerPreviewViewModel>
-    let messageViewModel: Driver<MessageViewModel>
-    let profileTrigger = PublishSubject<Void>()
-    let shouldRouteProfile: Driver<Void>
-    let shouldRouteDescription: Driver<Int>
+public final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
+    public let playersPaginator: Paginator<PlayerPreviewViewModel>
+    public let messageViewModel: Driver<MessageViewModel>
+    public let profileTrigger = PublishSubject<Void>()
+    public let shouldRouteProfile: Driver<Void>
+    public let shouldRouteDescription: Driver<Int>
     
     public init(playersService: PlayersService) {
         let route = PublishSubject<Int>()
@@ -36,7 +36,7 @@ final class PlayersViewModelImpl: PlayersViewModel, ReactiveCompatible {
             )
         }
         
-        playersPaginator = Paginator(factory:{ playersService.getPreview(page: $0).success().map(remapToViewModels).asObservable() })
+        playersPaginator = Paginator(factory:{ playersService.getPreview(page: $0).asObservable().map{ try $0.dematerialize() }.map(remapToViewModels) })
         messageViewModel = playersPaginator.error.map{ MessageViewModelImpl.error(description: $0.localizedDescription) }
         shouldRouteProfile = profileTrigger.asDriver(onErrorJustReturn: ())
     }

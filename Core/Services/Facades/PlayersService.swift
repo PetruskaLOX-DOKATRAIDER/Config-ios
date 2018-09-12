@@ -14,7 +14,7 @@ public enum PlayersServiceError: Error {
     case unknown
 }
 
-public protocol PlayersService {
+public protocol PlayersService: AutoMockable {
     func getPreview(page: Int) -> DriverResult<Page<PlayerPreview>, PlayersServiceError>
     func getDescription(player id: Int) -> DriverResult<PlayerDescription, PlayersServiceError>
     func getFavoritePreview() -> DriverResult<[PlayerPreview], PlayersServiceError>

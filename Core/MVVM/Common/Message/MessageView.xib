@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhr-7A-fFZ">
-                    <rect key="frame" x="8" y="52" width="359" height="71"/>
+                    <rect key="frame" x="8" y="116" width="359" height="71"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xsg-UD-qDp">
                             <rect key="frame" x="10" y="9" width="25" height="25"/>
@@ -65,7 +65,7 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="lZO-mc-mgy" firstAttribute="bottom" secondItem="Xhr-7A-fFZ" secondAttribute="bottom" constant="80" id="Cew-kw-mOU"/>
+                <constraint firstItem="lZO-mc-mgy" firstAttribute="bottom" secondItem="Xhr-7A-fFZ" secondAttribute="bottom" constant="16" id="Cew-kw-mOU"/>
                 <constraint firstItem="Xhr-7A-fFZ" firstAttribute="leading" secondItem="lZO-mc-mgy" secondAttribute="leading" constant="8" id="m2K-Il-1bU"/>
                 <constraint firstItem="lZO-mc-mgy" firstAttribute="trailing" secondItem="Xhr-7A-fFZ" secondAttribute="trailing" constant="8" id="mPV-lf-KAX"/>
             </constraints>
