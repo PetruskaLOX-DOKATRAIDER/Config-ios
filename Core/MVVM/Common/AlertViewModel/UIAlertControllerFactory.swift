@@ -6,7 +6,6 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-
 public final class UIAlertControllerFactory {
     public static func alertController(fromViewModelAlert viewModel: AlertViewModel) -> UIAlertController {
         let alertController = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: alertControllerStyle(fromStyle: viewModel.style))
@@ -37,9 +36,9 @@ public final class UIAlertControllerFactory {
     
     static private func alertActionStyle(fromStyle style: AlertActionStyleViewModel) -> UIAlertActionStyle {
         switch style {
-        case .defaultActionStyle: return .default
-        case .destructiveActionStyle: return .destructive
-        case .cancelActionStyle: return .cancel
+        case .`default`: return .default
+        case .destructive: return .destructive
+        case .cancel: return .cancel
         }
     }
 }

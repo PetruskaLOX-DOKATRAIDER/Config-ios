@@ -35,18 +35,18 @@ public final class Router: ReactiveCompatible {
         return route().configure({ [appSections = appSections()] vc in
             vc.viewModel?.shouldClose.map(to: true).drive(vc.rx.close).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteApp.map(to: appSections).setAsRoot().disposed(by: vc.rx.disposeBag)
-        }).embedInNavigation(NavigationControllerFactory.default())
+        }).embedInNavigation(NavigationControllerFactory.`default`())
     }
     
     public func appSections() -> AppRouter.Presenter.Configuration<AnimatedTabBarController> {
         return AnimatedTabBarController.presenter().from {
             let tabbarVC = AnimatedTabBarController()
             tabbarVC.setViewControllers([
-                NavigationControllerFactory.default(viewControllers: [try self.players().provideSourceController()]),
-                NavigationControllerFactory.default(viewControllers: [try self.teams().provideSourceController()]),
-                NavigationControllerFactory.default(viewControllers: [try self.events().provideSourceController()]),
-                NavigationControllerFactory.default(viewControllers: [try self.news().provideSourceController()]),
-                NavigationControllerFactory.default(viewControllers: [try self.profile().provideSourceController()])],
+                NavigationControllerFactory.`default`(viewControllers: [try self.players().provideSourceController()]),
+                NavigationControllerFactory.`default`(viewControllers: [try self.teams().provideSourceController()]),
+                NavigationControllerFactory.`default`(viewControllers: [try self.events().provideSourceController()]),
+                NavigationControllerFactory.`default`(viewControllers: [try self.news().provideSourceController()]),
+                NavigationControllerFactory.`default`(viewControllers: [try self.profile().provideSourceController()])],
             animated: false)
             return tabbarVC
         }
@@ -80,7 +80,7 @@ public final class Router: ReactiveCompatible {
             vc.viewModel?.listEventsViewModel.shouldOpenURL.drive(strongSelf.rx.pushSafariVC).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.mapEventsViewModel.eventDescriptionViewModel.shouldOpenURL.drive(strongSelf.rx.pushSafariVC).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.mapEventsViewModel.eventDescriptionViewModel.shouldShare.drive(strongSelf.rx.presentActivityVC).disposed(by: vc.rx.disposeBag)
-        }).embedInNavigation(NavigationControllerFactory.default())
+        }).embedInNavigation(NavigationControllerFactory.`default`())
     }
     
     public func teams() -> Route<TeamsViewController> {
@@ -105,7 +105,7 @@ public final class Router: ReactiveCompatible {
             vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomOut).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRoutePicker.map{ picekrVC.with(viewModel: $0) }.present().disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteDatePicker.map{ datePicekrVC.with(viewModel: $0) }.present().disposed(by: vc.rx.disposeBag)
-        }).embedInNavigation(NavigationControllerFactory.default())
+        }).embedInNavigation(NavigationControllerFactory.`default`())
     }
     
     public func datePicekr() -> Route<DatePickerViewController> {
@@ -147,7 +147,7 @@ public final class Router: ReactiveCompatible {
             vc.viewModel?.shouldOpenURL.drive(strongSelf.rx.pushSafariVC).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shoudShowAlert.drive(strongSelf.rx.presentAlertVM).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteAppSettings.drive(onNext:{ try? strongSelf.deviceRouter.openSettings() }).disposed(by: vc.rx.disposeBag)
-        }).embedInNavigation(NavigationControllerFactory.default())
+        }).embedInNavigation(NavigationControllerFactory.`default`())
     }
     
     public func favoritePlayers() -> Route<FavoritePlayersViewController> {

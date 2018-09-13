@@ -70,7 +70,7 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
         coverImageURL = newsRequest.success().map(to: news.coverImageURL).startWith(nil)
         subtitle = newsRequest.success().map{ $0.title }.startWith("")
         description = newsRequest.success().map{
-            "\(Strings.Newsdescription.posted) \(DateFormatters.default.string(from: $0.date)) \(Strings.Newsdescription.by) \($0.author)"
+            "\(Strings.Newsdescription.posted) \(DateFormatters.`default`.string(from: $0.date)) \(Strings.Newsdescription.by) \($0.author)"
         }.startWith("")
         content = newsRequest.success().map{ remapToViewModel($0) }.startWith([])
         isDataAvaliable = Driver.merge(

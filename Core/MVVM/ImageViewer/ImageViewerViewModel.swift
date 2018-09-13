@@ -72,7 +72,7 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
         
         let appSettings = PublishSubject<Void>()
         let givePermissions = AlertActionViewModelImpl(title: Strings.Imageviewer.CameraDenied.permissions, action: appSettings)
-        let cancel = AlertActionViewModelImpl(title: Strings.Imageviewer.CameraDenied.cancel, style: .destructiveActionStyle)
+        let cancel = AlertActionViewModelImpl(title: Strings.Imageviewer.CameraDenied.cancel, style: .destructive)
         let alertVM = AlertViewModelImpl(
             title: Strings.Imageviewer.CameraDenied.title,
             message: Strings.Imageviewer.CameraDenied.message,

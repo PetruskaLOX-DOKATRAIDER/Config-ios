@@ -90,7 +90,7 @@ public final class PlayerDescriptionViewModelImpl: PlayerDescriptionViewModel, R
                 AlertActionViewModelImpl(title: Strings.PlayerDescription.copyCfg, action: copyCFG),
                 AlertActionViewModelImpl(title: Strings.PlayerDescription.shareCfg, action: shareCFG),
                 addRemove,
-                AlertActionViewModelImpl(title: Strings.PlayerDescription.cancel, style: .destructiveActionStyle)
+                AlertActionViewModelImpl(title: Strings.PlayerDescription.cancel, style: .destructive)
             ]
             return AlertViewModelImpl(
                 title: Strings.PlayerDescription.options,

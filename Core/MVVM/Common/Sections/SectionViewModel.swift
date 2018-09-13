@@ -25,12 +25,12 @@ public protocol SectionItemViewModelType {}
 public protocol SectionTopicViewModelType {}
 public protocol SectionSubtopicViewModelType {}
 
-struct SectionViewModel: SectionViewModelType {
-    let topic: Driver<SectionTopicViewModelType?>
-    let subtopic: Driver<SectionSubtopicViewModelType?>
-    let items: Driver<[SectionItemViewModelType]>
+public struct SectionViewModel: SectionViewModelType {
+    public let topic: Driver<SectionTopicViewModelType?>
+    public let subtopic: Driver<SectionSubtopicViewModelType?>
+    public let items: Driver<[SectionItemViewModelType]>
     
-    init(
+    public init(
         topic: SectionTopicViewModelType? = nil,
         subtopic: SectionSubtopicViewModelType? = SectionSubtopicViewModelImpl(),
         items: [SectionItemViewModelType]

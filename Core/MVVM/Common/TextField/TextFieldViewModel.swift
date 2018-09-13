@@ -13,11 +13,11 @@ public protocol TextFieldViewModel {
     var shouldResign: Driver<Void> { get }
 }
 
-final class TextFieldViewModelImpl: TextFieldViewModel {
-    let text: BehaviorRelay<String>
-    let placeholder: Driver<String>
+public final class TextFieldViewModelImpl: TextFieldViewModel {
+    public let text: BehaviorRelay<String>
+    public let placeholder: Driver<String>
     
-    init(
+    public init(
         text: BehaviorRelay<String>,
         placeholder: String = ""
     ) {

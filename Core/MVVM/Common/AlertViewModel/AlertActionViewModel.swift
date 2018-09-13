@@ -7,17 +7,17 @@
 //
 
 public enum AlertActionStyleViewModel {
-    case defaultActionStyle
-    case destructiveActionStyle
-    case cancelActionStyle
+    case `default`
+    case destructive
+    case cancel
 }
 
 extension AlertActionStyleViewModel: Equatable {
     public static func == (lhs: AlertActionStyleViewModel, rhs: AlertActionStyleViewModel) -> Bool {
         switch (lhs, rhs) {
-        case (.defaultActionStyle, .defaultActionStyle): return true
-        case (.destructiveActionStyle, .destructiveActionStyle): return true
-        case (.cancelActionStyle, .cancelActionStyle): return true
+        case (.`default`, .`default`): return true
+        case (.destructive, .destructive): return true
+        case (.cancel, .cancel): return true
         default: return false
         }
     }
@@ -36,7 +36,7 @@ public final class AlertActionViewModelImpl: AlertActionViewModel {
     
     public init(
         title: String,
-        style: AlertActionStyleViewModel = .defaultActionStyle,
+        style: AlertActionStyleViewModel = .`default`,
         action: PublishSubject<Void>? = nil
     ) {
         self.title = title

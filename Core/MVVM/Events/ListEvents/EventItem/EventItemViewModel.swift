@@ -28,8 +28,8 @@ final class EventItemViewModelImpl: EventItemViewModel, ReactiveCompatible {
         city = .just(event.city)
         flagURL = .just(event.flagURL)
         logoURL = .just(event.logoURL)
-        let startDateStr = DateFormatters.default.string(from: event.startDate)
-        let finishDateStr = DateFormatters.default.string(from: event.finishDate)
+        let startDateStr = DateFormatters.`default`.string(from: event.startDate)
+        let finishDateStr = DateFormatters.`default`.string(from: event.finishDate)
         let prizePool = String(event.prizePool) + Strings.ListEvents.currency
         let descriptionhigHlights = [
             String(event.countOfTeams),

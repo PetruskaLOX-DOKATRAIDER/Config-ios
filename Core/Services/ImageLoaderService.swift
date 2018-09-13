@@ -15,7 +15,7 @@ public enum ImageLoaderServiceError: Error {
     case unknown
 }
 
-public protocol ImageLoaderService {
+public protocol ImageLoaderService: AutoMockable {
     func loadImage(withURL url: URL) -> Observable<Result<Image, ImageLoaderServiceError>>
     func clearCache()
 }

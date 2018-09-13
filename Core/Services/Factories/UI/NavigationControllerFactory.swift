@@ -27,7 +27,7 @@ final class NavigationControllerFactory {
         navigationController.setViewControllers(viewControllers, animated: false)
         navigationController.navigationBar.titleColor(.snowWhite)
         navigationController.navigationBar.titleFont(.filsonMediumWithSize(19))
-        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .`default`)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.isTranslucent = true
         return navigationController

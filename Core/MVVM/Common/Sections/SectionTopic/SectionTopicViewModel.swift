@@ -11,11 +11,11 @@ protocol SectionTopicViewModel: SectionTopicViewModelType {
     var icon: Driver<UIImage?> { get }
 }
 
-struct SectionTopicViewModelImpl: SectionTopicViewModel, ReactiveCompatible {
-    let title: Driver<String>
-    let icon: Driver<UIImage?>
+public struct SectionTopicViewModelImpl: SectionTopicViewModel, ReactiveCompatible {
+    public let title: Driver<String>
+    public let icon: Driver<UIImage?>
     
-    init(
+    public init(
         title: String = "",
         icon: UIImage? = nil
     ) {

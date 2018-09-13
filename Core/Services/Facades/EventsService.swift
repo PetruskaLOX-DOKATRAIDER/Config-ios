@@ -11,8 +11,8 @@ public enum EventsServiceError: Error {
     case unknown
 }
 
-public protocol EventsService {
-    func get(page: Int) -> DriverResult<Page<Event>, EventsServiceError>
+public protocol EventsService: AutoMockable {
+    func get(page: Int) -> DriverResult<Page<Core.Event>, EventsServiceError>
 }
 
 public final class EventsServiceImpl: EventsService, ReactiveCompatible {

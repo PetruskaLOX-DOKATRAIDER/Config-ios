@@ -7,8 +7,16 @@
 //
 
 public struct PickerItem<T> {
-    let title: String
-    let object: T
+    public let title: String
+    public let object: T
+    
+    public init(
+        title: String,
+        object: T
+    ) {
+        self.title = title
+        self.object = object
+    }
 }
 
 public protocol PickerViewModel {
@@ -19,16 +27,15 @@ public protocol PickerViewModel {
     var shouldClose: Driver<Void> { get }
 }
 
-final class PickerViewModelImpl<T>: PickerViewModel {
-    let itemTitles: Driver<[String]>
-    let title: Driver<String>
-    let itemAtIndexTrigger = PublishSubject<Int>()
-    let closeTrigger = PublishSubject<Void>()
-    let shouldClose: Driver<Void>
+public final class PickerViewModelImpl<T>: PickerViewModel {
+    public let itemTitles: Driver<[String]>
+    public let title: Driver<String>
+    public let itemAtIndexTrigger = PublishSubject<Int>()
+    public let closeTrigger = PublishSubject<Void>()
+    public let shouldClose: Driver<Void>
+    public let itemPicked: Driver<PickerItem<T>>
     
-    let itemPicked: Driver<PickerItem<T>>
-    
-    init(
+    public init(
         title: String = "",
         items: [PickerItem<T>]
     ) {

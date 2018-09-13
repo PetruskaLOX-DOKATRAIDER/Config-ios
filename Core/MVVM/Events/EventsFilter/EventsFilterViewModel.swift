@@ -28,7 +28,7 @@ public final class EventsFilterViewModelImpl: EventsFilterViewModel, ReactiveCom
     public init(eventsFiltersStorage: EventsFiltersStorage) {
         func startAndFinishDate(_ date: Date?, notSelectedMessage: String) -> String {
             guard let date = date else { return notSelectedMessage }
-            return DateFormatters.default.string(from: date)
+            return DateFormatters.`default`.string(from: date)
         }
         var initialMaxCountOfTeamsTitle: String {
             guard let value = eventsFiltersStorage.maxCountOfTeams.value else { return Strings.EventFilters.maxTeamsNotSelected }
@@ -54,13 +54,13 @@ public final class EventsFilterViewModelImpl: EventsFilterViewModel, ReactiveCom
         
         let startDatePickerVM = DatePickerViewModelImpl()
         let startDateTitle = startDatePickerVM.datePicked
-            .map{ DateFormatters.default.string(from: $0) }
+            .map{ DateFormatters.`default`.string(from: $0) }
             .startWith( startAndFinishDate(eventsFiltersStorage.startDate.value, notSelectedMessage: Strings.EventFilters.dateStartNotSelected) )
         let startDateVM = EventFilterItemViewModelImpl(title: startDateTitle, icon: Images.EventFilters.date)
        
         let finishDatePickerVM = DatePickerViewModelImpl()
         let finishDateTitle = finishDatePickerVM.datePicked
-            .map{ DateFormatters.default.string(from: $0) }
+            .map{ DateFormatters.`default`.string(from: $0) }
             .startWith( startAndFinishDate(eventsFiltersStorage.finishDate.value, notSelectedMessage: Strings.EventFilters.dateFinishNotSelected) )
         let finishDateVM = EventFilterItemViewModelImpl(title: finishDateTitle, icon: Images.EventFilters.date)
 

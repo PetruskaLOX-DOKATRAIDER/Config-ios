@@ -16,16 +16,16 @@ public protocol DatePickerViewModel {
     var shouldClose: Driver<Void> { get }
 }
 
-final class DatePickerViewModelImpl: DatePickerViewModel {
-    let title: Driver<String>
-    let minimumDate: Driver<Date?>
-    let maximumDate: Driver<Date?>
-    let closeTrigger = PublishSubject<Void>()
-    let dateTrigger = PublishSubject<Date>()
-    let datePicked: Driver<Date>
-    let shouldClose: Driver<Void>
+public final class DatePickerViewModelImpl: DatePickerViewModel {
+    public let title: Driver<String>
+    public let minimumDate: Driver<Date?>
+    public let maximumDate: Driver<Date?>
+    public let closeTrigger = PublishSubject<Void>()
+    public let dateTrigger = PublishSubject<Date>()
+    public let datePicked: Driver<Date>
+    public let shouldClose: Driver<Void>
 
-    init(
+    public init(
         title: String = "",
         minimumDate: Date? = nil,
         maximumDate: Date = Date()

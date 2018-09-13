@@ -14,14 +14,14 @@ public protocol EventsContainerViewModel {
     var shouldRouteFilters: Driver<Void> { get }
 }
 
-final class EventsContainerViewModelImpl: EventsContainerViewModel, ReactiveCompatible {
-    let listEventsViewModel: ListEventsViewModel
-    let mapEventsViewModel: MapEventsViewModel
-    let eventsPaginator: Paginator<Event>
-    let filtersTrigger = PublishSubject<Void>()
-    let shouldRouteFilters: Driver<Void>
+public final class EventsContainerViewModelImpl: EventsContainerViewModel, ReactiveCompatible {
+    public let listEventsViewModel: ListEventsViewModel
+    public let mapEventsViewModel: MapEventsViewModel
+    public let eventsPaginator: Paginator<Event>
+    public let filtersTrigger = PublishSubject<Void>()
+    public let shouldRouteFilters: Driver<Void>
     
-    init(
+    public init(
         eventsService: EventsService,
         eventsFiltersStorage: EventsFiltersStorage,
         imageLoaderService: ImageLoaderService

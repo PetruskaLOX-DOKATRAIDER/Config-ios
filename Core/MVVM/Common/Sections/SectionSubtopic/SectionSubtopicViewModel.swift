@@ -10,10 +10,10 @@ protocol SectionSubtopicViewModel: SectionSubtopicViewModelType {
     var message: Driver<String> { get }
 }
 
-struct SectionSubtopicViewModelImpl: SectionSubtopicViewModel, ReactiveCompatible {
-    let message: Driver<String>
+public struct SectionSubtopicViewModelImpl: SectionSubtopicViewModel, ReactiveCompatible {
+    public let message: Driver<String>
     
-    init(message: String = "") {
+    public init(message: String = "") {
         self.message = .just(message)
     }
 }

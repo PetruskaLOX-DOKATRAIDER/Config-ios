@@ -24,7 +24,7 @@ public final class PlayerBannerItemViewModelImpl: PlayerBannerItemViewModel, Rea
             switch date.daysBetweenDate(Date()) ?? 0 {
             case 0, 1: return Strings.PlayerBanner.updatedToday
             case 2: return Strings.PlayerBanner.updatedYesterday
-            case 3...30: return Strings.PlayerBanner.updatedPrefix + " " + DateFormatters.default.string(from: date)
+            case 3...30: return Strings.PlayerBanner.updatedPrefix + " " + DateFormatters.`default`.string(from: date)
             default: return Strings.PlayerBanner.updatedLongTime
             }
         }
