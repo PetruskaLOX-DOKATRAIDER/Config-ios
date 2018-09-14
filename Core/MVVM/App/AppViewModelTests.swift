@@ -18,7 +18,7 @@ class AppViewModelTests: BaseTestCase {
                 sut = AppViewModelImpl(userStorage: userStorage)
             }
             
-            describe("when did become active trigger", {
+            describe("when calling become active") {
                 let tutorialObserver = self.scheduler.createObserver(Void.self)
                 let appObserver = self.scheduler.createObserver(Void.self)
                 beforeEach {
@@ -27,27 +27,27 @@ class AppViewModelTests: BaseTestCase {
                 }
                 
                 context("and onboarding is passed") {
-                    it("should route to app", closure: {
-                        let tutorialObserver = self.scheduler.createObserver(Void.self)
-                        let appObserver = self.scheduler.createObserver(Void.self)
-                        sut.shouldRouteTutorial.drive(tutorialObserver).disposed(by: self.disposeBag)
-                        sut.shouldRouteApp.drive(appObserver).disposed(by: self.disposeBag)
-                        
+                    it("should route to app") {
                         userStorage.isOnboardingPassed.accept(true)
+                        
                         sut.didBecomeActiveTrigger.onNext(())
+                        
                         expect(tutorialObserver.events.count).to(equal(0))
                         expect(appObserver.events.count).to(equal(1))
-                    })
+                    }
                 }
+                
                 context("and onboarding is not passed") {
-                    it("should route to tutorial", closure: {
+                    it("should route to tutorial") {
                         userStorage.isOnboardingPassed.accept(false)
+                        
                         sut.didBecomeActiveTrigger.onNext(())
+                        
                         expect(tutorialObserver.events.count).to(equal(1))
                         expect(appObserver.events.count).to(equal(1))
-                    })
+                    }
                 }
-            })
+            }
         }
     }
 }

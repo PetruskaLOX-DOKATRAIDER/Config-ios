@@ -56,3 +56,13 @@ public final class TeamsServiceImpl: TeamsService, ReactiveCompatible {
          return teamsStorage.get().map{ Result(value: Page.new(content: $0, index: 1, totalPages: 1)) }
     }
 }
+
+extension TeamsServiceError: Equatable {
+    public static func == (lhs: TeamsServiceError, rhs: TeamsServiceError) -> Bool {
+        switch (lhs, rhs) {
+        case (.serverError, .serverError): return true
+        case (.unknown, .unknown): return true
+        default: return false
+        }
+    }
+}

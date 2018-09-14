@@ -25,7 +25,7 @@ public final class TextFieldViewModelImpl: TextFieldViewModel {
         self.placeholder = .just(placeholder)
     }
     
-    init(
+    public init(
         text: String = "",
         placeholder: String = ""
     ) {

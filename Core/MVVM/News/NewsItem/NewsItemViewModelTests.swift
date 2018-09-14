@@ -11,21 +11,20 @@ import TestsHelper
 class NewsItemViewModelTests: BaseTestCase {
     override func spec() {
         describe("NewsItemViewModel") {
-            describe("when create NewsItemViewModel", {
-                context("with some parameters") {
-                    it("should have valid properties", closure: {
-                        let news = NewsPreview.new(
-                            title: String.random(),
-                            coverImageURL: URL.new(),
-                            detailsURL: nil,
-                            id: 0
-                        )
-                        let sut = NewsItemViewModelImpl(news: news)
-                        try? expect(sut.title.toBlocking().first()).to(equal(news.title))
-                        try? expect(sut.coverImage.filterNil().toBlocking().first()).to(equal(news.coverImageURL))
-                    })
+            describe("when ask proporties") {
+                it("should have valid properties") {
+                    let news = NewsPreview.new(
+                        title: String.random(),
+                        coverImageURL: URL.new(),
+                        detailsURL: nil,
+                        id: 0
+                    )
+                    let sut = NewsItemViewModelImpl(news: news)
+                    
+                    try? expect(sut.title.toBlocking().first()).to(equal(news.title))
+                    try? expect(sut.coverImage.filterNil().toBlocking().first()).to(equal(news.coverImageURL))
                 }
-            })
+            }
         }
     }
 }

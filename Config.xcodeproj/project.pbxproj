@@ -173,6 +173,7 @@
 		7C9D66E3214AAB2900101F57 /* SectionTopicViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9D66D6214A6BD600101F57 /* SectionTopicViewModelTests.swift */; };
 		7C9D66E4214AAB5900101F57 /* SectionSubtopicViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9D66D8214A6BE900101F57 /* SectionSubtopicViewModelTests.swift */; };
 		7C9D66E5214AAB8900101F57 /* SectionItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9D66DA214A6BF800101F57 /* SectionItemViewModelTests.swift */; };
+		7C9D66E6214AAC2400101F57 /* EventItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D892101EF2700844B11 /* EventItemViewModelTests.swift */; };
 		7CA5526921008CA50097E866 /* PlayerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5526821008CA50097E866 /* PlayerPreview.swift */; };
 		7CA5526B21008CC90097E866 /* PlayerDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5526A21008CC90097E866 /* PlayerDescription.swift */; };
 		7CA5526F21008E090097E866 /* PlayerBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5526E21008E090097E866 /* PlayerBanner.swift */; };
@@ -205,7 +206,6 @@
 		7CAE6D842101E68400844B11 /* ListEventsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D7C2101E08D00844B11 /* ListEventsViewModelTests.swift */; };
 		7CAE6D852101E68E00844B11 /* EventsContainerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D682101E00300844B11 /* EventsContainerViewModelTests.swift */; };
 		7CAE6D882101EF1500844B11 /* EventItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D872101EF1500844B11 /* EventItemViewModel.swift */; };
-		7CAE6D8A2101EF2700844B11 /* EventItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D892101EF2700844B11 /* EventItemViewModelTests.swift */; };
 		7CAE6D8C2101EF3200844B11 /* EventItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D8B2101EF3200844B11 /* EventItemCell.swift */; };
 		7CAE6D8E2101EF3C00844B11 /* EventItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CAE6D8D2101EF3C00844B11 /* EventItemCell.xib */; };
 		7CAE6D902101F0F100844B11 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D8F2101F0F100844B11 /* Event.swift */; };
@@ -2706,6 +2706,7 @@
 				7C9D66E4214AAB5900101F57 /* SectionSubtopicViewModelTests.swift in Sources */,
 				C0F867B4202C4B3A00D15CDA /* BaseTestCase.swift in Sources */,
 				C02C4600202C87EC008AE9B0 /* JSONDeserializationFactoryTests.swift in Sources */,
+				7C9D66E6214AAC2400101F57 /* EventItemViewModelTests.swift in Sources */,
 				7C87DF522148FC2000144690 /* TutorialItemViewModelTests.swift in Sources */,
 				7C9D66E5214AAB8900101F57 /* SectionItemViewModelTests.swift in Sources */,
 				A8D09DDD2036DCB70057F9D9 /* TwoWayBindingTests.swift in Sources */,
@@ -2841,7 +2842,6 @@
 				7CDB87F6211470F7007E49AC /* EventsService.swift in Sources */,
 				7C11D39620FCC1E800FC8599 /* API+Teams.swift in Sources */,
 				7C1D76DF2108679B0021A4CF /* TextFieldViewModel.swift in Sources */,
-				7CAE6D8A2101EF2700844B11 /* EventItemViewModelTests.swift in Sources */,
 				7C0530ED211337E100924C1B /* FavoritePlayersViewModelTests.swift in Sources */,
 				7CFA24E120D932C80059378F /* NewsViewController.swift in Sources */,
 				7C29AC05210731EF00DF6DCB /* EventDescriptionViewModel.swift in Sources */,

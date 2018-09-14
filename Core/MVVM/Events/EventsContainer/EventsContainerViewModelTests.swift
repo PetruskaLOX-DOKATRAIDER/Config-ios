@@ -15,7 +15,6 @@ class EventsContainerViewModelTests: BaseTestCase {
             let eventsFiltersStorage = EventsFiltersStorageMock(startDate: BehaviorRelay(value: nil), finishDate: BehaviorRelay(value: nil), maxCountOfTeams: BehaviorRelay(value: nil), minPrizePool: BehaviorRelay(value: nil))
             let imageLoaderService = ImageLoaderServiceMock()
             var sut: EventsContainerViewModel!
-            
             let event = Event.new(
                 name: String.random(),
                 city: String.random(),
@@ -31,22 +30,28 @@ class EventsContainerViewModelTests: BaseTestCase {
             let content = [event]
             
             beforeEach {
-                eventsService.getPageReturnValue = .just(Result(value: Page.new(content: content, index: 1, totalPages: 1)))
-                sut = EventsContainerViewModelImpl(eventsService: eventsService, eventsFiltersStorage: eventsFiltersStorage, imageLoaderService: imageLoaderService)
+                eventsService.getPageReturnValue = .just(
+                    Result(value: Page.new(content: content, index: 1, totalPages: 1))
+                )
+                sut = EventsContainerViewModelImpl(
+                    eventsService: eventsService,
+                    eventsFiltersStorage: eventsFiltersStorage,
+                    imageLoaderService: imageLoaderService
+                )
             }
             
-            describe("when asked to load user") {
+            describe("when calling load events did trigger") {
                 context("and receives data") {
-                    it("should update paginator by loaded events", closure: {
+                    it("should update paginator by loaded events") {
                         expect(sut.eventsPaginator.elements.value.count).to(equal(content.count))
                         expect(sut.eventsPaginator.elements.value.first?.name).to(equal(event.name))
                         expect(sut.eventsPaginator.elements.value.first?.city).to(equal(event.city))
-                    })
+                    }
                 }
             }
             
             describe("when filters updated") {
-                it("should update events with dalay", closure: {
+                it("should update events with dalay") {
                     let observer = self.scheduler.createObserver(Void.self)
                     sut.eventsPaginator.refreshTrigger.asDriver(onErrorJustReturn: ()).drive(observer).disposed(by: self.disposeBag)
                     eventsFiltersStorage.finishDate.accept(nil)
@@ -57,16 +62,16 @@ class EventsContainerViewModelTests: BaseTestCase {
                     expect(observer.events.count).toEventually(equal(3), timeout: 3)
                     eventsFiltersStorage.minPrizePool.accept(nil)
                     expect(observer.events.count).toEventually(equal(4), timeout: 4)
-                })
+                }
             }
             
-            describe("when filters trigger") {
-                it("should route to filters", closure: {
+            describe("when calling filters did trigger") {
+                it("should route to filters") {
                     let observer = self.scheduler.createObserver(Void.self)
                     sut.shouldRouteFilters.drive(observer).disposed(by: self.disposeBag)
                     sut.filtersTrigger.onNext(())
                     expect(observer.events.count).to(equal(1))
-                })
+                }
             }
         }
     }

@@ -11,20 +11,19 @@ import TestsHelper
 class TutorialItemViewModelTests: BaseTestCase {
     override func spec() {
         describe("TutorialItemViewModel") {
-            describe("when create TutorialItemViewModel", {
-                context("with some parameters") {
-                    it("should have valid properties", closure: {
-                        let title = String.random()
-                        let description = String.random()
-                        let coverImage = Images.Profile.skins
-                        
-                        let sut = TutorialItemViewModelImpl(title: title, description: description, coverImage: coverImage)
-                        try? expect(sut.title.toBlocking().first()).to(equal(title))
-                        try? expect(sut.description.toBlocking().first()).to(equal(description))
-                        try? expect(sut.coverImage.toBlocking().first()).to(equal(coverImage))
-                    })
+            describe("when ask proporties") {
+                it("should return valid proporties") {
+                    let title = String.random()
+                    let description = String.random()
+                    let coverImage = Images.Profile.skins
+                    
+                    let sut = TutorialItemViewModelImpl(title: title, description: description, coverImage: coverImage)
+                    
+                    try? expect(sut.title.toBlocking().first()).to(equal(title))
+                    try? expect(sut.description.toBlocking().first()).to(equal(description))
+                    try? expect(sut.coverImage.toBlocking().first()).to(equal(coverImage))
                 }
-            })
+            }
         }
     }
 }

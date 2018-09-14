@@ -18,8 +18,8 @@ class TeamsViewModelTests: BaseTestCase {
                 sut = TeamsViewModelImpl(teamsService: teamsService, playersBannerViewModel: PlayersBannerViewModelImpl(bannerService: BannerServiceMock()))
             }
             
-            describe("when refresh trigger") {
-                context("and TeamsService successfully return teams") {
+            describe("when calling refresh did trigger") {
+                context("and retrieving data") {
                     let player1 = PlayerPreview.new(
                         nickname: String.random(),
                         profileImageSize: ImageSize.new(height: 0, weight: 0),
@@ -50,8 +50,9 @@ class TeamsViewModelTests: BaseTestCase {
                         teamsService.getPageReturnValue = .just(Result(value: Page.new(content: content, index: 0, totalPages: 0)))
                     }
                     
-                    it("should return valid items", closure: {
+                    it("should return teams") {
                         sut.teamsPaginator.refreshTrigger.onNext(())
+                        
                         try? expect(sut.teamsPaginator.elements.toBlocking().first()?.count).to(equal(content.count))
                         try? expect(sut.teamsPaginator.elements.toBlocking().first()?.first?.name.toBlocking().first()).to(equal(team1.name))
                         try? expect(sut.teamsPaginator.elements.toBlocking().first()?.first?.logoURL.filterNil().toBlocking().first()).to(beNil())
@@ -62,42 +63,48 @@ class TeamsViewModelTests: BaseTestCase {
                         let playerVM = try? sut.teamsPaginator.elements.toBlocking().first()?.first?.players.first
                         try? expect(playerVM??.nickname.toBlocking().first()).to(equal(player1.nickname))
                         try? expect(playerVM??.avatarURL.filterNil().toBlocking().first()).to(equal(player1.avatarURL))
-                    })
+                    }
                     
-                    describe("when player item selection trigger") {
-                        it("should route to player description", closure: {
+                    describe("when calling player did trigger") {
+                        it("should route to valid player") {
                             let observer = self.scheduler.createObserver(Int.self)
                             sut.shouldRouteDescription.drive(observer).disposed(by: self.disposeBag)
                             sut.teamsPaginator.refreshTrigger.onNext(())
                             let playerItemVM = try? sut.teamsPaginator.elements.toBlocking().first()?.first?.players.first
+                            
                             playerItemVM??.selectionTrigger.onNext(())
+                            
                             try? expect(sut.shouldRouteDescription.toBlocking().first()).to(equal(player1.id))
-                        })
+                        }
                     }
                 }
                 
-                context("and PlayersService failed to return players") {
+                context("and retrieving error") {
                     beforeEach {
                         teamsService.getPageReturnValue = .just(Result(error: .unknown))
                     }
                     
-                    it("should show error message", closure: {
+                    it("should show error message") {
                         let observer = self.scheduler.createObserver(MessageViewModel.self)
                         sut.messageViewModel.drive(observer).disposed(by: self.disposeBag)
+                        
                         sut.teamsPaginator.refreshTrigger.onNext(())
+                        
                         let messageVM = try? sut.messageViewModel.toBlocking().first()
                         try? expect(messageVM??.title.toBlocking(timeout: 1).first()).to(equal(Strings.Errors.error))
-                    })
+                    }
                 }
             }
             
-            describe("when profile trigger") {
-                it("should route to profile", closure: {
+            describe("when calling profile did trigger") {
+                it("should route to profile") {
                     let observer = self.scheduler.createObserver(Void.self)
                     sut.shouldRouteProfile.drive(observer).disposed(by: self.disposeBag)
+                    
                     sut.profileTrigger.onNext(())
+                    
                     expect(observer.events.count).to(equal(1))
-                })
+                }
             }
         }
     }
