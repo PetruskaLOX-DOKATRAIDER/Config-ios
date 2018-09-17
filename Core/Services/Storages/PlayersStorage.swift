@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol PlayersStorage {
+public protocol PlayersStorage: AutoMockable {
     func updatePreview(withNew players: [PlayerPreview]) -> Driver<Void>
     func getPreview() -> Driver<[PlayerPreview]>
     func updateDescription(withNew player: PlayerDescription) -> Driver<Void>

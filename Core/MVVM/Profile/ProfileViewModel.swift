@@ -27,7 +27,7 @@ public final class ProfileViewModelImpl: ProfileViewModel {
     public let shouldSendFeedback: Driver<Void>
     public let shouldShare: Driver<ShareItem>
     
-    init(
+    public init(
         appEnvironment: AppEnvironment,
         playersStorage: PlayersStorage,
         imageLoaderService: ImageLoaderService,

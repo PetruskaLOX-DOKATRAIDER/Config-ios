@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-protocol FavoritePlayersItemViewModel: SectionItemViewModelType {
+public protocol FavoritePlayersItemViewModel: SectionItemViewModelType {
     var countOfPlayers: Driver<String> { get }
     var selectionTrigger: PublishSubject<Void> { get }
 }
@@ -15,7 +15,7 @@ public final class FavoritePlayersItemViewModelImpl: FavoritePlayersItemViewMode
     public let countOfPlayers: Driver<String>
     public let selectionTrigger = PublishSubject<Void>()
     
-    init(playersStorage: PlayersStorage) {
+    public init(playersStorage: PlayersStorage) {
         countOfPlayers = playersStorage.getFavoritePreview()
             .map{ $0.isEmpty ? Strings.Favoriteplayers.NoContent.title : Strings.Favoriteplayers.playersCount($0.count) }
     }

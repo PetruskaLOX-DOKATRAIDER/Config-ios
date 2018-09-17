@@ -99,6 +99,9 @@
 		7C4218642142A9B500F81601 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4218632142A9B500F81601 /* String+extensions.swift */; };
 		7C42DA38214F988300E34757 /* EventItemAnnotationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D1121061A4A002CA594 /* EventItemAnnotationViewModelTests.swift */; };
 		7C42DA39214F9D1F00E34757 /* MapEventsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D732101E07A00844B11 /* MapEventsViewModelTests.swift */; };
+		7C42DA3A214FD11F00E34757 /* FavoritePlayersItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED8107212AEF1700555E7F /* FavoritePlayersItemViewModelTests.swift */; };
+		7C42DA3B214FD48100E34757 /* StorageSetupViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED80FE212AD4EF00555E7F /* StorageSetupViewModelTests.swift */; };
+		7C42DA3C214FF72100E34757 /* ProfileEmailItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED80E5212AD44D00555E7F /* ProfileEmailItemViewModelTests.swift */; };
 		7C46053B2109E5D600DA0724 /* Numeric+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C46053A2109E5D600DA0724 /* Numeric+extensions.swift */; };
 		7C46053D2109F72300DA0724 /* EventFilterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C46053C2109F72300DA0724 /* EventFilterItemView.swift */; };
 		7C46053F2109F72E00DA0724 /* EventFilterItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C46053E2109F72E00DA0724 /* EventFilterItemView.xib */; };
@@ -276,11 +279,8 @@
 		7CE76E4420EA5848009422EF /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C16FCD120DE7F3D000E7079 /* AppEnvironment.swift */; };
 		7CE76E4620EA5CED009422EF /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE76E4520EA5CED009422EF /* PinterestLayout.swift */; };
 		7CED80E4212AD44100555E7F /* ProfileEmailItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED80E3212AD44100555E7F /* ProfileEmailItemViewModel.swift */; };
-		7CED80E6212AD44D00555E7F /* ProfileEmailItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED80E5212AD44D00555E7F /* ProfileEmailItemViewModelTests.swift */; };
 		7CED80FD212AD4E500555E7F /* StorageSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED80FC212AD4E500555E7F /* StorageSetupViewModel.swift */; };
-		7CED80FF212AD4EF00555E7F /* StorageSetupViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED80FE212AD4EF00555E7F /* StorageSetupViewModelTests.swift */; };
 		7CED8106212AEF0D00555E7F /* FavoritePlayersItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED8105212AEF0D00555E7F /* FavoritePlayersItemViewModel.swift */; };
-		7CED8108212AEF1700555E7F /* FavoritePlayersItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED8107212AEF1700555E7F /* FavoritePlayersItemViewModelTests.swift */; };
 		7CEEE56F210B396600BE106E /* PlayerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CEEE56E210B396600BE106E /* PlayerInfoView.xib */; };
 		7CEEE571210B397000BE106E /* PlayerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEE570210B397000BE106E /* PlayerInfoView.swift */; };
 		7CEEE580210B3EB100BE106E /* PlayerInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEE57C210B3EB100BE106E /* PlayerInfoPageViewController.swift */; };
@@ -2682,7 +2682,9 @@
 				7C9D66D5214A6BC400101F57 /* SectionViewModelTests.swift in Sources */,
 				7CFA250720D935930059378F /* PlayersViewModelTests.swift in Sources */,
 				7CFA250320D935890059378F /* NewsViewModelTests.swift in Sources */,
+				7C42DA3C214FF72100E34757 /* ProfileEmailItemViewModelTests.swift in Sources */,
 				C02C4648202D8E4B008AE9B0 /* PaginatorTests.swift in Sources */,
+				7C42DA3A214FD11F00E34757 /* FavoritePlayersItemViewModelTests.swift in Sources */,
 				7C42186121429DE400F81601 /* AutoRouterTests.generated.swift in Sources */,
 				7C87DF55214902D700144690 /* PlayerPreviewViewModelTests.swift in Sources */,
 				C02C461E202C8AF8008AE9B0 /* DictionaryErrorTests.swift in Sources */,
@@ -2711,6 +2713,7 @@
 				7C9D66E6214AAC2400101F57 /* EventItemViewModelTests.swift in Sources */,
 				7C87DF522148FC2000144690 /* TutorialItemViewModelTests.swift in Sources */,
 				7C9D66E5214AAB8900101F57 /* SectionItemViewModelTests.swift in Sources */,
+				7C42DA3B214FD48100E34757 /* StorageSetupViewModelTests.swift in Sources */,
 				A8D09DDD2036DCB70057F9D9 /* TwoWayBindingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2747,7 +2750,6 @@
 				7C6A927D2141519B001A0A7D /* PlayerInfoViewModel.swift in Sources */,
 				7CB97D1021061A40002CA594 /* EventItemAnnotationViewModel.swift in Sources */,
 				7CEEE571210B397000BE106E /* PlayerInfoView.swift in Sources */,
-				7CED80E6212AD44D00555E7F /* ProfileEmailItemViewModelTests.swift in Sources */,
 				7C4D9749212EF4C10001A93A /* HighlightText.swift in Sources */,
 				7CB97D1621061BC6002CA594 /* CLLocationCoordinate2D+extensions.swift in Sources */,
 				7CAE6D792101E07A00844B11 /* MapEventsViewController.swift in Sources */,
@@ -2785,7 +2787,6 @@
 				7C9105C320FC806300970FA7 /* PlayersBannerViewModelTests.swift in Sources */,
 				7CDE34BB20DD246F0055F304 /* PlayerPreviewViewModel.swift in Sources */,
 				7C3722342110B3BB00A5D525 /* NewsItemViewModel.swift in Sources */,
-				7CED80FF212AD4EF00555E7F /* StorageSetupViewModelTests.swift in Sources */,
 				7CDAF96120D7ED55009B9B87 /* UserStorage.swift in Sources */,
 				7C1D76E9210868C00021A4CF /* PickerViewModel.swift in Sources */,
 				7C9105DC20FC93AB00970FA7 /* PlayerInTeamView.swift in Sources */,
@@ -2865,7 +2866,6 @@
 				7CED80E4212AD44100555E7F /* ProfileEmailItemViewModel.swift in Sources */,
 				7CAE6D8C2101EF3200844B11 /* EventItemCell.swift in Sources */,
 				C02C4636202CA722008AE9B0 /* AppViewModel.swift in Sources */,
-				7CED8108212AEF1700555E7F /* FavoritePlayersItemViewModelTests.swift in Sources */,
 				7CA552882100B8A40097E866 /* UIColor+themeColors.swift in Sources */,
 				7CAE6D6E2101E00300844B11 /* EventsContainerViewController.swift in Sources */,
 				7C4D9736212ECC750001A93A /* SkinsViewModel.swift in Sources */,

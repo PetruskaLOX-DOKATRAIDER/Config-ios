@@ -15,7 +15,7 @@ public final class StorageSetupViewModelImpl: StorageSetupViewModel {
     public let clearTrigger = PublishSubject<Void>()
     public let cacheСleared: Driver<Void>
     
-    init(imageLoaderService: ImageLoaderService) {
+    public init(imageLoaderService: ImageLoaderService) {
         cacheСleared = clearTrigger.asDriver(onErrorJustReturn: ()).map{ imageLoaderService.clearCache() }
     }
 }
