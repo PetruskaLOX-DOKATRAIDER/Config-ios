@@ -35,7 +35,7 @@ public final class MapEventsViewModelImpl: MapEventsViewModel, ReactiveCompatibl
             itemTrigger.asDriver(onErrorJustReturn: nil).filterNil().map(to: true)
         ).startWith(false)
         let eventDescriptionVM = EventDescriptionViewModelImpl()
-        self.eventDescriptionViewModel = eventDescriptionVM
+        self.eventDescriptionViewModel = EventDescriptionViewModelImpl()
         itemTrigger.asDriver(onErrorJustReturn: nil).filterNil().drive(eventDescriptionVM.eventTrigger).disposed(by: rx.disposeBag)
     }
 }

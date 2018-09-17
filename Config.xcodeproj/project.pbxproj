@@ -97,6 +97,8 @@
 		7C42186121429DE400F81601 /* AutoRouterTests.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C42185C21429D5000F81601 /* AutoRouterTests.generated.swift */; };
 		7C42186221429E4700F81601 /* ImagesTests.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED465A5203492090015DAF6 /* ImagesTests.generated.swift */; };
 		7C4218642142A9B500F81601 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4218632142A9B500F81601 /* String+extensions.swift */; };
+		7C42DA38214F988300E34757 /* EventItemAnnotationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D1121061A4A002CA594 /* EventItemAnnotationViewModelTests.swift */; };
+		7C42DA39214F9D1F00E34757 /* MapEventsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D732101E07A00844B11 /* MapEventsViewModelTests.swift */; };
 		7C46053B2109E5D600DA0724 /* Numeric+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C46053A2109E5D600DA0724 /* Numeric+extensions.swift */; };
 		7C46053D2109F72300DA0724 /* EventFilterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C46053C2109F72300DA0724 /* EventFilterItemView.swift */; };
 		7C46053F2109F72E00DA0724 /* EventFilterItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C46053E2109F72E00DA0724 /* EventFilterItemView.xib */; };
@@ -196,7 +198,6 @@
 		7CAE6D6D2101E00300844B11 /* EventsContainerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CAE6D692101E00300844B11 /* EventsContainerViewController.storyboard */; };
 		7CAE6D6E2101E00300844B11 /* EventsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D6A2101E00300844B11 /* EventsContainerViewController.swift */; };
 		7CAE6D6F2101E00300844B11 /* EventsContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D6B2101E00300844B11 /* EventsContainerViewModel.swift */; };
-		7CAE6D772101E07A00844B11 /* MapEventsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D732101E07A00844B11 /* MapEventsViewModelTests.swift */; };
 		7CAE6D782101E07A00844B11 /* MapEventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CAE6D742101E07A00844B11 /* MapEventsViewController.storyboard */; };
 		7CAE6D792101E07A00844B11 /* MapEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D752101E07A00844B11 /* MapEventsViewController.swift */; };
 		7CAE6D7A2101E07A00844B11 /* MapEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE6D762101E07A00844B11 /* MapEventsViewModel.swift */; };
@@ -217,7 +218,6 @@
 		7CB5C0CB21399609002A6D20 /* CoreDataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF720EE3B890046C818 /* CoreDataStorage.xcdatamodel */; };
 		7CB97D0E21061A39002CA594 /* EventItemAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D0D21061A39002CA594 /* EventItemAnnotationView.swift */; };
 		7CB97D1021061A40002CA594 /* EventItemAnnotationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D0F21061A40002CA594 /* EventItemAnnotationViewModel.swift */; };
-		7CB97D1221061A4A002CA594 /* EventItemAnnotationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D1121061A4A002CA594 /* EventItemAnnotationViewModelTests.swift */; };
 		7CB97D1421061AB5002CA594 /* NSObject+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D1321061AB5002CA594 /* NSObject+extensions.swift */; };
 		7CB97D1621061BC6002CA594 /* CLLocationCoordinate2D+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D1521061BC6002CA594 /* CLLocationCoordinate2D+extensions.swift */; };
 		7CB97D1E210622E4002CA594 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D1D210622E4002CA594 /* ImageDownloader.swift */; };
@@ -1384,8 +1384,8 @@
 		7CAE6D722101E06400844B11 /* MapEvents */ = {
 			isa = PBXGroup;
 			children = (
-				7C29AC01210731A500DF6DCB /* EventDescription */,
 				7CB97D0C210619C9002CA594 /* AnnotationEventItem */,
+				7C29AC01210731A500DF6DCB /* EventDescription */,
 				7CAE6D762101E07A00844B11 /* MapEventsViewModel.swift */,
 				7CAE6D732101E07A00844B11 /* MapEventsViewModelTests.swift */,
 				7CAE6D752101E07A00844B11 /* MapEventsViewController.swift */,
@@ -2698,6 +2698,7 @@
 				7C9D66CC214A6B5100101F57 /* AlertViewModelTests.swift in Sources */,
 				7C168FBA213FEF53004D2208 /* EventDescriptionViewModelTests.swift in Sources */,
 				7C87DF5B2149573900144690 /* EventFilterItemViewModelTests.swift in Sources */,
+				7C42DA39214F9D1F00E34757 /* MapEventsViewModelTests.swift in Sources */,
 				7CFA250620D935910059378F /* TeamsViewModelTests.swift in Sources */,
 				C02C4637202CA726008AE9B0 /* AppViewModelTests.swift in Sources */,
 				7C9D66D2214A6B9F00101F57 /* UIAlertControllerFactoryTests.swift in Sources */,
@@ -2706,6 +2707,7 @@
 				7C9D66E4214AAB5900101F57 /* SectionSubtopicViewModelTests.swift in Sources */,
 				C0F867B4202C4B3A00D15CDA /* BaseTestCase.swift in Sources */,
 				C02C4600202C87EC008AE9B0 /* JSONDeserializationFactoryTests.swift in Sources */,
+				7C42DA38214F988300E34757 /* EventItemAnnotationViewModelTests.swift in Sources */,
 				7C9D66E6214AAC2400101F57 /* EventItemViewModelTests.swift in Sources */,
 				7C87DF522148FC2000144690 /* TutorialItemViewModelTests.swift in Sources */,
 				7C9D66E5214AAB8900101F57 /* SectionItemViewModelTests.swift in Sources */,
@@ -2822,7 +2824,6 @@
 				7CAE6D6F2101E00300844B11 /* EventsContainerViewModel.swift in Sources */,
 				7CFA24FA20D932E70059378F /* TeamsViewModel.swift in Sources */,
 				7CFA250120D932EF0059378F /* PlayersViewController.swift in Sources */,
-				7CAE6D772101E07A00844B11 /* MapEventsViewModelTests.swift in Sources */,
 				7CAE6D882101EF1500844B11 /* EventItemViewModel.swift in Sources */,
 				7C880071212D5DB4002F049A /* SectionTopicViewModel.swift in Sources */,
 				7CAB611420F5FB62003F4276 /* ReachabilityService.swift in Sources */,
@@ -2907,7 +2908,6 @@
 				7C9105D120FC8FC100970FA7 /* TeamItemCell.swift in Sources */,
 				7CAE6D622101DF6400844B11 /* UIPageViewController+extensions.swift in Sources */,
 				7CDAF95D20D7C49D009B9B87 /* TutorialItemViewModel.swift in Sources */,
-				7CB97D1221061A4A002CA594 /* EventItemAnnotationViewModelTests.swift in Sources */,
 				7C1E4B63213ED1B5002EBF7F /* AnimatedTabBarController.swift in Sources */,
 				7C226EEC212C6733002DCB94 /* FavoritePlayersItemCell.swift in Sources */,
 				7C37223A2110B79500A5D525 /* NewsPreview.swift in Sources */,
