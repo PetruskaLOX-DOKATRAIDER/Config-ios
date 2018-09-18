@@ -12,6 +12,13 @@ public struct Skin {
     public let prise: Int
     public let coverImageURL: URL?
     
+    public init(name: String, gunName: String, prise: Int, coverImageURL: URL?) {
+        self.name = name
+        self.gunName = gunName
+        self.prise = prise
+        self.coverImageURL = coverImageURL
+    }
+    
     public init(
         response: String,  // ¯\_(ツ)_/¯
         coverImageApiURL: URL

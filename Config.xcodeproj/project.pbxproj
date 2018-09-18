@@ -106,12 +106,10 @@
 		7C46053D2109F72300DA0724 /* EventFilterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C46053C2109F72300DA0724 /* EventFilterItemView.swift */; };
 		7C46053F2109F72E00DA0724 /* EventFilterItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C46053E2109F72E00DA0724 /* EventFilterItemView.xib */; };
 		7C460541210A145300DA0724 /* UIDatePicker+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C460540210A145300DA0724 /* UIDatePicker+extensions.swift */; };
-		7C4D9733212ECC750001A93A /* SkinsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D972F212ECC750001A93A /* SkinsViewModelTests.swift */; };
 		7C4D9734212ECC750001A93A /* SkinsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C4D9730212ECC750001A93A /* SkinsViewController.storyboard */; };
 		7C4D9735212ECC750001A93A /* SkinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D9731212ECC750001A93A /* SkinsViewController.swift */; };
 		7C4D9736212ECC750001A93A /* SkinsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D9732212ECC750001A93A /* SkinsViewModel.swift */; };
 		7C4D9739212ED0DE0001A93A /* SkinItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D9738212ED0DE0001A93A /* SkinItemViewModel.swift */; };
-		7C4D973B212ED0E80001A93A /* SkinItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D973A212ED0E80001A93A /* SkinItemViewModelTests.swift */; };
 		7C4D973D212ED0F10001A93A /* SkinItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D973C212ED0F10001A93A /* SkinItemCell.swift */; };
 		7C4D973F212ED1000001A93A /* SkinItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C4D973E212ED1000001A93A /* SkinItemCell.xib */; };
 		7C4D9741212ED1C80001A93A /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D9740212ED1C80001A93A /* Skin.swift */; };
@@ -227,6 +225,8 @@
 		7CB97D20210629F5002CA594 /* MKMapView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D1F210629F5002CA594 /* MKMapView+extensions.swift */; };
 		7CCA5D012107254E00B50573 /* UIImage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCA5D002107254E00B50573 /* UIImage+extensions.swift */; };
 		7CCCC2252150F436000BDCBD /* FeedbackViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3B2134145000B1B238 /* FeedbackViewModelTests.swift */; };
+		7CCCC2262150F93A000BDCBD /* SkinItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D973A212ED0E80001A93A /* SkinItemViewModelTests.swift */; };
+		7CCCC2272150FEBA000BDCBD /* SkinsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D972F212ECC750001A93A /* SkinsViewModelTests.swift */; };
 		7CDAF94520D7A67E009B9B87 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */; };
 		7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94620D7A776009B9B87 /* Runes.swift */; };
 		7CDAF95920D7C0A3009B9B87 /* TutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF95520D7C0A3009B9B87 /* TutorialViewController.storyboard */; };
@@ -2697,9 +2697,11 @@
 				7C9D66E3214AAB2900101F57 /* SectionTopicViewModelTests.swift in Sources */,
 				7C9D66D1214A6B9A00101F57 /* AlertActionViewModelTests.swift in Sources */,
 				7C9D66DD214A6C0C00101F57 /* PickerViewModelTests.swift in Sources */,
+				7CCCC2272150FEBA000BDCBD /* SkinsViewModelTests.swift in Sources */,
 				7CDAF95E20D7C693009B9B87 /* TutorialViewModelTests.swift in Sources */,
 				7C9D66CC214A6B5100101F57 /* AlertViewModelTests.swift in Sources */,
 				7C168FBA213FEF53004D2208 /* EventDescriptionViewModelTests.swift in Sources */,
+				7CCCC2262150F93A000BDCBD /* SkinItemViewModelTests.swift in Sources */,
 				7C87DF5B2149573900144690 /* EventFilterItemViewModelTests.swift in Sources */,
 				7C42DA39214F9D1F00E34757 /* MapEventsViewModelTests.swift in Sources */,
 				7CFA250620D935910059378F /* TeamsViewModelTests.swift in Sources */,
@@ -2765,7 +2767,6 @@
 				7C46053D2109F72300DA0724 /* EventFilterItemView.swift in Sources */,
 				7CA5526921008CA50097E866 /* PlayerPreview.swift in Sources */,
 				7C880079212D5E07002F049A /* SectionSubtopicViewModel.swift in Sources */,
-				7C4D9733212ECC750001A93A /* SkinsViewModelTests.swift in Sources */,
 				7CAE6D9621020FE500844B11 /* API+Events.swift in Sources */,
 				7C0530EF211337E100924C1B /* FavoritePlayersViewController.swift in Sources */,
 				C0F8681D202C6A0600D15CDA /* AutoPublicInitMarker.swift in Sources */,
@@ -2878,7 +2879,6 @@
 				7CDD6C3121340DED00B1B238 /* ShareItem.swift in Sources */,
 				7C9105C120FC805900970FA7 /* PlayersBannerViewModel.swift in Sources */,
 				7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */,
-				7C4D973B212ED0E80001A93A /* SkinItemViewModelTests.swift in Sources */,
 				7CB97D20210629F5002CA594 /* MKMapView+extensions.swift in Sources */,
 				C02C4663202D9A09008AE9B0 /* Attributer.swift in Sources */,
 				7C29AC16210758B800DF6DCB /* EventsFiltersStorage.swift in Sources */,

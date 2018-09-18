@@ -35,7 +35,7 @@ public final class SkinsViewModelImpl: SkinsViewModel {
             .map{ $0.reversed() }
             .startWith([])
         
-        let search = searchTrigger.asDriver(onErrorJustReturn: nil).distinctUntilChanged().throttle(0.3)
+        let search = searchTrigger.asDriver(onErrorJustReturn: nil).startWith(nil).distinctUntilChanged().throttle(0.3)
         skins = Driver.combineLatest(newSkins, search) { skins, searchText -> [Skin] in
             guard let search = searchText, search.isNotEmpty else { return skins }
             return skins.filter{ $0.name.containsIgnoringCase(find: search) }

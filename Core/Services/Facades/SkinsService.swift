@@ -11,7 +11,7 @@ public enum SkinsServiceError: Error {
     case unknown
 }
 
-public protocol SkinsService {
+public protocol SkinsService: AutoMockable {
     func subscribeForNewSkins() -> DriverResult<Skin, SkinsServiceError>
 }
 
