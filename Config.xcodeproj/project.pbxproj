@@ -226,6 +226,7 @@
 		7CB97D1E210622E4002CA594 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D1D210622E4002CA594 /* ImageDownloader.swift */; };
 		7CB97D20210629F5002CA594 /* MKMapView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB97D1F210629F5002CA594 /* MKMapView+extensions.swift */; };
 		7CCA5D012107254E00B50573 /* UIImage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCA5D002107254E00B50573 /* UIImage+extensions.swift */; };
+		7CCCC2252150F436000BDCBD /* FeedbackViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3B2134145000B1B238 /* FeedbackViewModelTests.swift */; };
 		7CDAF94520D7A67E009B9B87 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94420D7A67E009B9B87 /* AutoMockable.swift */; };
 		7CDAF94720D7A776009B9B87 /* Runes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAF94620D7A776009B9B87 /* Runes.swift */; };
 		7CDAF95920D7C0A3009B9B87 /* TutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAF95520D7C0A3009B9B87 /* TutorialViewController.storyboard */; };
@@ -262,7 +263,6 @@
 		7CDCFDF420EE27E60046C818 /* PlayersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF320EE27E60046C818 /* PlayersStorage.swift */; };
 		7CDCFDF620EE37230046C818 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCFDF520EE37230046C818 /* CoreDataStack.swift */; };
 		7CDD6C3121340DED00B1B238 /* ShareItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3021340DED00B1B238 /* ShareItem.swift */; };
-		7CDD6C3F2134145000B1B238 /* FeedbackViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3B2134145000B1B238 /* FeedbackViewModelTests.swift */; };
 		7CDD6C402134145000B1B238 /* FeedbackViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3C2134145000B1B238 /* FeedbackViewController.storyboard */; };
 		7CDD6C412134145000B1B238 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3D2134145000B1B238 /* FeedbackViewController.swift */; };
 		7CDD6C422134145000B1B238 /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD6C3E2134145000B1B238 /* FeedbackViewModel.swift */; };
@@ -2687,6 +2687,7 @@
 				7C42DA3A214FD11F00E34757 /* FavoritePlayersItemViewModelTests.swift in Sources */,
 				7C42186121429DE400F81601 /* AutoRouterTests.generated.swift in Sources */,
 				7C87DF55214902D700144690 /* PlayerPreviewViewModelTests.swift in Sources */,
+				7CCCC2252150F436000BDCBD /* FeedbackViewModelTests.swift in Sources */,
 				C02C461E202C8AF8008AE9B0 /* DictionaryErrorTests.swift in Sources */,
 				7C87DF5C214958A200144690 /* EventsFilterViewModelTests.swift in Sources */,
 				A874368720330E530000FE56 /* DebuggerTests.swift in Sources */,
@@ -2775,7 +2776,6 @@
 				7CDAF95A20D7C0A3009B9B87 /* TutorialViewController.swift in Sources */,
 				C02C4645202D8E33008AE9B0 /* Paginator.swift in Sources */,
 				7C22BE162111A6C000E3F681 /* NewsDescriptionViewModel.swift in Sources */,
-				7CDD6C3F2134145000B1B238 /* FeedbackViewModelTests.swift in Sources */,
 				A8D09DDB2036DC780057F9D9 /* TwoWayBinding.swift in Sources */,
 				C02C4665202D9A70008AE9B0 /* Optional+extensions.swift in Sources */,
 				7CAE6D902101F0F100844B11 /* Event.swift in Sources */,
