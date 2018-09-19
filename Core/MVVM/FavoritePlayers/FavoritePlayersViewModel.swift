@@ -31,10 +31,9 @@ public final class FavoritePlayersViewModelImpl: FavoritePlayersViewModel {
             vm.selectionTrigger.asDriver(onErrorJustReturn: ()).map{ player.id }.drive(route).disposed(by: vm.rx.disposeBag)
             return vm
         }
-        let request = playersService.getFavoritePreview()
-        let players = request.success().map{ $0.map{ remapToViewModels(player: $0) } }
-        self.players = refreshTrigger.asDriver(onErrorJustReturn: ()).flatMapLatest{ players }
-        isContentExist = request.success().map{ $0.isNotEmpty }.startWith(true)
+        let data = refreshTrigger.asDriver(onErrorJustReturn: ()).flatMapLatest{ playersService.getFavoritePreview() }
+        players = data.success().map{ $0.map{ remapToViewModels(player: $0) } }
+        isContentExist = players.map{ $0.isNotEmpty }.startWith(true)
         shouldClose = closeTrigger.asDriver(onErrorJustReturn: ())
     }
 }

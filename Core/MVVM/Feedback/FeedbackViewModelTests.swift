@@ -20,7 +20,6 @@ class FeedbackViewModelTests: BaseTestCase {
             }
             
             describe("when calling save did trigger") {
-                
                 context("and message is not empty") {
                     it("should track message") {
                         let text = String.random()
