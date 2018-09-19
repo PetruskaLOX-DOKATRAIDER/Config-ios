@@ -11,12 +11,12 @@ public enum PhotosAlbumServiceError: Error {
     case unknown
 }
 
-public protocol PhotosAlbumService {
-    func save(_ image: UIImage) -> Observable<Result<Void, PhotosAlbumServiceError>>
+public protocol PhotosAlbumService: AutoMockable {
+    func save(image: UIImage) -> Observable<Result<Void, PhotosAlbumServiceError>>
 }
 
 public final class PhotosAlbumServiceImpl: NSObject, PhotosAlbumService {
-    public func save(_ image: UIImage) -> Observable<Result<Void, PhotosAlbumServiceError>> {
+    public func save(image: UIImage) -> Observable<Result<Void, PhotosAlbumServiceError>> {
         return Observable.create({ [weak self] observer -> Disposable in
             let container = ObserverContainer(withObserver: observer)
             let observerPointer: UnsafeMutableRawPointer = Unmanaged.passRetained(container).toOpaque()

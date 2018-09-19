@@ -25,7 +25,6 @@ public final class ImageViewerViewController: UIViewController, NonReusableViewP
     public func onUpdate(with viewModel: ImageViewerViewModel, disposeBag: DisposeBag) {
         viewModel.title.drive(rx.title).disposed(by: disposeBag)
         viewModel.imageURL.drive(imageView.rx.imageURL).disposed(by: disposeBag)
-        viewModel.isWorking.drive(view.rx.activityIndicator).disposed(by: disposeBag)
         viewModel.messageViewModel.drive(view.rx.messageView).disposed(by: disposeBag)
         shareButton.rx.tap.bind(to: viewModel.shareTrigger).disposed(by: disposeBag)
         saveButton.rx.tap.bind(to: viewModel.saveTrigger).disposed(by: disposeBag)

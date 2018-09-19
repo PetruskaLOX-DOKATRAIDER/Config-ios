@@ -24,7 +24,7 @@ public enum CameraAuthorizationStatus: Int {
     }
 }
 
-public protocol CameraService {
+public protocol CameraService: AutoMockable {
     var cameraAuthorizationStatus: CameraAuthorizationStatus { get }
 }
 

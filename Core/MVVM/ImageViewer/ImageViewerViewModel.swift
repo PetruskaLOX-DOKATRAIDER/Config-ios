@@ -9,8 +9,8 @@
 public protocol ImageViewerViewModel {
     var title: Driver<String> { get }
     var imageURL: Driver<URL> { get }
-    var isWorking: Driver<Bool> { get }
     var messageViewModel: Driver<MessageViewModel> { get }
+    var alertViewModel: Driver<AlertViewModel> { get }
     var shareTrigger: PublishSubject<Void> { get }
     var saveTrigger: PublishSubject<Void> { get }
     var browserTrigger: PublishSubject<Void> { get }
@@ -18,14 +18,14 @@ public protocol ImageViewerViewModel {
     var shouldClose: Driver<Void> { get }
     var shouldOpenURL: Driver<URL> { get }
     var shouldRouteAppSettings: Driver<Void> { get }
-    var shoudShowAlert: Driver<AlertViewModel> { get }
+    var shouldShare: Driver<ShareItem> { get }
 }
 
 public final class ImageViewerViewModelImpl: ImageViewerViewModel {
     public let title: Driver<String>
     public let imageURL: Driver<URL>
-    public let isWorking: Driver<Bool>
     public let messageViewModel: Driver<MessageViewModel>
+    public let alertViewModel: Driver<AlertViewModel>
     public let shareTrigger = PublishSubject<Void>()
     public let saveTrigger = PublishSubject<Void>()
     public let browserTrigger = PublishSubject<Void>()
@@ -33,7 +33,7 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
     public let shouldClose: Driver<Void>
     public let shouldOpenURL: Driver<URL>
     public let shouldRouteAppSettings: Driver<Void>
-    public let shoudShowAlert: Driver<AlertViewModel>
+    public let shouldShare: Driver<ShareItem>
 
     public init(
         title: String = Strings.Imageviewer.title,
@@ -50,7 +50,7 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
         let loadImage = cameraAuthorizated.flatMapLatest { imageLoaderService.loadImage(withURL: imageURL) }
         let successLoadImage = loadImage.map{ $0.value }.filterNil()
         let failureLoadImage = loadImage.map{ $0.error }.filterNil()
-        let saveImage = successLoadImage.flatMapLatest{ photosAlbumService.save($0) }
+        let saveImage = successLoadImage.flatMapLatest{ photosAlbumService.save(image: $0) }
         let failureSaveImage = saveImage.map{ $0.error }.filterNil()
         let successSaveImage = saveImage.map{ $0.value }.filterNil()
         
@@ -62,11 +62,6 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
             failureSaveImage.asDriver(onErrorJustReturn: PhotosAlbumServiceError.unknown).map(to: failureSaveImageMessage),
             successSaveImage.asDriver(onErrorJustReturn: ()).map(to: successSaveImageMessage)
         )
-        isWorking = Observable.merge(
-            cameraAuthorizated.map(to: true),
-            failureLoadImage.map(to: false),
-            saveImage.map(to: false)
-        ).startWith(false).asDriver(onErrorJustReturn: false)
         shouldClose = closeTrigger.asDriver(onErrorJustReturn: ())
         shouldOpenURL = browserTrigger.asDriver(onErrorJustReturn: ()).map(to: imageURL)
         
@@ -78,7 +73,8 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
             message: Strings.Imageviewer.CameraDenied.message,
             actions: [givePermissions, cancel]
         )
-        shoudShowAlert = cameraDenied.asDriver(onErrorJustReturn: ()).map(to: alertVM)
-        shouldRouteAppSettings = appSettings.asDriver(onErrorJustReturn: ())
+        alertViewModel = cameraDenied.asDriver(onErrorJustReturn: ()).map(to: alertVM)
+        shouldRouteAppSettings = appSettings.asDriver(onErrorJustReturn: ()).debug("xxxxxx")
+        shouldShare = shareTrigger.asDriver(onErrorJustReturn: ()).map(to: ShareItem(url: imageURL))
     }
 }

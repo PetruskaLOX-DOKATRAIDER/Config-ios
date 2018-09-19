@@ -145,8 +145,9 @@ public final class Router: ReactiveCompatible {
             nvc.addMotionTransition(.zoom)
             vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomOut).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldOpenURL.drive(strongSelf.rx.pushSafariVC).disposed(by: vc.rx.disposeBag)
-            vc.viewModel?.shoudShowAlert.drive(strongSelf.rx.presentAlertVM).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.alertViewModel.drive(strongSelf.rx.presentAlertVM).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteAppSettings.drive(onNext:{ try? strongSelf.deviceRouter.openSettings() }).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldShare.drive(strongSelf.rx.presentActivityVC).disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.`default`())
     }
     
