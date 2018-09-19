@@ -13,7 +13,7 @@ public protocol NewsTextContentItemViewModel {
 public final class NewsTextContentItemViewModelImpl: NewsTextContentItemViewModel {
     public let text: Driver<String>
     
-    init(newsTextContent: NewsTextContent) {
+    public init(newsTextContent: NewsTextContent) {
         self.text = .just(newsTextContent.text)
     }
 }

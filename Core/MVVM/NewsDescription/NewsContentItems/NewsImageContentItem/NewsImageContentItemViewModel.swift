@@ -15,7 +15,7 @@ public final class NewsImageContentItemViewModelImpl: NewsImageContentItemViewMo
     public let coverImageURL: Driver<URL?>
     public let selectionTrigger = PublishSubject<Void>()
     
-    init(newsImageContent: NewsImageContent) {
+    public init(newsImageContent: NewsImageContent) {
         coverImageURL = .just(newsImageContent.coverImageURL)
     }
 }

@@ -23,6 +23,7 @@ public protocol NewsDescriptionViewModel {
     var detailsTrigger: PublishSubject<Void> { get }
     var shareTrigger: PublishSubject<Void> { get }
     var closeTrigger: PublishSubject<Void> { get }
+    var shouldShare: Driver<ShareItem> { get }
     var shouldRouteImageViewer: Driver<URL> { get }
     var shouldClose: Driver<Void> { get }
 }
@@ -40,6 +41,7 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
     public let detailsTrigger = PublishSubject<Void>()
     public let shareTrigger = PublishSubject<Void>()
     public let closeTrigger = PublishSubject<Void>()
+    public let shouldShare: Driver<ShareItem>
     public let shouldRouteImageViewer: Driver<URL>
     public let shouldClose: Driver<Void>
     
@@ -86,5 +88,6 @@ public final class NewsDescriptionViewModelImpl: NewsDescriptionViewModel, React
             .failure()
             .map(to: MessageViewModelImpl.error())
         shouldClose = closeTrigger.asDriver(onErrorJustReturn: ())
+        shouldShare = shareTrigger.asDriver(onErrorJustReturn: ()).map(to: ShareItem(url: news.detailsURL))
     }
 }
