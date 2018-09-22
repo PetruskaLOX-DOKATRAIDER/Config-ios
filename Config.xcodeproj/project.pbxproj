@@ -306,6 +306,12 @@
 		9D41DFCBD1D070FC2D3D4882 /* Pods_TestsHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD78308B844DDD390B1D0E95 /* Pods_TestsHelper.framework */; };
 		A68E472921568DE400A05C0D /* PlayersBannerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9105C220FC806300970FA7 /* PlayersBannerViewModelTests.swift */; };
 		A68E472C21568E5400A05C0D /* PlayerBannerItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E472A21568DFA00A05C0D /* PlayerBannerItemViewModelTests.swift */; };
+		A68E47452156981900A05C0D /* PlayersServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E473C2156978B00A05C0D /* PlayersServiceTests.swift */; };
+		A68E47462156983000A05C0D /* TeamsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E472E2156971D00A05C0D /* TeamsServiceTests.swift */; };
+		A68E47472156983D00A05C0D /* NewsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E47332156973D00A05C0D /* NewsServiceTests.swift */; };
+		A68E47482156985100A05C0D /* EventsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E47312156973000A05C0D /* EventsServiceTests.swift */; };
+		A68E47492156985F00A05C0D /* SkinsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E47372156975500A05C0D /* SkinsServiceTests.swift */; };
+		A68E474A2156986E00A05C0D /* BannerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E47352156974900A05C0D /* BannerServiceTests.swift */; };
 		A6F5EB6B2156626000AC4255 /* UITextfield+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5EB6A2156626000AC4255 /* UITextfield+extensions.swift */; };
 		A6F5EB6D2156659500AC4255 /* Strings.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5EB6C215662D800AC4255 /* Strings.generated.swift */; };
 		A6F5EB6E215666C500AC4255 /* PlayerDescriptionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA552772100925E0097E866 /* PlayerDescriptionViewModelTests.swift */; };
@@ -730,6 +736,12 @@
 		9A8AEC9355FEF9F8CF34FCA9 /* Pods-AT-Core.stagingdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AT-Core.stagingdebug.xcconfig"; path = "Pods/Target Support Files/Pods-AT-Core/Pods-AT-Core.stagingdebug.xcconfig"; sourceTree = "<group>"; };
 		9F19A3CD90F23FDE291EBA53 /* Pods-TestsHelper.productionrelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestsHelper.productionrelease.xcconfig"; path = "Pods/Target Support Files/Pods-TestsHelper/Pods-TestsHelper.productionrelease.xcconfig"; sourceTree = "<group>"; };
 		A68E472A21568DFA00A05C0D /* PlayerBannerItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBannerItemViewModelTests.swift; sourceTree = "<group>"; };
+		A68E472E2156971D00A05C0D /* TeamsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsServiceTests.swift; sourceTree = "<group>"; };
+		A68E47312156973000A05C0D /* EventsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsServiceTests.swift; sourceTree = "<group>"; };
+		A68E47332156973D00A05C0D /* NewsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsServiceTests.swift; sourceTree = "<group>"; };
+		A68E47352156974900A05C0D /* BannerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerServiceTests.swift; sourceTree = "<group>"; };
+		A68E47372156975500A05C0D /* SkinsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsServiceTests.swift; sourceTree = "<group>"; };
+		A68E473C2156978B00A05C0D /* PlayersServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersServiceTests.swift; sourceTree = "<group>"; };
 		A6F5EB6A2156626000AC4255 /* UITextfield+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextfield+extensions.swift"; sourceTree = "<group>"; };
 		A6F5EB6C215662D800AC4255 /* Strings.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.generated.swift; sourceTree = "<group>"; };
 		A84BD4082031D5420060E520 /* TableViewManager+extensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewManager+extensionsTests.swift"; sourceTree = "<group>"; };
@@ -1324,12 +1336,12 @@
 		7CAB610F20F5F89E003F4276 /* Facades */ = {
 			isa = PBXGroup;
 			children = (
-				7CAB611020F5F8AD003F4276 /* PlayersService.swift */,
-				7C11D39020FCBFEE00FC8599 /* TeamsService.swift */,
-				7CAE6D9321020FB300844B11 /* EventsService.swift */,
-				7C37223B2110BA9900A5D525 /* NewsService.swift */,
-				7C5ADBFA2114AC480012C0C8 /* BannerService.swift */,
-				7C4D9742212ED4720001A93A /* SkinsService.swift */,
+				A68E473E2156979500A05C0D /* PlayersService */,
+				A68E473F2156979B00A05C0D /* TeamsService */,
+				A68E4741215697A600A05C0D /* NewsService */,
+				A68E4740215697A000A05C0D /* EventsService */,
+				A68E4743215697B100A05C0D /* SkinsService */,
+				A68E4742215697AC00A05C0D /* BannerService */,
 			);
 			path = Facades;
 			sourceTree = "<group>";
@@ -1669,6 +1681,60 @@
 				7CFA24DC20D932C80059378F /* NewsViewController.storyboard */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		A68E473E2156979500A05C0D /* PlayersService */ = {
+			isa = PBXGroup;
+			children = (
+				7CAB611020F5F8AD003F4276 /* PlayersService.swift */,
+				A68E473C2156978B00A05C0D /* PlayersServiceTests.swift */,
+			);
+			path = PlayersService;
+			sourceTree = "<group>";
+		};
+		A68E473F2156979B00A05C0D /* TeamsService */ = {
+			isa = PBXGroup;
+			children = (
+				7C11D39020FCBFEE00FC8599 /* TeamsService.swift */,
+				A68E472E2156971D00A05C0D /* TeamsServiceTests.swift */,
+			);
+			path = TeamsService;
+			sourceTree = "<group>";
+		};
+		A68E4740215697A000A05C0D /* EventsService */ = {
+			isa = PBXGroup;
+			children = (
+				7CAE6D9321020FB300844B11 /* EventsService.swift */,
+				A68E47312156973000A05C0D /* EventsServiceTests.swift */,
+			);
+			path = EventsService;
+			sourceTree = "<group>";
+		};
+		A68E4741215697A600A05C0D /* NewsService */ = {
+			isa = PBXGroup;
+			children = (
+				7C37223B2110BA9900A5D525 /* NewsService.swift */,
+				A68E47332156973D00A05C0D /* NewsServiceTests.swift */,
+			);
+			path = NewsService;
+			sourceTree = "<group>";
+		};
+		A68E4742215697AC00A05C0D /* BannerService */ = {
+			isa = PBXGroup;
+			children = (
+				7C5ADBFA2114AC480012C0C8 /* BannerService.swift */,
+				A68E47352156974900A05C0D /* BannerServiceTests.swift */,
+			);
+			path = BannerService;
+			sourceTree = "<group>";
+		};
+		A68E4743215697B100A05C0D /* SkinsService */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D9742212ED4720001A93A /* SkinsService.swift */,
+				A68E47372156975500A05C0D /* SkinsServiceTests.swift */,
+			);
+			path = SkinsService;
 			sourceTree = "<group>";
 		};
 		A8D09DD82036DC310057F9D9 /* Rx */ = {
@@ -2684,14 +2750,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68E47462156983000A05C0D /* TeamsServiceTests.swift in Sources */,
 				A6F5EB6E215666C500AC4255 /* PlayerDescriptionViewModelTests.swift in Sources */,
 				7C38950E2152849C0082A545 /* NewsImageContentItemViewModelTests.swift in Sources */,
 				7C9D66E0214A6DD800101F57 /* MessageViewModelTests.swift in Sources */,
+				A68E47482156985100A05C0D /* EventsServiceTests.swift in Sources */,
 				7C9D66DC214A6C0600101F57 /* DatePickerViewModelTests.swift in Sources */,
 				7C9D66DF214A6C1D00101F57 /* TextFieldViewModelTests.swift in Sources */,
 				C02C4650202D8F68008AE9B0 /* ActivityTrackerTests.swift in Sources */,
 				7CFA250420D9358B0059378F /* ProfileViewModelTests.swift in Sources */,
 				A84BD4092031D5420060E520 /* TableViewManager+extensionsTests.swift in Sources */,
+				A68E47452156981900A05C0D /* PlayersServiceTests.swift in Sources */,
 				7C5F307520E0E2000050E9AE /* RouterTests.swift in Sources */,
 				7C9D66D5214A6BC400101F57 /* SectionViewModelTests.swift in Sources */,
 				7CFA250720D935930059378F /* PlayersViewModelTests.swift in Sources */,
@@ -2700,6 +2769,7 @@
 				A68E472921568DE400A05C0D /* PlayersBannerViewModelTests.swift in Sources */,
 				C02C4648202D8E4B008AE9B0 /* PaginatorTests.swift in Sources */,
 				7C42DA3A214FD11F00E34757 /* FavoritePlayersItemViewModelTests.swift in Sources */,
+				A68E47472156983D00A05C0D /* NewsServiceTests.swift in Sources */,
 				7C42186121429DE400F81601 /* AutoRouterTests.generated.swift in Sources */,
 				7C87DF55214902D700144690 /* PlayerPreviewViewModelTests.swift in Sources */,
 				7CCCC2252150F436000BDCBD /* FeedbackViewModelTests.swift in Sources */,
@@ -2709,6 +2779,7 @@
 				7CAE6D852101E68E00844B11 /* EventsContainerViewModelTests.swift in Sources */,
 				7CAE6D842101E68400844B11 /* ListEventsViewModelTests.swift in Sources */,
 				7C87DF5921493BEB00144690 /* TeamItemViewModelTests.swift in Sources */,
+				A68E474A2156986E00A05C0D /* BannerServiceTests.swift in Sources */,
 				A68E472C21568E5400A05C0D /* PlayerBannerItemViewModelTests.swift in Sources */,
 				7C9D66E3214AAB2900101F57 /* SectionTopicViewModelTests.swift in Sources */,
 				7C9D66D1214A6B9A00101F57 /* AlertActionViewModelTests.swift in Sources */,
@@ -2738,6 +2809,7 @@
 				7C9D66E5214AAB8900101F57 /* SectionItemViewModelTests.swift in Sources */,
 				7C42DA3B214FD48100E34757 /* StorageSetupViewModelTests.swift in Sources */,
 				7C389509215266B30082A545 /* ImageViewerViewModelTests.swift in Sources */,
+				A68E47492156985F00A05C0D /* SkinsServiceTests.swift in Sources */,
 				A8D09DDD2036DCB70057F9D9 /* TwoWayBindingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

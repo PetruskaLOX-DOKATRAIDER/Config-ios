@@ -45,9 +45,8 @@ public final class NewsServiceImpl: NewsService, ReactiveCompatible {
     
     private func getRemoteNewsPreview(forPage page: Int) -> DriverResult<Page<NewsPreview>, NewsServiceError> {
         let request = newsAPIService.get(page: page)
-        let successData = request.success().filter{ $0.content.isNotEmpty }
         return .merge(
-            successData.map{ Result(value: $0) },
+            request.success().map{ Result(value: $0) },
             request.failure().map{ Result(error: .serverError($0.localizedDescription)) }
         )
     }
@@ -80,5 +79,16 @@ public final class NewsServiceImpl: NewsService, ReactiveCompatible {
     
     private func getStoredDescription(news id: Int) -> DriverResult<NewsDescription, NewsServiceError> {
         return newsStorage.getDescription(news: id).filterNil().map{ Result(value: $0) }
+    }
+}
+
+
+extension NewsServiceError: Equatable {
+    public static func == (lhs: NewsServiceError, rhs: NewsServiceError) -> Bool {
+        switch (lhs, rhs) {
+        case (.serverError, .serverError): return true
+        case (.unknown, .unknown): return true
+        default: return false
+        }
     }
 }

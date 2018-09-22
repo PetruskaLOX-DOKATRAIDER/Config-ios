@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol NewsAPIService {
+public protocol NewsAPIService: AutoMockable {
     func get(page: Int) -> Response<Page<NewsPreview>, RequestError>
     func get(news id: Int) -> Response<NewsDescription, RequestError>
 }
