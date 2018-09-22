@@ -12,3 +12,4 @@ extension NewsPreview: AutoInit {}
 extension NewsDescription: AutoInit {}
 extension NewsImageContent: AutoInit {}
 extension NewsTextContent: AutoInit {}
+extension PlayerBanner: AutoInit {}

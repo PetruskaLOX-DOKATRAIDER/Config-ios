@@ -8,6 +8,7 @@
 
 public enum BannerServiceError: Error {
     case serverError(Error)
+    case unknown
 }
 
 public protocol BannerService: AutoMockable {

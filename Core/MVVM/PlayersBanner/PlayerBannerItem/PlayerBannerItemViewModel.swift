@@ -16,10 +16,8 @@ public final class PlayerBannerItemViewModelImpl: PlayerBannerItemViewModel, Rea
     public let coverImageURL: Driver<URL?>
     public let title: Driver<String>
     public let selectionTrigger = PublishSubject<Void>()
-    private let playerBanner: PlayerBanner
     
     public init(playerBanner: PlayerBanner) {
-        self.playerBanner = playerBanner
         func getTitle(withDate date: Date) -> String {
             switch date.daysBetweenDate(Date()) ?? 0 {
             case 0, 1: return Strings.PlayerBanner.updatedToday

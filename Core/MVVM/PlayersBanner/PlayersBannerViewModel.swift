@@ -36,7 +36,7 @@ public final class PlayersBannerViewModelImpl: PlayersBannerViewModel, ReactiveC
             )
         }
         
-        playersPaginator = Paginator(factory:{ bannerService.getForPlayers(page: $0).success().map( remapToViewModels ).asObservable() })
+        playersPaginator = Paginator(factory:{ bannerService.getForPlayers(page: $0).asObservable().map{ try $0.dematerialize() }.map(remapToViewModels) })
         currentPage = pageTrigger.startWith(0).asDriver(onErrorJustReturn: 0)
         errorMessage = playersPaginator.error.toVoid().map{ Strings.Errors.generalMessage }.startWith("")
     }
