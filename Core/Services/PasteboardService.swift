@@ -6,8 +6,8 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol PasteboardService {
-    func save(_ string: String)
+public protocol PasteboardService: AutoMockable {
+    func save(string: String)
     func saved() -> String?
 }
 
@@ -18,12 +18,11 @@ public final class PasteboardServiceImpl: PasteboardService, ReactiveCompatible 
         self.pasteboard = pasteboard
     }
     
-    public func save(_ string: String) {
+    public func save(string: String) {
         pasteboard.string = string
     }
     
     public func saved() -> String? {
         return pasteboard.string
     }
-    
 }

@@ -17,9 +17,9 @@ public enum EmailServiceError: Error {
 }
 
 public struct EmailInfo {
-    let recipients: [String]
-    let subject: String
-    let message: String
+    public let recipients: [String]
+    public let subject: String
+    public let message: String
 
     public init(
         recipient: String = "",
@@ -32,7 +32,7 @@ public struct EmailInfo {
     }
 }
 
-public protocol EmailService {
+public protocol EmailService: AutoMockable {
     func send(withInfo info: EmailInfo) -> DriverResult<Void, EmailServiceError>
 }
 

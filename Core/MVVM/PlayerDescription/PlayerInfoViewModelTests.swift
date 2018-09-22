@@ -11,6 +11,7 @@ import TestsHelper
 class PlayerInfoViewModelTests: BaseTestCase {
     override func spec() {
         describe("PlayerInfoViewModel") {
+            //swiftlint:disable:next line_length
             let player = PlayerDescription.new(id: Int.random(), nickname: String.random(), name: String.random(), surname: String.random(), avatarURL: URL.new(), country: String.random(), teamName: String.random(), teamLogoURL: URL.new(), flagURL: URL.new(), moreInfoURL: URL.new(), mouse: String.random(), mousepad: String.random(), monitor: String.random(), keyboard: String.random(), headSet: String.random(), effectiveDPI: String.random(), gameResolution: String.random(), windowsSensitivity: String.random(), pollingRate: String.random(), configURL: URL.new())
             let playerSource: BehaviorRelay<PlayerDescription?> = BehaviorRelay(value: nil)
             var sut: PlayerInfoViewModel!
@@ -68,8 +69,6 @@ class PlayerInfoViewModelTests: BaseTestCase {
                     try? expect(sut.settings.toBlocking().first()?[safe: 2]?.highlights).to(equal([player.windowsSensitivity]))
                     try? expect(sut.settings.toBlocking().first()?[safe: 3]?.full).to(equal(Strings.PlayerDescription.pollingRate(player.pollingRate)))
                     try? expect(sut.settings.toBlocking().first()?[safe: 3]?.highlights).to(equal([player.pollingRate]))
-                    
-                    
                 }
             }
         }
