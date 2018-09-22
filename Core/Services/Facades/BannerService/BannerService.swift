@@ -24,11 +24,20 @@ public final class BannerServiceImpl: BannerService, ReactiveCompatible {
 
     public func getForPlayers(page: Int) -> DriverResult<Page<PlayerBanner>, BannerServiceError> {
         let request = bannerAPIService.getPlayers(page: page)
-        let success = request.success().filter{ $0.content.isNotEmpty }
         let serverError = request.failure().map{ BannerServiceError.serverError($0) }
         return Driver.merge(
-            success.map{ Result(value: $0) },
+            request.success().map{ Result(value: $0) },
             serverError.map{ Result(error: $0) }
         )
+    }
+}
+
+extension BannerServiceError: Equatable {
+    public static func == (lhs: BannerServiceError, rhs: BannerServiceError) -> Bool {
+        switch (lhs, rhs) {
+        case (.serverError, .serverError): return true
+        case (.unknown, .unknown): return true
+        default: return false
+        }
     }
 }

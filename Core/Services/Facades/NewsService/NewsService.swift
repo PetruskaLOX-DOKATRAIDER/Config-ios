@@ -82,7 +82,6 @@ public final class NewsServiceImpl: NewsService, ReactiveCompatible {
     }
 }
 
-
 extension NewsServiceError: Equatable {
     public static func == (lhs: NewsServiceError, rhs: NewsServiceError) -> Bool {
         switch (lhs, rhs) {
