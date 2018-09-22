@@ -72,3 +72,13 @@ public final class EventsServiceImpl: EventsService, ReactiveCompatible {
         return Page.new(content: filteredContent, index: events.index, totalPages: events.totalPages)
     }
 }
+
+extension EventsServiceError: Equatable {
+    public static func == (lhs: EventsServiceError, rhs: EventsServiceError) -> Bool {
+        switch (lhs, rhs) {
+        case (.serverError, .serverError): return true
+        case (.unknown, .unknown): return true
+        default: return false
+        }
+    }
+}

@@ -35,10 +35,10 @@ class NewsServiceTests: BaseTestCase {
                         reachabilityService.connection = .none
                         newsStorage.getPreviewReturnValue = .just([newsPreview1, newsPreview2])
                         
-                        expect(newsAPIService.getPageCalled).to(beFalsy())
                         try? expect(sut.getPreview(page: 1).success().toBlocking().first()?.content.count).to(equal(2))
                         try? expect(sut.getPreview(page: 1).success().toBlocking().first()?.content.first?.id).to(equal(newsPreview1.id))
                         try? expect(sut.getPreview(page: 1).success().toBlocking().first()?.content.last?.id).to(equal(newsPreview2.id))
+                        expect(newsAPIService.getPageCalled).to(beFalsy())
                     }
                 }
                 
@@ -49,10 +49,10 @@ class NewsServiceTests: BaseTestCase {
                             let page = Page.new(content: [newsPreview1, newsPreview2], index: Int.random(), totalPages: Int.random())
                             newsAPIService.getPageReturnValue = .just(Result(value: page))
 
-                            expect(newsStorage.getPreviewCalled).to(beFalsy())
                             try? expect(sut.getPreview(page: 1).success().toBlocking().first()?.content.count).to(equal(page.content.count))
                             try? expect(sut.getPreview(page: 1).success().toBlocking().first()?.content.first?.id).to(equal(newsPreview1.id))
                             try? expect(sut.getPreview(page: 1).success().toBlocking().first()?.content.last?.id).to(equal(newsPreview2.id))
+                            expect(newsStorage.getPreviewCalled).to(beFalsy())
                         }
                         it("should ask storage to update data") {
                             reachabilityService.connection = .wifi
@@ -84,10 +84,10 @@ class NewsServiceTests: BaseTestCase {
                         reachabilityService.connection = .none
                         newsStorage.getDescriptionNewsReturnValue = .just(newsDescription)
                         
-                        expect(newsAPIService.getNewsCalled).to(beFalsy())
                         try? expect(sut.getDescription(news: 1).success().toBlocking().first()?.id).to(equal(newsDescription.id))
                         try? expect(sut.getDescription(news: 1).success().toBlocking().first()?.title).to(equal(newsDescription.title))
                         try? expect(sut.getDescription(news: 1).success().toBlocking().first()?.content.count).to(equal(newsDescription.content.count))
+                        expect(newsAPIService.getNewsCalled).to(beFalsy())
                     }
                 }
                 
@@ -97,10 +97,10 @@ class NewsServiceTests: BaseTestCase {
                             reachabilityService.connection = .wifi
                             newsAPIService.getNewsReturnValue = .just(Result(value: newsDescription))
                             
-                            expect(newsStorage.getDescriptionNewsCalled).to(beFalsy())
                             try? expect(sut.getDescription(news: 1).success().toBlocking().first()?.id).to(equal(newsDescription.id))
                             try? expect(sut.getDescription(news: 1).success().toBlocking().first()?.title).to(equal(newsDescription.title))
                             try? expect(sut.getDescription(news: 1).success().toBlocking().first()?.content.count).to(equal(newsDescription.content.count))
+                            expect(newsStorage.getDescriptionNewsCalled).to(beFalsy())
                         }
                         it("should ask storage to update data") {
                             reachabilityService.connection = .wifi

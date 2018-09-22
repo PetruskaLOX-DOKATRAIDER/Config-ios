@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol TeamsStorage {
+public protocol TeamsStorage: AutoMockable {
     func update(withNew teams: [Team]) -> Driver<Void>
     func get() -> Driver<[Team]>
 }

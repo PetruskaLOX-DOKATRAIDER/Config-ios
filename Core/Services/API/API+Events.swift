@@ -6,8 +6,8 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol EventsAPIService {
-    func get(page: Int) -> Response<Page<Event>, RequestError>
+public protocol EventsAPIService: AutoMockable {
+    func get(page: Int) -> Response<Page<Core.Event>, RequestError>
 }
 
 extension API {

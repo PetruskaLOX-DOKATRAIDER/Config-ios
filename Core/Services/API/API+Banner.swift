@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol BannerAPIService {
+public protocol BannerAPIService: AutoMockable {
     func getPlayers(page: Int) -> Response<Page<PlayerBanner>, RequestError>
 }
 

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol TeamsAPIService {
+public protocol TeamsAPIService: AutoMockable {
     func get(page: Int) -> Response<Page<Team>, RequestError>
 }
 
