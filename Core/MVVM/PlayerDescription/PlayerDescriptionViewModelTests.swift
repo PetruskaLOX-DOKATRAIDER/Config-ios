@@ -11,9 +11,8 @@ import TestsHelper
 class PlayerDescriptionViewModelTests: BaseTestCase {
     override func spec() {
         describe("PlayerDescriptionViewModel") {            
-            let playerID = Int.random()
             //swiftlint:disable:next line_length
-            let player = PlayerDescription.new(id: playerID, nickname: String.random(), name: String.random(), surname: String.random(), avatarURL: URL.new(), country: String.random(), teamName: String.random(), teamLogoURL: URL.new(), flagURL: URL.new(), moreInfoURL: URL.new(), mouse: String.random(), mousepad: String.random(), monitor: String.random(), keyboard: String.random(), headSet: String.random(), effectiveDPI: String.random(), gameResolution: String.random(), windowsSensitivity: String.random(), pollingRate: String.random(), configURL: URL.new())
+            let player = PlayerDescription.new(id: Int.random(), nickname: String.random(), name: String.random(), surname: String.random(), avatarURL: URL.new(), country: String.random(), teamName: String.random(), teamLogoURL: URL.new(), flagURL: URL.new(), moreInfoURL: URL.new(), mouse: String.random(), mousepad: String.random(), monitor: String.random(), keyboard: String.random(), headSet: String.random(), effectiveDPI: String.random(), gameResolution: String.random(), windowsSensitivity: String.random(), pollingRate: String.random(), configURL: URL.new())
             var playersService: PlayersServiceMock!
             var pasteboardService: PasteboardServiceMock!
             var userStorage: UserStorageMock!
@@ -28,7 +27,7 @@ class PlayerDescriptionViewModelTests: BaseTestCase {
                 pasteboardService = PasteboardServiceMock()
                 userStorage = UserStorageMock(isOnboardingPassed: BehaviorRelay(value: false), email: BehaviorRelay(value: nil))
                 emailService = EmailServiceMock()
-                sut = PlayerDescriptionViewModelImpl(player: playerID, playersService: playersService, pasteboardService: pasteboardService, userStorage: userStorage, emailService: emailService)
+                sut = PlayerDescriptionViewModelImpl(player: player.id, playersService: playersService, pasteboardService: pasteboardService, userStorage: userStorage, emailService: emailService)
             }
         
             describe("when calling refresh did trigger") {

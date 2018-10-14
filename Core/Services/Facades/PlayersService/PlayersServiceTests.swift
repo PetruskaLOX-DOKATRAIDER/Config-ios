@@ -11,6 +11,7 @@ import TestsHelper
 class PlayersServiceTests: BaseTestCase {
     override func spec() {
         describe("PlayersService") {
+            //swiftlint:disable:next line_length
             let playerDescription = PlayerDescription.new(id: Int.random(), nickname: String.random(), name: String.random(), surname: String.random(), avatarURL: URL.new(), country: String.random(), teamName: String.random(), teamLogoURL: URL.new(), flagURL: URL.new(), moreInfoURL: URL.new(), mouse: String.random(), mousepad: String.random(), monitor: String.random(), keyboard: String.random(), headSet: String.random(), effectiveDPI: String.random(), gameResolution: String.random(), windowsSensitivity: String.random(), pollingRate: String.random(), configURL: URL.new())
             let player1 = PlayerPreview.new(nickname: String.random(), profileImageSize: ImageSize.new(height: Double.new(), weight: Double.new()), avatarURL: URL.new(), id: Int.random())
             let player2 = PlayerPreview.new(nickname: String.random(), profileImageSize: ImageSize.new(height: Double.new(), weight: Double.new()), avatarURL: URL.new(), id: Int.random())

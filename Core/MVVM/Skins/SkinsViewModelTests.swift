@@ -88,7 +88,7 @@ class SkinsViewModelTests: BaseTestCase {
                         
                         sut.searchTrigger.onNext(containsSubName)
                         
-                        try? expect(sut.skins.toBlocking().first()?.map{ try $0.title.toBlocking().first() }.flatMap{ $0 }).toEventually(contain([skin1.name]), timeout: 3)
+                        try? expect(sut.skins.toBlocking().first()?.map{ try $0.title.toBlocking().first() }.compactMap{ $0 }).toEventually(contain([skin1.name]), timeout: 3)
                     }
                 }
             }

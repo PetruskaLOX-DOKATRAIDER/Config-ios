@@ -21,7 +21,7 @@ extension Array: Random {
     public static func random() -> [Element] {
         return (0...Int(arc4random() % 3))
             .map { _ in randomElement() }
-            .flatMap { $0 }
+            .compactMap { $0 }
     }
 }
 
@@ -73,12 +73,6 @@ extension Double: Random {
 extension Float: Random {
     public static func random() -> Float {
         return Float(arc4random() % 1000) / 100
-    }
-}
-
-extension Bool: Random {
-    public static func random() -> Bool {
-        return arc4random() % 2 == 1
     }
 }
 
