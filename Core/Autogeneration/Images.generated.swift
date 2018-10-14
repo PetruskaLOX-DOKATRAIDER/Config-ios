@@ -65,5 +65,6 @@ extension Images {
         public static var tutorial2 : UIImage { return Bundle.core.image(named: "tutorial2")! }
         public static var tutorial3 : UIImage { return Bundle.core.image(named: "tutorial3")! }
         public static var tutorial4 : UIImage { return Bundle.core.image(named: "tutorial4")! }
+        public static var tutorial5 : UIImage { return Bundle.core.image(named: "tutorial5")! }
         }
 }

@@ -357,31 +357,38 @@ public enum Strings {
     public static let title = Strings.tr("Localizable", "Tutorial.title")
 
     public enum Item1 {
-      /// In this application you will many useful features, which will help you to win in the game and maybe even more
+      /// 
       public static let description = Strings.tr("Localizable", "Tutorial.item1.description")
-      /// Welcome to the Configs app
+      /// Players
       public static let title = Strings.tr("Localizable", "Tutorial.item1.title")
     }
 
     public enum Item2 {
-      /// In this application you will many useful features, which will help you to win in the game and maybe even more
+      /// 
       public static let description = Strings.tr("Localizable", "Tutorial.item2.description")
-      /// Welcome to the Configs app
+      /// Teams
       public static let title = Strings.tr("Localizable", "Tutorial.item2.title")
     }
 
     public enum Item3 {
-      /// In this application you will many useful features, which will help you to win in the game and maybe even more
+      /// 
       public static let description = Strings.tr("Localizable", "Tutorial.item3.description")
-      /// Welcome to the Configs app
+      /// Events
       public static let title = Strings.tr("Localizable", "Tutorial.item3.title")
     }
 
     public enum Item4 {
-      /// In this application you will many useful features, which will help you to win in the game and maybe even more
+      /// 
       public static let description = Strings.tr("Localizable", "Tutorial.item4.description")
-      /// Welcome to the Configs app
+      /// News
       public static let title = Strings.tr("Localizable", "Tutorial.item4.title")
+    }
+
+    public enum Item5 {
+      /// 
+      public static let description = Strings.tr("Localizable", "Tutorial.item5.description")
+      /// Player's CFG
+      public static let title = Strings.tr("Localizable", "Tutorial.item5.title")
     }
   }
 }

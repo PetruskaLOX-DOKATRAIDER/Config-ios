@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if NSClassFromString("XCTestCase") != nil { return true }
         FirebaseApp.configure()
         UIViewController.rx.onViewDidLoad().bind(onNext: { Debugger.init($0) }).disposed(by: rx.disposeBag)
-        viewModel.shouldRouteApp.map{ [router] in router.appSections() }.setAsRoot().disposed(by: rx.disposeBag)
-        viewModel.shouldRouteTutorial.map{ [router] in router.appSections() }.setAsRoot().disposed(by: rx.disposeBag)
+        viewModel.shouldRouteApp.map{ [router] in router.tutorial() }.setAsRoot().disposed(by: rx.disposeBag)
+        viewModel.shouldRouteTutorial.map{ [router] in router.tutorial() }.setAsRoot().disposed(by: rx.disposeBag)
         viewModel.didBecomeActiveTrigger.onNext(())
         return true
     }

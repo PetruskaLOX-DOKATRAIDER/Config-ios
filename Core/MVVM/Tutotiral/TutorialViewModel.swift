@@ -36,7 +36,8 @@ public final class TutorialViewModelImpl: TutorialViewModel, ReactiveCompatible 
             TutorialItemViewModelImpl(title: Strings.Tutorial.Item1.title, description: Strings.Tutorial.Item1.description, coverImage: Images.Tutorial.tutorial1),
             TutorialItemViewModelImpl(title: Strings.Tutorial.Item2.title, description: Strings.Tutorial.Item2.description, coverImage: Images.Tutorial.tutorial2),
             TutorialItemViewModelImpl(title: Strings.Tutorial.Item3.title, description: Strings.Tutorial.Item3.description, coverImage: Images.Tutorial.tutorial3),
-            TutorialItemViewModelImpl(title: Strings.Tutorial.Item4.title, description: Strings.Tutorial.Item4.description, coverImage: Images.Tutorial.tutorial4)
+            TutorialItemViewModelImpl(title: Strings.Tutorial.Item4.title, description: Strings.Tutorial.Item4.description, coverImage: Images.Tutorial.tutorial4),
+            TutorialItemViewModelImpl(title: Strings.Tutorial.Item5.title, description: Strings.Tutorial.Item5.description, coverImage: Images.Tutorial.tutorial5)
         ]
         self.items = .just(items)
         isMoveBackAvailable = userStorage.isOnboardingPassed.asDriver().map{ !$0 }

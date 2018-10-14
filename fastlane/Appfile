@@ -1,6 +1,6 @@
-apple_id "dev@mlsdev.com" # Apple account email address
+apple_id "To public" # Apple account email address
 
-team_name "CHANGE_WITH_REAL_VALUE" # Client team your account has access to
-team_id "CHANGE_WITH_REAL_VALUE"
+team_name "To public" # Client team your account has access to
+team_id "To public"
 
-itc_team_name "CHANGE_WITH_REAL_VALUE" # The name of your iTunes Connect team if you're in multiple teams
+itc_team_name "To public" # The name of your iTunes Connect team if you're in multiple teams
