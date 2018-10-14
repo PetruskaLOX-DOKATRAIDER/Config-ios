@@ -77,39 +77,39 @@ PODS:
     - TRON/Core
 
 DEPENDENCIES:
-  - Action
+  - Action (~> 3.8)
   - AppRouter (~> 4.1.2)
   - AppRouter/RxSwift (~> 4.1.2)
-  - CocoaLumberjack/Swift
+  - CocoaLumberjack/Swift (~> 3.4.2)
   - Crashlytics
   - Dip (~> 7.0)
-  - DTCollectionViewManager
-  - DTTableViewManager
+  - DTCollectionViewManager (~> 6.4)
+  - DTTableViewManager (~> 6.4.0)
   - Fabric
-  - Flurry-iOS-SDK/FlurrySDK
+  - Flurry-iOS-SDK/FlurrySDK (~> 9.2.1)
   - Kingfisher (~> 4.0)
-  - LoadableViews
-  - Motion
-  - Nimble
-  - NVActivityIndicatorView
-  - Quick
-  - ReachabilitySwift
+  - LoadableViews (~> 3.1)
+  - Motion (~> 1.4.3)
+  - Nimble (~> 7.3.1)
+  - NVActivityIndicatorView (~> 4.4)
+  - Quick (~> 1.3.2)
+  - ReachabilitySwift (~> 4.3)
   - Result (~> 4.0.0)
   - ReusableView (~> 1.2.1)
-  - RxBlocking
+  - RxBlocking (~> 4.3.1)
   - RxCocoa (~> 4.1)
-  - RxKeyboard
-  - RxKingfisher
-  - RxMapKit
-  - RxOptional
+  - RxKeyboard (~> 0.9)
+  - RxKingfisher (~> 0.2)
+  - RxMapKit (~> 1.2)
+  - RxOptional (~> 3.5)
   - RxSwift (~> 4.1)
-  - RxTest
-  - RxViewController
+  - RxTest (~> 4.3.1)
+  - RxViewController (~> 0.3)
   - SnapKit (~> 4.0.0)
-  - Sourcery
-  - Starscream
+  - Sourcery (~> 0.15)
+  - Starscream (~> 3.0.6)
   - SwiftGen (~> 5.3)
-  - SwiftLint
+  - SwiftLint (~> 0.27)
   - SwiftyJSON (~> 4.1.0)
   - TRON (~> 4.2.1)
 
@@ -190,6 +190,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TRON: eb0f572d97dd51ec309a27bc785ec82148500512
 
-PODFILE CHECKSUM: fdc671cf5205896ea9fb424bc089d5927a1e8f5f
+PODFILE CHECKSUM: 2986c305e97bb7524d38603d2891becfb1198d80
 
 COCOAPODS: 1.5.3

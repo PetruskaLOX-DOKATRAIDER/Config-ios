@@ -7,29 +7,29 @@ abstract_target 'AT' do
         # RxSwift
         pod 'RxSwift', '~> 4.1'
         pod 'RxCocoa', '~> 4.1'
-        pod 'RxOptional'
-        pod 'Action'
-        pod 'RxKeyboard'
-        pod 'ReachabilitySwift'
-        pod 'RxViewController'
-        pod 'RxMapKit'
+        pod 'RxOptional', '~> 3.5'
+        pod 'Action', '~> 3.8'
+        pod 'RxKeyboard', '~> 0.9'
+        pod 'ReachabilitySwift', '~> 4.3'
+        pod 'RxViewController', '~> 0.3'
+        pod 'RxMapKit', '~> 1.2'
         
         #CodeGeneration
-        pod 'Sourcery'
+        pod 'Sourcery', '~> 0.15'
         pod 'SwiftGen', '~> 5.3'
-        pod 'SwiftLint'
+        pod 'SwiftLint', '~> 0.27'
         
         #UIKit
         pod 'AppRouter', '~> 4.1.2'
         pod 'AppRouter/RxSwift', '~> 4.1.2'
-        pod 'DTTableViewManager'
-        pod 'DTCollectionViewManager'
-        pod 'LoadableViews'
+        pod 'DTTableViewManager', '~> 6.4.0'
+        pod 'DTCollectionViewManager', '~> 6.4'
+        pod 'LoadableViews', '~> 3.1'
         pod 'SnapKit', '~> 4.0.0'
-        pod 'NVActivityIndicatorView'
+        pod 'NVActivityIndicatorView', '~> 4.4'
         pod 'Kingfisher', '~> 4.0'
-        pod 'RxKingfisher'
-        pod 'Motion'
+        pod 'RxKingfisher', '~> 0.2'
+        pod 'Motion', '~> 1.4.3'
         
         #MVVM
         pod 'Dip', '~> 7.0'
@@ -39,26 +39,25 @@ abstract_target 'AT' do
         #Networking
         pod 'TRON', '~> 4.2.1'
         pod 'SwiftyJSON', '~> 4.1.0'
-        #pod 'Starscream', :git => 'https://github.com/daltoniam/Starscream.git', :branch => 'xcode-10'
-        pod 'Starscream'
+        pod 'Starscream', '~> 3.0.6'
         
         #Analytics
-        pod 'Flurry-iOS-SDK/FlurrySDK'
+        pod 'Flurry-iOS-SDK/FlurrySDK', '~> 9.2.1'
         
         #Logging
-        pod 'CocoaLumberjack/Swift'
+        pod 'CocoaLumberjack/Swift', '~> 3.4.2'
 
         target 'TestsHelper' do
             inherit! :search_paths
 
-            pod 'Nimble'
-            pod 'Quick'
+            pod 'Nimble', '~> 7.3.1'
+            pod 'Quick', '~> 1.3.2'
             
             target 'Tests' do
                 inherit! :search_paths
 
-                pod 'RxTest'
-                pod 'RxBlocking'
+                pod 'RxTest', '~> 4.3.1'
+                pod 'RxBlocking', '~> 4.3.1'
             end
         end
 
