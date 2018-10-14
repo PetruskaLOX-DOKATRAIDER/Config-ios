@@ -27,9 +27,19 @@ public final class SkinsServiceImpl: SkinsService, ReactiveCompatible {
             switch result {
             case let .success(skin):
                 return Result(value: skin)
-            case let .failure(error):
-                return Result(error: .serverError(error))
+            case .failure:
+                return Result(error: .unknown)
             }
         })
+    }
+}
+
+extension SkinsServiceError: Equatable {
+    public static func == (lhs: SkinsServiceError, rhs: SkinsServiceError) -> Bool {
+        switch (lhs, rhs) {
+        case (.serverError, .serverError): return true
+        case (.unknown, .unknown): return true
+        default: return false
+        }
     }
 }

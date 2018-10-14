@@ -7,7 +7,7 @@
 //
 
 public final class PlayerInfoPageViewController: UIViewController {
-   @IBOutlet private var stackView: UIStackView!
+   @IBOutlet public var stackView: UIStackView!
     
     public func updateInfoTitles(_ titles: [HighlightText]) {
         stackView.removeAllSubviews()

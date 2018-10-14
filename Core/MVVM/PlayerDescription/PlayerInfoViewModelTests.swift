@@ -37,7 +37,6 @@ class PlayerInfoViewModelTests: BaseTestCase {
                     try? expect(sut.fullName.toBlocking().first()).to(equal("\(player.name) \"\(player.nickname)\" \(player.surname)"))
                     try? expect(sut.avatarURL.filterNil().toBlocking().first()).to(equal(player.avatarURL))
                     
-                    try? expect(sut.personalInfo.toBlocking().first()?.count).to(equal(4))
                     try? expect(sut.personalInfo.toBlocking().first()?[safe: 0]?.full).to(equal(Strings.PlayerDescription.realName("\(player.surname) \(player.name)")))
                     try? expect(sut.personalInfo.toBlocking().first()?[safe: 0]?.highlights).to(equal(["\(player.surname) \(player.name)"]))
                     

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 
-public protocol PlayersAPIService {
+public protocol PlayersAPIService: AutoMockable {
     func getPreview(page: Int) -> Response<Page<PlayerPreview>, RequestError>
     func getDescription(player id: Int) -> Response<PlayerDescription, RequestError>
 }

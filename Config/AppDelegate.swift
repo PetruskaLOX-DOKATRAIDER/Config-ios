@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Fabric.with([Crashlytics.self])
         UIViewController.rx.onViewDidLoad().bind(onNext: { Debugger($0) }).disposed(by: rx.disposeBag)
         viewModel.shouldRouteApp.map{ [router] in router.appSections() }.setAsRoot().disposed(by: rx.disposeBag)
-        viewModel.shouldRouteTutorial.map{ [router] in router.tutorial() }.setAsRoot().disposed(by: rx.disposeBag)
+        viewModel.shouldRouteTutorial.map{ [router] in router.appSections() }.setAsRoot().disposed(by: rx.disposeBag)
         viewModel.didBecomeActiveTrigger.onNext(())
         return true
     }

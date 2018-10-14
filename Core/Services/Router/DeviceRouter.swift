@@ -11,9 +11,9 @@ public enum DeviceRouterError: Error {
     case cantOpenURL
 }
 
-public protocol DeviceRouter {
+public protocol DeviceRouter: AutoMockable {
     func openSettings() throws
-    func openURL(_ url: URL) throws
+    func open(url: URL) throws
 }
 
 public final class DeviceRouterImpl: DeviceRouter {
@@ -25,10 +25,10 @@ public final class DeviceRouterImpl: DeviceRouter {
     
     public func openSettings() throws {
         guard let url = URL(string: UIApplicationOpenSettingsURLString) else { throw DeviceRouterError.settingsURLNotFound }
-        try? openURL(url)
+        try? open(url: url)
     }
     
-    public func openURL(_ url: URL) throws {
+    public func open(url: URL) throws {
         guard application.canOpenURL(url) else { throw DeviceRouterError.cantOpenURL }
         application.open(url)
     }

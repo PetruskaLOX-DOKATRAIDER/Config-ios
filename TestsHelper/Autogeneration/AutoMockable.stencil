@@ -1,5 +1,9 @@
 import Core
 
+// swiftlint:disable file_length
+// swiftlint:disable line_length
+// swiftlint:disable type_body_length
+
 {% macro methodName method %}{{ method.shortName }}{% for param in method.parameters %}{{ param.argumentLabel|upperFirstLetter }}{% endfor %}{% endmacro %}
 
 {% macro methodReceivedParameters method %}

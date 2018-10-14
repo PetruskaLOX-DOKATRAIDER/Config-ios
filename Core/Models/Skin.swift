@@ -23,6 +23,7 @@ public struct Skin {
         response: String,  // ¯\_(ツ)_/¯
         coverImageApiURL: URL
     ) throws {
+        print("response: \(response)")
         func gunName(response: String) -> String? {
             let tempArray1 = response.components(separatedBy: ",")
             guard let tempStr1 = tempArray1[safe: 3] else { return nil }

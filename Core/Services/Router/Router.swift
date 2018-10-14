@@ -134,7 +134,8 @@ public final class Router: ReactiveCompatible {
     public func newsDescription() -> Route<NewsDescriptionViewController> {
         return route().configure({ [weak self, imageViewer = imageViewer()] vc in
             guard let strongSelf = self, let nvc = vc.navigationController else { return }
-            nvc.addMotionTransition(.zoomSlide(direction: .left))
+            //nvc.addMotionTransition(.zoomSlide(direction: .left))
+            nvc.addMotionTransition(.zoom)
             vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomSlide(direction: .right)).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteImageViewer.map(imageViewer.buildViewModel).present().disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldShare.drive(strongSelf.rx.presentActivityVC).disposed(by: vc.rx.disposeBag)
