@@ -20,7 +20,7 @@ class TutorialViewModelTests: BaseTestCase {
             
             describe("when ask tutorial items") {
                 it("should return valid count of items") {
-                    try? expect(sut.items.toBlocking().first()?.count).to(equal(4))
+                    try? expect(sut.items.toBlocking().first()?.count).to(equal(5))
                 }
             }
             
@@ -51,7 +51,7 @@ class TutorialViewModelTests: BaseTestCase {
 
                 context("when last page did trigger") {
                     it("should return 'Start'") {
-                        sut.pageTrigger.onNext(3)
+                        sut.pageTrigger.onNext(4)
                         try? expect(sut.navigationTitle.toBlocking(timeout: 1).first()).to(equal(Strings.Tutorial.start))
                     }
                 }

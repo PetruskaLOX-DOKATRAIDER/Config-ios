@@ -15,7 +15,7 @@ public class AnalyticsServiceMock: AnalyticsService {
     public init() {
     }
 
-    // MARK: - trackFeedback
+    //MARK: - trackFeedback
 
     public var trackFeedbackWithMessageCalled = false
     public var trackFeedbackWithMessageReceived: String?
@@ -67,7 +67,7 @@ public class BannerAPIServiceMock: BannerAPIService {
     public init() {
     }
 
-    // MARK: - getPlayers
+    //MARK: - getPlayers
 
     public var getPlayersPageCalled = false
     public var getPlayersPageReceived: Int?
@@ -85,7 +85,7 @@ public class BannerServiceMock: BannerService {
     public init() {
     }
 
-    // MARK: - getForPlayers
+    //MARK: - getForPlayers
 
     public var getForPlayersPageCalled = false
     public var getForPlayersPageReceived: Int?
@@ -112,14 +112,14 @@ public class DeviceRouterMock: DeviceRouter {
     public init() {
     }
 
-    // MARK: - openSettings
+    //MARK: - openSettings
 
     public var openSettingsCalled = false
 
     public func openSettings() {
         openSettingsCalled = true
     }
-    // MARK: - open
+    //MARK: - open
 
     public var openUrlCalled = false
     public var openUrlReceived: URL?
@@ -135,7 +135,7 @@ public class EmailServiceMock: EmailService {
     public init() {
     }
 
-    // MARK: - send
+    //MARK: - send
 
     public var sendWithInfoCalled = false
     public var sendWithInfoReceived: EmailInfo?
@@ -153,7 +153,7 @@ public class EventsAPIServiceMock: EventsAPIService {
     public init() {
     }
 
-    // MARK: - get
+    //MARK: - get
 
     public var getPageCalled = false
     public var getPageReceived: Int?
@@ -186,7 +186,7 @@ public class EventsServiceMock: EventsService {
     public init() {
     }
 
-    // MARK: - get
+    //MARK: - get
 
     public var getPageCalled = false
     public var getPageReceived: Int?
@@ -204,7 +204,7 @@ public class EventsStorageMock: EventsStorage {
     public init() {
     }
 
-    // MARK: - update
+    //MARK: - update
 
     public var updateWithNewCalled = false
     public var updateWithNewReceived: [Core.Event]?
@@ -215,7 +215,7 @@ public class EventsStorageMock: EventsStorage {
         updateWithNewReceived = events
         return updateWithNewReturnValue
     }
-    // MARK: - get
+    //MARK: - get
 
     public var getCalled = false
     public var getReturnValue: Driver<[Core.Event]>!
@@ -231,7 +231,7 @@ public class ImageLoaderServiceMock: ImageLoaderService {
     public init() {
     }
 
-    // MARK: - loadImage
+    //MARK: - loadImage
 
     public var loadImageWithURLCalled = false
     public var loadImageWithURLReceived: URL?
@@ -242,7 +242,7 @@ public class ImageLoaderServiceMock: ImageLoaderService {
         loadImageWithURLReceived = url
         return loadImageWithURLReturnValue
     }
-    // MARK: - clearCache
+    //MARK: - clearCache
 
     public var clearCacheCalled = false
 
@@ -256,7 +256,7 @@ public class NewsAPIServiceMock: NewsAPIService {
     public init() {
     }
 
-    // MARK: - get
+    //MARK: - get
 
     public var getPageCalled = false
     public var getPageReceived: Int?
@@ -267,7 +267,7 @@ public class NewsAPIServiceMock: NewsAPIService {
         getPageReceived = page
         return getPageReturnValue
     }
-    // MARK: - get
+    //MARK: - get
 
     public var getNewsCalled = false
     public var getNewsReceived: Int?
@@ -285,7 +285,7 @@ public class NewsServiceMock: NewsService {
     public init() {
     }
 
-    // MARK: - getPreview
+    //MARK: - getPreview
 
     public var getPreviewPageCalled = false
     public var getPreviewPageReceived: Int?
@@ -296,7 +296,7 @@ public class NewsServiceMock: NewsService {
         getPreviewPageReceived = page
         return getPreviewPageReturnValue
     }
-    // MARK: - getDescription
+    //MARK: - getDescription
 
     public var getDescriptionNewsCalled = false
     public var getDescriptionNewsReceived: Int?
@@ -314,7 +314,7 @@ public class NewsStorageMock: NewsStorage {
     public init() {
     }
 
-    // MARK: - updatePreview
+    //MARK: - updatePreview
 
     public var updatePreviewWithNewCalled = false
     public var updatePreviewWithNewReceived: [NewsPreview]?
@@ -325,7 +325,7 @@ public class NewsStorageMock: NewsStorage {
         updatePreviewWithNewReceived = news
         return updatePreviewWithNewReturnValue
     }
-    // MARK: - getPreview
+    //MARK: - getPreview
 
     public var getPreviewCalled = false
     public var getPreviewReturnValue: Driver<[NewsPreview]>!
@@ -334,7 +334,7 @@ public class NewsStorageMock: NewsStorage {
         getPreviewCalled = true
         return getPreviewReturnValue
     }
-    // MARK: - updateDescription
+    //MARK: - updateDescription
 
     public var updateDescriptionWithNewCalled = false
     public var updateDescriptionWithNewReceived: NewsDescription?
@@ -345,7 +345,7 @@ public class NewsStorageMock: NewsStorage {
         updateDescriptionWithNewReceived = news
         return updateDescriptionWithNewReturnValue
     }
-    // MARK: - getDescription
+    //MARK: - getDescription
 
     public var getDescriptionNewsCalled = false
     public var getDescriptionNewsReceived: Int?
@@ -363,7 +363,7 @@ public class PasteboardServiceMock: PasteboardService {
     public init() {
     }
 
-    // MARK: - save
+    //MARK: - save
 
     public var saveStringCalled = false
     public var saveStringReceived: String?
@@ -372,7 +372,7 @@ public class PasteboardServiceMock: PasteboardService {
         saveStringCalled = true
         saveStringReceived = string
     }
-    // MARK: - saved
+    //MARK: - saved
 
     public var savedCalled = false
     public var savedReturnValue: String?
@@ -388,7 +388,7 @@ public class PhotosAlbumServiceMock: PhotosAlbumService {
     public init() {
     }
 
-    // MARK: - save
+    //MARK: - save
 
     public var saveImageCalled = false
     public var saveImageReceived: UIImage?
@@ -406,7 +406,7 @@ public class PlayersAPIServiceMock: PlayersAPIService {
     public init() {
     }
 
-    // MARK: - getPreview
+    //MARK: - getPreview
 
     public var getPreviewPageCalled = false
     public var getPreviewPageReceived: Int?
@@ -417,7 +417,7 @@ public class PlayersAPIServiceMock: PlayersAPIService {
         getPreviewPageReceived = page
         return getPreviewPageReturnValue
     }
-    // MARK: - getDescription
+    //MARK: - getDescription
 
     public var getDescriptionPlayerCalled = false
     public var getDescriptionPlayerReceived: Int?
@@ -452,7 +452,7 @@ public class PlayersServiceMock: PlayersService {
     public init() {
     }
 
-    // MARK: - getPreview
+    //MARK: - getPreview
 
     public var getPreviewPageCalled = false
     public var getPreviewPageReceived: Int?
@@ -463,7 +463,7 @@ public class PlayersServiceMock: PlayersService {
         getPreviewPageReceived = page
         return getPreviewPageReturnValue
     }
-    // MARK: - getDescription
+    //MARK: - getDescription
 
     public var getDescriptionPlayerCalled = false
     public var getDescriptionPlayerReceived: Int?
@@ -474,7 +474,7 @@ public class PlayersServiceMock: PlayersService {
         getDescriptionPlayerReceived = id
         return getDescriptionPlayerReturnValue
     }
-    // MARK: - getFavoritePreview
+    //MARK: - getFavoritePreview
 
     public var getFavoritePreviewCalled = false
     public var getFavoritePreviewReturnValue: DriverResult<[PlayerPreview], PlayersServiceError>!
@@ -483,7 +483,7 @@ public class PlayersServiceMock: PlayersService {
         getFavoritePreviewCalled = true
         return getFavoritePreviewReturnValue
     }
-    // MARK: - add
+    //MARK: - add
 
     public var addFavouriteCalled = false
     public var addFavouriteReceived: Int?
@@ -494,7 +494,7 @@ public class PlayersServiceMock: PlayersService {
         addFavouriteReceived = id
         return addFavouriteReturnValue
     }
-    // MARK: - remove
+    //MARK: - remove
 
     public var removeFavouriteCalled = false
     public var removeFavouriteReceived: Int?
@@ -505,7 +505,7 @@ public class PlayersServiceMock: PlayersService {
         removeFavouriteReceived = id
         return removeFavouriteReturnValue
     }
-    // MARK: - isFavourite
+    //MARK: - isFavourite
 
     public var isFavouritePlayerCalled = false
     public var isFavouritePlayerReceived: Int?
@@ -523,7 +523,7 @@ public class PlayersStorageMock: PlayersStorage {
     public init() {
     }
 
-    // MARK: - updatePreview
+    //MARK: - updatePreview
 
     public var updatePreviewWithNewCalled = false
     public var updatePreviewWithNewReceived: [PlayerPreview]?
@@ -534,7 +534,7 @@ public class PlayersStorageMock: PlayersStorage {
         updatePreviewWithNewReceived = players
         return updatePreviewWithNewReturnValue
     }
-    // MARK: - getPreview
+    //MARK: - getPreview
 
     public var getPreviewCalled = false
     public var getPreviewReturnValue: Driver<[PlayerPreview]>!
@@ -543,7 +543,7 @@ public class PlayersStorageMock: PlayersStorage {
         getPreviewCalled = true
         return getPreviewReturnValue
     }
-    // MARK: - updateDescription
+    //MARK: - updateDescription
 
     public var updateDescriptionWithNewCalled = false
     public var updateDescriptionWithNewReceived: PlayerDescription?
@@ -554,7 +554,7 @@ public class PlayersStorageMock: PlayersStorage {
         updateDescriptionWithNewReceived = player
         return updateDescriptionWithNewReturnValue
     }
-    // MARK: - getDescription
+    //MARK: - getDescription
 
     public var getDescriptionPlayerCalled = false
     public var getDescriptionPlayerReceived: Int?
@@ -565,7 +565,7 @@ public class PlayersStorageMock: PlayersStorage {
         getDescriptionPlayerReceived = id
         return getDescriptionPlayerReturnValue
     }
-    // MARK: - getFavoritePreview
+    //MARK: - getFavoritePreview
 
     public var getFavoritePreviewCalled = false
     public var getFavoritePreviewReturnValue: Driver<[PlayerPreview]>!
@@ -574,7 +574,7 @@ public class PlayersStorageMock: PlayersStorage {
         getFavoritePreviewCalled = true
         return getFavoritePreviewReturnValue
     }
-    // MARK: - add
+    //MARK: - add
 
     public var addFavouriteCalled = false
     public var addFavouriteReceived: Int?
@@ -585,7 +585,7 @@ public class PlayersStorageMock: PlayersStorage {
         addFavouriteReceived = id
         return addFavouriteReturnValue
     }
-    // MARK: - remove
+    //MARK: - remove
 
     public var removeFavouriteCalled = false
     public var removeFavouriteReceived: Int?
@@ -596,7 +596,7 @@ public class PlayersStorageMock: PlayersStorage {
         removeFavouriteReceived = id
         return removeFavouriteReturnValue
     }
-    // MARK: - isFavourite
+    //MARK: - isFavourite
 
     public var isFavouritePlayerCalled = false
     public var isFavouritePlayerReceived: Int?
@@ -623,7 +623,7 @@ public class SkinsAPIServiceMock: SkinsAPIService {
     public init() {
     }
 
-    // MARK: - subscribeForNewSkins
+    //MARK: - subscribeForNewSkins
 
     public var subscribeForNewSkinsCalled = false
     public var subscribeForNewSkinsReturnValue: DriverResult<Skin, SkinsAPIServiceError>!
@@ -639,7 +639,7 @@ public class SkinsServiceMock: SkinsService {
     public init() {
     }
 
-    // MARK: - subscribeForNewSkins
+    //MARK: - subscribeForNewSkins
 
     public var subscribeForNewSkinsCalled = false
     public var subscribeForNewSkinsReturnValue: DriverResult<Skin, SkinsServiceError>!
@@ -655,7 +655,7 @@ public class TeamsAPIServiceMock: TeamsAPIService {
     public init() {
     }
 
-    // MARK: - get
+    //MARK: - get
 
     public var getPageCalled = false
     public var getPageReceived: Int?
@@ -673,7 +673,7 @@ public class TeamsServiceMock: TeamsService {
     public init() {
     }
 
-    // MARK: - get
+    //MARK: - get
 
     public var getPageCalled = false
     public var getPageReceived: Int?
@@ -691,7 +691,7 @@ public class TeamsStorageMock: TeamsStorage {
     public init() {
     }
 
-    // MARK: - update
+    //MARK: - update
 
     public var updateWithNewCalled = false
     public var updateWithNewReceived: [Team]?
@@ -702,7 +702,7 @@ public class TeamsStorageMock: TeamsStorage {
         updateWithNewReceived = teams
         return updateWithNewReturnValue
     }
-    // MARK: - get
+    //MARK: - get
 
     public var getCalled = false
     public var getReturnValue: Driver<[Team]>!
