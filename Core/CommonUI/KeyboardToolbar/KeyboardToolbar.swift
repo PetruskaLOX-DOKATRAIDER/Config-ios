@@ -32,11 +32,11 @@ final class KeyboardToolbar: LoadableView {
     }
     
     private func setup() {
-        backgroundColor = .amethyst
+        backgroundColor = Colors.amethyst
         
         [cancelButton, submitButton].forEach {
             $0?.titleLabel?.font = .filsonMediumWithSize(15)
-            $0?.setTitleColor(.ichigos, for: .normal)
+            $0?.setTitleColor(Colors.ichigos, for: .normal)
         }
         
         Driver.merge(cancelButton.rx.tap.asDriver(), cancelButton.rx.tap.asDriver()).drive(onNext: { [weak self] in

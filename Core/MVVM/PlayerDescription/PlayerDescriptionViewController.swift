@@ -25,26 +25,26 @@ public final class PlayerDescriptionViewController: UIViewController, NonReusabl
     override public func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.PlayerDescription.title
-        view.backgroundColor = .amethyst
+        view.backgroundColor = Colors.amethyst
 
         fullNameLabel.font = .filsonRegularWithSize(22)
-        fullNameLabel.textColor = .snowWhite
+        fullNameLabel.textColor = Colors.snowWhite
 
         sendCFGButton.setTitle(Strings.PlayerDescription.sendCfg, for: .normal)
-        sendCFGButton.backgroundColor = .ichigos
-        sendCFGButton.setTitleColor(.snowWhite, for: .normal)
+        sendCFGButton.backgroundColor = Colors.ichigos
+        sendCFGButton.setTitleColor(Colors.snowWhite, for: .normal)
         sendCFGButton.titleLabel?.font = .filsonMediumWithSize(18)
-        sendCFGButton.applyShadow(color: UIColor.ichigos.cgColor)
+        sendCFGButton.applyShadow(color: Colors.ichigos.cgColor)
         
         optionsButton.setTitle(Strings.PlayerDescription.options, for: .normal)
-        optionsButton.setTitleColor(.ichigos, for: .normal)
+        optionsButton.setTitleColor(Colors.ichigos, for: .normal)
         optionsButton.borderWidth = 2
-        optionsButton.borderColor = .ichigos
+        optionsButton.borderColor = Colors.ichigos
         optionsButton.titleLabel?.font = .filsonMediumWithSize(18)
 
         detailsButton.setTitle(Strings.PlayerDescription.details, for: .normal)
-        detailsButton.backgroundColor = .ichigos
-        detailsButton.setTitleColor(.snowWhite, for: .normal)
+        detailsButton.backgroundColor = Colors.ichigos
+        detailsButton.setTitleColor(Colors.snowWhite, for: .normal)
         detailsButton.titleLabel?.font = .filsonMediumWithSize(18)
         
         segmentPageViewController.setupViewControllers([personalInfoVC, hardwareVC, settingsVC])

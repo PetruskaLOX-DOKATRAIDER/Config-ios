@@ -15,14 +15,14 @@ final class NewsItemCell: UICollectionViewCell, ModelTransfer, ReusableViewProto
     
     public override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.backgroundColor = .ichigos
-        containerView.applyShadow(color: UIColor.amethyst.cgColor)
+        containerView.backgroundColor = Colors.ichigos
+        containerView.applyShadow(color: Colors.amethyst.cgColor)
 
-        titleLabel.textColor = .snowWhite
+        titleLabel.textColor = Colors.snowWhite
         titleLabel.font = .filsonMediumWithSize(23)
 
         gradeintView.startColor = .clear
-        gradeintView.endColor = .ichigos
+        gradeintView.endColor = Colors.ichigos
     }
     
     public func onUpdate(with viewModel: NewsItemViewModel, disposeBag: DisposeBag) {

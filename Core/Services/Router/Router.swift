@@ -66,7 +66,7 @@ public final class Router: ReactiveCompatible {
             guard let strongSelf = self else { return }
             vc.viewModel?.shouldRouteFavoritePlayers.map(to: favoritePlayers).push().disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteSkins.map(to: skins).push().disposed(by: vc.rx.disposeBag)
-            vc.viewModel?.shouldOpenURL.drive(strongSelf.rx.pushSafariVC).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldOpenURL.drive(strongSelf.rx.presentSafariVC).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldShare.drive(strongSelf.rx.presentActivityVC).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldSendFeedback.map(to: feedback).present().disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteTutorial.map(to: tutorial).present().disposed(by: vc.rx.disposeBag)
@@ -77,8 +77,8 @@ public final class Router: ReactiveCompatible {
         return route().configure({ [weak self, eventFilters = eventFilters()] vc in
             guard let strongSelf = self else { return }
             vc.viewModel?.shouldRouteFilters.map(to: eventFilters).present().disposed(by: vc.rx.disposeBag)
-            vc.viewModel?.listEventsViewModel.shouldOpenURL.drive(strongSelf.rx.pushSafariVC).disposed(by: vc.rx.disposeBag)
-            vc.viewModel?.mapEventsViewModel.eventDescriptionViewModel.shouldOpenURL.drive(strongSelf.rx.pushSafariVC).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.listEventsViewModel.shouldOpenURL.drive(strongSelf.rx.presentSafariVC).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.mapEventsViewModel.eventDescriptionViewModel.shouldOpenURL.drive(strongSelf.rx.presentSafariVC).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.mapEventsViewModel.eventDescriptionViewModel.shouldShare.drive(strongSelf.rx.presentActivityVC).disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.`default`())
     }
@@ -127,15 +127,14 @@ public final class Router: ReactiveCompatible {
             vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomSlide(direction: .right)).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.alertViewModel.drive(strongSelf.rx.presentAlertVM).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldShare.drive(strongSelf.rx.presentActivityVC).disposed(by: vc.rx.disposeBag)
-            vc.viewModel?.shouldOpenURL.drive(strongSelf.rx.pushSafariVC).disposed(by: vc.rx.disposeBag)            
+            vc.viewModel?.shouldOpenURL.drive(strongSelf.rx.presentSafariVC).disposed(by: vc.rx.disposeBag)
         }).embedInNavigation(NavigationControllerFactory.clear())
     }
     
     public func newsDescription() -> Route<NewsDescriptionViewController> {
         return route().configure({ [weak self, imageViewer = imageViewer()] vc in
             guard let strongSelf = self, let nvc = vc.navigationController else { return }
-            //nvc.addMotionTransition(.zoomSlide(direction: .left))
-            nvc.addMotionTransition(.zoom)
+            nvc.addMotionTransition(.zoomSlide(direction: .left))
             vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomSlide(direction: .right)).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteImageViewer.map(imageViewer.buildViewModel).present().disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldShare.drive(strongSelf.rx.presentActivityVC).disposed(by: vc.rx.disposeBag)
@@ -147,7 +146,7 @@ public final class Router: ReactiveCompatible {
             guard let strongSelf = self, let nvc = vc.navigationController else { return }
             nvc.addMotionTransition(.zoom)
             vc.viewModel?.shouldClose.map(to: MotionTransitionAnimationType.zoomOut).drive(nvc.rx.motiondClose).disposed(by: vc.rx.disposeBag)
-            vc.viewModel?.shouldOpenURL.drive(strongSelf.rx.pushSafariVC).disposed(by: vc.rx.disposeBag)
+            vc.viewModel?.shouldOpenURL.drive(strongSelf.rx.presentSafariVC).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.alertViewModel.drive(strongSelf.rx.presentAlertVM).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldRouteAppSettings.drive(onNext:{ try? strongSelf.deviceRouter.openSettings() }).disposed(by: vc.rx.disposeBag)
             vc.viewModel?.shouldShare.drive(strongSelf.rx.presentActivityVC).disposed(by: vc.rx.disposeBag)

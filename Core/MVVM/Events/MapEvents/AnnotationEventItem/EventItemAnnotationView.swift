@@ -24,10 +24,10 @@ class EventItemAnnotationView: MKAnnotationView {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         imageView.image = icon
         imageView.layer.borderWidth = 2
-        imageView.layer.borderColor = UIColor.ichigos.cgColor
+        imageView.layer.borderColor = Colors.ichigos.cgColor
         imageView.layer.cornerRadius = imageView.bounds.size.height / 2
         imageView.layer.masksToBounds = true
-        imageView.backgroundColor = .bagdet
+        imageView.backgroundColor = Colors.bagdet
         return imageView
     }
 }

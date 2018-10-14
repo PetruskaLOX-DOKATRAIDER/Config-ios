@@ -23,31 +23,31 @@ public final class NewsDescriptionViewController: UIViewController, NonReusableV
     override public func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.News.title
-        view.backgroundColor = .bagdet
+        view.backgroundColor = Colors.bagdet
         
-        titleLabel.textColor = .snowWhite
+        titleLabel.textColor = Colors.snowWhite
         titleLabel.font = .filsonMediumWithSize(23)
         
-        subtitleLabel.textColor = .solled
+        subtitleLabel.textColor = Colors.solled
         subtitleLabel.font = .filsonMediumWithSize(18)
         
-        descriptionLabel.textColor = .solled
+        descriptionLabel.textColor = Colors.solled
         descriptionLabel.font = .filsonRegularWithSize(15)
 
         coverImageGradientView.startColor = .clear
-        coverImageGradientView.endColor = .bagdet
+        coverImageGradientView.endColor = Colors.bagdet
         
         shareButton.setTitle(Strings.Newsdescription.share, for: .normal)
-        shareButton.backgroundColor = .ichigos
-        shareButton.setTitleColor(.snowWhite, for: .normal)
+        shareButton.backgroundColor = Colors.ichigos
+        shareButton.setTitleColor(Colors.snowWhite, for: .normal)
         shareButton.titleLabel?.font = .filsonMediumWithSize(17)
-        shareButton.applyShadow(color: UIColor.ichigos.cgColor)
+        shareButton.applyShadow(color: Colors.ichigos.cgColor)
         
         detailsButton.setTitle(Strings.Newsdescription.details, for: .normal)
-        detailsButton.backgroundColor = .ichigos
-        detailsButton.setTitleColor(.snowWhite, for: .normal)
+        detailsButton.backgroundColor = Colors.ichigos
+        detailsButton.setTitleColor(Colors.snowWhite, for: .normal)
         detailsButton.titleLabel?.font = .filsonBoldWithSize(18)
-        detailsButton.applyShadow(color: UIColor.ichigos.cgColor)
+        detailsButton.applyShadow(color: Colors.ichigos.cgColor)
     }
     
     public func onUpdate(with viewModel: NewsDescriptionViewModel, disposeBag: DisposeBag) {

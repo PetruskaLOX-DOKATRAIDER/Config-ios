@@ -22,10 +22,10 @@ final class PlayersBannerView: LoadableView, ReusableViewProtocol, DTCollectionV
     }
     
     private func setup() {
-        backgroundColor = .ichigos
+        backgroundColor = Colors.ichigos
         errorLabel.font = .filsonMediumWithSize(16)
-        errorLabel.textColor = .ichigos
-        pageControl.currentPageIndicatorTintColor = .ichigos
+        errorLabel.textColor = Colors.ichigos
+        pageControl.currentPageIndicatorTintColor = Colors.ichigos
         collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
         setupManager()
     }

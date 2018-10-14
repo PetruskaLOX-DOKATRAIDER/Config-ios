@@ -33,13 +33,3 @@ public final class SkinsServiceImpl: SkinsService, ReactiveCompatible {
         })
     }
 }
-
-extension SkinsServiceError: Equatable {
-    public static func == (lhs: SkinsServiceError, rhs: SkinsServiceError) -> Bool {
-        switch (lhs, rhs) {
-        case (.serverError, .serverError): return true
-        case (.unknown, .unknown): return true
-        default: return false
-        }
-    }
-}

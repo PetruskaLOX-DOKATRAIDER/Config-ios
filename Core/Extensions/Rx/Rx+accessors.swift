@@ -94,13 +94,6 @@ public extension Reactive where Base: UIDatePicker {
 // MARK: Router
 
 public extension Reactive where Base: Router {
-    public var pushSafariVC: Binder<URL> {
-        return Binder(base) { router, url in
-            let safariVC = SFSafariViewController(url: url)
-            router.appRouter.topViewController?.navigationController?.pushViewController(safariVC, animated: true)
-        }
-    }
-    
     public var presentSafariVC: Binder<URL> {
         return Binder(base) { router, url in
             let safariVC = SFSafariViewController(url: url)

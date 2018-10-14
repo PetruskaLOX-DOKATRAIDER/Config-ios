@@ -13,7 +13,7 @@ final class SectionTopicView: UITableViewHeaderFooterView, ModelTransfer, Reusab
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleLabel.textColor = .snowWhite
+        titleLabel.textColor = Colors.snowWhite
         titleLabel.font = .filsonMediumWithSize(16)
     }
     

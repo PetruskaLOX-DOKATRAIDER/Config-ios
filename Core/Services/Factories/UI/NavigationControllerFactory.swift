@@ -10,14 +10,14 @@ final class NavigationControllerFactory {
     static func `default`(viewControllers: [UIViewController] = []) -> UINavigationController {
         let navigationController = UINavigationController()
         navigationController.setViewControllers(viewControllers, animated: false)
-        navigationController.navigationBar.titleColor(.ichigos)
+        navigationController.navigationBar.titleColor(Colors.ichigos)
         navigationController.navigationBar.titleFont(.filsonRegularWithSize(18))
         navigationController.navigationBar.shadowImage = UIImage()
-        navigationController.navigationBar.barTintColor = .tapped
+        navigationController.navigationBar.barTintColor = Colors.tapped
         if #available(iOS 11.0, *) {
             navigationController.navigationBar.prefersLargeTitles = true
             navigationController.navigationBar.largeTitleFont(.filsonRegularWithSize(30))
-            navigationController.navigationBar.largeTitleColor(.ichigos)
+            navigationController.navigationBar.largeTitleColor(Colors.ichigos)
         }
         return navigationController
     }
@@ -25,7 +25,7 @@ final class NavigationControllerFactory {
     static func clear(viewControllers: [UIViewController] = []) -> UINavigationController {
         let navigationController = UINavigationController()
         navigationController.setViewControllers(viewControllers, animated: false)
-        navigationController.navigationBar.titleColor(.snowWhite)
+        navigationController.navigationBar.titleColor(Colors.snowWhite)
         navigationController.navigationBar.titleFont(.filsonMediumWithSize(19))
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: .`default`)
         navigationController.navigationBar.shadowImage = UIImage()

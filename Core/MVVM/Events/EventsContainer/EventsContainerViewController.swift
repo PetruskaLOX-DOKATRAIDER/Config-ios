@@ -20,8 +20,8 @@ public final class EventsContainerViewController: UIViewController, NonReusableV
     public override func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.EventsContrainer.title
-        view.backgroundColor = .bagdet
-        indicatorContainerView.backgroundColor = .bagdet
+        view.backgroundColor = Colors.bagdet
+        indicatorContainerView.backgroundColor = Colors.bagdet
         tabBarItem = TabBarItemFactory.new(
             title: Strings.EventsContrainer.title,
             image: Images.Sections.eventsDeselected,

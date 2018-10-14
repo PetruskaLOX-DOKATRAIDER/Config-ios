@@ -13,7 +13,7 @@ public final class PlayersViewController: UIViewController, DTCollectionViewMana
     override public func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.Players.title
-        view.backgroundColor = .bagdet
+        view.backgroundColor = Colors.bagdet
         tabBarItem = TabBarItemFactory.new(
             title: Strings.Players.title,
             image: Images.Sections.playersDeselected,

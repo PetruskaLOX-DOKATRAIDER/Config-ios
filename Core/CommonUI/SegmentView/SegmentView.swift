@@ -42,8 +42,8 @@ class SegmentView: LoadableView {
     }
     
     private func setup() {
-        lineView.backgroundColor = .ichigos
-        stepView.backgroundColor = .ichigos
+        lineView.backgroundColor = Colors.ichigos
+        stepView.backgroundColor = Colors.ichigos
     }
     
     private func button(withTitle title: String) -> UIButton {

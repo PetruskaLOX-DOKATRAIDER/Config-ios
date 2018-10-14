@@ -26,14 +26,14 @@ final class EventDescriptionView: LoadableView, NonReusableViewProtocol {
     
     private func setup() {
         nameLabel.font = .filsonMediumWithSize(17)
-        nameLabel.textColor = .snowWhite
+        nameLabel.textColor = Colors.snowWhite
         
         cityLabel.font = .filsonRegularWithSize(17)
-        cityLabel.textColor = .solled
+        cityLabel.textColor = Colors.solled
         
         detailsButton.applyShadow()
-        detailsButton.backgroundColor = .ichigos
-        detailsButton.setTitleColor(.snowWhite, for: .normal)
+        detailsButton.backgroundColor = Colors.ichigos
+        detailsButton.setTitleColor(Colors.snowWhite, for: .normal)
         detailsButton.titleLabel?.font = .filsonMediumWithSize(17)
         detailsButton.setTitle(Strings.EventDescription.details, for: .normal)
     }

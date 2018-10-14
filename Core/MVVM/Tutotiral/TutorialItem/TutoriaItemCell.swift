@@ -13,13 +13,13 @@ final class TutoriaItemCell: UICollectionViewCell, ModelTransfer, ReusableViewPr
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = .bagdet
+        contentView.backgroundColor = Colors.bagdet
         
         titleLabel.font = .filsonMediumWithSize(17)
-        titleLabel.textColor = .snowWhite
+        titleLabel.textColor = Colors.snowWhite
         
         descriptionLabel.font = .filsonRegularWithSize(15)
-        descriptionLabel.textColor = .solled
+        descriptionLabel.textColor = Colors.solled
     }
     
     func onUpdate(with viewModel: TutorialItemViewModel, disposeBag: DisposeBag) {

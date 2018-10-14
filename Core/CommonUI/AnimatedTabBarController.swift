@@ -10,8 +10,8 @@ public final class AnimatedTabBarController: UITabBarController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        tabBar.tintColor = .ichigos
-        tabBar.barTintColor = .tapped
+        tabBar.tintColor = Colors.ichigos
+        tabBar.barTintColor = Colors.tapped
         hidesBottomBarWhenPushed = true
     }
 }

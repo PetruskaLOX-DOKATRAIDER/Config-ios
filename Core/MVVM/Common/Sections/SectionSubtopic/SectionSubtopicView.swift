@@ -11,7 +11,7 @@ final class SectionSubtopicView: UITableViewHeaderFooterView, ModelTransfer, Reu
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        messageLabel.textColor = .quaded
+        messageLabel.textColor = Colors.quaded
         messageLabel.font = .filsonMediumWithSize(15)
     }
     

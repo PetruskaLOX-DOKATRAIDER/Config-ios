@@ -13,7 +13,7 @@ final class PlayerBannerItemCell: UICollectionViewCell, ReusableViewProtocol, Mo
     override public func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.font = .filsonRegularWithSize(14)
-        titleLabel.textColor = .snowWhite
+        titleLabel.textColor = Colors.snowWhite
     }
     
     public func onUpdate(with viewModel: PlayerBannerItemViewModel, disposeBag: DisposeBag) {

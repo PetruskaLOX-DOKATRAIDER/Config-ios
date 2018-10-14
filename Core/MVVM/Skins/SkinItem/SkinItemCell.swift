@@ -14,21 +14,21 @@ class SkinItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.backgroundColor = .amethyst
-        containerView.applyShadow(color: UIColor.amethyst.cgColor)
+        containerView.backgroundColor = Colors.amethyst
+        containerView.applyShadow(color: Colors.amethyst.cgColor)
         
         titleLabel.font = .filsonMediumWithSize(17)
-        titleLabel.textColor = .snowWhite
+        titleLabel.textColor = Colors.snowWhite
         
         descriptionLabel.font = .filsonRegularWithSize(17)
-        descriptionLabel.textColor = .solled
+        descriptionLabel.textColor = Colors.solled
     }
     
     func onUpdate(with viewModel: SkinItemViewModel, disposeBag: DisposeBag) {
         func attributed(_ eventDescription: HighlightText) -> NSAttributedString {
             let attributedStr = NSMutableAttributedString(string: eventDescription.full)
             eventDescription.highlights.forEach {
-                attributedStr.setColorForText(textForAttribute: $0, withColor: .ichigos)
+                attributedStr.setColorForText(textForAttribute: $0, withColor: Colors.ichigos)
             }
             return attributedStr
         }

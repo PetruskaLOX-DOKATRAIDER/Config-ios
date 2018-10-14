@@ -31,13 +31,3 @@ public final class BannerServiceImpl: BannerService, ReactiveCompatible {
         )
     }
 }
-
-extension BannerServiceError: Equatable {
-    public static func == (lhs: BannerServiceError, rhs: BannerServiceError) -> Bool {
-        switch (lhs, rhs) {
-        case (.serverError, .serverError): return true
-        case (.unknown, .unknown): return true
-        default: return false
-        }
-    }
-}

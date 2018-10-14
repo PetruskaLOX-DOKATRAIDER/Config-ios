@@ -81,13 +81,3 @@ public final class NewsServiceImpl: NewsService, ReactiveCompatible {
         return newsStorage.getDescription(news: id).filterNil().map{ Result(value: $0) }
     }
 }
-
-extension NewsServiceError: Equatable {
-    public static func == (lhs: NewsServiceError, rhs: NewsServiceError) -> Bool {
-        switch (lhs, rhs) {
-        case (.serverError, .serverError): return true
-        case (.unknown, .unknown): return true
-        default: return false
-        }
-    }
-}

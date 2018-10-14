@@ -17,23 +17,23 @@ public final class EventsFilterViewController: UIViewController, NonReusableView
     override public func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.EventFilters.title
-        view.backgroundColor = .bagdet
+        view.backgroundColor = Colors.bagdet
         KeyboardAvoiding.avoid(with: scrollViewBottomConstraint, inside: view).disposed(by: rx.disposeBag)
         
-        descriptionLabel.textColor = .ichigos
+        descriptionLabel.textColor = Colors.ichigos
         descriptionLabel.font = .filsonRegularWithSize(15)
         descriptionLabel.text = Strings.EventFilters.description
     
         resetButton.setTitle(Strings.EventFilters.reset, for: .normal)
-        resetButton.setTitleColor(.ichigos, for: .normal)
+        resetButton.setTitleColor(Colors.ichigos, for: .normal)
         resetButton.titleLabel?.font = .filsonMediumWithSize(16)
         
         closeButton.setTitle(Strings.EventFilters.cancel, for: .normal)
-        closeButton.setTitleColor(.ichigos, for: .normal)
+        closeButton.setTitleColor(Colors.ichigos, for: .normal)
         closeButton.titleLabel?.font = .filsonMediumWithSize(16)
         
         applyButton.setTitle(Strings.EventFilters.apply, for: .normal)
-        applyButton.setTitleColor(.ichigos, for: .normal)
+        applyButton.setTitleColor(Colors.ichigos, for: .normal)
         applyButton.titleLabel?.font = .filsonMediumWithSize(16)
     }
 

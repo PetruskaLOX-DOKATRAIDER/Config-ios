@@ -8,3 +8,7 @@ strings:
     paths: Localizable.strings
     templatePath: ../../Core/Autogeneration/AutoStrings.stencil
     output: Strings.generated.swift
+colors:
+    paths: Colors.json
+    templatePath: ../../Core/Autogeneration/Colors.stencil
+    output: Colors.generated.swift

@@ -15,20 +15,20 @@ public final class TutorialViewController: UIViewController, DTCollectionViewMan
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .bagdet
+        view.backgroundColor = Colors.bagdet
         title = Strings.Tutorial.title
         setupManagerAndCollectionView()
 
-        skipButton.setTitleColor(.ichigos, for: .normal)
+        skipButton.setTitleColor(Colors.ichigos, for: .normal)
         skipButton.titleLabel?.font = .filsonRegularWithSize(16)
         skipButton.setTitle(Strings.Tutorial.skip, for: .normal)
         
-        nextButton.backgroundColor = .ichigos
+        nextButton.backgroundColor = Colors.ichigos
         nextButton.titleLabel?.font = .filsonMediumWithSize(18)
-        nextButton.setTitleColor(.snowWhite, for: .normal)
+        nextButton.setTitleColor(Colors.snowWhite, for: .normal)
         nextButton.applyShadow()
         
-        pageControl.currentPageIndicatorTintColor = .ichigos
+        pageControl.currentPageIndicatorTintColor = Colors.ichigos
     }
     
     private func setupManagerAndCollectionView() {

@@ -16,17 +16,17 @@ public final class SkinsViewController: UIViewController, NonReusableViewProtoco
     public override func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.Skins.title
-        view.backgroundColor = .bagdet
+        view.backgroundColor = Colors.bagdet
         KeyboardAvoiding.avoid(with: tableViewBottomConstraint, inside: view).disposed(by: rx.disposeBag)
         
         workingStatusLabel.font = .filsonRegularWithSize(15)
-        workingStatusLabel.textColor = .ichigos
+        workingStatusLabel.textColor = Colors.ichigos
         workingStatusLabel.text = Strings.Skins.workingStatus
         
         manager.startManaging(withDelegate: self)
         manager.register(SkinItemCell.self)
         
-        searchBar.barTintColor = .bagdet
+        searchBar.barTintColor = Colors.bagdet
         searchBar.placeholder = Strings.Skins.search
     }
     

@@ -13,19 +13,19 @@ final class StorageSetupCell: UITableViewCell, ModelTransfer, ReusableViewProtoc
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .amethyst
+        backgroundColor = Colors.amethyst
         
-        titleLabel.textColor = .solled
+        titleLabel.textColor = Colors.solled
         titleLabel.font = .filsonMediumWithSize(18)
         titleLabel.text = Strings.Storage.title
         
-        warningLabel.textColor = .solled
+        warningLabel.textColor = Colors.solled
         warningLabel.font = .filsonRegularWithSize(15)
         warningLabel.text = Strings.Storage.warning
         
         clearButton.setTitle(Strings.Storage.clear, for: .normal)
-        clearButton.setTitleColor(.snowWhite, for: .normal)
-        clearButton.backgroundColor = .ichigos
+        clearButton.setTitleColor(Colors.snowWhite, for: .normal)
+        clearButton.backgroundColor = Colors.ichigos
         clearButton.titleLabel?.font = .filsonMediumWithSize(16)
     }
     

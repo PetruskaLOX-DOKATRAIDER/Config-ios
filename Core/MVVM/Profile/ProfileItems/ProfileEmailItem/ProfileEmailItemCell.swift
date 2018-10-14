@@ -15,19 +15,19 @@ final class ProfileEmailItemCell: UITableViewCell, ModelTransfer, ReusableViewPr
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .amethyst
+        backgroundColor = Colors.amethyst
         
-        titleLabel.textColor = .solled
+        titleLabel.textColor = Colors.solled
         titleLabel.font = .filsonMediumWithSize(18)
         titleLabel.text = Strings.Profileemail.title
         
-        descriptionLabel.textColor = .solled
+        descriptionLabel.textColor = Colors.solled
         descriptionLabel.font = .filsonRegularWithSize(15)
         descriptionLabel.text = Strings.Profileemail.description
         
         saveButton.setTitle(Strings.Profileemail.save, for: .normal)
-        saveButton.setTitleColor(.snowWhite, for: .normal)
-        saveButton.backgroundColor = .ichigos
+        saveButton.setTitleColor(Colors.snowWhite, for: .normal)
+        saveButton.backgroundColor = Colors.ichigos
         saveButton.titleLabel?.font = .filsonMediumWithSize(14)
         
         emailTextField.inputAccessoryView = keyboardToolbar

@@ -28,21 +28,7 @@ public final class PlayerInfoViewModelImpl: PlayerInfoViewModel {
             HighlightText(full: Strings.PlayerDescription.realName("\($0.surname) \($0.name)"), highlights: ["\($0.surname) \($0.name)"]),
             HighlightText(full: Strings.PlayerDescription.nickname($0.nickname), highlights: [$0.nickname]),
             HighlightText(full: Strings.PlayerDescription.fromCountry($0.country), highlights: [$0.country]),
-            HighlightText(full: Strings.PlayerDescription.team($0.teamName), highlights: [$0.teamName]),
-            HighlightText(full: "1"),
-            HighlightText(full: "2"),
-            HighlightText(full: "3"),
-            HighlightText(full: "4"),
-            HighlightText(full: "5"),
-            HighlightText(full: "6"),
-            HighlightText(full: "7"),
-            HighlightText(full: "8"),
-            HighlightText(full: "9"),
-            HighlightText(full: "10"),
-            HighlightText(full: "11"),
-            HighlightText(full: "12"),
-            HighlightText(full: "13"),
-            HighlightText(full: "14")
+            HighlightText(full: Strings.PlayerDescription.team($0.teamName), highlights: [$0.teamName])
         ] }.startWith([])
         
         hardware = player.map{ [

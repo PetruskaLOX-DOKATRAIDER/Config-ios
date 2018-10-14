@@ -23,20 +23,20 @@ public final class FeedbackViewController: UIViewController, NonReusableViewProt
         
         titleLabel.text = Strings.Feedback.title
         titleLabel.font = .filsonMediumWithSize(17)
-        titleLabel.textColor = .snowWhite
+        titleLabel.textColor = Colors.snowWhite
         
-        separatorView.backgroundColor = .solled
-        containerView.backgroundColor = .bagdet
+        separatorView.backgroundColor = Colors.solled
+        containerView.backgroundColor = Colors.bagdet
         
         messageTextField.font = .filsonRegularWithSize(15)
-        messageTextField.textColor = .solled
-        messageTextField.placeHolderColor = .solled
-        messageContainerView.backgroundColor = .amethyst
+        messageTextField.textColor = Colors.solled
+        messageTextField.placeHolderColor = Colors.solled
+        messageContainerView.backgroundColor = Colors.amethyst
         
-        sendButton.backgroundColor = .ichigos
+        sendButton.backgroundColor = Colors.ichigos
         sendButton.titleLabel?.font = .filsonMediumWithSize(16)
         sendButton.setTitle(Strings.Feedback.send, for: .normal)
-        sendButton.setTitleColor(.snowWhite, for: .normal)
+        sendButton.setTitleColor(Colors.snowWhite, for: .normal)
     }
     
     public func onUpdate(with viewModel: FeedbackViewModel, disposeBag: DisposeBag) {

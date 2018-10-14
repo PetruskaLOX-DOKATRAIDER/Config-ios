@@ -17,19 +17,19 @@ public final class PickerViewController: UIViewController, NonReusableViewProtoc
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        containerView.backgroundColor = .bagdet
-        separatorView.backgroundColor = .ichigos
-        titleContainerView.backgroundColor = .amethyst
+        containerView.backgroundColor = Colors.bagdet
+        separatorView.backgroundColor = Colors.ichigos
+        titleContainerView.backgroundColor = Colors.amethyst
         
         closeButton.setTitle(Strings.Picker.cancel, for: .normal)
-        closeButton.setTitleColor(.ichigos, for: .normal)
+        closeButton.setTitleColor(Colors.ichigos, for: .normal)
         closeButton.titleLabel?.font = .filsonRegularWithSize(16)
         
         submitButton.setTitle(Strings.Picker.done, for: .normal)
-        submitButton.setTitleColor(.ichigos, for: .normal)
+        submitButton.setTitleColor(Colors.ichigos, for: .normal)
         submitButton.titleLabel?.font = .filsonRegularWithSize(16)
         
-        titleLabel.textColor = .ichigos
+        titleLabel.textColor = Colors.ichigos
         titleLabel.font = .filsonRegularWithSize(16)
     }
     

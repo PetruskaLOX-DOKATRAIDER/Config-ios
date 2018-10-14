@@ -23,13 +23,13 @@ final class MessageView: LoadableView, NonReusableViewProtocol {
     }
     
     private func setup() {
-        iconImageView.tintColor = .ichigos
-        containerView.backgroundColor = .amethyst
+        iconImageView.tintColor = Colors.ichigos
+        containerView.backgroundColor = Colors.amethyst
         
-        titleLabel.textColor = .ichigos
+        titleLabel.textColor = Colors.ichigos
         titleLabel.font = .filsonBoldWithSize(15)
         
-        descriptionLabel.textColor = .solled
+        descriptionLabel.textColor = Colors.solled
         descriptionLabel.font = .filsonRegularWithSize(15)
     }
     

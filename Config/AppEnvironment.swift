@@ -50,13 +50,13 @@ public enum AppEnvironmentImpl: AppEnvironment {
     }
     
     public var appStoreURL: URL {
-        let google = URL(string: "https://www.google.com") ?? URL(fileURLWithPath: "")
+        let google = URL(string: "https://www.google.com/") ?? URL(fileURLWithPath: "")
         let appStore = URL(string: "") ?? URL(fileURLWithPath: "")
         return appVersion == "0.0.0" ? google : appStore
     }
     
     public var donateURL: URL {
-        return URL(string: "https://www.google.com") ?? URL(fileURLWithPath: "")
+        return URL(string: "https://steamcommunity.com/groups/1TapElite") ?? URL(fileURLWithPath: "")
     }
     
     public var skinsApiURL: URL {

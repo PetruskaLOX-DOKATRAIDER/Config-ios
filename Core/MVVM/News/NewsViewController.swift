@@ -13,7 +13,7 @@ public final class NewsViewController: UIViewController, NonReusableViewProtocol
     override public func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.News.title
-        view.backgroundColor = .amethyst
+        view.backgroundColor = Colors.amethyst
         tabBarItem = TabBarItemFactory.new(
             title: Strings.News.title,
             image: Images.Sections.newsDeselected,

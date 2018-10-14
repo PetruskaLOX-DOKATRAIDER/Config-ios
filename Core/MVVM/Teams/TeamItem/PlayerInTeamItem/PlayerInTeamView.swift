@@ -24,8 +24,8 @@ final class PlayerInTeamView: LoadableView, ReusableViewProtocol {
     
     private func setup() {
         nicknameLabel.font = .filsonMediumWithSize(16)
-        nicknameLabel.textColor = .snowWhite
-        nicknameLabel.backgroundColor = .ichigos
+        nicknameLabel.textColor = Colors.snowWhite
+        nicknameLabel.backgroundColor = Colors.ichigos
     }
     
     func onUpdate(with viewModel: PlayerPreviewViewModel, disposeBag: DisposeBag) {

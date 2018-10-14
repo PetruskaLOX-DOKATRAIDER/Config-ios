@@ -18,7 +18,7 @@ final class PlayerInfoView: LoadableView {
         setup()
         let attributedStr = NSMutableAttributedString(string: title.full)
         title.highlights.forEach {
-            attributedStr.setColorForText(textForAttribute: $0, withColor: .ichigos)
+            attributedStr.setColorForText(textForAttribute: $0, withColor: Colors.ichigos)
         }
         titleLabel.attributedText = attributedStr
     }
@@ -30,7 +30,7 @@ final class PlayerInfoView: LoadableView {
     
     private func setup() {
         titleLabel.font = .filsonMediumWithSize(16)
-        titleLabel.textColor = UIColor.solled
-        pointView.backgroundColor = .ichigos
+        titleLabel.textColor = Colors.solled
+        pointView.backgroundColor = Colors.ichigos
     }
 }

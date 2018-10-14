@@ -18,20 +18,20 @@ public final class DatePickerViewController: UIViewController, NonReusableViewPr
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        containerView.backgroundColor = .bagdet
-        separatorView.backgroundColor = .ichigos
-        titleContainerView.backgroundColor = .amethyst
-        datePicker.setTextColor(.solled)
+        containerView.backgroundColor = Colors.bagdet
+        separatorView.backgroundColor = Colors.ichigos
+        titleContainerView.backgroundColor = Colors.amethyst
+        datePicker.setTextColor(Colors.solled)
         
         closeButton.setTitle(Strings.Datepicker.cancel, for: .normal)
-        closeButton.setTitleColor(.ichigos, for: .normal)
+        closeButton.setTitleColor(Colors.ichigos, for: .normal)
         closeButton.titleLabel?.font = .filsonRegularWithSize(16)
         
         submitButton.setTitle(Strings.Datepicker.done, for: .normal)
-        submitButton.setTitleColor(.ichigos, for: .normal)
+        submitButton.setTitleColor(Colors.ichigos, for: .normal)
         submitButton.titleLabel?.font = .filsonRegularWithSize(16)
         
-        titleLabel.textColor = .ichigos
+        titleLabel.textColor = Colors.ichigos
         titleLabel.font = .filsonRegularWithSize(16)
     }
     

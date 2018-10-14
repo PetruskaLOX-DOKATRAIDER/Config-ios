@@ -13,7 +13,7 @@ public final class ProfileViewController: UIViewController, NonReusableViewProto
     public override func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.Profile.title
-        view.backgroundColor = .bagdet
+        view.backgroundColor = Colors.bagdet
         tabBarItem = TabBarItemFactory.new(
             title: Strings.Profile.title,
             image: Images.Sections.profileDeselected,
@@ -25,8 +25,6 @@ public final class ProfileViewController: UIViewController, NonReusableViewProto
     
     private func setupManager() {
         manager.startManaging(withDelegate: self)
-        manager.registerHeader(SectionTopicView.self)
-        manager.registerFooter(SectionSubtopicView.self)
         manager.register(FavoritePlayersItemCell.self)
         manager.register(StorageSetupCell.self)
         manager.register(ProfileEmailItemCell.self)

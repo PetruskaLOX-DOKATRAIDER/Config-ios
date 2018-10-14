@@ -13,9 +13,9 @@ final class SectionItemCell: UITableViewCell, ModelTransfer, ReusableViewProtoco
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .amethyst
+        backgroundColor = Colors.amethyst
         
-        titleLabel.textColor = .solled
+        titleLabel.textColor = Colors.solled
         titleLabel.font = .filsonMediumWithSize(16)
         titleLabel.text = Strings.Storage.title
     }

@@ -11,7 +11,7 @@ import NVActivityIndicatorView
 extension UIView {
     private var indicatorViewTag: Int { return 54534 }
     
-    func showActivityIndicatorView(withColor color: UIColor = .ichigos) {
+    func showActivityIndicatorView(withColor color: UIColor = Colors.ichigos) {
         guard findActivityIndicatorView() == nil else { return }
         let indicatorView = NVActivityIndicatorView(frame: .zero, type: .ballScaleMultiple, color: color)
         indicatorView.layer.zPosition = 101

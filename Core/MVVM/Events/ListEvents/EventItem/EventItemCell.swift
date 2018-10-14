@@ -16,24 +16,24 @@ public class EventItemCell: UITableViewCell, ReusableViewProtocol, ModelTransfer
     
     override public func awakeFromNib() {
         super.awakeFromNib()
-        containerView.backgroundColor = .amethyst
-        containerView.applyShadow(color: UIColor.amethyst.cgColor)
+        containerView.backgroundColor = Colors.amethyst
+        containerView.applyShadow(color: Colors.amethyst.cgColor)
         
         nameLabel.font = .filsonMediumWithSize(17)
-        nameLabel.textColor = .snowWhite
+        nameLabel.textColor = Colors.snowWhite
         
         cityLabel.font = .filsonRegularWithSize(17)
-        cityLabel.textColor = .solled
+        cityLabel.textColor = Colors.solled
         
         descriptionLabel.font = .filsonRegularWithSize(30)
-        descriptionLabel.textColor = .solled
+        descriptionLabel.textColor = Colors.solled
     }
     
     public func onUpdate(with viewModel: EventItemViewModel, disposeBag: DisposeBag) {
         func attributed(_ eventDescription: HighlightText) -> NSAttributedString {
             let attributedStr = NSMutableAttributedString(string: eventDescription.full)
             eventDescription.highlights.forEach {
-                attributedStr.setColorForText(textForAttribute: $0, withColor: .ichigos)
+                attributedStr.setColorForText(textForAttribute: $0, withColor: Colors.ichigos)
             }
             return attributedStr
         }

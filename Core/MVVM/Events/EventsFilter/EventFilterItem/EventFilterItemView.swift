@@ -24,9 +24,9 @@ final class EventFilterItemView: LoadableView, NonReusableViewProtocol {
     }
     
     private func setup() {
-        backgroundColor = .amethyst
+        backgroundColor = Colors.amethyst
         
-        titleLabel.textColor = .solled
+        titleLabel.textColor = Colors.solled
         titleLabel.font = .filsonMediumWithSize(15)
     }
     

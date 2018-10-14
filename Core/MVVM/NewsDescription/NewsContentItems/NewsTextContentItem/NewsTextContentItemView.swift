@@ -21,7 +21,7 @@ final class NewsTextContentItemView: LoadableView, NonReusableViewProtocol {
     
     private func setup() {
         textLabel.font = .filsonRegularWithSize(16)
-        textLabel.textColor = .solled
+        textLabel.textColor = Colors.solled
     }
     
     func onUpdate(with viewModel: NewsTextContentItemViewModel, disposeBag: DisposeBag) {

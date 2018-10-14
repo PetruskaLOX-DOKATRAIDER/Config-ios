@@ -16,8 +16,8 @@ public class TeamItemCell: UITableViewCell, ModelTransfer, ReusableViewProtocol 
     override public func awakeFromNib() {
         super.awakeFromNib()
         nameLabel.font = .filsonBoldWithSize(16)
-        nameLabel.textColor = .snowWhite
-        backgroundColor = .bagdet
+        nameLabel.textColor = Colors.snowWhite
+        backgroundColor = Colors.bagdet
     }
     
     public func onUpdate(with viewModel: TeamItemViewModel, disposeBag: DisposeBag) {

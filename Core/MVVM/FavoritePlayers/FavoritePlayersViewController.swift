@@ -16,14 +16,14 @@ public final class FavoritePlayersViewController: UIViewController, NonReusableV
     override public func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.Favoriteplayers.title
-        view.backgroundColor = .bagdet
+        view.backgroundColor = Colors.bagdet
         setupManagerAndCollectionView()
         
-        noContentTitleLabel.textColor = .solled
+        noContentTitleLabel.textColor = Colors.solled
         noContentTitleLabel.font = .filsonMediumWithSize(18)
         noContentTitleLabel.text = Strings.Favoriteplayers.NoContent.title
         
-        noContentSubtitleLabel.textColor = .quaded
+        noContentSubtitleLabel.textColor = Colors.quaded
         noContentSubtitleLabel.font = .filsonRegularWithSize(15)
         noContentSubtitleLabel.text = Strings.Favoriteplayers.NoContent.subtitle
         noContentContainerView.layoutIfNeeded()

@@ -12,13 +12,13 @@ final class FavoritePlayersItemCell: UITableViewCell, ModelTransfer, ReusableVie
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .amethyst
+        backgroundColor = Colors.amethyst
         
-        titleLabel.textColor = .solled
+        titleLabel.textColor = Colors.solled
         titleLabel.font = .filsonMediumWithSize(21)
         titleLabel.text = Strings.Favoriteplayers.title
         
-        countOfPlayersLabel.textColor = .quaded
+        countOfPlayersLabel.textColor = Colors.quaded
         countOfPlayersLabel.font = .filsonMediumWithSize(15)
     }
     

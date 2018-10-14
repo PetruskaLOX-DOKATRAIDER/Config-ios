@@ -14,7 +14,7 @@ public final class TeamsViewController: UIViewController, DTTableViewManageable,
     override public func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.Teams.title
-        view.backgroundColor = .bagdet
+        view.backgroundColor = Colors.bagdet
         tabBarItem = TabBarItemFactory.new(
             title: Strings.Teams.title,
             image: Images.Sections.teamsDeselected,

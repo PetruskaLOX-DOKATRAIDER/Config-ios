@@ -122,15 +122,3 @@ public final class PlayersServiceImpl: PlayersService, ReactiveCompatible {
         )
     }
 }
-
-extension PlayersServiceError: Equatable {
-    public static func == (lhs: PlayersServiceError, rhs: PlayersServiceError) -> Bool {
-        switch (lhs, rhs) {
-        case (.playerIsNotFavorite, .playerIsNotFavorite): return true
-        case (.playerIsFavorite, .playerIsFavorite): return true
-        case (.serverError, .serverError): return true
-        case (.unknown, .unknown): return true
-        default: return false
-        }
-    }
-}
