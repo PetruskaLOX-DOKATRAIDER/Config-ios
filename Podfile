@@ -63,9 +63,8 @@ abstract_target 'AT' do
 
         target 'Config' do
             inherit! :search_paths
-
-            pod 'Fabric'
-            pod 'Crashlytics'
+            pod 'Fabric', '~> 1.7.13'
+            pod 'Firebase/Core', '~> 5.1.5'
         end
         
         target 'CoreDataStorage' do

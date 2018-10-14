@@ -306,6 +306,9 @@
 		A66B5A742173B4BC00CDEABD /* AutoEquatableMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B5A712173B4BC00CDEABD /* AutoEquatableMarker.swift */; };
 		A66B5A752173B4BC00CDEABD /* AutoEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B5A722173B4BC00CDEABD /* AutoEquatable.generated.swift */; };
 		A66B5A7A2173BA4700CDEABD /* Colors.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B5A792173BA4700CDEABD /* Colors.generated.swift */; };
+		A66B5A7F2173C1C800CDEABD /* GoogleService-Info-Staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = A66B5A7C2173C1C700CDEABD /* GoogleService-Info-Staging.plist */; };
+		A66B5A802173C1C800CDEABD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A66B5A7D2173C1C700CDEABD /* GoogleService-Info.plist */; };
+		A66B5A812173C1C800CDEABD /* GoogleService-Info-Develop.plist in Resources */ = {isa = PBXBuildFile; fileRef = A66B5A7E2173C1C800CDEABD /* GoogleService-Info-Develop.plist */; };
 		A68E472921568DE400A05C0D /* PlayersBannerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9105C220FC806300970FA7 /* PlayersBannerViewModelTests.swift */; };
 		A68E472C21568E5400A05C0D /* PlayerBannerItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E472A21568DFA00A05C0D /* PlayerBannerItemViewModelTests.swift */; };
 		A68E47452156981900A05C0D /* PlayersServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E473C2156978B00A05C0D /* PlayersServiceTests.swift */; };
@@ -314,7 +317,6 @@
 		A68E47482156985100A05C0D /* EventsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E47312156973000A05C0D /* EventsServiceTests.swift */; };
 		A68E47492156985F00A05C0D /* SkinsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E47372156975500A05C0D /* SkinsServiceTests.swift */; };
 		A68E474A2156986E00A05C0D /* BannerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E47352156974900A05C0D /* BannerServiceTests.swift */; };
-		A68E47552156ED8000A05C0D /* StorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E47542156ED8000A05C0D /* StorageMock.swift */; };
 		A6F5EB6B2156626000AC4255 /* UITextfield+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5EB6A2156626000AC4255 /* UITextfield+extensions.swift */; };
 		A6F5EB6D2156659500AC4255 /* Strings.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5EB6C215662D800AC4255 /* Strings.generated.swift */; };
 		A6F5EB6E215666C500AC4255 /* PlayerDescriptionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA552772100925E0097E866 /* PlayerDescriptionViewModelTests.swift */; };
@@ -743,6 +745,9 @@
 		A66B5A772173B9E100CDEABD /* Colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Colors.json; sourceTree = "<group>"; };
 		A66B5A792173BA4700CDEABD /* Colors.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.generated.swift; sourceTree = "<group>"; };
 		A66B5A7B2173BA5500CDEABD /* Colors.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Colors.stencil; sourceTree = "<group>"; };
+		A66B5A7C2173C1C700CDEABD /* GoogleService-Info-Staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Staging.plist"; sourceTree = "<group>"; };
+		A66B5A7D2173C1C700CDEABD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A66B5A7E2173C1C800CDEABD /* GoogleService-Info-Develop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Develop.plist"; sourceTree = "<group>"; };
 		A68E472A21568DFA00A05C0D /* PlayerBannerItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBannerItemViewModelTests.swift; sourceTree = "<group>"; };
 		A68E472E2156971D00A05C0D /* TeamsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsServiceTests.swift; sourceTree = "<group>"; };
 		A68E47312156973000A05C0D /* EventsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsServiceTests.swift; sourceTree = "<group>"; };
@@ -750,7 +755,6 @@
 		A68E47352156974900A05C0D /* BannerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerServiceTests.swift; sourceTree = "<group>"; };
 		A68E47372156975500A05C0D /* SkinsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsServiceTests.swift; sourceTree = "<group>"; };
 		A68E473C2156978B00A05C0D /* PlayersServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersServiceTests.swift; sourceTree = "<group>"; };
-		A68E47542156ED8000A05C0D /* StorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageMock.swift; sourceTree = "<group>"; };
 		A6F5EB6A2156626000AC4255 /* UITextfield+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextfield+extensions.swift"; sourceTree = "<group>"; };
 		A6F5EB6C215662D800AC4255 /* Strings.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.generated.swift; sourceTree = "<group>"; };
 		A84BD4082031D5420060E520 /* TableViewManager+extensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewManager+extensionsTests.swift"; sourceTree = "<group>"; };
@@ -1762,14 +1766,6 @@
 			path = EventsFiltersStorage;
 			sourceTree = "<group>";
 		};
-		A68E47532156ED6F00A05C0D /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				A68E47542156ED8000A05C0D /* StorageMock.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
 		A8D09DD82036DC310057F9D9 /* Rx */ = {
 			isa = PBXGroup;
 			children = (
@@ -2026,6 +2022,9 @@
 				C0F867A5202C4B3900D15CDA /* Assets.xcassets */,
 				C0F867A7202C4B3900D15CDA /* LaunchScreen.storyboard */,
 				C0F867AA202C4B3900D15CDA /* Info.plist */,
+				A66B5A7E2173C1C800CDEABD /* GoogleService-Info-Develop.plist */,
+				A66B5A7C2173C1C700CDEABD /* GoogleService-Info-Staging.plist */,
+				A66B5A7D2173C1C700CDEABD /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2078,7 +2077,6 @@
 		C0F867F4202C655C00D15CDA /* TestsHelper */ = {
 			isa = PBXGroup;
 			children = (
-				A68E47532156ED6F00A05C0D /* Mocks */,
 				C0F8680E202C68E700D15CDA /* Autogeneration */,
 				C0F8680C202C687500D15CDA /* Resources */,
 				C02C463A202CAC99008AE9B0 /* EasyConstruction.swift */,
@@ -2354,8 +2352,11 @@
 				7CDAF97720D7FC04009B9B87 /* filsonsoft-bold.otf in Resources */,
 				7CDAF97420D7FC04009B9B87 /* filsonsoft-medium.otf in Resources */,
 				C0F867A9202C4B3900D15CDA /* LaunchScreen.storyboard in Resources */,
+				A66B5A7F2173C1C800CDEABD /* GoogleService-Info-Staging.plist in Resources */,
 				7CDAF97520D7FC04009B9B87 /* filsonsoft-light.otf in Resources */,
 				7CDAF97E20D80102009B9B87 /* Localizable.strings in Resources */,
+				A66B5A802173C1C800CDEABD /* GoogleService-Info.plist in Resources */,
+				A66B5A812173C1C800CDEABD /* GoogleService-Info-Develop.plist in Resources */,
 				C0F867A6202C4B3900D15CDA /* Assets.xcassets in Resources */,
 				7CDAF97620D7FC04009B9B87 /* filsonsoft-regular.otf in Resources */,
 			);
@@ -2497,6 +2498,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Config/Pods-Config-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AppRouter/AppRouter.framework",
@@ -2529,6 +2532,8 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppRouter.framework",
@@ -3068,7 +3073,6 @@
 				7C0C1E012146BBF900E03212 /* DIConfiguration.swift in Sources */,
 				3ED465B12034971A0015DAF6 /* AutoMockable.generated.swift in Sources */,
 				C02C463B202CAC99008AE9B0 /* EasyConstruction.swift in Sources */,
-				A68E47552156ED8000A05C0D /* StorageMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

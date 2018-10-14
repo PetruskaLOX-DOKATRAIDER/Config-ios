@@ -2,7 +2,7 @@
 //  SkinTests.swift
 //  Core
 //
-//  Created by Петрічук Олег Аркадійовіч on 14.10.2018.
+//  Created by Oleg Petrychuk on 14.10.2018.
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 

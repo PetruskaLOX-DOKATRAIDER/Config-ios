@@ -2,7 +2,7 @@
 //  TeamsServiceTests.swift
 //  Core
 //
-//  Created by Петрічук Олег Аркадійовіч on 22.09.2018.
+//  Created by Oleg Petrychuk on 22.09.2018.
 //  Copyright © 2018 Oleg Petrychuk. All rights reserved.
 //
 

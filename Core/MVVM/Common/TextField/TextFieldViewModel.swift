@@ -2,7 +2,7 @@
 //  TextFieldViewModel.swift
 //  Core
 //
-//  Created by Петрічук Олег Аркадійовіч on 21.03.18.
+//  Created by Oleg Petrychuk on 21.03.18.
 //  Copyright © 2018 MLSDev. All rights reserved.
 //
 

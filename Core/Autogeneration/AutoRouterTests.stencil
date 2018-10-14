@@ -1,11 +1,11 @@
-import XCTest
-import Core
-import AppRouter
-import TestsHelper
-import Dip
-import Nimble
 
-/*
+import TestsHelper
+
+// swiftlint:disable file_length
+// swiftlint:disable line_length
+// swiftlint:disable type_body_length
+// swiftlint:disable function_parameter_count
+
 {% for type in types.classes %}{% if type.name == 'Router' %}
 class RouterTestsGenerated: XCTestCase {
     var container: DependencyContainer!
@@ -14,7 +14,7 @@ class RouterTestsGenerated: XCTestCase {
     override func setUp() {
         super.setUp()
         container = DependencyContainer().registerAll().stubStorages().stubModels()
-        router = Router(router: AppRouter.shared, viewFactory: container, viewModelFactory: container)
+        router = Router(router: AppRouter.shared, viewFactory: container, viewModelFactory: container, deviceRouter: DeviceRouterImpl())
     }
 
 {% for method in type.allMethods where not method.isInitializer and method.parameters.count == 0 and not method.accessLevel == "private" and not method.accessLevel == "internal" and not method.returnTypeName.isClosure and method.returnTypeName.name|contains:"Route" %}
@@ -24,4 +24,4 @@ class RouterTestsGenerated: XCTestCase {
 {% endfor %}
 }
 {% endif %}{% endfor %}
-*/
+
