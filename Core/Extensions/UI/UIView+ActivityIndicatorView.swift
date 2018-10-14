@@ -31,7 +31,7 @@ extension UIView {
     }
     
     private func findActivityIndicatorView() -> NVActivityIndicatorView? {
-        var activityIndicatorView: NVActivityIndicatorView? = nil
+        var activityIndicatorView: NVActivityIndicatorView?
         subviews.forEach{ view in
             guard let indicator = view as? NVActivityIndicatorView, view.tag == indicatorViewTag else { return }
             activityIndicatorView = indicator

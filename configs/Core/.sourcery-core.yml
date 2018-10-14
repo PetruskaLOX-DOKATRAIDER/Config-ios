@@ -3,7 +3,6 @@ sources:
 templates:
   - ../../Core/Autogeneration/AutoPublicInit.stencil
   - ../../Core/Autogeneration/ImagesTests.stencil
-  - ../../Core/Autogeneration/AutoStrings.stencil
   - ../../Core/Autogeneration/AutoStoryboard.stencil
   - ../../Core/Autogeneration/AutoRouterTests.stencil
 output:

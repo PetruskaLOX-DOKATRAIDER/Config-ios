@@ -21,14 +21,14 @@ extension Page: JSONDecodable {
         index = json["current_page"].intValue
         totalPages = json["total_pages"].intValue
         if let type = T.self as? JSONDecodable.Type {
-            content = json["collection"].arrayValue.flatMap{ json -> Any? in
+            content = json["collection"].arrayValue.compactMap{ json -> Any? in
                 do {
                     return try type.init(json: json)
                 } catch {
                     print(error.localizedDescription)
                     return nil
                 }
-            }.flatMap{ $0 as? T }
+            }.compactMap{ $0 as? T }
         } else {
             content = []
         }

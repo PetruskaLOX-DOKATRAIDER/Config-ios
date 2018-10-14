@@ -13,15 +13,15 @@ abstract_target 'AT' do
         pod 'ReachabilitySwift'
         pod 'RxViewController'
         pod 'RxMapKit'
-
+        
         #CodeGeneration
         pod 'Sourcery'
-        pod 'SwiftGen'
+        pod 'SwiftGen', '~> 5.3'
         pod 'SwiftLint'
-
+        
         #UIKit
-        pod 'AppRouter'
-        pod 'AppRouter/RxSwift'
+        pod 'AppRouter', '~> 4.1.2'
+        pod 'AppRouter/RxSwift', '~> 4.1.2'
         pod 'DTTableViewManager'
         pod 'DTCollectionViewManager'
         pod 'LoadableViews'
@@ -32,18 +32,19 @@ abstract_target 'AT' do
         pod 'Motion'
         
         #MVVM
-        pod 'Dip', '~> 6.0'
-        pod 'ReusableView'
-        pod 'Result'
-
+        pod 'Dip', '~> 7.0'
+        pod 'ReusableView', '~> 1.2.1'
+        pod 'Result', '~> 4.0.0'
+        
         #Networking
-        pod 'TRON'
-        pod 'SwiftyJSON'
-        pod 'Starscream', '~> 3.0.2'
+        pod 'TRON', '~> 4.2.1'
+        pod 'SwiftyJSON', '~> 4.1.0'
+        #pod 'Starscream', :git => 'https://github.com/daltoniam/Starscream.git', :branch => 'xcode-10'
+        pod 'Starscream'
         
         #Analytics
         pod 'Flurry-iOS-SDK/FlurrySDK'
-
+        
         #Logging
         pod 'CocoaLumberjack/Swift'
 

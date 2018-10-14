@@ -18,12 +18,12 @@ extension Team: JSONDecodable {
         name = json["teamName"].stringValue
         logoURL = json["image"].url
         id = json["id"].intValue
-        players = json["players"].arrayValue.flatMap{ json -> Any? in
+        players = json["players"].arrayValue.compactMap{ json -> Any? in
             do {
                 return try PlayerPreview(json: json)
             } catch {
                 return nil
             }
-        }.flatMap{ $0 as? PlayerPreview }
+        }.compactMap{ $0 as? PlayerPreview }
     }
 }

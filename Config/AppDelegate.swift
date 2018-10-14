@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if NSClassFromString("XCTestCase") != nil { return true }
         //Fabric.with([Crashlytics.self])
-        UIViewController.rx.onViewDidLoad().bind(onNext: { Debugger($0) }).disposed(by: rx.disposeBag)
+        UIViewController.rx.onViewDidLoad().bind(onNext: { Debugger.init($0) }).disposed(by: rx.disposeBag)
         viewModel.shouldRouteApp.map{ [router] in router.appSections() }.setAsRoot().disposed(by: rx.disposeBag)
         viewModel.shouldRouteTutorial.map{ [router] in router.appSections() }.setAsRoot().disposed(by: rx.disposeBag)
         viewModel.didBecomeActiveTrigger.onNext(())

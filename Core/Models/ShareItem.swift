@@ -22,6 +22,6 @@ public struct ShareItem {
     }
     
     public func items() -> [Any] {
-        return [text as Any, url as Any, image as Any].flatMap{ $0 }
+        return [text as Any, url as Any, image as Any].compactMap{ $0 }
     }
 }

@@ -74,7 +74,7 @@ public final class ImageViewerViewModelImpl: ImageViewerViewModel {
             actions: [givePermissions, cancel]
         )
         alertViewModel = cameraDenied.asDriver(onErrorJustReturn: ()).map(to: alertVM)
-        shouldRouteAppSettings = appSettings.asDriver(onErrorJustReturn: ()).debug("xxxxxx")
+        shouldRouteAppSettings = appSettings.asDriver(onErrorJustReturn: ())
         shouldShare = shareTrigger.asDriver(onErrorJustReturn: ()).map(to: ShareItem(url: imageURL))
     }
 }
