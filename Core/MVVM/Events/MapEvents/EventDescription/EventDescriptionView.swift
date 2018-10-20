@@ -14,17 +14,9 @@ final class EventDescriptionView: LoadableView, NonReusableViewProtocol {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var cityLabel: UILabel!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
+    override func setupNib() {
+        super.setupNib()
+        
         nameLabel.font = .filsonMediumWithSize(17)
         nameLabel.textColor = Colors.snowWhite
         

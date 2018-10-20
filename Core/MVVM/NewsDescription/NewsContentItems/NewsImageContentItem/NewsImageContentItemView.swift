@@ -10,17 +10,9 @@ final class NewsImageContentItemView: LoadableView, NonReusableViewProtocol {
     @IBOutlet private weak var coverImageView: UIImageView!
     @IBOutlet private weak var selectionButton: UIButton!
     
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
+    override func setupNib() {
+        super.setupNib()
+        
         coverImageView.backgroundColor = Colors.wonded
         selectionButton.applyShadow()
     }

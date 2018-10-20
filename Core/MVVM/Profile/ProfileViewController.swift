@@ -20,11 +20,7 @@ public final class ProfileViewController: UIViewController, NonReusableViewProto
             selectedImage: Images.Sections.profileSelected
         )
         KeyboardAvoiding.avoid(with: tableViewBottomConstraint, inside: tableView).disposed(by: rx.disposeBag)
-        setupManager()
-    }
-    
-    private func setupManager() {
-        manager.startManaging(withDelegate: self)
+        
         manager.register(FavoritePlayersItemCell.self)
         manager.register(StorageSetupCell.self)
         manager.register(ProfileEmailItemCell.self)

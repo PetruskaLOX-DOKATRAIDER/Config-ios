@@ -12,17 +12,9 @@ final class PlayerInTeamView: LoadableView, ReusableViewProtocol {
     @IBOutlet private weak var nicknameLabel: UILabel!
     static let defaultWidth: CGFloat = 126
     
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
+    override func setupNib() {
+        super.setupNib()
+        
         nicknameLabel.font = .filsonMediumWithSize(16)
         nicknameLabel.textColor = Colors.snowWhite
         nicknameLabel.backgroundColor = Colors.ichigos

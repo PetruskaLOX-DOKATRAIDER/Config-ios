@@ -17,7 +17,6 @@ public final class TutorialViewController: UIViewController, DTCollectionViewMan
         super.viewDidLoad()
         view.backgroundColor = Colors.bagdet
         title = Strings.Tutorial.title
-        setupManagerAndCollectionView()
 
         skipButton.setTitleColor(Colors.ichigos, for: .normal)
         skipButton.titleLabel?.font = .filsonRegularWithSize(16)
@@ -29,11 +28,8 @@ public final class TutorialViewController: UIViewController, DTCollectionViewMan
         nextButton.applyShadow()
         
         pageControl.currentPageIndicatorTintColor = Colors.ichigos
-    }
-    
-    private func setupManagerAndCollectionView() {
+        
         collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
-        manager.startManaging(withDelegate: self)
         manager.register(TutoriaItemCell.self)
         manager.sizeForCell(withItem: TutorialItemViewModel.self){ [collectionView] _, _ in
             return collectionView?.frame.size ?? .zero

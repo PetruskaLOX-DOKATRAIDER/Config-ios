@@ -13,17 +13,8 @@ final class EventFilterItemView: LoadableView, NonReusableViewProtocol {
     @IBOutlet private weak var selectionButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
+    override func setupNib() {
+        super.setupNib()
         backgroundColor = Colors.amethyst
         
         titleLabel.textColor = Colors.solled

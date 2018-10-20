@@ -31,17 +31,9 @@ class SegmentView: LoadableView {
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
+    override func setupNib() {
+        super.setupNib()
+        
         lineView.backgroundColor = Colors.ichigos
         stepView.backgroundColor = Colors.ichigos
     }

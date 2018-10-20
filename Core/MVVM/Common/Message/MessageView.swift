@@ -12,17 +12,9 @@ final class MessageView: LoadableView, NonReusableViewProtocol {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
+    override func setupNib() {
+        super.setupNib()
+        
         iconImageView.tintColor = Colors.ichigos
         containerView.backgroundColor = Colors.amethyst
         

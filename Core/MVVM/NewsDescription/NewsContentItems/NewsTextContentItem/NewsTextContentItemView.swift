@@ -9,17 +9,9 @@
 final class NewsTextContentItemView: LoadableView, NonReusableViewProtocol {
     @IBOutlet private weak var textLabel: UILabel!
     
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
+    override func setupNib() {
+        super.setupNib()
+        
         textLabel.font = .filsonRegularWithSize(16)
         textLabel.textColor = Colors.solled
     }

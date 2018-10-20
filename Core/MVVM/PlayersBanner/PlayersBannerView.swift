@@ -11,27 +11,16 @@ final class PlayersBannerView: LoadableView, ReusableViewProtocol, DTCollectionV
     @IBOutlet weak var collectionView: UICollectionView?
     @IBOutlet private weak var errorLabel: UILabel!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
+    override func setupNib() {
+        super.setupNib()
         backgroundColor = Colors.ichigos
+        
         errorLabel.font = .filsonMediumWithSize(16)
         errorLabel.textColor = Colors.ichigos
+        
         pageControl.currentPageIndicatorTintColor = Colors.ichigos
         collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
-        setupManager()
-    }
-
-    private func setupManager() {
-        manager.startManaging(withDelegate: self)
+        
         manager.register(PlayerBannerItemCell.self)
         manager.sizeForCell(withItem: PlayerBannerItemCell.ModelType.self){ [collectionView] (_, _) in
             return collectionView?.frame.size ?? .zero

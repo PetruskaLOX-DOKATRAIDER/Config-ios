@@ -23,7 +23,6 @@ public final class SkinsViewController: UIViewController, NonReusableViewProtoco
         workingStatusLabel.textColor = Colors.ichigos
         workingStatusLabel.text = Strings.Skins.workingStatus
         
-        manager.startManaging(withDelegate: self)
         manager.register(SkinItemCell.self)
         
         searchBar.barTintColor = Colors.bagdet

@@ -20,13 +20,8 @@ public final class TeamsViewController: UIViewController, DTTableViewManageable,
             image: Images.Sections.teamsDeselected,
             selectedImage: Images.Sections.teamsSelected
         )
-        setupTableViewAndManager()
-    }
-    
-    private func setupTableViewAndManager() {
-        manager.startManaging(withDelegate: self)
-        manager.register(TeamItemCell.self)
         
+        manager.register(TeamItemCell.self)
         tableView.tableHeaderView = playersBannerView
         playersBannerView.snp.makeConstraints {
             $0.width.equalToSuperview()

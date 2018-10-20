@@ -14,7 +14,6 @@ public class ListEventsViewController: UIViewController, NonReusableViewProtocol
         view.backgroundColor = Colors.bagdet
         
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        manager.startManaging(withDelegate: self)
         manager.register(EventItemCell.self)
         manager.didSelect(EventItemCell.self) { (_, viewModel, _) in
             viewModel.selectionTrigger.onNext(())

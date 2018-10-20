@@ -20,12 +20,7 @@ public final class NewsViewController: UIViewController, NonReusableViewProtocol
             selectedImage: Images.Sections.newsSelected
         )
         
-        setupManagerAndCollectionView()
-    }
-    
-    private func setupManagerAndCollectionView() {
         collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        manager.startManaging(withDelegate: self)
         manager.register(NewsItemCell.self)
         manager.sizeForCell(withItem: NewsItemCell.ModelType.self, { [collectionView] _, _ in
             guard let collectionView = collectionView else { return CGSize (width: 0, height: 0) }

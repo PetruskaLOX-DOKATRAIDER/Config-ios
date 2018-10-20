@@ -19,14 +19,10 @@ public final class PlayersViewController: UIViewController, DTCollectionViewMana
             image: Images.Sections.playersDeselected,
             selectedImage: Images.Sections.playersSelected
         )
-        setupManagerAndCollectionView()
-    }
-    
-    private func setupManagerAndCollectionView() {
+       
         let numberOfColumns = 2
         collectionView?.collectionViewLayout = PinterestLayout(numberOfColumns: numberOfColumns, collectionViewManager: manager)
         collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        manager.startManaging(withDelegate: self)
         manager.register(PlayerPreviewCell.self)
         manager.sizeForCell(withItem: PlayerPreviewCell.ModelType.self, { [collectionView] vm, _ in
             let cellWidth = collectionView?.bounds.size.width ?? 0 / CGFloat(numberOfColumns)
@@ -37,7 +33,7 @@ public final class PlayersViewController: UIViewController, DTCollectionViewMana
             viewModel.selectionTrigger.onNext(())
         }
     }
-    
+
     public func onUpdate(with viewModel: PlayersViewModel, disposeBag: DisposeBag) {
         connectVertical(viewModel.playersPaginator).disposed(by: disposeBag)
         viewModel.playersPaginator.isWorking.asObservable().take(1).asDriver(onErrorJustReturn: false).drive(view.rx.activityIndicator).disposed(by: disposeBag)

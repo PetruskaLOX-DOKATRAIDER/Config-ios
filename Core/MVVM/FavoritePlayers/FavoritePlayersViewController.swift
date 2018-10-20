@@ -17,7 +17,6 @@ public final class FavoritePlayersViewController: UIViewController, NonReusableV
         super.viewDidLoad()
         title = Strings.Favoriteplayers.title
         view.backgroundColor = Colors.bagdet
-        setupManagerAndCollectionView()
         
         noContentTitleLabel.textColor = Colors.solled
         noContentTitleLabel.font = .filsonMediumWithSize(18)
@@ -27,13 +26,10 @@ public final class FavoritePlayersViewController: UIViewController, NonReusableV
         noContentSubtitleLabel.font = .filsonRegularWithSize(15)
         noContentSubtitleLabel.text = Strings.Favoriteplayers.NoContent.subtitle
         noContentContainerView.layoutIfNeeded()
-    }
-    
-    private func setupManagerAndCollectionView() {
+        
         let numberOfColumns = 2
         collectionView?.collectionViewLayout = PinterestLayout(numberOfColumns: numberOfColumns, collectionViewManager: manager)
         collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        manager.startManaging(withDelegate: self)
         manager.register(PlayerPreviewCell.self)
         manager.sizeForCell(withItem: PlayerPreviewCell.ModelType.self, { [collectionView] vm, _ in
             let cellWidth = collectionView?.bounds.size.width ?? 0 / CGFloat(numberOfColumns)
