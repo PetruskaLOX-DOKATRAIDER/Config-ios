@@ -1,3 +1,10 @@
-## 1.0.0 Sprint 1
+## Release 1.0.0
 
-Initial project configuration
+App Tutorial
+Players
+Teams
+Events
+News
+Profile
+Skins
+
